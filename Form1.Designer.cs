@@ -50,7 +50,7 @@
             this.richTextBox1.Location = new System.Drawing.Point(12, 12);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.Size = new System.Drawing.Size(394, 271);
-            this.richTextBox1.TabIndex = 2;
+            this.richTextBox1.TabIndex = 1;
             this.richTextBox1.Text = "";
             // 
             // textBox1
@@ -58,14 +58,15 @@
             this.textBox1.Location = new System.Drawing.Point(12, 314);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(394, 23);
-            this.textBox1.TabIndex = 3;
+            this.textBox1.TabIndex = 0;
+            this.textBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox1_KeyDown);
             // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(12, 343);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 4;
+            this.button1.TabIndex = 2;
             this.button1.Text = "Run";
             this.button1.UseVisualStyleBackColor = true;
             // 
@@ -74,7 +75,7 @@
             this.button2.Location = new System.Drawing.Point(93, 343);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 5;
+            this.button2.TabIndex = 3;
             this.button2.Text = "Syntax";
             this.button2.UseVisualStyleBackColor = true;
             // 
@@ -88,6 +89,7 @@
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.pictureBox1);
+            this.KeyPreview = true;
             this.Name = "Form1";
             this.Text = "ASE Assignment";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
