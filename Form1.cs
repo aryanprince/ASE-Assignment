@@ -1,8 +1,8 @@
 namespace ASE_Assignment
 {
-    public partial class Form1 : Form
+    public partial class formAssignment : Form
     {
-        public Form1()
+        public formAssignment()
         {
             InitializeComponent();
         }
@@ -28,13 +28,13 @@ namespace ASE_Assignment
         {
             if (e.KeyCode == Keys.Enter)
             {
-                richTextBox1.Text = "Hello World";
+                txtboxCodeArea.Text = "Hello World";
             }
 
             if (e.KeyCode == Keys.R)
             {
                 Rectangle rect1 = new Rectangle(50, 80, 100, 130);
-                Graphics g = pictureBox1.CreateGraphics();
+                Graphics g = picboxCanvas.CreateGraphics();
                 Pen myBlackPen = new Pen(Color.Black, 3);
                 g.DrawRectangle(myBlackPen, rect1);
                 myBlackPen.Dispose();
@@ -42,7 +42,7 @@ namespace ASE_Assignment
 
             if (e.KeyCode == Keys.E)
             {
-                Graphics g = pictureBox1.CreateGraphics();
+                Graphics g = picboxCanvas.CreateGraphics();
                 Pen myBlackPen = new Pen(Color.Black, 3);
                 g.DrawEllipse(myBlackPen, 50, 50, 200, 100);
                 myBlackPen.Dispose();
