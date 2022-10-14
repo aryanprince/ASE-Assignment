@@ -1,6 +1,6 @@
 ﻿namespace ASE_Assignment
 {
-    partial class Form1
+    partial class formAssignment
     {
         /// <summary>
         ///  Required designer variable.
@@ -28,39 +28,71 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.picboxCanvas = new System.Windows.Forms.PictureBox();
+            this.txtboxCodeArea = new System.Windows.Forms.RichTextBox();
+            this.txtboxCommandLine = new System.Windows.Forms.TextBox();
+            this.btnRun = new System.Windows.Forms.Button();
+            this.btnClear = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.picboxCanvas)).BeginInit();
             this.SuspendLayout();
             // 
-            // pictureBox1
+            // picboxCanvas
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(226, 131);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(361, 215);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox1_Paint);
+            this.picboxCanvas.Location = new System.Drawing.Point(427, 12);
+            this.picboxCanvas.Name = "picboxCanvas";
+            this.picboxCanvas.Size = new System.Drawing.Size(361, 426);
+            this.picboxCanvas.TabIndex = 0;
+            this.picboxCanvas.TabStop = false;
+            this.picboxCanvas.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox1_Paint);
             // 
-            // label1
+            // txtboxCodeArea
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(343, 67);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(93, 15);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "ASE Assignment";
+            this.txtboxCodeArea.Location = new System.Drawing.Point(12, 12);
+            this.txtboxCodeArea.Name = "txtboxCodeArea";
+            this.txtboxCodeArea.Size = new System.Drawing.Size(394, 271);
+            this.txtboxCodeArea.TabIndex = 1;
+            this.txtboxCodeArea.Text = "";
             // 
-            // Form1
+            // txtboxCommandLine
+            // 
+            this.txtboxCommandLine.Location = new System.Drawing.Point(12, 314);
+            this.txtboxCommandLine.Name = "txtboxCommandLine";
+            this.txtboxCommandLine.Size = new System.Drawing.Size(394, 23);
+            this.txtboxCommandLine.TabIndex = 0;
+            this.txtboxCommandLine.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox1_KeyDown);
+            // 
+            // btnRun
+            // 
+            this.btnRun.Location = new System.Drawing.Point(12, 343);
+            this.btnRun.Name = "btnRun";
+            this.btnRun.Size = new System.Drawing.Size(75, 23);
+            this.btnRun.TabIndex = 2;
+            this.btnRun.Text = "Run";
+            this.btnRun.UseVisualStyleBackColor = true;
+            // 
+            // btnClear
+            // 
+            this.btnClear.Location = new System.Drawing.Point(93, 343);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(75, 23);
+            this.btnClear.TabIndex = 3;
+            this.btnClear.Text = "Clear";
+            this.btnClear.UseVisualStyleBackColor = true;
+            // 
+            // formAssignment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.pictureBox1);
-            this.Name = "Form1";
-            this.Text = "Form1";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.Controls.Add(this.btnClear);
+            this.Controls.Add(this.btnRun);
+            this.Controls.Add(this.txtboxCommandLine);
+            this.Controls.Add(this.txtboxCodeArea);
+            this.Controls.Add(this.picboxCanvas);
+            this.KeyPreview = true;
+            this.Name = "formAssignment";
+            this.Text = "ASE Assignment";
+            ((System.ComponentModel.ISupportInitialize)(this.picboxCanvas)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -68,7 +100,10 @@
 
         #endregion
 
-        private PictureBox pictureBox1;
-        private Label label1;
+        private PictureBox picboxCanvas;
+        private RichTextBox txtboxCodeArea;
+        private TextBox txtboxCommandLine;
+        private Button btnRun;
+        private Button btnClear;
     }
 }
