@@ -48,5 +48,10 @@ namespace ASE_Assignment
                 myBlackPen.Dispose();
             }
         }
+
+        private void btnRun_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
