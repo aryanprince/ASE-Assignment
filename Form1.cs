@@ -61,7 +61,7 @@ namespace ASE_Assignment
             g.Clear(SystemColors.Control);
         }
 
-        private void toolStripMenuItem13_Click(object sender, EventArgs e)
+        private void menuItemAddRect_Click(object sender, EventArgs e)
         {
             Rectangle rect1 = new Rectangle(0, 0, 100, 200);
             Graphics g = picboxCanvas.CreateGraphics();
@@ -70,7 +70,7 @@ namespace ASE_Assignment
             myBlackPen.Dispose();
         }
 
-        private void toolStripMenuItem14_Click(object sender, EventArgs e)
+        private void menuItemAddSquare_Click(object sender, EventArgs e)
         {
             Rectangle rect1 = new Rectangle(0, 0, 150, 150);
             Graphics g = picboxCanvas.CreateGraphics();

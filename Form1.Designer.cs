@@ -43,8 +43,8 @@
             this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripMenuItem12 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem13 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem14 = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuItemAddRect = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuItemAddSquare = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem15 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem16 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem17 = new System.Windows.Forms.ToolStripMenuItem();
@@ -56,8 +56,8 @@
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem10 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripMenuItem18 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripMenuItem19 = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.picboxCanvas)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -118,7 +118,7 @@
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(795, 24);
             this.menuStrip1.TabIndex = 4;
-            this.menuStrip1.Text = "menuStrip1";
+            this.menuStrip1.Text = "menuStripMain";
             // 
             // toolStripMenuItem1
             // 
@@ -181,8 +181,8 @@
             // toolStripMenuItem12
             // 
             this.toolStripMenuItem12.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem13,
-            this.toolStripMenuItem14,
+            this.menuItemAddRect,
+            this.menuItemAddSquare,
             this.toolStripMenuItem15,
             this.toolStripMenuItem16,
             this.toolStripMenuItem17});
@@ -190,19 +190,19 @@
             this.toolStripMenuItem12.Size = new System.Drawing.Size(180, 22);
             this.toolStripMenuItem12.Text = "Add shape";
             // 
-            // toolStripMenuItem13
+            // menuItemAddRect
             // 
-            this.toolStripMenuItem13.Name = "toolStripMenuItem13";
-            this.toolStripMenuItem13.Size = new System.Drawing.Size(180, 22);
-            this.toolStripMenuItem13.Text = "Rectangle";
-            this.toolStripMenuItem13.Click += new System.EventHandler(this.toolStripMenuItem13_Click);
+            this.menuItemAddRect.Name = "menuItemAddRect";
+            this.menuItemAddRect.Size = new System.Drawing.Size(180, 22);
+            this.menuItemAddRect.Text = "Rectangle";
+            this.menuItemAddRect.Click += new System.EventHandler(this.menuItemAddRect_Click);
             // 
-            // toolStripMenuItem14
+            // menuItemAddSquare
             // 
-            this.toolStripMenuItem14.Name = "toolStripMenuItem14";
-            this.toolStripMenuItem14.Size = new System.Drawing.Size(180, 22);
-            this.toolStripMenuItem14.Text = "Square";
-            this.toolStripMenuItem14.Click += new System.EventHandler(this.toolStripMenuItem14_Click);
+            this.menuItemAddSquare.Name = "menuItemAddSquare";
+            this.menuItemAddSquare.Size = new System.Drawing.Size(180, 22);
+            this.menuItemAddSquare.Text = "Square";
+            this.menuItemAddSquare.Click += new System.EventHandler(this.menuItemAddSquare_Click);
             // 
             // toolStripMenuItem15
             // 
@@ -278,16 +278,16 @@
             this.toolStripMenuItem3.Size = new System.Drawing.Size(52, 20);
             this.toolStripMenuItem3.Text = "About";
             // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(187, 6);
-            // 
             // toolStripMenuItem18
             // 
             this.toolStripMenuItem18.Name = "toolStripMenuItem18";
             this.toolStripMenuItem18.Size = new System.Drawing.Size(190, 22);
             this.toolStripMenuItem18.Text = "v0.1 (In Development)";
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(187, 6);
             // 
             // toolStripMenuItem19
             // 
@@ -343,8 +343,8 @@
         private ToolStripMenuItem toolStripMenuItem11;
         private ToolStripSeparator toolStripSeparator4;
         private ToolStripMenuItem toolStripMenuItem12;
-        private ToolStripMenuItem toolStripMenuItem13;
-        private ToolStripMenuItem toolStripMenuItem14;
+        private ToolStripMenuItem menuItemAddRect;
+        private ToolStripMenuItem menuItemAddSquare;
         private ToolStripMenuItem toolStripMenuItem15;
         private ToolStripMenuItem toolStripMenuItem16;
         private ToolStripMenuItem toolStripMenuItem17;
