@@ -65,7 +65,7 @@ namespace ASE_Assignment
         {
             Rectangle rect1 = new Rectangle(0, 0, 100, 200);
             Graphics g = picboxCanvas.CreateGraphics();
-            Pen myBlackPen = new Pen(Color.Black, 3);
+            Pen myBlackPen = new Pen(Color.Blue, 3);
             g.DrawRectangle(myBlackPen, rect1);
             myBlackPen.Dispose();
         }
