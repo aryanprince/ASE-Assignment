@@ -10,6 +10,16 @@ namespace ASE_Assignment
     {
         private double radius;
 
+        public override double Area()
+        {
+            return radius * radius * Math.PI;
+        }
+
+        public override double Perimeter()
+        {
+            return 2.0 * Math.PI * radius;
+        }
+
         public xCircle(int xValue, int yValue, double radiusValue) : base(xValue, yValue)
         {
             radius = radiusValue;
