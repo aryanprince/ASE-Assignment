@@ -35,7 +35,7 @@ namespace ASE_Assignment
             {
                 Graphics g = picboxCanvas.CreateGraphics();
                 Pen myBlackPen = new Pen(Color.Black, 3);
-                g.DrawEllipse(myBlackPen, 50, 50, System.Convert.ToInt32(splitCommand[1]), System.Convert.ToInt32(splitCommand[2]));
+                g.DrawEllipse(myBlackPen, 0, 0, System.Convert.ToInt32(splitCommand[1]), System.Convert.ToInt32(splitCommand[1]));
                 myBlackPen.Dispose();
             }
         }
