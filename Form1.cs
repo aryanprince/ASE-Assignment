@@ -27,17 +27,14 @@ namespace ASE_Assignment
 
             if (splitCommand[0] == "circ")
             {
-                //Graphics g = picboxCanvas.CreateGraphics();
-                //Pen myBlackPen = new Pen(Color.Black, 3);
-                //g.DrawEllipse(myBlackPen, 0, 0, System.Convert.ToInt32(splitCommand[1]), System.Convert.ToInt32(splitCommand[1]));
-                //myBlackPen.Dispose();
-
                 Circle circ = new Circle(Color.Blue, 40, 50, 100);
                 Graphics g = picboxCanvas.CreateGraphics();
                 circ.draw(g);
                 Console.WriteLine(circ.ToString());
                 lblDebug.Text = circ.ToString();
             }
+
+            txtCommandLine.Text = "";
         }
 
         private void btnClear_Click(object sender, EventArgs e)
