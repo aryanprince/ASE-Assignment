@@ -36,6 +36,7 @@ namespace ASE_Assignment
                 Graphics g = picboxCanvas.CreateGraphics();
                 circ.draw(g);
                 Console.WriteLine(circ.ToString());
+                lblDebug.Text = circ.ToString();
             }
         }
 
