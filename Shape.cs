@@ -7,18 +7,18 @@ using System.Threading.Tasks;
 
 namespace ASE_Assignment
 {
-    public abstract class xShape
+    public abstract class Shape
     {
         protected Color colour;
         protected int x, y;
 
-        public xShape()
+        public Shape()
         {
             colour = Color.Red;
             x = y = 100;
         }
 
-        public xShape(Color colourValue, int xValue, int yValue)
+        public Shape(Color colourValue, int xValue, int yValue)
         {
             colour = colourValue;
             x = xValue;

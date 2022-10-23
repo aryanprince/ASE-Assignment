@@ -7,16 +7,16 @@ using System.Threading.Tasks;
 
 namespace ASE_Assignment
 {
-    public class xCircle : xShape
+    public class Circle : Shape
     {
         int radius;
 
-        public xCircle() : base()
+        public Circle() : base()
         {
             radius = 50;
         }
         
-        public xCircle(Color colour, int x, int y, int radiusValue) : base(colour, x, y)
+        public Circle(Color colour, int x, int y, int radiusValue) : base(colour, x, y)
         {
             radius = radiusValue;
         }

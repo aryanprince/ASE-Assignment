@@ -32,7 +32,7 @@ namespace ASE_Assignment
                 //g.DrawEllipse(myBlackPen, 0, 0, System.Convert.ToInt32(splitCommand[1]), System.Convert.ToInt32(splitCommand[1]));
                 //myBlackPen.Dispose();
 
-                xCircle circ = new xCircle(Color.Blue, 40, 50, 100);
+                Circle circ = new Circle(Color.Blue, 40, 50, 100);
                 Graphics g = picboxCanvas.CreateGraphics();
                 circ.draw(g);
             }

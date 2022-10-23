@@ -6,18 +6,18 @@
 
 //namespace ASE_Assignment
 //{
-//    public class xRectangle : xShape
+//    public class Rectangle : Shape
 //    {
 //        private int length;
 //        private int height;
         
-//        public xRectangle(int xValue, int yValue, int lengthValue, int heightValue) : base (xValue, yValue)
+//        public Rectangle(int xValue, int yValue, int lengthValue, int heightValue) : base (xValue, yValue)
 //        {
 //            length = lengthValue;
 //            height = heightValue;
 //        }
         
-//        public xRectangle()
+//        public Rectangle()
 //        {
 
 //        }
