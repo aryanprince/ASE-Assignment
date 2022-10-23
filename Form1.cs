@@ -18,14 +18,14 @@ namespace ASE_Assignment
 
             if (splitCommand[0] == "rect")
             {
-                Rectangle rect1 = new Rectangle(0, 0, System.Convert.ToInt32(splitCommand[1]), System.Convert.ToInt32(splitCommand[2]));
+                Rectangle rect = new Rectangle(Color.Gold, 40, 50, 100, 150);
                 Graphics g = picboxCanvas.CreateGraphics();
-                Pen myBlackPen = new Pen(Color.Black, 3);
-                g.DrawRectangle(myBlackPen, rect1);
-                myBlackPen.Dispose();
+                rect.draw(g);
+                Console.WriteLine(rect.ToString());
+                lblDebug.Text = rect.ToString();
             }
 
-            if (splitCommand[0] == "circle")
+            if (splitCommand[0] == "circ")
             {
                 //Graphics g = picboxCanvas.CreateGraphics();
                 //Pen myBlackPen = new Pen(Color.Black, 3);

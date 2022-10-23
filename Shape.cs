@@ -14,8 +14,9 @@ namespace ASE_Assignment
 
         public Shape()
         {
-            colour = Color.Red;
-            x = y = 100;
+            colour = Color.Green;
+            x = 50;
+            y = 50;
         }
 
         public Shape(Color colourValue, int xValue, int yValue)
