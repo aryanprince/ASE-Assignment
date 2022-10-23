@@ -33,10 +33,14 @@ namespace ASE_Assignment
 
             if (splitCommand[0] == "circle")
             {
+                //Graphics g = picboxCanvas.CreateGraphics();
+                //Pen myBlackPen = new Pen(Color.Black, 3);
+                //g.DrawEllipse(myBlackPen, 0, 0, System.Convert.ToInt32(splitCommand[1]), System.Convert.ToInt32(splitCommand[1]));
+                //myBlackPen.Dispose();
+
+                xCircle circ = new xCircle(Color.Blue, 40, 50, 100);
                 Graphics g = picboxCanvas.CreateGraphics();
-                Pen myBlackPen = new Pen(Color.Black, 3);
-                g.DrawEllipse(myBlackPen, 0, 0, System.Convert.ToInt32(splitCommand[1]), System.Convert.ToInt32(splitCommand[1]));
-                myBlackPen.Dispose();
+                circ.draw(g);
             }
         }
 
