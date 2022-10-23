@@ -41,15 +41,17 @@
             this.lblCommandArea = new System.Windows.Forms.Label();
             this.lblCanvas = new System.Windows.Forms.Label();
             this.lblCommandLine = new System.Windows.Forms.Label();
+            this.lblDebug = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.picboxCanvas)).BeginInit();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // picboxCanvas
             // 
+            this.picboxCanvas.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.picboxCanvas.Location = new System.Drawing.Point(361, 56);
             this.picboxCanvas.Name = "picboxCanvas";
-            this.picboxCanvas.Size = new System.Drawing.Size(305, 255);
+            this.picboxCanvas.Size = new System.Drawing.Size(617, 361);
             this.picboxCanvas.TabIndex = 0;
             this.picboxCanvas.TabStop = false;
             // 
@@ -96,7 +98,7 @@
             this.menuStripAbout});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(678, 24);
+            this.menuStrip.Size = new System.Drawing.Size(990, 24);
             this.menuStrip.TabIndex = 5;
             this.menuStrip.Text = "menuStrip1";
             // 
@@ -145,11 +147,20 @@
             this.lblCommandLine.TabIndex = 8;
             this.lblCommandLine.Text = "Enter simple commands here:";
             // 
+            // lblDebug
+            // 
+            this.lblDebug.AutoSize = true;
+            this.lblDebug.Location = new System.Drawing.Point(358, 431);
+            this.lblDebug.Name = "lblDebug";
+            this.lblDebug.Size = new System.Drawing.Size(0, 13);
+            this.lblDebug.TabIndex = 9;
+            // 
             // form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(678, 468);
+            this.ClientSize = new System.Drawing.Size(990, 558);
+            this.Controls.Add(this.lblDebug);
             this.Controls.Add(this.lblCommandLine);
             this.Controls.Add(this.lblCanvas);
             this.Controls.Add(this.lblCommandArea);
@@ -185,6 +196,7 @@
         private System.Windows.Forms.Label lblCommandArea;
         private System.Windows.Forms.Label lblCanvas;
         private System.Windows.Forms.Label lblCommandLine;
+        private System.Windows.Forms.Label lblDebug;
     }
 }
 
