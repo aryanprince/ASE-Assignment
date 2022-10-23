@@ -35,6 +35,7 @@ namespace ASE_Assignment
                 Circle circ = new Circle(Color.Blue, 40, 50, 100);
                 Graphics g = picboxCanvas.CreateGraphics();
                 circ.draw(g);
+                Console.WriteLine(circ.ToString());
             }
         }
 

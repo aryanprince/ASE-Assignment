@@ -25,8 +25,13 @@ namespace ASE_Assignment
             y = yValue;
         }
         
+        public abstract void draw(Graphics g);
         public abstract double calcArea();
         public abstract double calcPerimeter();
-        public abstract void draw(Graphics g);
+
+        public override string ToString()
+        {
+            return base.ToString() + " ===> POS: " + this.x + "," + this.y + " ===> ";
+        }
     }
 }
