@@ -24,6 +24,10 @@ namespace ASE_Assignment
             height = heightValue;
         }
 
+        /// <summary>
+        /// Draws a Rectangle using a Pen for border and a SolidBrush for fill
+        /// </summary>
+        /// <param name="g"></param>
         public override void draw(Graphics g)
         {
             Pen p = new Pen(Color.Black, 2);
@@ -42,7 +46,7 @@ namespace ASE_Assignment
             return 2.0 * (length + height);
         }
 
-        public override string ToString() //all classes inherit from object and ToString() is abstract in object
+        public override string ToString()
         {
             return base.ToString() + "DIMENSIONS: " + this.length + "," + this.height;
         }

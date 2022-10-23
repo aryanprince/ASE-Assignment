@@ -21,6 +21,10 @@ namespace ASE_Assignment
             radius = radiusValue;
         }
 
+        /// <summary>
+        /// Draws a Circle using a Pen for border and a SolidBrush for fill
+        /// </summary>
+        /// <param name="g"></param>
         public override void draw(Graphics g)
         {
             Pen p = new Pen(Color.Black,2);
@@ -39,7 +43,7 @@ namespace ASE_Assignment
             return 2.0 * Math.PI * radius;
         }
 
-        public override string ToString() //all classes inherit from object and ToString() is abstract in object
+        public override string ToString()
         {
             return base.ToString() + "RADIUS: " + this.radius;
         }
