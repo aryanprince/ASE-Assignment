@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Drawing;
 
 namespace ASE_Assignment
 {
@@ -25,7 +20,7 @@ namespace ASE_Assignment
             x = xValue;
             y = yValue;
         }
-        
+
         public abstract void draw(Graphics g);
         public abstract double calcArea();
         public abstract double calcPerimeter();
