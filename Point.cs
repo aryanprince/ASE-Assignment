@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -10,17 +11,33 @@ namespace ASE_Assignment
     {
         protected int x, y;
 
+        public int X 
+        { 
+            get { return x; }
+            set { x = value; } 
+        }
+        public int Y
+        {
+            get { return y; }
+            set { y = value; }
+        }
+
+        public void moveTo(int toX, int toY)
+        {
+            X = toX;
+            Y = toY;
+        }
+
         public Point()
         {
-            x = 50;
-            y = 50;
+            X = 100;
+            Y = 100;
         }
 
         public Point(int xValue, int yValue)
         {
-            x = xValue;
-            y = yValue;
+            X = xValue;
+            Y = yValue;
         }
-
     }
 }
