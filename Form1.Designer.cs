@@ -49,6 +49,7 @@
             // picboxCanvas
             // 
             this.picboxCanvas.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.picboxCanvas.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.picboxCanvas.Location = new System.Drawing.Point(361, 56);
             this.picboxCanvas.Name = "picboxCanvas";
             this.picboxCanvas.Size = new System.Drawing.Size(617, 361);
