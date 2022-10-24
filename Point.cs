@@ -30,8 +30,6 @@ namespace ASE_Assignment
 
         public Point()
         {
-            X = 100;
-            Y = 100;
         }
 
         public Point(int xValue, int yValue)

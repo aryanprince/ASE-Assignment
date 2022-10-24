@@ -18,7 +18,7 @@ namespace ASE_Assignment
 
             Point p = new Point();
 
-            if (splitCommand[0] == "r")
+            if (splitCommand[0] == "rectangle")
             {
                 Rectangle rect = new Rectangle(Color.Gold, p.X, p.Y, 100, 150);
                 Graphics g = picboxCanvas.CreateGraphics();
@@ -27,7 +27,7 @@ namespace ASE_Assignment
                 lblDebug.Text = rect.ToString();
             }
 
-            if (splitCommand[0] == "c")
+            if (splitCommand[0] == "circle")
             {
                 Circle circ = new Circle(Color.Blue, p.X, p.Y, 100);
                 Graphics g = picboxCanvas.CreateGraphics();
@@ -42,9 +42,6 @@ namespace ASE_Assignment
                 p.Y = int.Parse(splitCommand[2]);
                 Console.WriteLine(p.X);
                 Console.WriteLine(p.Y);
-                Console.WriteLine(int.Parse(splitCommand[1]));
-                Console.WriteLine(int.Parse(splitCommand[2]));
-
             }
 
             txtCommandLine.Text = "";
