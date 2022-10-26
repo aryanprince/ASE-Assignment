@@ -26,7 +26,7 @@ namespace ASE_Assignment
                 //--- RECTANGLE ---
                 try
                 {
-                    if (myCommands.Contains(splitCommand[0]))
+                    if (splitCommand[0] == "rectangle")
                     {
                         Rectangle rect = new Rectangle(Color.Gold, p.X, p.Y, int.Parse(splitCommand[1]), int.Parse(splitCommand[2]));
                         Graphics g = picboxCanvas.CreateGraphics();
@@ -65,6 +65,19 @@ namespace ASE_Assignment
                 catch (IndexOutOfRangeException) { lblError.Text = "ERROR!\nRequires at least 1 parameter \nFormat: circle <radius>\nExample: circle 100"; }
                 catch (FormatException) { lblError.Text = "ERROR!\nInteger parameters only \nFormat: circle <radius>\nExample: circle 100"; }
 
+                // --- TRIANGLE ---
+                try
+                {
+                    if (splitCommand[0] == "triangle")
+                    {
+                        Triangle tri = new Triangle(Color.Pink, p.X, p.Y, int.Parse(splitCommand[1]));
+                        Graphics g = picboxCanvas.CreateGraphics();
+                        tri.draw(g);
+                    }
+                }
+                catch (IndexOutOfRangeException) { lblError.Text = "ERROR!\nRequires at least 1 parameter \nFormat: triangle <side length>\nExample: triangle 150"; }
+                catch (FormatException) { lblError.Text = "ERROR!\nInteger parameters only \nFormat: triangle <side length>\nExample: triangle 150"; }
+
                 // --- MOVETO COMMMAND ---
                 if (splitCommand[0] == "moveto")
                 {
@@ -79,11 +92,11 @@ namespace ASE_Assignment
                     p.Y = 0;
                 }
 
-                if (splitCommand[0] == "triangle")
+                // --- CLEAR COMMMAND ---
+                if (splitCommand[0] == "clear")
                 {
-                    Triangle tri = new Triangle(Color.Pink, p.X, p.Y, int.Parse(splitCommand[1]));
                     Graphics g = picboxCanvas.CreateGraphics();
-                    tri.draw(g);
+                    g.Clear(Color.White);
                 }
             }
             else

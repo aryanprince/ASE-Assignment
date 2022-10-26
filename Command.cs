@@ -9,6 +9,7 @@
             circle,
             triangle,
             moveto,
+            clear,
             reset
         }
     }
