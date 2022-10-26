@@ -77,12 +77,20 @@ namespace ASE_Assignment
             catch (FormatException)
             {
                 lblError.Text = "ERROR!\nInteger parameters only \nFormat: circle <radius>\nExample: circle 100";
-            }
-
+            } 
+            
+            // --- MOVETO COMMMAND ---
             if (splitCommand[0] == "moveto")
             {
                 p.X = int.Parse(splitCommand[1]);
                 p.Y = int.Parse(splitCommand[2]);
+            }
+
+            // --- RESET COMMMAND ---
+            if (splitCommand[0] == "reset")
+            {
+                p.X = 0;
+                p.Y = 0;
             }
 
             lblDebug.Text = "X:" + p.X + ", Y:" + p.Y;
