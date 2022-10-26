@@ -17,26 +17,66 @@ namespace ASE_Assignment
         {
             string fullCommand = txtCommandLine.Text;
             string[] splitCommand = fullCommand.Split(' ');
+            lblError.Text = "";
 
-            if (splitCommand[0] == "rectangle")
+            //--- RECTANGLE ---
+            try 
             {
-                Rectangle rect = new Rectangle(Color.Gold, p.X, p.Y, int.Parse(splitCommand[1]), int.Parse(splitCommand[2]));
-                Graphics g = picboxCanvas.CreateGraphics();
-                rect.draw(g);
+                if (splitCommand[0] == "rectangle")
+                {
+                    Rectangle rect = new Rectangle(Color.Gold, p.X, p.Y, int.Parse(splitCommand[1]), int.Parse(splitCommand[2]));
+                    Graphics g = picboxCanvas.CreateGraphics();
+                    rect.draw(g);
+                    //lblError.Text = ""; //Resets the error label since command works successfully
+                }
+            }
+            catch (IndexOutOfRangeException)
+            {
+                lblError.Text = "ERROR!\nRequires at least 2 parameters \nFormat: rectangle <length> <height>\nExample: rectangle 100 150";
+            }
+            catch (FormatException)
+            {
+                lblError.Text = "ERROR!\nInteger parameters only \nFormat: rectangle <length> <height>\nExample: rectangle 100 150";
             }
 
-            if (splitCommand[0] == "square")
+            //--- SQUARE ---
+            try
             {
-                Rectangle square = new Rectangle(Color.Gold, p.X, p.Y, int.Parse(splitCommand[1]), int.Parse(splitCommand[1]));
-                Graphics g = picboxCanvas.CreateGraphics();
-                square.draw(g);
+                if (splitCommand[0] == "square")
+                {
+                    Rectangle square = new Rectangle(Color.Gold, p.X, p.Y, int.Parse(splitCommand[1]), int.Parse(splitCommand[1]));
+                    Graphics g = picboxCanvas.CreateGraphics();
+                    square.draw(g);
+                    //lblError.Text = ""; //Resets the error label since command works successfully
+                }
+            }
+            catch (IndexOutOfRangeException)
+            {
+                lblError.Text = "ERROR!\nRequires at least 1 parameter \nFormat: rectangle <length> <height>\nExample: rectangle 100 150";
+            }
+            catch (FormatException)
+            {
+                lblError.Text = "ERROR!\nInteger parameters only \nFormat: square <side>\nExample: square 125";
             }
 
-            if (splitCommand[0] == "circle")
+            //--- CIRCLE ---
+            try
             {
-                Circle circ = new Circle(Color.Blue, p.X, p.Y, int.Parse(splitCommand[1]));
-                Graphics g = picboxCanvas.CreateGraphics();
-                circ.draw(g);
+                if (splitCommand[0] == "circle")
+                {
+                    Circle circ = new Circle(Color.Blue, p.X, p.Y, int.Parse(splitCommand[1]));
+                    Graphics g = picboxCanvas.CreateGraphics();
+                    circ.draw(g);
+                    //lblError.Text = ""; //Resets the error label since command works successfully
+                }
+            }
+            catch (IndexOutOfRangeException)
+            {
+                lblError.Text = "ERROR!\nRequires at least 1 parameter \nFormat: circle <radius>\nExample: circle 100";
+            }
+            catch (FormatException)
+            {
+                lblError.Text = "ERROR!\nInteger parameters only \nFormat: circle <radius>\nExample: circle 100";
             }
 
             if (splitCommand[0] == "moveto")

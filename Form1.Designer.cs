@@ -43,6 +43,7 @@
             this.lblCommandLine = new System.Windows.Forms.Label();
             this.lblDebug = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.lblError = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.picboxCanvas)).BeginInit();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
@@ -203,12 +204,24 @@
             this.label1.TabIndex = 10;
             this.label1.Text = "current coordinates:";
             // 
+            // lblError
+            // 
+            this.lblError.AutoSize = true;
+            this.lblError.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblError.Font = new System.Drawing.Font("FiraCode NF", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblError.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(203)))), ((int)(((byte)(107)))));
+            this.lblError.Location = new System.Drawing.Point(19, 621);
+            this.lblError.Name = "lblError";
+            this.lblError.Size = new System.Drawing.Size(2, 22);
+            this.lblError.TabIndex = 11;
+            // 
             // form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(62)))));
             this.ClientSize = new System.Drawing.Size(1485, 770);
+            this.Controls.Add(this.lblError);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblDebug);
             this.Controls.Add(this.lblCommandLine);
@@ -250,6 +263,7 @@
         private System.Windows.Forms.Label lblCommandLine;
         private System.Windows.Forms.Label lblDebug;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblError;
     }
 }
 
