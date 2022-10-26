@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace ASE_Assignment
@@ -18,11 +19,12 @@ namespace ASE_Assignment
             string fullCommand = txtCommandLine.Text;
             string[] splitCommand = fullCommand.Split(' ');
             lblError.Text = "";
+            var myCommands = Enum.GetNames(typeof(Command.myCommands));
 
             //--- RECTANGLE ---
             try 
             {
-                if (splitCommand[0] == "rectangle")
+                if (myCommands.Contains(splitCommand[0]))
                 {
                     Rectangle rect = new Rectangle(Color.Gold, p.X, p.Y, int.Parse(splitCommand[1]), int.Parse(splitCommand[2]));
                     Graphics g = picboxCanvas.CreateGraphics();
