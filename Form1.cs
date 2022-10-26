@@ -93,6 +93,13 @@ namespace ASE_Assignment
                 p.Y = 0;
             }
 
+            if (splitCommand[0] == "triangle")
+            {
+                Triangle tri = new Triangle(Color.Pink, p.X, p.Y, int.Parse(splitCommand[1]));
+                Graphics g = picboxCanvas.CreateGraphics();
+                tri.draw(g);
+            }
+
             lblDebug.Text = "X:" + p.X + ", Y:" + p.Y;
             txtCommandLine.Text = "";
         }
