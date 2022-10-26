@@ -23,8 +23,14 @@ namespace ASE_Assignment
                 Rectangle rect = new Rectangle(Color.Gold, p.X, p.Y, int.Parse(splitCommand[1]), int.Parse(splitCommand[2]));
                 Graphics g = picboxCanvas.CreateGraphics();
                 rect.draw(g);
-                Console.WriteLine(rect.ToString());
-                //lblDebug.Text = rect.ToString();
+            }
+
+
+            if (splitCommand[0] == "square")
+            {
+                Rectangle square = new Rectangle(Color.Gold, p.X, p.Y, int.Parse(splitCommand[1]), int.Parse(splitCommand[1]));
+                Graphics g = picboxCanvas.CreateGraphics();
+                square.draw(g);
             }
 
             if (splitCommand[0] == "circle")
@@ -32,8 +38,6 @@ namespace ASE_Assignment
                 Circle circ = new Circle(Color.Blue, p.X, p.Y, int.Parse(splitCommand[1]));
                 Graphics g = picboxCanvas.CreateGraphics();
                 circ.draw(g);
-                Console.WriteLine(circ.ToString());
-                //lblDebug.Text = circ.ToString();
             }
 
             if (splitCommand[0] == "moveto")
@@ -42,7 +46,7 @@ namespace ASE_Assignment
                 p.Y = int.Parse(splitCommand[2]);
             }
 
-            lblDebug.Text = "X:" + p.X + ", Y = " + p.Y;
+            lblDebug.Text = "X:" + p.X + ", Y:" + p.Y;
             txtCommandLine.Text = "";
         }
 
@@ -50,6 +54,15 @@ namespace ASE_Assignment
         {
             Graphics g = picboxCanvas.CreateGraphics();
             g.Clear(SystemColors.Control);
+        }
+
+        private void txtCommandLine_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode != Keys.Enter)
+            {
+                return;
+            }
+            btnRun.PerformClick();
         }
     }
 }

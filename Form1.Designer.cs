@@ -65,6 +65,7 @@
             this.txtCommandLine.Name = "txtCommandLine";
             this.txtCommandLine.Size = new System.Drawing.Size(444, 27);
             this.txtCommandLine.TabIndex = 1;
+            this.txtCommandLine.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCommandLine_KeyDown);
             // 
             // btnRun
             // 
