@@ -208,7 +208,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(62)))));
-            this.ClientSize = new System.Drawing.Size(1485, 816);
+            this.ClientSize = new System.Drawing.Size(1485, 770);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblDebug);
             this.Controls.Add(this.lblCommandLine);
