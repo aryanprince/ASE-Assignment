@@ -92,7 +92,7 @@ namespace ASE_Assignment
         private void btnClear_Click(object sender, EventArgs e)
         {
             Graphics g = picboxCanvas.CreateGraphics();
-            g.Clear(SystemColors.Control);
+            g.Clear(Color.White);
         }
 
         private void txtCommandLine_KeyDown(object sender, KeyEventArgs e)
