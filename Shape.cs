@@ -17,8 +17,6 @@ namespace ASE_Assignment
         }
 
         public abstract void draw(Graphics g);
-        public abstract double calcArea();
-        public abstract double calcPerimeter();
 
         public override string ToString()
         {

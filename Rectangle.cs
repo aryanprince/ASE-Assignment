@@ -36,16 +36,6 @@ namespace ASE_Assignment
             g.DrawRectangle(p, x, y, length, height);
         }
 
-        public override double calcArea()
-        {
-            return length * height;
-        }
-
-        public override double calcPerimeter()
-        {
-            return 2.0 * (length + height);
-        }
-
         public override string ToString()
         {
             return base.ToString() + "DIMENSIONS: " + this.length + "," + this.height;

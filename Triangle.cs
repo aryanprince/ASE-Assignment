@@ -15,17 +15,6 @@ namespace ASE_Assignment
         private System.Drawing.Point C { get; set; }
         private System.Drawing.Point D { get; set; }
 
-
-        public override double calcArea()
-        {
-            throw new NotImplementedException();
-        }
-
-        public override double calcPerimeter()
-        {
-            throw new NotImplementedException();
-        }
-
         public override void draw(Graphics g)
         {
             System.Drawing.Point[] vertices = { A, B, C, D };
