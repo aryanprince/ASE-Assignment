@@ -2,23 +2,18 @@
 
 namespace ASE_Assignment
 {
-    public abstract class Shape
+    public abstract class Shape : Point
     {
         protected Color colour;
-        protected int x, y;
 
-        public Shape()
+        public Shape() : base()
         {
             colour = Color.Green;
-            x = 50;
-            y = 50;
         }
 
-        public Shape(Color colourValue, int xValue, int yValue)
+        public Shape(Color colourValue, int xValue, int yValue) : base(xValue, yValue)
         {
             colour = colourValue;
-            x = xValue;
-            y = yValue;
         }
 
         public abstract void draw(Graphics g);
