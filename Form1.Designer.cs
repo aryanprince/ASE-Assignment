@@ -69,8 +69,9 @@
             // 
             // btnRun
             // 
-            this.btnRun.BackColor = System.Drawing.Color.Transparent;
+            this.btnRun.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(62)))));
             this.btnRun.Font = new System.Drawing.Font("FiraCode NF", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRun.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(203)))), ((int)(((byte)(107)))));
             this.btnRun.Location = new System.Drawing.Point(23, 567);
             this.btnRun.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnRun.Name = "btnRun";
@@ -82,19 +83,22 @@
             // 
             // btnClear
             // 
+            this.btnClear.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(62)))));
             this.btnClear.Font = new System.Drawing.Font("FiraCode NF", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClear.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(203)))), ((int)(((byte)(107)))));
             this.btnClear.Location = new System.Drawing.Point(143, 567);
             this.btnClear.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(112, 33);
             this.btnClear.TabIndex = 3;
             this.btnClear.Text = "clear";
-            this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.UseVisualStyleBackColor = false;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // richtxtCommandArea
             // 
             this.richtxtCommandArea.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.richtxtCommandArea.Font = new System.Drawing.Font("FiraCode NF", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.richtxtCommandArea.Location = new System.Drawing.Point(23, 86);
             this.richtxtCommandArea.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.richtxtCommandArea.Name = "richtxtCommandArea";
@@ -104,6 +108,7 @@
             // 
             // menuStrip
             // 
+            this.menuStrip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(62)))));
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuStripFile,
             this.menuStripHelp,
@@ -117,20 +122,26 @@
             // 
             // menuStripFile
             // 
+            this.menuStripFile.Font = new System.Drawing.Font("FiraCode NF", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.menuStripFile.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(203)))), ((int)(((byte)(107)))));
             this.menuStripFile.Name = "menuStripFile";
-            this.menuStripFile.Size = new System.Drawing.Size(37, 20);
+            this.menuStripFile.Size = new System.Drawing.Size(47, 20);
             this.menuStripFile.Text = "File";
             // 
             // menuStripHelp
             // 
+            this.menuStripHelp.Font = new System.Drawing.Font("FiraCode NF", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.menuStripHelp.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(203)))), ((int)(((byte)(107)))));
             this.menuStripHelp.Name = "menuStripHelp";
-            this.menuStripHelp.Size = new System.Drawing.Size(44, 20);
+            this.menuStripHelp.Size = new System.Drawing.Size(47, 20);
             this.menuStripHelp.Text = "Help";
             // 
             // menuStripAbout
             // 
+            this.menuStripAbout.Font = new System.Drawing.Font("FiraCode NF", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.menuStripAbout.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(203)))), ((int)(((byte)(107)))));
             this.menuStripAbout.Name = "menuStripAbout";
-            this.menuStripAbout.Size = new System.Drawing.Size(52, 20);
+            this.menuStripAbout.Size = new System.Drawing.Size(54, 20);
             this.menuStripAbout.Text = "About";
             // 
             // lblCommandArea
