@@ -25,7 +25,6 @@ namespace ASE_Assignment
                 rect.draw(g);
             }
 
-
             if (splitCommand[0] == "square")
             {
                 Rectangle square = new Rectangle(Color.Gold, p.X, p.Y, int.Parse(splitCommand[1]), int.Parse(splitCommand[1]));
