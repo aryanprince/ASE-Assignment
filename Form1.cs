@@ -114,11 +114,11 @@ namespace ASE_Assignment
 
         private void txtCommandLine_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode != Keys.Enter)
+            if (e.KeyCode != Keys.Enter) //Checks if Enter key is pressed
             {
                 return;
             }
-            btnRun.PerformClick();
+            btnRun.PerformClick(); 
 
             //Stops the 'ding' when pressing Enter
             e.Handled = true;
