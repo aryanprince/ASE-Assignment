@@ -26,7 +26,7 @@ namespace ASE_Assignment
             Height = height;
         }
 
-        public Rectangle(Color colour, int xPos, int yPos, int length, int height) : base(colour, xPos, yPos)
+        public Rectangle(Color colour, Point position, int length, int height) : base(colour, position)
         {
             Length = length;
             Height = height;
@@ -39,9 +39,9 @@ namespace ASE_Assignment
         public override void draw(Graphics g)
         {
             Pen p = new Pen(Color.Black, 2);
-            SolidBrush b = new SolidBrush(colour);
-            g.FillRectangle(b, x, y, Length, Height);
-            g.DrawRectangle(p, x, y, Length, Height);
+            SolidBrush b = new SolidBrush(Color);
+            g.FillRectangle(b, Position.X, Position.Y, Length, Height);
+            g.DrawRectangle(p, Position.X, Position.Y, Length, Height);
         }
     }
 }

@@ -8,6 +8,7 @@
             triangle,
             move,
             clear,
-            reset
+            reset,
+            none
     }
 }

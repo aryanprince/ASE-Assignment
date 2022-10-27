@@ -7,7 +7,8 @@ namespace ASE_Assignment
 {
     public partial class form : Form
     {
-        Cursor p = new Cursor();
+        Cursor cursor = new Cursor();
+        Parser parser = new Parser();
         public form()
         {
             InitializeComponent();
@@ -22,6 +23,8 @@ namespace ASE_Assignment
 
         private void btnRun_Click(object sender, EventArgs e)
         {
+            parser.ParseInput(txtCommandLine.Text);
+            
             string fullCommand = txtCommandLine.Text.ToLower();
             string[] splitCommand = fullCommand.Split(' ');
             lblError.Text = "";
@@ -34,7 +37,7 @@ namespace ASE_Assignment
                 {
                     if (splitCommand[0] == "rectangle")
                     {
-                        Rectangle rect = new Rectangle(Color.Gold, p.X, p.Y, int.Parse(splitCommand[1]), int.Parse(splitCommand[2]));
+                        Rectangle rect = new Rectangle(Color.Gold, cursor.Position, int.Parse(splitCommand[1]), int.Parse(splitCommand[2]));
                         Graphics g = picboxCanvas.CreateGraphics();
                         rect.draw(g);
                     }
@@ -47,7 +50,7 @@ namespace ASE_Assignment
                 {
                     if (splitCommand[0] == "square")
                     {
-                        Rectangle square = new Rectangle(Color.Gold, p.X, p.Y, int.Parse(splitCommand[1]), int.Parse(splitCommand[1]));
+                        Rectangle square = new Rectangle(Color.Gold, cursor.Position, int.Parse(splitCommand[1]), int.Parse(splitCommand[1]));
                         Graphics g = picboxCanvas.CreateGraphics();
                         square.draw(g);
                     }
@@ -60,7 +63,7 @@ namespace ASE_Assignment
                 {
                     if (splitCommand[0] == "circle")
                     {
-                        Circle circ = new Circle(Color.Blue, p.X, p.Y, int.Parse(splitCommand[1]));
+                        Circle circ = new Circle(Color.Blue, cursor.Position, int.Parse(splitCommand[1]));
                         Graphics g = picboxCanvas.CreateGraphics();
                         circ.draw(g);
                     }
@@ -68,33 +71,33 @@ namespace ASE_Assignment
                 catch (IndexOutOfRangeException) { lblError.Text = "ERROR!\nRequires at least 1 parameter \nFormat: circle <radius>\nExample: circle 100"; }
                 catch (FormatException) { lblError.Text = "ERROR!\nInteger parameters only \nFormat: circle <radius>\nExample: circle 100"; }
 
-                // --- TRIANGLE ---
-                try
-                {
-                    if (splitCommand[0] == "triangle")
-                    {
-                        Triangle tri = new Triangle(Color.Pink, p.X, p.Y, int.Parse(splitCommand[1]));
-                        Graphics g = picboxCanvas.CreateGraphics();
-                        tri.draw(g);
-                    }
-                }
-                catch (IndexOutOfRangeException) { lblError.Text = "ERROR!\nRequires at least 1 parameter \nFormat: triangle <side length>\nExample: triangle 150"; }
-                catch (FormatException) { lblError.Text = "ERROR!\nInteger parameters only \nFormat: triangle <side length>\nExample: triangle 150"; }
+                //// --- TRIANGLE ---
+                //try
+                //{
+                //    if (splitCommand[0] == "triangle")
+                //    {
+                //        Triangle tri = new Triangle(Color.Pink, cursor.Position, int.Parse(splitCommand[1]));
+                //        Graphics g = picboxCanvas.CreateGraphics();
+                //        tri.draw(g);
+                //    }
+                //}
+                //catch (IndexOutOfRangeException) { lblError.Text = "ERROR!\nRequires at least 1 parameter \nFormat: triangle <side length>\nExample: triangle 150"; }
+                //catch (FormatException) { lblError.Text = "ERROR!\nInteger parameters only \nFormat: triangle <side length>\nExample: triangle 150"; }
 
-                // --- MOVETO COMMMAND ---
-                if (splitCommand[0] == "move")
-                {
-                    p.X = int.Parse(splitCommand[1]);
-                    p.Y = int.Parse(splitCommand[2]);
-                    lblCoordinates.Text = "X:" + p.X + ", Y:" + p.Y;
-                }
+                //// --- MOVETO COMMMAND ---
+                //if (splitCommand[0] == "move")
+                //{
+                //    cursor.X = int.Parse(splitCommand[1]);
+                //    cursor.Y = int.Parse(splitCommand[2]);
+                //    lblCoordinates.Text = "X:" + cursor.X + ", Y:" + cursor.Y;
+                //}
 
-                // --- RESET COMMMAND ---
-                if (splitCommand[0] == "reset")
-                {
-                    p.X = 0;
-                    p.Y = 0;
-                }
+                //// --- RESET COMMMAND ---
+                //if (splitCommand[0] == "reset")
+                //{
+                //    cursor.X = 0;
+                //    cursor.Y = 0;
+                //}
 
                 // --- CLEAR COMMMAND ---
                 if (splitCommand[0] == "clear")

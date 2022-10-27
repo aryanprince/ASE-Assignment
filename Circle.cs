@@ -15,9 +15,9 @@ namespace ASE_Assignment
         public override void draw(Graphics g)
         {
             Pen p = new Pen(Color.Black, 2);
-            SolidBrush b = new SolidBrush(colour);
-            g.FillEllipse(b, x, y, Radius * 2, Radius * 2);
-            g.DrawEllipse(p, x, y, Radius * 2, Radius * 2);
+            SolidBrush b = new SolidBrush(Color);
+            g.FillEllipse(b, Position.X, Position.Y, Radius * 2, Radius * 2);
+            g.DrawEllipse(p, Position.X, Position.Y, Radius * 2, Radius * 2);
         }
 
         public Circle() : this(s_defaultRadius)
@@ -30,7 +30,7 @@ namespace ASE_Assignment
             Radius = radius;
         }
 
-        public Circle(Color colour, int x, int y, int radius) : base(colour, x, y)
+        public Circle(Color colour, Point position, int radius) : base(colour, position)
         {
             Radius = radius;
         }

@@ -4,35 +4,37 @@ namespace ASE_Assignment
 {
     public abstract class Shape
     {
-        protected Color colour;
-        protected int x, y;
-        public int X
-        {
-            get { return x; }
-            set { x = value; }
-        }
-        public int Y
-        {
-            get { return y; }
-            set { y = value; }
-        }
+        protected Color s_defaultColour = Color.Green;
+        protected Point s_defaultPosition = new Point(0,0);
+        //protected int x, y;
+        public Color Color { get; set; }
+        public Point Position { get; set; }
 
-        public void moveTo(int toX, int toY)
+        //public int X
+        //{
+        //    get { return x; }
+        //    set { x = value; }
+        //}
+        //public int Y
+        //{
+        //    get { return y; }
+        //    set { y = value; }
+        //}
+
+        public void moveTo(Point position)
         {
-            X = toX;
-            Y = toY;
+            Position = position;
         }
 
         public Shape()
         {
-            colour = Color.Green;
+            Color = Color.Green;
         }
 
-        public Shape(Color colourValue, int xPos, int yPos)
+        public Shape(Color colourValue, Point position)
         {
-            colour = colourValue;
-            X = xPos;
-            Y = yPos;
+            Color = colourValue;
+            Position = position;
         }
 
         public abstract void draw(Graphics g);
