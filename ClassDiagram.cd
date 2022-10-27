@@ -35,11 +35,11 @@
       <FileName>Cursor.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Enum Name="ASE_Assignment.myCommands" Collapsed="true">
-    <Position X="11.25" Y="4" Width="1.5" />
+  <Enum Name="ASE_Assignment.ValidCommands">
+    <Position X="10.25" Y="3" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AEAAAAAEAAAAAAAAAAAACSAAACAAAAAAAAAAAAAAIAA=</HashCode>
-      <FileName>Command.cs</FileName>
+      <HashCode>AEAAAAAEAAAAAACAAAAACSAAAAAAAAAAAAAAAAAAIAA=</HashCode>
+      <FileName>ValidCommands.cs</FileName>
     </TypeIdentifier>
   </Enum>
   <Font Name="Segoe UI" Size="9" />
