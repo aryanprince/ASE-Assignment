@@ -21,7 +21,10 @@ namespace ASE_Assignment
 
         public override void draw(Graphics g)
         {
-            throw new NotImplementedException();
+            Pen p = new Pen(Color.Black, 2);
+            SolidBrush b = new SolidBrush(Color.Red);
+            g.FillRectangle(b, Position.X, Position.Y, 5, 5);
+            g.DrawRectangle(p, Position.X, Position.Y, 5, 5);
         }
     }
 }

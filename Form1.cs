@@ -40,6 +40,7 @@ namespace ASE_Assignment
                         Rectangle rect = new Rectangle(cursor.Position, int.Parse(splitCommand[1]), int.Parse(splitCommand[2]));
                         Graphics g = picboxCanvas.CreateGraphics();
                         rect.draw(g);
+                        cursor.draw(g);
                     }
                 }
                 catch (IndexOutOfRangeException) { lblError.Text = "ERROR!\nRequires at least 2 parameters \nFormat: rectangle <length> <height>\nExample: rectangle 100 150"; }
@@ -53,6 +54,7 @@ namespace ASE_Assignment
                         Rectangle square = new Rectangle(cursor.Position, int.Parse(splitCommand[1]), int.Parse(splitCommand[1]));
                         Graphics g = picboxCanvas.CreateGraphics();
                         square.draw(g);
+                        cursor.draw(g);
                     }
                 }
                 catch (IndexOutOfRangeException) { lblError.Text = "ERROR!\nRequires at least 1 parameter \nFormat: rectangle <length> <height>\nExample: rectangle 100 150"; }
@@ -66,6 +68,7 @@ namespace ASE_Assignment
                         Circle circ = new Circle(cursor.Position, int.Parse(splitCommand[1]));
                         Graphics g = picboxCanvas.CreateGraphics();
                         circ.draw(g);
+                        cursor.draw(g);
                     }
                 }
                 catch (IndexOutOfRangeException) { lblError.Text = "ERROR!\nRequires at least 1 parameter \nFormat: circle <radius>\nExample: circle 100"; }
@@ -90,6 +93,8 @@ namespace ASE_Assignment
                     //cursor.X = int.Parse(splitCommand[1]);
                     //cursor.Y = int.Parse(splitCommand[2]);
                     cursor.moveTo(new Point(int.Parse(splitCommand[1]), int.Parse(splitCommand[2])));
+                    Graphics g = picboxCanvas.CreateGraphics();
+                    cursor.draw(g);
                     lblCoordinates.Text = "X:" + cursor.Position.X + ", Y:" + cursor.Position.Y;
                 }
 
