@@ -34,10 +34,5 @@ namespace ASE_Assignment
             g.FillEllipse(b, x, y, Radius * 2, Radius * 2);
             g.DrawEllipse(p, x, y, Radius * 2, Radius * 2);
         }
-
-        public override string ToString()
-        {
-            return base.ToString() + "RADIUS: " + this.Radius;
-        }
     }
 }

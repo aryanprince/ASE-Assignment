@@ -11,16 +11,11 @@ namespace ASE_Assignment
             colour = Color.Green;
         }
 
-        public Shape(Color colourValue, int xValue, int yValue) : base(xValue, yValue)
+        public Shape(Color colourValue, int xPos, int yPos) : base(xPos, yPos)
         {
             colour = colourValue;
         }
 
         public abstract void draw(Graphics g);
-
-        public override string ToString()
-        {
-            return base.ToString() + " ===> POS: " + this.x + "," + this.y + " ===> ";
-        }
     }
 }
