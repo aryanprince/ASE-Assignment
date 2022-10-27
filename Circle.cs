@@ -5,16 +5,22 @@ namespace ASE_Assignment
 {
     public class Circle : Shape
     {
-        int radius;
+        private static readonly int defaultRadius = 85;
+        protected int Radius { get; set; }
 
-        public Circle() : base()
+        public Circle() : this(defaultRadius)
         {
-            radius = 50;
+
         }
-        
-        public Circle(Color colour, int x, int y, int radiusValue) : base(colour, x, y)
+
+        public Circle(int radius) : base()
         {
-            radius = radiusValue;
+            Radius = radius;
+        }
+
+        public Circle(Color colour, int x, int y, int radius) : base(colour, x, y)
+        {
+            Radius = radius;
         }
 
         /// <summary>
@@ -25,13 +31,13 @@ namespace ASE_Assignment
         {
             Pen p = new Pen(Color.Black,2);
             SolidBrush b = new SolidBrush(colour);
-            g.FillEllipse(b, x, y, radius * 2, radius * 2);
-            g.DrawEllipse(p, x, y, radius * 2, radius * 2);
+            g.FillEllipse(b, x, y, Radius * 2, Radius * 2);
+            g.DrawEllipse(p, x, y, Radius * 2, Radius * 2);
         }
 
         public override string ToString()
         {
-            return base.ToString() + "RADIUS: " + this.radius;
+            return base.ToString() + "RADIUS: " + this.Radius;
         }
     }
 }
