@@ -4,11 +4,9 @@ namespace ASE_Assignment
 {
     public abstract class Shape
     {
-        protected Color s_defaultColour = Color.Green;
-        protected Point s_defaultPosition = new Point(0,0);
+        //protected Color s_defaultColour = Color.Green;
         //protected int x, y;
-        public Color Color { get; set; }
-        public Point Position { get; set; }
+        //public Color Color { get; set; }
 
         //public int X
         //{
@@ -21,6 +19,9 @@ namespace ASE_Assignment
         //    set { y = value; }
         //}
 
+        protected Point s_defaultPosition = new Point(0,0);
+        public Point Position { get; set; }
+
         public void moveTo(Point position)
         {
             Position = position;
@@ -28,12 +29,11 @@ namespace ASE_Assignment
 
         public Shape()
         {
-            Color = Color.Green;
+            
         }
 
-        public Shape(Color colourValue, Point position)
+        public Shape(Point position)
         {
-            Color = colourValue;
             Position = position;
         }
 
