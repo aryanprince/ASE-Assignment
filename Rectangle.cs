@@ -10,12 +10,12 @@ namespace ASE_Assignment
     public class Rectangle : Shape
     {
         
-        private static readonly int defaultLength = 100;
-        private static readonly int defaultHeight = 150;
+        private static readonly int s_defaultLength = 100;
+        private static readonly int s_defaultHeight = 150;
         protected int Length { get; set; }
         protected int Height { get; set; }
 
-        public Rectangle() : this(defaultLength, defaultHeight)
+        public Rectangle() : this(s_defaultLength, s_defaultHeight)
         {
             
         }

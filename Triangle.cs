@@ -15,13 +15,6 @@ namespace ASE_Assignment
         private System.Drawing.Point C { get; set; }
         private System.Drawing.Point D { get; set; }
 
-        public override void draw(Graphics g)
-        {
-            System.Drawing.Point[] vertices = { A, B, C, D };
-            Pen p = new Pen(Color.Black, 2);
-            g.DrawLines(p, vertices);
-        }
-
         public Triangle(Color colourValue, int xValue, int yValue, int lengthValue) : base(colourValue, xValue, yValue)
         {
             length = lengthValue;
@@ -30,6 +23,12 @@ namespace ASE_Assignment
             B = new System.Drawing.Point(X, Y + lengthValue);
             C = new System.Drawing.Point(X + lengthValue, Y + lengthValue);
             D = new System.Drawing.Point(X, Y);
+        }
+        public override void draw(Graphics g)
+        {
+            System.Drawing.Point[] vertices = { A, B, C, D };
+            Pen p = new Pen(Color.Black, 2);
+            g.DrawLines(p, vertices);
         }
     }
 }
