@@ -9,19 +9,27 @@ namespace ASE_Assignment
 {
     public class Rectangle : Shape
     {
-        int length;
-        int height;
+        
+        private static readonly int s_defaultLength = 100;
+        private static readonly int s_defaultHeight = 150;
+        protected int Length { get; set; }
+        protected int Height { get; set; }
 
-        public Rectangle() : base()
+        public Rectangle() : this(s_defaultLength, s_defaultHeight)
         {
-            length = 50;
-            height = 50;
+            
         }
 
-        public Rectangle(Color colourValue, int xValue, int yValue, int lengthValue, int heightValue) : base(colourValue, xValue, yValue)
+        public Rectangle(int length, int height) : base()
         {
-            length = lengthValue;
-            height = heightValue;
+            Length = length;
+            Height = height;
+        }
+
+        public Rectangle(Color colour, int xPos, int yPos, int length, int height) : base(colour, xPos, yPos)
+        {
+            Length = length;
+            Height = height;
         }
 
         /// <summary>
@@ -32,23 +40,8 @@ namespace ASE_Assignment
         {
             Pen p = new Pen(Color.Black, 2);
             SolidBrush b = new SolidBrush(colour);
-            g.FillRectangle(b, x, y, length, height);
-            g.DrawRectangle(p, x, y, length, height);
-        }
-
-        public override double calcArea()
-        {
-            return length * height;
-        }
-
-        public override double calcPerimeter()
-        {
-            return 2.0 * (length + height);
-        }
-
-        public override string ToString()
-        {
-            return base.ToString() + "DIMENSIONS: " + this.length + "," + this.height;
+            g.FillRectangle(b, x, y, Length, Height);
+            g.DrawRectangle(p, x, y, Length, Height);
         }
     }
 }

@@ -41,8 +41,9 @@
             this.lblCommandArea = new System.Windows.Forms.Label();
             this.lblCanvas = new System.Windows.Forms.Label();
             this.lblCommandLine = new System.Windows.Forms.Label();
-            this.lblDebug = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblCoordinates = new System.Windows.Forms.Label();
+            this.lblCoordinatesInfo = new System.Windows.Forms.Label();
+            this.lblError = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.picboxCanvas)).BeginInit();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
@@ -53,14 +54,15 @@
             this.picboxCanvas.Location = new System.Drawing.Point(541, 86);
             this.picboxCanvas.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.picboxCanvas.Name = "picboxCanvas";
-            this.picboxCanvas.Size = new System.Drawing.Size(923, 525);
+            this.picboxCanvas.Size = new System.Drawing.Size(900, 500);
             this.picboxCanvas.TabIndex = 0;
             this.picboxCanvas.TabStop = false;
             // 
             // txtCommandLine
             // 
+            this.txtCommandLine.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtCommandLine.Font = new System.Drawing.Font("FiraCode NF", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCommandLine.Location = new System.Drawing.Point(23, 530);
+            this.txtCommandLine.Location = new System.Drawing.Point(23, 527);
             this.txtCommandLine.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtCommandLine.Name = "txtCommandLine";
             this.txtCommandLine.Size = new System.Drawing.Size(481, 27);
@@ -70,9 +72,10 @@
             // btnRun
             // 
             this.btnRun.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(62)))));
+            this.btnRun.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRun.Font = new System.Drawing.Font("FiraCode NF", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRun.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(203)))), ((int)(((byte)(107)))));
-            this.btnRun.Location = new System.Drawing.Point(23, 567);
+            this.btnRun.Location = new System.Drawing.Point(23, 564);
             this.btnRun.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnRun.Name = "btnRun";
             this.btnRun.Size = new System.Drawing.Size(112, 33);
@@ -84,9 +87,10 @@
             // btnClear
             // 
             this.btnClear.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(62)))));
+            this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClear.Font = new System.Drawing.Font("FiraCode NF", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClear.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(203)))), ((int)(((byte)(107)))));
-            this.btnClear.Location = new System.Drawing.Point(143, 567);
+            this.btnClear.Location = new System.Drawing.Point(143, 564);
             this.btnClear.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(112, 33);
@@ -116,7 +120,7 @@
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.Padding = new System.Windows.Forms.Padding(9, 2, 0, 2);
-            this.menuStrip.Size = new System.Drawing.Size(1485, 24);
+            this.menuStrip.Size = new System.Drawing.Size(1460, 24);
             this.menuStrip.TabIndex = 5;
             this.menuStrip.Text = "menuStrip1";
             // 
@@ -180,37 +184,49 @@
             this.lblCommandLine.TabIndex = 8;
             this.lblCommandLine.Text = "enter little commands here:";
             // 
-            // lblDebug
+            // lblCoordinates
             // 
-            this.lblDebug.AutoSize = true;
-            this.lblDebug.Font = new System.Drawing.Font("FiraCode NF", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDebug.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(203)))), ((int)(((byte)(107)))));
-            this.lblDebug.Location = new System.Drawing.Point(536, 641);
-            this.lblDebug.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblDebug.Name = "lblDebug";
-            this.lblDebug.Size = new System.Drawing.Size(264, 25);
-            this.lblDebug.TabIndex = 9;
-            this.lblDebug.Text = "X:0, Y:0 (default)";
+            this.lblCoordinates.AutoSize = true;
+            this.lblCoordinates.Font = new System.Drawing.Font("FiraCode NF", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCoordinates.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(203)))), ((int)(((byte)(107)))));
+            this.lblCoordinates.Location = new System.Drawing.Point(536, 621);
+            this.lblCoordinates.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblCoordinates.Name = "lblCoordinates";
+            this.lblCoordinates.Size = new System.Drawing.Size(264, 25);
+            this.lblCoordinates.TabIndex = 9;
+            this.lblCoordinates.Text = "X:0, Y:0 (default)";
             // 
-            // label1
+            // lblCoordinatesInfo
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("FiraCode NF", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(203)))), ((int)(((byte)(107)))));
-            this.label1.Location = new System.Drawing.Point(538, 621);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(229, 20);
-            this.label1.TabIndex = 10;
-            this.label1.Text = "current coordinates:";
+            this.lblCoordinatesInfo.AutoSize = true;
+            this.lblCoordinatesInfo.Font = new System.Drawing.Font("FiraCode NF", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCoordinatesInfo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(203)))), ((int)(((byte)(107)))));
+            this.lblCoordinatesInfo.Location = new System.Drawing.Point(537, 600);
+            this.lblCoordinatesInfo.Name = "lblCoordinatesInfo";
+            this.lblCoordinatesInfo.Size = new System.Drawing.Size(229, 20);
+            this.lblCoordinatesInfo.TabIndex = 10;
+            this.lblCoordinatesInfo.Text = "current coordinates:";
+            // 
+            // lblError
+            // 
+            this.lblError.AutoSize = true;
+            this.lblError.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblError.Font = new System.Drawing.Font("FiraCode NF", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblError.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(203)))), ((int)(((byte)(107)))));
+            this.lblError.Location = new System.Drawing.Point(23, 621);
+            this.lblError.Name = "lblError";
+            this.lblError.Size = new System.Drawing.Size(2, 22);
+            this.lblError.TabIndex = 11;
             // 
             // form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(62)))));
-            this.ClientSize = new System.Drawing.Size(1485, 770);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.lblDebug);
+            this.ClientSize = new System.Drawing.Size(1460, 770);
+            this.Controls.Add(this.lblError);
+            this.Controls.Add(this.lblCoordinatesInfo);
+            this.Controls.Add(this.lblCoordinates);
             this.Controls.Add(this.lblCommandLine);
             this.Controls.Add(this.lblCanvas);
             this.Controls.Add(this.lblCommandArea);
@@ -221,6 +237,7 @@
             this.Controls.Add(this.picboxCanvas);
             this.Controls.Add(this.menuStrip);
             this.Font = new System.Drawing.Font("Lato", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -248,8 +265,9 @@
         private System.Windows.Forms.Label lblCommandArea;
         private System.Windows.Forms.Label lblCanvas;
         private System.Windows.Forms.Label lblCommandLine;
-        private System.Windows.Forms.Label lblDebug;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblCoordinates;
+        private System.Windows.Forms.Label lblCoordinatesInfo;
+        private System.Windows.Forms.Label lblError;
     }
 }
 
