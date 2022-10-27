@@ -7,7 +7,7 @@ namespace ASE_Assignment
 {
     public partial class form : Form
     {
-        Point p = new Point();
+        Cursor p = new Cursor();
 
         public form()
         {
