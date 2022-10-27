@@ -7,19 +7,25 @@ namespace ASE_Assignment
 {
     public partial class form : Form
     {
-        Point p = new Point();
-
+        Cursor p = new Cursor();
         public form()
         {
             InitializeComponent();
+
+            //--- CURSOR BITMAP CODE ---
+            //Bitmap cursor = new Bitmap(900, 500);
+            //cursor.MakeTransparent();
+            //Graphics cursorGraphics = Graphics.FromImage(cursor);
+            //cursorGraphics.FillRectangle(Brushes.Red, 0, 0, 5, 5);
+            //picboxCanvas.Image = cursor;
         }
 
         private void btnRun_Click(object sender, EventArgs e)
         {
-            string fullCommand = txtCommandLine.Text;
+            string fullCommand = txtCommandLine.Text.ToLower();
             string[] splitCommand = fullCommand.Split(' ');
             lblError.Text = "";
-            var myCommands = Enum.GetNames(typeof(myCommands));
+            var myCommands = Enum.GetNames(typeof(ValidCommands));
 
             if (myCommands.Contains(splitCommand[0])) //Checks if first word in 'command line' is in the myCommands Enum, if not it's an invalid command
             {
@@ -76,7 +82,7 @@ namespace ASE_Assignment
                 catch (FormatException) { lblError.Text = "ERROR!\nInteger parameters only \nFormat: triangle <side length>\nExample: triangle 150"; }
 
                 // --- MOVETO COMMMAND ---
-                if (splitCommand[0] == "moveto")
+                if (splitCommand[0] == "move")
                 {
                     p.X = int.Parse(splitCommand[1]);
                     p.Y = int.Parse(splitCommand[2]);

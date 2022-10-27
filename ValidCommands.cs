@@ -1,12 +1,12 @@
 ﻿namespace ASE_Assignment
 {
-    public enum myCommands
+    public enum ValidCommands
     {
             rectangle,
             square,
             circle,
             triangle,
-            moveto,
+            move,
             clear,
             reset
     }
