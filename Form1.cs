@@ -19,7 +19,7 @@ namespace ASE_Assignment
             string fullCommand = txtCommandLine.Text;
             string[] splitCommand = fullCommand.Split(' ');
             lblError.Text = "";
-            var myCommands = Enum.GetNames(typeof(Command.myCommands));
+            var myCommands = Enum.GetNames(typeof(myCommands));
 
             if (myCommands.Contains(splitCommand[0])) //Checks if first word in 'command line' is in the myCommands Enum, if not it's an invalid command
             {

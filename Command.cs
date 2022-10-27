@@ -1,9 +1,7 @@
 ﻿namespace ASE_Assignment
 {
-    public class Command
+    public enum myCommands
     {
-        public enum myCommands
-        {
             rectangle,
             square,
             circle,
@@ -11,6 +9,5 @@
             moveto,
             clear,
             reset
-        }
     }
 }
