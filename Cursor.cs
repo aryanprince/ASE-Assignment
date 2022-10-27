@@ -14,6 +14,11 @@ namespace ASE_Assignment
 
         }
         
+        public void moveTo(Point position)
+        {
+            Position = position;
+        }
+
         public override void draw(Graphics g)
         {
             throw new NotImplementedException();

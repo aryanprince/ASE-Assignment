@@ -22,11 +22,6 @@ namespace ASE_Assignment
         protected Point s_defaultPosition = new Point(0,0);
         public Point Position { get; set; }
 
-        public void moveTo(Point position)
-        {
-            Position = position;
-        }
-
         public Shape()
         {
             
