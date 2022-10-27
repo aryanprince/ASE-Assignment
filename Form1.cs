@@ -112,6 +112,8 @@ namespace ASE_Assignment
         {
             Graphics g = picboxCanvas.CreateGraphics();
             g.Clear(Color.White);
+            txtCommandLine.Text = "";
+            lblError.Text = "";
         }
 
         private void txtCommandLine_KeyDown(object sender, KeyEventArgs e)
