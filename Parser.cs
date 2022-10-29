@@ -1,14 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ASE_Assignment
 {
     public class Parser
     {
-        public ValidCommands ParseInput(string input)
+        public ValidCommandsEnum ParseInput(string input)
         {
             input = input.ToLower();
             string[] splitCommand = input.Split(' ');
@@ -16,21 +13,21 @@ namespace ASE_Assignment
             switch (splitCommand[0])
             {
                 case "rectangle":
-                    return ValidCommands.rectangle;
+                    return ValidCommandsEnum.rectangle;
                 case "square":
-                    return ValidCommands.square;
+                    return ValidCommandsEnum.square;
                 case "circle":
-                    return ValidCommands.circle;
+                    return ValidCommandsEnum.circle;
                 case "triangle":
-                    return ValidCommands.triangle;
+                    return ValidCommandsEnum.triangle;
                 case "move":
-                    return ValidCommands.move;
+                    return ValidCommandsEnum.move;
                 case "clear":
-                    return ValidCommands.clear;
+                    return ValidCommandsEnum.clear;
                 case "reset":
-                    return ValidCommands.reset;
+                    return ValidCommandsEnum.reset;
                 default:
-                    return ValidCommands.none;
+                    return ValidCommandsEnum.none;
             }
         }
     }
