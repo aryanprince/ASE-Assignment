@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32929.385
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ASE-Assignment", "ASE-Assignment.csproj", "{4985AEBE-1468-465C-803D-A1227D32899F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Main-Project", "Main-Project.csproj", "{4985AEBE-1468-465C-803D-A1227D32899F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unit-Tests", "..\Unit-Tests\Unit-Tests.csproj", "{076DA9A9-5B55-453D-834B-A76CB874D960}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test-Project", "..\Unit-Tests\Test-Project.csproj", "{076DA9A9-5B55-453D-834B-A76CB874D960}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
