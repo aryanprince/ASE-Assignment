@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Drawing;
 
 namespace ASE_Assignment
 {
@@ -26,7 +21,7 @@ namespace ASE_Assignment
             Height = height;
         }
 
-        public Rectangle(Color colour, int xPos, int yPos, int length, int height) : base(colour, xPos, yPos)
+        public Rectangle(Point position, int length, int height) : base(position)
         {
             Length = length;
             Height = height;
@@ -39,9 +34,9 @@ namespace ASE_Assignment
         public override void draw(Graphics g)
         {
             Pen p = new Pen(Color.Black, 2);
-            SolidBrush b = new SolidBrush(colour);
-            g.FillRectangle(b, x, y, Length, Height);
-            g.DrawRectangle(p, x, y, Length, Height);
+            SolidBrush b = new SolidBrush(Color.Blue);
+            g.FillRectangle(b, Position.X, Position.Y, Length, Height);
+            g.DrawRectangle(p, Position.X, Position.Y, Length, Height);
         }
     }
 }

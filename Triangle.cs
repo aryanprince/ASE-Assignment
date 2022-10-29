@@ -1,28 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Drawing;
 
 namespace ASE_Assignment
 {
     public class Triangle : Shape
     {
         private int length;
-        private System.Drawing.Point A { get; set; }
-        private System.Drawing.Point B { get; set; }
-        private System.Drawing.Point C { get; set; }
-        private System.Drawing.Point D { get; set; }
+        private Point A { get; set; }
+        private Point B { get; set; }
+        private Point C { get; set; }
+        private Point D { get; set; }
 
-        public Triangle(Color colourValue, int xValue, int yValue, int lengthValue) : base(colourValue, xValue, yValue)
+        public Triangle(Point position, int lengthValue) : base(position)
         {
             length = lengthValue;
 
-            A = new System.Drawing.Point(X, Y);
-            B = new System.Drawing.Point(X, Y + lengthValue);
-            C = new System.Drawing.Point(X + lengthValue, Y + lengthValue);
-            D = new System.Drawing.Point(X, Y);
+            A = new Point(Position.X, Position.Y);
+            B = new Point(Position.X, Position.Y + lengthValue);
+            C = new Point(Position.X + lengthValue, Position.Y + lengthValue);
+            D = new Point(Position.X, Position.Y);
         }
         public override void draw(Graphics g)
         {

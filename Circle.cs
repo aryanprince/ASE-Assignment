@@ -1,5 +1,4 @@
-﻿using System;
-using System.Drawing;
+﻿using System.Drawing;
 
 namespace ASE_Assignment
 {
@@ -15,9 +14,9 @@ namespace ASE_Assignment
         public override void draw(Graphics g)
         {
             Pen p = new Pen(Color.Black, 2);
-            SolidBrush b = new SolidBrush(colour);
-            g.FillEllipse(b, x, y, Radius * 2, Radius * 2);
-            g.DrawEllipse(p, x, y, Radius * 2, Radius * 2);
+            SolidBrush b = new SolidBrush(Color.Purple);
+            g.FillEllipse(b, Position.X, Position.Y, Radius * 2, Radius * 2);
+            g.DrawEllipse(p, Position.X, Position.Y, Radius * 2, Radius * 2);
         }
 
         public Circle() : this(s_defaultRadius)
@@ -30,7 +29,7 @@ namespace ASE_Assignment
             Radius = radius;
         }
 
-        public Circle(Color colour, int x, int y, int radius) : base(colour, x, y)
+        public Circle(Point position, int radius) : base(position)
         {
             Radius = radius;
         }
