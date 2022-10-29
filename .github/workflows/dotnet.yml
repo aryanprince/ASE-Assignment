@@ -1,4 +1,4 @@
-name: CI
+name: CI Workflow with GitHub Actions
 
 on:
   workflow_dispatch:
@@ -9,26 +9,19 @@ on:
 
 jobs:
   build:
-    runs-on: windows-latest
+    runs-on: [windows-latest]
 
     steps:
     - uses: actions/checkout@v2
 
-    - name: Run a one-line script
-      run: Invoke-webrequest -uri  https://aka.ms/vs/15/release/vs_buildtools.exe -OutFile vs_buildtools.exe
-      shell: powershell
-
-    - name: install build tools
-      run: .\vs_buildtools.exe --wait --norestart --passive --installPath "C:\Program Files (x86)\Microsoft Visual Studio\2017\BuildTools" --add Microsoft.VisualStudio.Workload.ManagedDesktopBuildTools --add Microsoft.VisualStudio.Workload.MSBuildTools
-      shell: cmd
-    
-    # Runs a set of commands using the runners shell
-    - name: download DesigniteConsole.exe
-      run: |
-        curl.exe -o DesigniteConsole.zip "<download link>"
-        powershell.exe -nologo -noprofile -command "& { Add-Type -A 'System.IO.Compression.FileSystem'; [IO.Compression.ZipFile]::ExtractToDirectory('DesigniteConsole.zip','.');}"
-    
-    - name: Run Designite application (it utilizes GitHub secrets and environment variables)
-      run: |
-        .\DesigniteConsole\DesigniteConsole.exe -ci -repo ${{github.repository}} -pat ${{ secrets.PAT }} -k ${{ secrets.D_KEY }}
-        cat Designite_output/DesigniteAnalysis.xml
+    - name: Setup MSBuild
+      uses: microsoft/setup-msbuild@v1
+      
+    - name: Setup NuGet
+      uses: NuGet/setup-nuget@v1.0.2
+      
+    - name: Restore NuGet packages
+      run: nuget restore ASE-Assignment-Solution.sln
+      
+    - name: Build the Solution
+      run: msbuild ASE-Assignment-Solution.sln
