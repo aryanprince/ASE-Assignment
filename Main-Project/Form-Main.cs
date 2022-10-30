@@ -25,9 +25,15 @@ namespace ASE_Assignment
             Graphics g = picboxCanvas.CreateGraphics();
             lblError.Text = "";
 
-            Shape shape = new ShapeFactory().CreateShape(txtCommandLine.Text.ToLower());
-            shape.draw(g);
-            cursor.draw(g);
+            try
+            {
+                ValidCommandsEnum validCommandsEnum = parser.ParseInput(txtCommandLine.Text);
+                Shape shape = new ShapeFactory().CreateShape(txtCommandLine.Text.ToLower());
+                shape.draw(g);
+                cursor.draw(g);
+            }
+            catch (IndexOutOfRangeException) { lblError.Text = "ERROR!\nWrong number of parameters!"; }
+            catch (FormatException) { lblError.Text = "ERROR!\nInteger parameters only!"; }
 
             //string fullCommand = txtCommandLine.Text.ToLower();
             //string[] splitCommand = fullCommand.Split(' ');
