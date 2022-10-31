@@ -4,13 +4,13 @@ namespace ASE_Assignment
 {
     public class Command
     {
-        internal ValidCommandsEnum Action { get; set; }
-        internal IEnumerable<int> Coordinates { get; set; }
+        public Action ActionWord { get; set; }
+        public int[] ActionValues { get; set; }
 
-        public Command(ValidCommandsEnum action, IEnumerable<int> coordinates)
+        public Command(Action actionWord, int[] actionValues)
         {
-            Action = action;
-            Coordinates = coordinates;
+            ActionWord = actionWord;
+            ActionValues = actionValues;
         }
     }
 }

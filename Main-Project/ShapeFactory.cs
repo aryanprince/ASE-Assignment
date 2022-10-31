@@ -4,25 +4,21 @@ namespace ASE_Assignment
 {
     public class ShapeFactory
     {
-        public Shape CreateShape(string input)
+        public Shape CreateShape(Command command)
         {
-            string[] splitCommand = input.Split(' ');
-
-            if (splitCommand[0] == "rectangle")
+            switch (command.ActionWord)
             {
-                //if (IsDigitsOnly(splitCommand[1]) == true && IsDigitsOnly(splitCommand[2]) == true)
-                //    return new Rectangle(int.Parse(splitCommand[1]), int.Parse(splitCommand[2]));
-                //else
-                //    throw new FormatException();
-                return new Rectangle(int.Parse(splitCommand[1]), int.Parse(splitCommand[2]));
+                case Action.rectangle:
+                    return new Rectangle(command.ActionValues[0], command.ActionValues[1]);
+                case Action.circle:
+                    return new Circle(command.ActionValues[0]);
+                //case Action.move:
+                //    return new Move(command.ActionValues[0], command.ActionValues[1]);
+                default:
+                    throw new ArgumentException();
             }
-            if (splitCommand[0] == "circle")
-            {
-                return new Circle(int.Parse(splitCommand[1]));
-            }
-            return null;
         }
-
+        
         public bool IsDigitsOnly(string str)
         {
             foreach (char c in str)

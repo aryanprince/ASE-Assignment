@@ -27,8 +27,8 @@ namespace ASE_Assignment
 
             try
             {
-                ValidCommandsEnum validCommandsEnum = parser.ParseInput(txtCommandLine.Text);
-                Shape shape = new ShapeFactory().CreateShape(txtCommandLine.Text.ToLower());
+                Command command = parser.ParseInput(txtCommandLine.Text);
+                Shape shape = new ShapeFactory().CreateShape(command);
                 shape.draw(g);
                 cursor.draw(g);
             }

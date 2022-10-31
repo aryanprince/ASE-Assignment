@@ -1,6 +1,6 @@
 ﻿namespace ASE_Assignment
 {
-    public enum ValidCommandsEnum
+    public enum Action
     {
             rectangle,
             square,

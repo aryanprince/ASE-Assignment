@@ -78,7 +78,7 @@
     <Compile Include="Command.cs" />
     <Compile Include="Parser.cs" />
     <Compile Include="ShapeFactory.cs" />
-    <Compile Include="ValidCommandsEnum.cs" />
+    <Compile Include="Action.cs" />
     <Compile Include="Cursor.cs" />
     <Compile Include="Form-Main.cs">
       <SubType>Form</SubType>
