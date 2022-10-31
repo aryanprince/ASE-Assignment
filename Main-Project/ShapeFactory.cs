@@ -31,8 +31,3 @@ namespace ASE_Assignment
         }
     }
 }
-
-// 1. User types "rectangle 100 150"
-// 2. Parser takes in "rectangle 100 150" as input
-// 3. Parser spits out an object of Rectangle @ cursor 0,0 and default dimensions
-// 4. Draw this Rectangle in Form.cs
