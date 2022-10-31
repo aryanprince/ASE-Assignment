@@ -7,21 +7,21 @@ namespace ASE_Assignment
 {
     public class Parser
     {
-        public Command ParseInput (string input) // string = "rectangle 100 140"
+        public Command ParseInput(string input) // ParseInput is a method that takes a string as input and returns a Command object
         {
-            string[] words = input.ToLower().Split(' '); // words = ["rectangle", "100", "140"]
+            string[] words = input.ToLower().Split(' '); // Split the input string into an array of strings, separated by spaces
 
-            if (words.Length > 3) // if words.Length > 3, throw new FormatException()
+            if (words.Length > 3) // Invalid when more than 3 words
                 throw new FormatException();
 
-            string actionWord = words[0]; // actionWord = "rectangle"
-            string[] actionValues = { words[1], words[2] }; // actionValues = ["100", "140"]
+            string actionWord = words[0]; 
+            string[] actionValues = { words[1], words[2] }; 
 
-            Action action = ParseAction(actionWord); // action = Action.Rectangle
-            int[] ints = ParseNumber(actionValues); // ints = [100, 140]
+            Action action = ParseAction(actionWord); // Set the ActionWord property of the Command object to the Action enum value returned by ParseAction
+            int[] ints = ParseNumber(actionValues); // Set the ActionValues property of the Command object to the array of integers returned by ParseValues
 
-            Command command = new Command(action, ints); // command = new Command(Action.Rectangle, [100, 140])
-            return command; 
+            Command command = new Command(action, ints); // Create a new Command object
+            return command; // Return the Command object
         }
 
         public Action ParseAction (string input)
@@ -44,37 +44,11 @@ namespace ASE_Assignment
             return Action.none;
         }
 
-        public int[] ParseNumber (string[] input) // { str:100, str:150 }
+        public int[] ParseNumber (string[] input)
         {
             int[] myInts = Array.ConvertAll(input, int.Parse);
 
-            return myInts; // myInts = [100, 150]
+            return myInts;
         }
-
-        //public Action OldParseInput(string input)
-        //{
-        //    input = input.ToLower();
-        //    string[] splitCommand = input.Split(' ');
-
-        //    switch (splitCommand[0])
-        //    {
-        //        case "rectangle":
-        //            return Action.rectangle;
-        //        case "square":
-        //            return Action.square;
-        //        case "circle":
-        //            return Action.circle;
-        //        case "triangle":
-        //            return Action.triangle;
-        //        case "move":
-        //            return Action.move;
-        //        case "clear":
-        //            return Action.clear;
-        //        case "reset":
-        //            return Action.reset;
-        //        default:
-        //            return Action.none;
-        //    }
-        //}
     }
 }
