@@ -6,6 +6,7 @@
             square,
             circle,
             triangle,
+            fill,
             move,
             clear,
             reset,

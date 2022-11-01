@@ -14,6 +14,11 @@ namespace ASE_Assignment
             Position = position;
         }
 
+        public void changeFill(int fill)
+        {
+            Fill = fill;
+        }
+
         public override void draw(Graphics g)
         {
             Pen p = new Pen(Color.Black, 2);

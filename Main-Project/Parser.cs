@@ -40,6 +40,10 @@ namespace ASE_Assignment
             {
                 return Action.move;
             }
+            if (input == "fill")
+            {
+                return Action.fill;
+            }
 
             return Action.none;
         }

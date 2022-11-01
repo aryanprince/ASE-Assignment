@@ -21,8 +21,21 @@ namespace ASE_Assignment
             try
             {
                 Command command = parser.ParseInput(txtCommandLine.Text);
-                Shape shape = new ShapeFactory().CreateShape(command);
-                shape.draw(g);
+
+                if (command.ActionWord == Action.move)
+                {
+                    cursor.moveTo(new Point(command.ActionValues[0], command.ActionValues[1]));
+                    lblCoordinates.Text = "X: " + command.ActionValues[0] + " Y: " + command.ActionValues[1];
+                }
+                else if (command.ActionWord == Action.fill)
+                {
+                    cursor.changeFill(command.ActionValues[0]);
+                }
+                else
+                {
+                    Shape shape = new ShapeFactory().CreateShape(command, cursor);
+                    shape.draw(g);
+                }
                 cursor.draw(g);
             }
             catch (IndexOutOfRangeException ex) { lblError.Text = "ERROR!\n" + ex.Message; }

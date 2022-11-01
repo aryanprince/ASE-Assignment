@@ -93,13 +93,39 @@ namespace ASE_Assignment.Tests
 
             // act
             Command command = p.ParseInput(input);
-            int[] test = { 100, 150 };
 
             // assert
             Assert.AreEqual(Action.rectangle, command.ActionWord);
             Assert.AreEqual(100, command.ActionValues[0]);
             Assert.AreEqual(150, command.ActionValues[1]);
             Assert.AreEqual(2, command.ActionValues.Length);
+        }
+
+        [TestMethod()]
+        public void ParseInput_DrawingRectangleWithFillOn()
+        {
+            {
+                //arrange
+                string input = "rectangle 100 150";
+
+                // act
+                Command command = p.ParseInput(input);
+
+                // assert
+                Assert.AreEqual(Action.rectangle, command.ActionWord);
+                Assert.AreEqual(100, command.ActionValues[0]);
+                Assert.AreEqual(150, command.ActionValues[1]);
+                Assert.AreEqual(2, command.ActionValues.Length);
+
+                //arrange
+                input = "fill";
+
+                // act
+                command = p.ParseInput(input);
+
+                // assert
+                Assert.AreEqual(Action.fill, command.ActionWord);
+            }
         }
     }
 }
