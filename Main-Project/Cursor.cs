@@ -8,15 +8,10 @@ namespace ASE_Assignment
         {
 
         }
-        
+
         public void moveTo(Point position)
         {
             Position = position;
-        }
-
-        public void changeFill(int fill)
-        {
-            Fill = fill;
         }
 
         public override void draw(Graphics g)

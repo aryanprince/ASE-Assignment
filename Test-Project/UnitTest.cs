@@ -14,7 +14,7 @@ namespace ASE_Assignment.Tests
             string input = "circle 100 150";
 
             // act
-            Action action = p.ParseAction(input);
+            Action action = p.ParseActionWord(input);
 
             // assert
             Assert.AreEqual(Action.circle, action);
@@ -28,7 +28,7 @@ namespace ASE_Assignment.Tests
             string input = "circle";
 
             // act
-            Action action = p.ParseAction(input);
+            Action action = p.ParseActionWord(input);
 
             // assert
             Assert.AreEqual(Action.circle, action);
@@ -64,7 +64,7 @@ namespace ASE_Assignment.Tests
             string input = "rectangle 100 150";
 
             // act
-            Action action = p.ParseAction(input);
+            Action action = p.ParseActionWord(input);
 
             // assert
             Assert.AreEqual(Action.rectangle, action);
@@ -78,7 +78,7 @@ namespace ASE_Assignment.Tests
             string input = "rectangle";
 
             // act
-            Action action = p.ParseAction(input);
+            Action action = p.ParseActionWord(input);
 
             // assert
             Assert.AreEqual(Action.rectangle, action);

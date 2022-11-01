@@ -10,7 +10,7 @@
   <Class Name="ASE_Assignment.Shape">
     <Position X="5.25" Y="2.5" Width="3.25" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAgAAAAAAgAAIAAAAAAAAACAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAgAAAAAAgAAIAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Shape.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -24,15 +24,8 @@
   <Class Name="ASE_Assignment.Cursor">
     <Position X="9.25" Y="6.5" Width="2.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAACAAAAAAAAAAAIAAAAAAAAAAAAACAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAACAAAAAAAAAA=</HashCode>
       <FileName>Cursor.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="ASE_Assignment.ShapeFactory">
-    <Position X="13" Y="4.5" Width="3" />
-    <TypeIdentifier>
-      <HashCode>AAAACAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>ShapeFactory.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ASE_Assignment.Command">
@@ -45,7 +38,7 @@
   <Class Name="ASE_Assignment.Parser">
     <Position X="13" Y="0.75" Width="2.75" />
     <TypeIdentifier>
-      <HashCode>AAASAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAA=</HashCode>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAABABAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Parser.cs</FileName>
     </TypeIdentifier>
   </Class>

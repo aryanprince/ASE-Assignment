@@ -18,30 +18,41 @@ namespace ASE_Assignment
             Graphics g = picboxCanvas.CreateGraphics();
             lblError.Text = "";
 
-            try
-            {
-                Command command = parser.ParseInput(txtCommandLine.Text);
+            Command command = parser.ParseInput(txtCommandLine.Text);
 
-                if (command.ActionWord == Action.move)
-                {
-                    cursor.moveTo(new Point(command.ActionValues[0], command.ActionValues[1]));
-                    lblCoordinates.Text = "X: " + command.ActionValues[0] + " Y: " + command.ActionValues[1];
-                }
-                else if (command.ActionWord == Action.fill)
-                {
-                    cursor.changeFill(command.ActionValues[0]);
-                }
-                else
-                {
-                    Shape shape = new ShapeFactory().CreateShape(command, cursor);
-                    shape.draw(g);
-                }
-                cursor.draw(g);
+            switch (command.ActionWord)
+            {
+                case Action.rectangle:
+                    {
+                        Rectangle rectangle = new Rectangle(cursor.Position, command.ActionValues[0], command.ActionValues[1]);
+                        rectangle.draw(g);
+                        break;
+                    }
+
+                case Action.circle:
+                    {
+                        Circle circle = new Circle(cursor.Position, command.ActionValues[0]);
+                        circle.draw(g);
+                        break;
+                    }
+                case Action.move:
+                    {
+                        cursor.moveTo(new Point(command.ActionValues[0], command.ActionValues[1]));
+                        lblCoordinates.Text = "X: " + command.ActionValues[0] + " Y: " + command.ActionValues[1];
+                        break;
+                    }
+                default:
+                    {
+                        lblError.Text = "Invalid command";
+                        break;
+                    }
             }
-            catch (IndexOutOfRangeException ex) { lblError.Text = "ERROR!\n" + ex.Message; }
-            catch (FormatException ex) { lblError.Text = "ERROR!\n" + ex.Message; }
-            catch (ArgumentException ex) { lblError.Text = "ERROR!\n" + ex.Message; }
-            catch (OverflowException ex) { lblError.Text = "ERROR!\n" + ex.Message; }
+            cursor.draw(g);
+
+            //catch (IndexOutOfRangeException ex) { lblError.Text = "ERROR!\n" + ex.Message; }
+            //catch (FormatException ex) { lblError.Text = "ERROR!\n" + ex.Message; }
+            //catch (ArgumentException ex) { lblError.Text = "ERROR!\n" + ex.Message; }
+            //catch (OverflowException ex) { lblError.Text = "ERROR!\n" + ex.Message; }
             txtCommandLine.Text = "";
         }
 
@@ -59,7 +70,7 @@ namespace ASE_Assignment
             {
                 return;
             }
-            btnRun.PerformClick(); 
+            btnRun.PerformClick();
 
             //Stops the 'ding' when pressing Enter
             e.Handled = true;

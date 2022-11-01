@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace ASE_Assignment
+﻿namespace ASE_Assignment
 {
     public class Command
     {

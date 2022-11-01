@@ -2,14 +2,14 @@
 {
     public enum Action
     {
-            rectangle,
-            square,
-            circle,
-            triangle,
-            fill,
-            move,
-            clear,
-            reset,
-            none
+        rectangle,
+        square,
+        circle,
+        triangle,
+        fill,
+        move,
+        clear,
+        reset,
+        none
     }
 }
