@@ -24,7 +24,7 @@ namespace ASE_Assignment
             lblError.Text = "";
 
             var validActions = Enum.GetNames(typeof(Action));
-            if (validActions.Contains(splitCommand[0])) //Checks if first word in 'command line' is in the Actions Enum, if not it's an invalid command
+            if (validActions.Contains(splitCommand[0])) // Checks if first word in 'command line' is in the Actions Enum, if not it's an invalid command
             {
                 //--- RECTANGLE ---
                 try
@@ -83,7 +83,7 @@ namespace ASE_Assignment
                 {
                     Line line = new Line(cursor.Position, new Point(int.Parse(splitCommand[1]), int.Parse(splitCommand[2])));
                     line.draw(g);
-                    cursor.moveTo(new Point(int.Parse(splitCommand[1]), int.Parse(splitCommand[2])));
+                    cursor.moveTo(new Point(int.Parse(splitCommand[1]), int.Parse(splitCommand[2]))); // Updates the cursor position to the end of the new line
                     cursor.draw(g);
                     lblCoordinates.Text = "X:" + cursor.Position.X + ", Y:" + cursor.Position.Y;
                 }
