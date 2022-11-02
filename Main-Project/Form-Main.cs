@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace ASE_Assignment
@@ -18,41 +19,96 @@ namespace ASE_Assignment
             Graphics g = picboxCanvas.CreateGraphics();
             lblError.Text = "";
 
-            Command command = parser.ParseInput(txtCommandLine.Text);
+            string fullCommand = txtCommandLine.Text.ToLower();
+            string[] splitCommand = fullCommand.Split(' ');
+            lblError.Text = "";
 
-            switch (command.ActionWord)
+            var validActions = Enum.GetNames(typeof(Action));
+            if (validActions.Contains(splitCommand[0])) //Checks if first word in 'command line' is in the Actions Enum, if not it's an invalid command
             {
-                case Action.rectangle:
+                //--- RECTANGLE ---
+                try
+                {
+                    if (splitCommand[0] == "rectangle")
                     {
-                        Rectangle rectangle = new Rectangle(cursor.Position, command.ActionValues[0], command.ActionValues[1]);
-                        rectangle.draw(g);
-                        break;
+                        Rectangle rect = new Rectangle(cursor.Position, int.Parse(splitCommand[1]), int.Parse(splitCommand[2]));
+                        rect.draw(g);
+                        cursor.draw(g);
                     }
+                }
+                catch (IndexOutOfRangeException) { lblError.Text = "ERROR!\nRequires at least 2 parameters \nFormat: rectangle <length> <height>\nExample: rectangle 100 150"; }
+                catch (FormatException) { lblError.Text = "ERROR!\nInteger parameters only \nFormat: rectangle <length> <height>\nExample: rectangle 100 150"; }
 
-                case Action.circle:
+                //--- SQUARE ---
+                try
+                {
+                    if (splitCommand[0] == "square")
                     {
-                        Circle circle = new Circle(cursor.Position, command.ActionValues[0]);
-                        circle.draw(g);
-                        break;
+                        Rectangle square = new Rectangle(cursor.Position, int.Parse(splitCommand[1]), int.Parse(splitCommand[1]));
+                        square.draw(g);
+                        cursor.draw(g);
                     }
-                case Action.move:
+                }
+                catch (IndexOutOfRangeException) { lblError.Text = "ERROR!\nRequires at least 1 parameter \nFormat: rectangle <length> <height>\nExample: rectangle 100 150"; }
+                catch (FormatException) { lblError.Text = "ERROR!\nInteger parameters only \nFormat: square <side>\nExample: square 125"; }
+
+                //--- CIRCLE ---
+                try
+                {
+                    if (splitCommand[0] == "circle")
                     {
-                        cursor.moveTo(new Point(command.ActionValues[0], command.ActionValues[1]));
-                        lblCoordinates.Text = "X: " + command.ActionValues[0] + " Y: " + command.ActionValues[1];
-                        break;
+                        Circle circ = new Circle(cursor.Position, int.Parse(splitCommand[1]));
+                        circ.draw(g);
+                        cursor.draw(g);
                     }
-                default:
+                }
+                catch (IndexOutOfRangeException) { lblError.Text = "ERROR!\nRequires at least 1 parameter \nFormat: circle <radius>\nExample: circle 100"; }
+                catch (FormatException) { lblError.Text = "ERROR!\nInteger parameters only \nFormat: circle <radius>\nExample: circle 100"; }
+
+                // --- TRIANGLE ---
+                try
+                {
+                    if (splitCommand[0] == "triangle")
                     {
-                        lblError.Text = "Invalid command";
-                        break;
+                        Triangle tri = new Triangle(cursor.Position, int.Parse(splitCommand[1]));
+                        tri.draw(g);
+                        cursor.draw(g);
                     }
+                }
+                catch (IndexOutOfRangeException) { lblError.Text = "ERROR!\nRequires at least 1 parameter \nFormat: triangle <side length>\nExample: triangle 150"; }
+                catch (FormatException) { lblError.Text = "ERROR!\nInteger parameters only \nFormat: triangle <side length>\nExample: triangle 150"; }
+
+                // --- DRAWTO COMMAND ---
+                if (splitCommand[0] == "drawto")
+                {
+
+                }
+
+                // --- MOVETO COMMMAND ---
+                if (splitCommand[0] == "move")
+                {
+                    cursor.moveTo(new Point(int.Parse(splitCommand[1]), int.Parse(splitCommand[2])));
+                    cursor.draw(g);
+                    lblCoordinates.Text = "X:" + cursor.Position.X + ", Y:" + cursor.Position.Y;
+                }
+
+                //// --- RESET COMMMAND ---
+                if (splitCommand[0] == "reset")
+                {
+                    cursor.moveTo(new Point(0, 0));
+                }
+
+                // --- CLEAR COMMMAND ---
+                if (splitCommand[0] == "clear")
+                {
+                    g.Clear(Color.White);
+                }
             }
-            cursor.draw(g);
+            else
+            {
+                lblError.Text = "Invalid command!";
+            }
 
-            //catch (IndexOutOfRangeException ex) { lblError.Text = "ERROR!\n" + ex.Message; }
-            //catch (FormatException ex) { lblError.Text = "ERROR!\n" + ex.Message; }
-            //catch (ArgumentException ex) { lblError.Text = "ERROR!\n" + ex.Message; }
-            //catch (OverflowException ex) { lblError.Text = "ERROR!\n" + ex.Message; }
             txtCommandLine.Text = "";
         }
 
