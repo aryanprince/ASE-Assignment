@@ -37,8 +37,8 @@ namespace ASE_Assignment
             Pen p = new Pen(Color.Black, 2);
             g.DrawRectangle(p, Position.X, Position.Y, Length, Height);
             // Fills a rectangle
-            SolidBrush b = new SolidBrush(Color.Red);
-            g.FillRectangle(b, Position.X, Position.Y, Length, Height);
+            //SolidBrush b = new SolidBrush(Color.Red);
+            //g.FillRectangle(b, Position.X, Position.Y, Length, Height);
         }
     }
 }
