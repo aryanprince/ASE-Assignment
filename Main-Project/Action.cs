@@ -7,6 +7,7 @@
         circle,
         triangle,
         fill,
+        drawto,
         move,
         clear,
         reset,

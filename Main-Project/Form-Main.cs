@@ -81,7 +81,11 @@ namespace ASE_Assignment
                 // --- DRAWTO COMMAND ---
                 if (splitCommand[0] == "drawto")
                 {
-
+                    Line line = new Line(cursor.Position, new Point(int.Parse(splitCommand[1]), int.Parse(splitCommand[2])));
+                    line.draw(g);
+                    cursor.moveTo(new Point(int.Parse(splitCommand[1]), int.Parse(splitCommand[2])));
+                    cursor.draw(g);
+                    lblCoordinates.Text = "X:" + cursor.Position.X + ", Y:" + cursor.Position.Y;
                 }
 
                 // --- MOVETO COMMMAND ---
@@ -96,6 +100,8 @@ namespace ASE_Assignment
                 if (splitCommand[0] == "reset")
                 {
                     cursor.moveTo(new Point(0, 0));
+                    cursor.draw(g);
+                    lblCoordinates.Text = "X:" + cursor.Position.X + ", Y:" + cursor.Position.Y;
                 }
 
                 // --- CLEAR COMMMAND ---
