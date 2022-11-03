@@ -176,10 +176,13 @@ namespace ASE_Assignment
 
         private void btnClear_Click(object sender, EventArgs e)
         {
-            Graphics g = picboxCanvas.CreateGraphics();
-            g.Clear(Color.White);
+            picboxCanvas.Refresh(); // 
+            cursor.moveTo(new Point(0, 0)); // Resets cursor position to 0,0
+
+            // Clearing all the labels in the WinForms window
             txtCommandLine.Text = "";
             lblError.Text = "";
+            lblCoordinates.Text = "X:" + cursor.Position.X + ", Y:" + cursor.Position.Y;
         }
 
         private void txtCommandLine_KeyDown(object sender, KeyEventArgs e)
