@@ -8,7 +8,7 @@ namespace ASE_Assignment
         {
 
         }
-        
+
         public void moveTo(Point position)
         {
             Position = position;

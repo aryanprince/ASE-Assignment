@@ -10,7 +10,7 @@ namespace ASE_Assignment
         private Point C { get; set; }
         private Point D { get; set; }
 
-        public Triangle(Point position, int lengthValue) : base(position)
+        public Triangle(Point position, bool fill, int lengthValue) : base(position, fill)
         {
             length = lengthValue;
 

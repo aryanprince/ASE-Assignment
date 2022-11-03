@@ -28,18 +28,25 @@
       <FileName>Cursor.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ASE_Assignment.ShapeFactory">
-    <Position X="1.75" Y="3.5" Width="2.5" />
+  <Class Name="ASE_Assignment.Command">
+    <Position X="12.75" Y="2.5" Width="3.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>ShapeFactory.cs</FileName>
+      <HashCode>AAAAAAAAAAAAgAAAEAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Command.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Enum Name="ASE_Assignment.ValidCommandsEnum">
-    <Position X="10.5" Y="3" Width="1.5" />
+  <Class Name="ASE_Assignment.Parser">
+    <Position X="13" Y="0.75" Width="2.75" />
     <TypeIdentifier>
-      <HashCode>AUAAAAAEAAAAAACAAAAACSAAAAAAAAAAAAAAAAAAIAA=</HashCode>
-      <FileName>ValidCommandsEnum.cs</FileName>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAABABAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Parser.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="ASE_Assignment.Action">
+    <Position X="2" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AUAAAAAEAAAAAACAAAAACSAAAAAAAAAAAAgAAAAAIAA=</HashCode>
+      <FileName>Action.cs</FileName>
     </TypeIdentifier>
   </Enum>
   <Font Name="Segoe UI" Size="9" />
