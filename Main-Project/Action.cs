@@ -10,6 +10,7 @@
         pen,
         drawto,
         move,
+        run,
         clear,
         reset,
         none

@@ -22,8 +22,17 @@ namespace ASE_Assignment
         public override void draw(Graphics g)
         {
             System.Drawing.Point[] vertices = { A, B, C, D };
-            Pen p = new Pen(PenColor, 2);
-            g.DrawLines(p, vertices);
+            if (Fill)
+            {
+                SolidBrush b = new SolidBrush(PenColor);
+                g.FillPolygon(b, vertices);
+            }
+            else
+            {
+                Pen p = new Pen(PenColor, 2);
+                g.DrawPolygon(p, vertices);
+            }
         }
     }
 }
+
