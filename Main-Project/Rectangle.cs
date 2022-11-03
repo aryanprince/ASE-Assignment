@@ -21,7 +21,7 @@ namespace ASE_Assignment
             Height = height;
         }
 
-        public Rectangle(Point position, bool fill, int length, int height) : base(position, fill)
+        public Rectangle(Point position, bool fill, Color penColor, int length, int height) : base(position, fill, penColor)
         {
             Length = length;
             Height = height;
@@ -36,13 +36,13 @@ namespace ASE_Assignment
             // Fills a rectangle
             if (Fill)
             {
-                SolidBrush b = new SolidBrush(Color.Red);
+                SolidBrush b = new SolidBrush(PenColor);
                 g.FillRectangle(b, Position.X, Position.Y, Length, Height);
             }
             else
             {
                 // Draws a rectangle
-                Pen p = new Pen(Color.Black, 2);
+                Pen p = new Pen(PenColor, 2);
                 g.DrawRectangle(p, Position.X, Position.Y, Length, Height);
             }
         }

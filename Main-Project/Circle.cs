@@ -16,14 +16,14 @@ namespace ASE_Assignment
             if (Fill)
             {
                 // Fills a circle
-                SolidBrush b = new SolidBrush(Color.Purple);
+                SolidBrush b = new SolidBrush(PenColor);
                 g.FillEllipse(b, Position.X - Radius, Position.Y - Radius, Radius * 2, Radius * 2);
 
             }
             else
             {
                 // Draws a circle
-                Pen p = new Pen(Color.Black, 2);
+                Pen p = new Pen(PenColor, 2);
                 g.DrawEllipse(p, Position.X - Radius, Position.Y - Radius, Radius * 2, Radius * 2); // Center of the circle is at the current cursor
             }
         }
@@ -38,7 +38,7 @@ namespace ASE_Assignment
             Radius = radius;
         }
 
-        public Circle(Point position, bool fill, int radius) : base(position, fill)
+        public Circle(Point position, bool fill, Color penColor, int radius) : base(position, fill, penColor)
         {
             Radius = radius;
             Fill = Fill;
