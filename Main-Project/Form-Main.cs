@@ -9,6 +9,7 @@ namespace ASE_Assignment
     {
         Cursor cursor = new Cursor();
         Parser parser = new Parser();
+        ShapeFactory shapeFactory = new ShapeFactory();
         public form()
         {
             InitializeComponent();
@@ -16,6 +17,7 @@ namespace ASE_Assignment
 
         private void btnRun_Click(object sender, EventArgs e)
         {
+            // WORKING CODE
             Graphics g = picboxCanvas.CreateGraphics();
             cursor.draw(g);
 
@@ -24,15 +26,20 @@ namespace ASE_Assignment
             lblError.Text = "";
 
             var validActions = Enum.GetNames(typeof(Action));
+            // END OF WORKING CODE
+
+            // TEST CODE
+            Command command = parser.ParseInput(txtCommandLine.Text);
+            // END OF TEST CODE
+
             if (validActions.Contains(splitCommand[0])) // Checks if first word in 'command line' is in the Actions Enum, if not it's an invalid command
             {
                 //--- RECTANGLE ---
                 try
                 {
-                    if (splitCommand[0] == "rectangle")
+                    if (command.ActionWord == Action.rectangle)
                     {
-                        Rectangle rect = new Rectangle(cursor.Position, cursor.Fill, cursor.PenColor, int.Parse(splitCommand[1]), int.Parse(splitCommand[2]));
-                        rect.draw(g);
+                        shapeFactory.CreateShape(command, cursor.Position, cursor.Fill, cursor.PenColor).draw(g);
                         cursor.draw(g);
                     }
                 }
@@ -42,10 +49,9 @@ namespace ASE_Assignment
                 //--- SQUARE ---
                 try
                 {
-                    if (splitCommand[0] == "square")
+                    if (command.ActionWord == Action.square)
                     {
-                        Rectangle square = new Rectangle(cursor.Position, cursor.Fill, cursor.PenColor, int.Parse(splitCommand[1]), int.Parse(splitCommand[1]));
-                        square.draw(g);
+                        shapeFactory.CreateShape(command, cursor.Position, cursor.Fill, cursor.PenColor).draw(g);
                         cursor.draw(g);
                     }
                 }
@@ -55,10 +61,9 @@ namespace ASE_Assignment
                 //--- CIRCLE ---
                 try
                 {
-                    if (splitCommand[0] == "circle")
+                    if (command.ActionWord == Action.circle)
                     {
-                        Circle circ = new Circle(cursor.Position, cursor.Fill, cursor.PenColor, int.Parse(splitCommand[1]));
-                        circ.draw(g);
+                        shapeFactory.CreateShape(command, cursor.Position, cursor.Fill, cursor.PenColor).draw(g);
                         cursor.draw(g);
                     }
                 }
@@ -68,10 +73,9 @@ namespace ASE_Assignment
                 // --- TRIANGLE ---
                 try
                 {
-                    if (splitCommand[0] == "triangle")
+                    if (command.ActionWord == Action.triangle)
                     {
-                        Triangle tri = new Triangle(cursor.Position, cursor.Fill, cursor.PenColor, int.Parse(splitCommand[1]));
-                        tri.draw(g);
+                        shapeFactory.CreateShape(command, cursor.Position, cursor.Fill, cursor.PenColor).draw(g);
                         cursor.draw(g);
                     }
                 }
@@ -79,17 +83,16 @@ namespace ASE_Assignment
                 catch (FormatException) { lblError.Text = "ERROR!\nInteger parameters only \nFormat: triangle <side length>\nExample: triangle 150"; }
 
                 // --- DRAWTO COMMAND ---
-                if (splitCommand[0] == "drawto")
+                if (command.ActionWord == Action.drawto)
                 {
-                    Line line = new Line(cursor.Position, cursor.Fill, cursor.PenColor, new Point(int.Parse(splitCommand[1]), int.Parse(splitCommand[2])));
-                    line.draw(g);
-                    cursor.moveTo(new Point(int.Parse(splitCommand[1]), int.Parse(splitCommand[2]))); // Updates the cursor position to the end of the new line
-                    cursor.draw(g);
-                    lblCoordinates.Text = "X:" + cursor.Position.X + ", Y:" + cursor.Position.Y;
+                    shapeFactory.CreateShape(command, cursor.Position, cursor.Fill, cursor.PenColor).draw(g); // Draws a line to a new position
+                    cursor.moveTo(new Point(int.Parse(splitCommand[1]), int.Parse(splitCommand[2]))); // Updates the cursor position to the new position (at the end of the line drawn above)
+                    cursor.draw(g); // Redraws the cursor at the updated cursor position
+                    lblCoordinates.Text = "X:" + cursor.Position.X + ", Y:" + cursor.Position.Y; // Displays new cursor coordinates on the form
                 }
 
                 // --- MOVETO COMMMAND ---
-                if (splitCommand[0] == "move")
+                if (command.ActionWord == Action.move)
                 {
                     cursor.moveTo(new Point(int.Parse(splitCommand[1]), int.Parse(splitCommand[2])));
                     cursor.draw(g);
@@ -97,7 +100,7 @@ namespace ASE_Assignment
                 }
 
                 //// --- RESET COMMMAND ---
-                if (splitCommand[0] == "reset")
+                if (command.ActionWord == Action.reset)
                 {
                     cursor.moveTo(new Point(0, 0));
                     cursor.draw(g);
@@ -105,9 +108,9 @@ namespace ASE_Assignment
                 }
 
                 // --- CLEAR COMMMAND ---
-                if (splitCommand[0] == "clear")
+                if (command.ActionWord == Action.clear)
                 {
-                    g.Clear(Color.White);
+                    picboxCanvas.Refresh(); // I believe doing Refresh() is better than g.Clear(Color.White);
                 }
 
                 // --- FILL COMMAND ---

@@ -4,8 +4,18 @@ namespace ASE_Assignment
 {
     public class Circle : Shape
     {
-        private static readonly int s_defaultRadius = 85;
+        private readonly int _defaultRadius = 85;
         protected int Radius { get; set; }
+
+        public Circle()
+        {
+            Radius = _defaultRadius;
+        }
+
+        public Circle(Point position, bool fill, Color penColor, int radius) : base(position, fill, penColor)
+        {
+            Radius = radius;
+        }
 
         /// <summary>
         /// Draws a Circle using a Pen for border and a SolidBrush for fill
@@ -13,35 +23,16 @@ namespace ASE_Assignment
         /// <param name="g"></param>
         public override void draw(Graphics g)
         {
-            if (Fill)
-            {
-                // Fills a circle
-                SolidBrush b = new SolidBrush(PenColor);
-                g.FillEllipse(b, Position.X - Radius, Position.Y - Radius, Radius * 2, Radius * 2);
-
-            }
-            else
+            if (!Fill)
             {
                 // Draws a circle
                 Pen p = new Pen(PenColor, 2);
                 g.DrawEllipse(p, Position.X - Radius, Position.Y - Radius, Radius * 2, Radius * 2); // Center of the circle is at the current cursor
+                return; // Return to avoid drawing the fill
             }
-        }
-
-        public Circle() : this(s_defaultRadius)
-        {
-
-        }
-
-        public Circle(int radius) : base()
-        {
-            Radius = radius;
-        }
-
-        public Circle(Point position, bool fill, Color penColor, int radius) : base(position, fill, penColor)
-        {
-            Radius = radius;
-            Fill = Fill;
+            // Fills a circle
+            SolidBrush b = new SolidBrush(PenColor);
+            g.FillEllipse(b, Position.X - Radius, Position.Y - Radius, Radius * 2, Radius * 2);
         }
     }
 }

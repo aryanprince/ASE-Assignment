@@ -4,21 +4,15 @@ namespace ASE_Assignment
 {
     public class Rectangle : Shape
     {
-
-        private static readonly int s_defaultLength = 100;
-        private static readonly int s_defaultHeight = 150;
+        private readonly int _defaultLength = 100;
+        private readonly int _defaultHeight = 150;
         protected int Length { get; set; }
         protected int Height { get; set; }
 
-        public Rectangle() : this(s_defaultLength, s_defaultHeight)
+        public Rectangle() : base()
         {
-
-        }
-
-        public Rectangle(int length, int height) : base()
-        {
-            Length = length;
-            Height = height;
+            Length = _defaultLength;
+            Height = _defaultHeight;
         }
 
         public Rectangle(Point position, bool fill, Color penColor, int length, int height) : base(position, fill, penColor)
@@ -34,17 +28,16 @@ namespace ASE_Assignment
         public override void draw(Graphics g)
         {
             // Fills a rectangle
-            if (Fill)
-            {
-                SolidBrush b = new SolidBrush(PenColor);
-                g.FillRectangle(b, Position.X, Position.Y, Length, Height);
-            }
-            else
+            if (!Fill)
             {
                 // Draws a rectangle
                 Pen p = new Pen(PenColor, 2);
                 g.DrawRectangle(p, Position.X, Position.Y, Length, Height);
+                return; // Return to avoid drawing the fill
             }
+            // Fills a rectangle
+            SolidBrush b = new SolidBrush(PenColor);
+            g.FillRectangle(b, Position.X, Position.Y, Length, Height);
         }
     }
 }

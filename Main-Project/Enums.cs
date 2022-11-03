@@ -6,13 +6,13 @@
         square,
         circle,
         triangle,
+        drawto, // This enum is for a line (Issue #34 to update this)
+        move,
+        reset,
+        clear,
         fill,
         pen,
-        drawto,
-        move,
         run,
-        clear,
-        reset,
         none
     }
 }
