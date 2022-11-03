@@ -10,7 +10,7 @@ namespace ASE_Assignment
         private Point C { get; set; }
         private Point D { get; set; }
 
-        public Triangle(Point position, bool fill, int lengthValue) : base(position, fill)
+        public Triangle(Point position, bool fill, Color penColor, int lengthValue) : base(position, fill, penColor)
         {
             length = lengthValue;
 
@@ -22,7 +22,7 @@ namespace ASE_Assignment
         public override void draw(Graphics g)
         {
             System.Drawing.Point[] vertices = { A, B, C, D };
-            Pen p = new Pen(Color.Black, 2);
+            Pen p = new Pen(PenColor, 2);
             g.DrawLines(p, vertices);
         }
     }

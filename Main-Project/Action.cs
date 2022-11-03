@@ -7,6 +7,7 @@
         circle,
         triangle,
         fill,
+        pen,
         drawto,
         move,
         clear,

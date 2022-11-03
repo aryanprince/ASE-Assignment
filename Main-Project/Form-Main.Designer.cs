@@ -39,11 +39,13 @@
             this.menuStripHelp = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStripAbout = new System.Windows.Forms.ToolStripMenuItem();
             this.lblCommandArea = new System.Windows.Forms.Label();
-            this.lblCanvas = new System.Windows.Forms.Label();
+            this.lblDrawingArea = new System.Windows.Forms.Label();
             this.lblCommandLine = new System.Windows.Forms.Label();
             this.lblCoordinates = new System.Windows.Forms.Label();
             this.lblCoordinatesInfo = new System.Windows.Forms.Label();
             this.lblError = new System.Windows.Forms.Label();
+            this.lblFillState = new System.Windows.Forms.Label();
+            this.lblPenColor = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.picboxCanvas)).BeginInit();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
@@ -160,17 +162,17 @@
             this.lblCommandArea.TabIndex = 6;
             this.lblCommandArea.Text = "enter big commands here:";
             // 
-            // lblCanvas
+            // lblDrawingArea
             // 
-            this.lblCanvas.AutoSize = true;
-            this.lblCanvas.Font = new System.Drawing.Font("FiraCode NF", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCanvas.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(203)))), ((int)(((byte)(107)))));
-            this.lblCanvas.Location = new System.Drawing.Point(536, 56);
-            this.lblCanvas.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblCanvas.Name = "lblCanvas";
-            this.lblCanvas.Size = new System.Drawing.Size(194, 25);
-            this.lblCanvas.TabIndex = 7;
-            this.lblCanvas.Text = "drawing area:";
+            this.lblDrawingArea.AutoSize = true;
+            this.lblDrawingArea.Font = new System.Drawing.Font("FiraCode NF", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDrawingArea.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(203)))), ((int)(((byte)(107)))));
+            this.lblDrawingArea.Location = new System.Drawing.Point(536, 56);
+            this.lblDrawingArea.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblDrawingArea.Name = "lblDrawingArea";
+            this.lblDrawingArea.Size = new System.Drawing.Size(194, 25);
+            this.lblDrawingArea.TabIndex = 7;
+            this.lblDrawingArea.Text = "drawing area:";
             // 
             // lblCommandLine
             // 
@@ -218,17 +220,41 @@
             this.lblError.Size = new System.Drawing.Size(2, 22);
             this.lblError.TabIndex = 11;
             // 
+            // lblFillState
+            // 
+            this.lblFillState.AutoSize = true;
+            this.lblFillState.Font = new System.Drawing.Font("FiraCode NF", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFillState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(203)))), ((int)(((byte)(107)))));
+            this.lblFillState.Location = new System.Drawing.Point(1246, 600);
+            this.lblFillState.Name = "lblFillState";
+            this.lblFillState.Size = new System.Drawing.Size(163, 20);
+            this.lblFillState.TabIndex = 12;
+            this.lblFillState.Text = "fill: disabled";
+            // 
+            // lblPenColor
+            // 
+            this.lblPenColor.AutoSize = true;
+            this.lblPenColor.Font = new System.Drawing.Font("FiraCode NF", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPenColor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(203)))), ((int)(((byte)(107)))));
+            this.lblPenColor.Location = new System.Drawing.Point(1246, 626);
+            this.lblPenColor.Name = "lblPenColor";
+            this.lblPenColor.Size = new System.Drawing.Size(163, 20);
+            this.lblPenColor.TabIndex = 13;
+            this.lblPenColor.Text = "pen color: red";
+            // 
             // form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(62)))));
             this.ClientSize = new System.Drawing.Size(1460, 770);
+            this.Controls.Add(this.lblPenColor);
+            this.Controls.Add(this.lblFillState);
             this.Controls.Add(this.lblError);
             this.Controls.Add(this.lblCoordinatesInfo);
             this.Controls.Add(this.lblCoordinates);
             this.Controls.Add(this.lblCommandLine);
-            this.Controls.Add(this.lblCanvas);
+            this.Controls.Add(this.lblDrawingArea);
             this.Controls.Add(this.lblCommandArea);
             this.Controls.Add(this.richtxtCommandArea);
             this.Controls.Add(this.btnClear);
@@ -263,11 +289,13 @@
         private System.Windows.Forms.ToolStripMenuItem menuStripHelp;
         private System.Windows.Forms.ToolStripMenuItem menuStripAbout;
         private System.Windows.Forms.Label lblCommandArea;
-        private System.Windows.Forms.Label lblCanvas;
+        private System.Windows.Forms.Label lblDrawingArea;
         private System.Windows.Forms.Label lblCommandLine;
         private System.Windows.Forms.Label lblCoordinates;
         private System.Windows.Forms.Label lblCoordinatesInfo;
         private System.Windows.Forms.Label lblError;
+        private System.Windows.Forms.Label lblFillState;
+        private System.Windows.Forms.Label lblPenColor;
     }
 }
 
