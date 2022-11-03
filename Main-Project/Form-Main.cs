@@ -163,7 +163,7 @@ namespace ASE_Assignment
                     }
                 }
             }
-            else
+            else // If the command is not part of the Action enum, it's considered invalid
             {
                 lblError.Text = "Invalid command!";
             }

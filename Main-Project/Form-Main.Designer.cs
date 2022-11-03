@@ -33,7 +33,6 @@
             this.txtCommandLine = new System.Windows.Forms.TextBox();
             this.btnRun = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
-            this.richtxtCommandArea = new System.Windows.Forms.RichTextBox();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.menuStripFile = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStripHelp = new System.Windows.Forms.ToolStripMenuItem();
@@ -46,6 +45,7 @@
             this.lblError = new System.Windows.Forms.Label();
             this.lblFillState = new System.Windows.Forms.Label();
             this.lblPenColor = new System.Windows.Forms.Label();
+            this.txtCommandArea = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.picboxCanvas)).BeginInit();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
@@ -100,17 +100,6 @@
             this.btnClear.Text = "clear";
             this.btnClear.UseVisualStyleBackColor = false;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
-            // 
-            // richtxtCommandArea
-            // 
-            this.richtxtCommandArea.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.richtxtCommandArea.Font = new System.Drawing.Font("FiraCode NF", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.richtxtCommandArea.Location = new System.Drawing.Point(23, 86);
-            this.richtxtCommandArea.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.richtxtCommandArea.Name = "richtxtCommandArea";
-            this.richtxtCommandArea.Size = new System.Drawing.Size(482, 370);
-            this.richtxtCommandArea.TabIndex = 4;
-            this.richtxtCommandArea.Text = "";
             // 
             // menuStrip
             // 
@@ -242,12 +231,24 @@
             this.lblPenColor.TabIndex = 13;
             this.lblPenColor.Text = "pen color: red";
             // 
+            // txtCommandArea
+            // 
+            this.txtCommandArea.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtCommandArea.Font = new System.Drawing.Font("FiraCode NF", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCommandArea.Location = new System.Drawing.Point(23, 86);
+            this.txtCommandArea.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtCommandArea.Multiline = true;
+            this.txtCommandArea.Name = "txtCommandArea";
+            this.txtCommandArea.Size = new System.Drawing.Size(481, 384);
+            this.txtCommandArea.TabIndex = 14;
+            // 
             // form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(62)))));
             this.ClientSize = new System.Drawing.Size(1460, 770);
+            this.Controls.Add(this.txtCommandArea);
             this.Controls.Add(this.lblPenColor);
             this.Controls.Add(this.lblFillState);
             this.Controls.Add(this.lblError);
@@ -256,7 +257,6 @@
             this.Controls.Add(this.lblCommandLine);
             this.Controls.Add(this.lblDrawingArea);
             this.Controls.Add(this.lblCommandArea);
-            this.Controls.Add(this.richtxtCommandArea);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnRun);
             this.Controls.Add(this.txtCommandLine);
@@ -283,7 +283,6 @@
         private System.Windows.Forms.TextBox txtCommandLine;
         private System.Windows.Forms.Button btnRun;
         private System.Windows.Forms.Button btnClear;
-        private System.Windows.Forms.RichTextBox richtxtCommandArea;
         private System.Windows.Forms.MenuStrip menuStrip;
         private System.Windows.Forms.ToolStripMenuItem menuStripFile;
         private System.Windows.Forms.ToolStripMenuItem menuStripHelp;
@@ -296,6 +295,7 @@
         private System.Windows.Forms.Label lblError;
         private System.Windows.Forms.Label lblFillState;
         private System.Windows.Forms.Label lblPenColor;
+        private System.Windows.Forms.TextBox txtCommandArea;
     }
 }
 
