@@ -31,7 +31,7 @@ namespace ASE_Assignment
                 {
                     if (splitCommand[0] == "rectangle")
                     {
-                        Rectangle rect = new Rectangle(cursor.Position, int.Parse(splitCommand[1]), int.Parse(splitCommand[2]));
+                        Rectangle rect = new Rectangle(cursor.Position, cursor.Fill, int.Parse(splitCommand[1]), int.Parse(splitCommand[2]));
                         rect.draw(g);
                         cursor.draw(g);
                     }
@@ -44,7 +44,7 @@ namespace ASE_Assignment
                 {
                     if (splitCommand[0] == "square")
                     {
-                        Rectangle square = new Rectangle(cursor.Position, int.Parse(splitCommand[1]), int.Parse(splitCommand[1]));
+                        Rectangle square = new Rectangle(cursor.Position, cursor.Fill, int.Parse(splitCommand[1]), int.Parse(splitCommand[1]));
                         square.draw(g);
                         cursor.draw(g);
                     }
@@ -57,7 +57,7 @@ namespace ASE_Assignment
                 {
                     if (splitCommand[0] == "circle")
                     {
-                        Circle circ = new Circle(cursor.Position, int.Parse(splitCommand[1]));
+                        Circle circ = new Circle(cursor.Position, cursor.Fill, int.Parse(splitCommand[1]));
                         circ.draw(g);
                         cursor.draw(g);
                     }
@@ -70,7 +70,7 @@ namespace ASE_Assignment
                 {
                     if (splitCommand[0] == "triangle")
                     {
-                        Triangle tri = new Triangle(cursor.Position, int.Parse(splitCommand[1]));
+                        Triangle tri = new Triangle(cursor.Position, cursor.Fill, int.Parse(splitCommand[1]));
                         tri.draw(g);
                         cursor.draw(g);
                     }
@@ -81,7 +81,7 @@ namespace ASE_Assignment
                 // --- DRAWTO COMMAND ---
                 if (splitCommand[0] == "drawto")
                 {
-                    Line line = new Line(cursor.Position, new Point(int.Parse(splitCommand[1]), int.Parse(splitCommand[2])));
+                    Line line = new Line(cursor.Position, cursor.Fill, new Point(int.Parse(splitCommand[1]), int.Parse(splitCommand[2])));
                     line.draw(g);
                     cursor.moveTo(new Point(int.Parse(splitCommand[1]), int.Parse(splitCommand[2]))); // Updates the cursor position to the end of the new line
                     cursor.draw(g);
@@ -108,6 +108,16 @@ namespace ASE_Assignment
                 if (splitCommand[0] == "clear")
                 {
                     g.Clear(Color.White);
+                }
+
+                // --- FILL COMMAND ---
+                if (splitCommand[0] == "fill" && splitCommand[1] == "on")
+                {
+                    cursor.Fill = true;
+                }
+                if (splitCommand[0] == "fill" && splitCommand[1] == "off")
+                {
+                    cursor.Fill = false;
                 }
             }
             else
