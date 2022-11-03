@@ -114,10 +114,12 @@ namespace ASE_Assignment
                 if (splitCommand[0] == "fill" && splitCommand[1] == "on")
                 {
                     cursor.Fill = true;
+                    lblFillState.Text = "fill: enabled";
                 }
                 if (splitCommand[0] == "fill" && splitCommand[1] == "off")
                 {
                     cursor.Fill = false;
+                    lblFillState.Text = "fill: disabled";
                 }
             }
             else
