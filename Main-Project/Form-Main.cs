@@ -24,17 +24,38 @@ namespace ASE_Assignment
 
             foreach (Command command in commands)
             {
-                if (command.ActionWord == Action.move)
+                switch (command.ActionWord)
                 {
-                    cursor.moveTo(new Point(command.ActionValues[0], command.ActionValues[1]));
-                    cursor.draw(g);
-                    lblCoordinates.Text = "X:" + cursor.Position.X + ", Y:" + cursor.Position.Y;
-                }
-                else
-                {
-                    Shape shape = shapeFactory.CreateShape(command, cursor.Position, cursor.Fill, cursor.PenColor);
-                    shape.draw(g);
-                    cursor.draw(g);
+                    case Action.move:
+                        {
+                            cursor.moveTo(new Point(command.ActionValues[0], command.ActionValues[1]));
+                            cursor.draw(g);
+                            lblCoordinates.Text = "X:" + cursor.Position.X + ", Y:" + cursor.Position.Y;
+                            break;
+                        }
+                    case Action.fill:
+                        {
+                            if (command.ActionValues[0] == 1)
+                            {
+                                cursor.Fill = true;
+                                lblFillState.Text = "fill: enabled";
+                            }
+                            if (command.ActionValues[0] == 0)
+                            {
+                                cursor.Fill = false;
+                                lblFillState.Text = "fill: disabled";
+                            }
+                            break;
+                        }
+                    default:
+                        {
+                            Shape shape = shapeFactory.CreateShape(command, cursor.Position, cursor.Fill, cursor.PenColor);
+                            shape.draw(g);
+                            cursor.moveTo(shape.Position);
+                            cursor.draw(g);
+                            lblCoordinates.Text = "X:" + cursor.Position.X + ", Y:" + cursor.Position.Y;
+                            break;
+                        }
                 }
             }
         }
@@ -59,52 +80,32 @@ namespace ASE_Assignment
             if (validActions.Contains(splitCommand[0])) // Checks if first word in 'command line' is in the Actions Enum, if not it's an invalid command
             {
                 //--- RECTANGLE ---
-                try
+                if (command.ActionWord == Action.rectangle)
                 {
-                    if (command.ActionWord == Action.rectangle)
-                    {
-                        shapeFactory.CreateShape(command, cursor.Position, cursor.Fill, cursor.PenColor).draw(g);
-                        cursor.draw(g);
-                    }
+                    shapeFactory.CreateShape(command, cursor.Position, cursor.Fill, cursor.PenColor).draw(g);
+                    cursor.draw(g);
                 }
-                catch (IndexOutOfRangeException) { lblError.Text = "ERROR!\nRequires at least 2 parameters \nFormat: rectangle <length> <height>\nExample: rectangle 100 150"; }
-                catch (FormatException) { lblError.Text = "ERROR!\nInteger parameters only \nFormat: rectangle <length> <height>\nExample: rectangle 100 150"; }
 
                 //--- SQUARE ---
-                try
+                if (command.ActionWord == Action.square)
                 {
-                    if (command.ActionWord == Action.square)
-                    {
-                        shapeFactory.CreateShape(command, cursor.Position, cursor.Fill, cursor.PenColor).draw(g);
-                        cursor.draw(g);
-                    }
+                    shapeFactory.CreateShape(command, cursor.Position, cursor.Fill, cursor.PenColor).draw(g);
+                    cursor.draw(g);
                 }
-                catch (IndexOutOfRangeException) { lblError.Text = "ERROR!\nRequires at least 1 parameter \nFormat: rectangle <length> <height>\nExample: rectangle 100 150"; }
-                catch (FormatException) { lblError.Text = "ERROR!\nInteger parameters only \nFormat: square <side>\nExample: square 125"; }
 
                 //--- CIRCLE ---
-                try
+                if (command.ActionWord == Action.circle)
                 {
-                    if (command.ActionWord == Action.circle)
-                    {
-                        shapeFactory.CreateShape(command, cursor.Position, cursor.Fill, cursor.PenColor).draw(g);
-                        cursor.draw(g);
-                    }
+                    shapeFactory.CreateShape(command, cursor.Position, cursor.Fill, cursor.PenColor).draw(g);
+                    cursor.draw(g);
                 }
-                catch (IndexOutOfRangeException) { lblError.Text = "ERROR!\nRequires at least 1 parameter \nFormat: circle <radius>\nExample: circle 100"; }
-                catch (FormatException) { lblError.Text = "ERROR!\nInteger parameters only \nFormat: circle <radius>\nExample: circle 100"; }
 
                 // --- TRIANGLE ---
-                try
+                if (command.ActionWord == Action.triangle)
                 {
-                    if (command.ActionWord == Action.triangle)
-                    {
-                        shapeFactory.CreateShape(command, cursor.Position, cursor.Fill, cursor.PenColor).draw(g);
-                        cursor.draw(g);
-                    }
+                    shapeFactory.CreateShape(command, cursor.Position, cursor.Fill, cursor.PenColor).draw(g);
+                    cursor.draw(g);
                 }
-                catch (IndexOutOfRangeException) { lblError.Text = "ERROR!\nRequires at least 1 parameter \nFormat: triangle <side length>\nExample: triangle 150"; }
-                catch (FormatException) { lblError.Text = "ERROR!\nInteger parameters only \nFormat: triangle <side length>\nExample: triangle 150"; }
 
                 // --- DRAWTO COMMAND ---
                 if (command.ActionWord == Action.drawto)
@@ -220,6 +221,12 @@ namespace ASE_Assignment
             //Stops the 'ding' when pressing Enter
             e.Handled = true;
             e.SuppressKeyPress = true;
+        }
+
+        private void picboxCanvas_Paint(object sender, PaintEventArgs e)
+        {
+            Graphics g = e.Graphics;
+            cursor.draw(g);
         }
     }
 }

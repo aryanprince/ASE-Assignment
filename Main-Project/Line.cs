@@ -20,6 +20,7 @@ namespace ASE_Assignment
         {
             Pen p = new Pen(PenColor, 2);
             g.DrawLine(p, Position.X, Position.Y, ToPosition.X, ToPosition.Y);
+            Position = ToPosition;
         }
     }
 }

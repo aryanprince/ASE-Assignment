@@ -60,6 +60,7 @@
             this.picboxCanvas.Size = new System.Drawing.Size(900, 500);
             this.picboxCanvas.TabIndex = 0;
             this.picboxCanvas.TabStop = false;
+            this.picboxCanvas.Paint += new System.Windows.Forms.PaintEventHandler(this.picboxCanvas_Paint);
             // 
             // txtCommandLine
             // 
