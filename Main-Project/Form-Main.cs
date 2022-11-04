@@ -22,78 +22,7 @@ namespace ASE_Assignment
             Graphics g = picboxCanvas.CreateGraphics();
             List<Command> commands = parser.ParseMultilineInput(txtCommandArea.Text);
 
-            foreach (Command command in commands)
-            {
-                switch (command.ActionWord)
-                {
-                    case Action.move:
-                        {
-                            cursor.moveTo(new Point(command.ActionValues[0], command.ActionValues[1]));
-                            cursor.draw(g);
-                            lblCoordinates.Text = "X:" + cursor.Position.X + ", Y:" + cursor.Position.Y;
-                            break;
-                        }
-                    case Action.fill:
-                        {
-                            if (command.ActionValues[0] == 1)
-                            {
-                                cursor.Fill = true;
-                                lblFillState.Text = "fill: enabled";
-                            }
-                            if (command.ActionValues[0] == 0)
-                            {
-                                cursor.Fill = false;
-                                lblFillState.Text = "fill: disabled";
-                            }
-                            break;
-                        }
-                    case Action.reset:
-                        {
-                            cursor.moveTo(new Point(0, 0));
-                            cursor.draw(g);
-                            lblCoordinates.Text = "X:" + cursor.Position.X + ", Y:" + cursor.Position.Y;
-                            lblFillState.Text = "fill: disabled";
-                            break;
-                        }
-                    case Action.clear:
-                        {
-                            picboxCanvas.Refresh();
-                            cursor.draw(g);
-                            lblCoordinates.Text = "X:" + cursor.Position.X + ", Y:" + cursor.Position.Y;
-                            lblFillState.Text = "fill: disabled";
-                            break;
-                        }
-                    case Action.pen:
-                        {
-                            if (command.ActionValues[0] == 1)
-                            {
-                                cursor.PenColor = Color.Red;
-                                lblPenColor.Text = "pen: red";
-                            }
-                            if (command.ActionValues[0] == 2)
-                            {
-                                cursor.PenColor = Color.Green;
-                                lblPenColor.Text = "pen: green";
-                            }
-                            if (command.ActionValues[0] == 3)
-                            {
-                                cursor.PenColor = Color.Blue;
-                                lblPenColor.Text = "pen: blue";
-                            }
-                            cursor.draw(g);
-                            break;
-                        }
-                    default:
-                        {
-                            Shape shape = shapeFactory.CreateShape(command, cursor.Position, cursor.Fill, cursor.PenColor);
-                            shape.draw(g);
-                            cursor.moveTo(shape.Position);
-                            cursor.draw(g);
-                            lblCoordinates.Text = "X:" + cursor.Position.X + ", Y:" + cursor.Position.Y;
-                            break;
-                        }
-                }
-            }
+            foreach (Command command in commands) { ExecuteCommand(g, command); }
         }
 
         private void btnRun_Click(object sender, EventArgs e)
@@ -110,83 +39,85 @@ namespace ASE_Assignment
             Command command = parser.ParseInput(txtCommandLine.Text);
 
             if (validActions.Contains(splitCommand[0])) // Checks if first word in 'command line' is in the Actions Enum, if not it's an invalid command
-            {
-                switch (command.ActionWord)
-                {
-                    case Action.move:
-                        {
-                            cursor.moveTo(new Point(command.ActionValues[0], command.ActionValues[1]));
-                            cursor.draw(g);
-                            lblCoordinates.Text = "X:" + cursor.Position.X + ", Y:" + cursor.Position.Y;
-                            break;
-                        }
-                    case Action.fill:
-                        {
-                            if (command.ActionValues[0] == 1)
-                            {
-                                cursor.Fill = true;
-                                lblFillState.Text = "fill: enabled";
-                            }
-                            if (command.ActionValues[0] == 0)
-                            {
-                                cursor.Fill = false;
-                                lblFillState.Text = "fill: disabled";
-                            }
-                            break;
-                        }
-                    case Action.reset:
-                        {
-                            cursor.moveTo(new Point(0, 0));
-                            cursor.draw(g);
-                            lblCoordinates.Text = "X:" + cursor.Position.X + ", Y:" + cursor.Position.Y;
-                            lblFillState.Text = "fill: disabled";
-                            break;
-                        }
-                    case Action.clear:
-                        {
-                            picboxCanvas.Refresh();
-                            cursor.draw(g);
-                            lblCoordinates.Text = "X:" + cursor.Position.X + ", Y:" + cursor.Position.Y;
-                            lblFillState.Text = "fill: disabled";
-                            break;
-                        }
-                    case Action.pen:
-                        {
-                            if (command.ActionValues[0] == 1)
-                            {
-                                cursor.PenColor = Color.Red;
-                                lblPenColor.Text = "pen: red";
-                            }
-                            if (command.ActionValues[0] == 2)
-                            {
-                                cursor.PenColor = Color.Green;
-                                lblPenColor.Text = "pen: green";
-                            }
-                            if (command.ActionValues[0] == 3)
-                            {
-                                cursor.PenColor = Color.Blue;
-                                lblPenColor.Text = "pen: blue";
-                            }
-                            cursor.draw(g);
-                            break;
-                        }
-                    default:
-                        {
-                            Shape shape = shapeFactory.CreateShape(command, cursor.Position, cursor.Fill, cursor.PenColor);
-                            shape.draw(g);
-                            cursor.moveTo(shape.Position);
-                            cursor.draw(g);
-                            lblCoordinates.Text = "X:" + cursor.Position.X + ", Y:" + cursor.Position.Y;
-                            break;
-                        }
-                }
-            }
+                ExecuteCommand(g, command);
+
             else // If the command is not part of the Action enum, it's considered invalid
-            {
                 lblError.Text = "Invalid command!";
-            }
 
             txtCommandLine.Text = "";
+        }
+
+        public void ExecuteCommand(Graphics g, Command command)
+        {
+            switch (command.ActionWord)
+            {
+                case Action.move:
+                    {
+                        cursor.moveTo(new Point(command.ActionValues[0], command.ActionValues[1]));
+                        cursor.draw(g);
+                        lblCoordinates.Text = "X:" + cursor.Position.X + ", Y:" + cursor.Position.Y;
+                        break;
+                    }
+                case Action.fill:
+                    {
+                        if (command.ActionValues[0] == 1)
+                        {
+                            cursor.Fill = true;
+                            lblFillState.Text = "fill: enabled";
+                        }
+                        if (command.ActionValues[0] == 0)
+                        {
+                            cursor.Fill = false;
+                            lblFillState.Text = "fill: disabled";
+                        }
+                        break;
+                    }
+                case Action.reset:
+                    {
+                        cursor.moveTo(new Point(0, 0));
+                        cursor.draw(g);
+                        lblCoordinates.Text = "X:" + cursor.Position.X + ", Y:" + cursor.Position.Y;
+                        lblFillState.Text = "fill: disabled";
+                        break;
+                    }
+                case Action.clear:
+                    {
+                        picboxCanvas.Refresh();
+                        cursor.draw(g);
+                        lblCoordinates.Text = "X:" + cursor.Position.X + ", Y:" + cursor.Position.Y;
+                        lblFillState.Text = "fill: disabled";
+                        break;
+                    }
+                case Action.pen:
+                    {
+                        if (command.ActionValues[0] == 1)
+                        {
+                            cursor.PenColor = Color.Red;
+                            lblPenColor.Text = "pen: red";
+                        }
+                        if (command.ActionValues[0] == 2)
+                        {
+                            cursor.PenColor = Color.Green;
+                            lblPenColor.Text = "pen: green";
+                        }
+                        if (command.ActionValues[0] == 3)
+                        {
+                            cursor.PenColor = Color.Blue;
+                            lblPenColor.Text = "pen: blue";
+                        }
+                        cursor.draw(g);
+                        break;
+                    }
+                default:
+                    {
+                        Shape shape = shapeFactory.CreateShape(command, cursor.Position, cursor.Fill, cursor.PenColor);
+                        shape.draw(g);
+                        cursor.moveTo(shape.Position);
+                        cursor.draw(g);
+                        lblCoordinates.Text = "X:" + cursor.Position.X + ", Y:" + cursor.Position.Y;
+                        break;
+                    }
+            }
         }
 
         private void btnClear_Click(object sender, EventArgs e)
