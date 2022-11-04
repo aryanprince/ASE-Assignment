@@ -161,11 +161,7 @@ namespace ASE_Assignment
 
             if (save.ShowDialog() == DialogResult.OK)
             {
-                StreamWriter writer = new StreamWriter(save.OpenFile());
-                writer.WriteLine(txtCommandArea.Text.ToString());
-
-                writer.Dispose();
-                writer.Close();
+                File.WriteAllText(save.FileName, txtCommandArea.Text);
             }
         }
 
