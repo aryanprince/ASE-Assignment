@@ -47,6 +47,8 @@
             this.lblPenColor = new System.Windows.Forms.Label();
             this.txtCommandArea = new System.Windows.Forms.TextBox();
             this.btnRunMultiline = new System.Windows.Forms.Button();
+            this.saveMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.loadMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.picboxCanvas)).BeginInit();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
@@ -119,6 +121,9 @@
             // 
             // menuStripFile
             // 
+            this.menuStripFile.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.saveMenuItem,
+            this.loadMenuItem});
             this.menuStripFile.Font = new System.Drawing.Font("FiraCode NF", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.menuStripFile.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(203)))), ((int)(((byte)(107)))));
             this.menuStripFile.Name = "menuStripFile";
@@ -259,6 +264,20 @@
             this.btnRunMultiline.UseVisualStyleBackColor = false;
             this.btnRunMultiline.Click += new System.EventHandler(this.btnRunMultiline_Click);
             // 
+            // saveMenuItem
+            // 
+            this.saveMenuItem.Name = "saveMenuItem";
+            this.saveMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.saveMenuItem.Text = "Save";
+            this.saveMenuItem.Click += new System.EventHandler(this.saveMenuItem_Click);
+            // 
+            // loadMenuItem
+            // 
+            this.loadMenuItem.Name = "loadMenuItem";
+            this.loadMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.loadMenuItem.Text = "Load";
+            this.loadMenuItem.Click += new System.EventHandler(this.loadMenuItem_Click);
+            // 
             // form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
@@ -315,6 +334,8 @@
         private System.Windows.Forms.Label lblPenColor;
         private System.Windows.Forms.TextBox txtCommandArea;
         private System.Windows.Forms.Button btnRunMultiline;
+        private System.Windows.Forms.ToolStripMenuItem saveMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem loadMenuItem;
     }
 }
 

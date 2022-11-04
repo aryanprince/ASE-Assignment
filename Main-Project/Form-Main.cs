@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -148,6 +149,37 @@ namespace ASE_Assignment
         {
             Graphics g = e.Graphics;
             cursor.draw(g);
+        }
+
+        private void saveMenuItem_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog save = new SaveFileDialog();
+            save.FileName = "Commands.txt";
+            save.Filter = "Text File | *.txt";
+            save.InitialDirectory = "C:\\";
+            save.RestoreDirectory = true;
+
+            if (save.ShowDialog() == DialogResult.OK)
+            {
+                StreamWriter writer = new StreamWriter(save.OpenFile());
+                writer.WriteLine(txtCommandArea.Text.ToString());
+
+                writer.Dispose();
+                writer.Close();
+            }
+        }
+
+        private void loadMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog load = new OpenFileDialog();
+            load.Filter = "Text File | *.txt";
+            load.InitialDirectory = "C:\\";
+            load.RestoreDirectory = true;
+
+            if (load.ShowDialog() == DialogResult.OK)
+            {
+                txtCommandArea.Text = File.ReadAllText(load.FileName);
+            }
         }
     }
 }
