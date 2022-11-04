@@ -5,6 +5,20 @@ namespace ASE_Assignment
 {
     public class Parser
     {
+        public List<Command> ParseMultilineInput(string inputFull_FromCommandArea)
+        {
+            {
+                List<Command> commands = new List<Command>();
+                //string[] splitInput = inputFull_FromCommandArea.Split(new[] { Environment.NewLine }, StringSplitOptions.None);
+                string[] splitInput = inputFull_FromCommandArea.Split('\n');
+                foreach (string input in splitInput)
+                {
+                    commands.Add(ParseInput(input));
+                }
+                return commands;
+            }
+        }
+
         public Command ParseInput(string inputFull_FromCommandLine) // ParseInput is a method that takes a string as input and returns a Command object
         {
             string[] inputSplit = inputFull_FromCommandLine.ToLower().Split(' '); // Split the input string into an array of strings, separated by spaces

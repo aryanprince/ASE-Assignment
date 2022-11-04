@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
@@ -10,9 +11,32 @@ namespace ASE_Assignment
         Cursor cursor = new Cursor();
         Parser parser = new Parser();
         ShapeFactory shapeFactory = new ShapeFactory();
+
         public form()
         {
             InitializeComponent();
+        }
+
+        private void btnRunMultiline_Click(object sender, EventArgs e)
+        {
+            Graphics g = picboxCanvas.CreateGraphics();
+            List<Command> commands = parser.ParseMultilineInput(txtCommandArea.Text);
+
+            foreach (Command command in commands)
+            {
+                if (command.ActionWord == Action.move)
+                {
+                    cursor.moveTo(new Point(command.ActionValues[0], command.ActionValues[1]));
+                    cursor.draw(g);
+                    lblCoordinates.Text = "X:" + cursor.Position.X + ", Y:" + cursor.Position.Y;
+                }
+                else
+                {
+                    Shape shape = shapeFactory.CreateShape(command, cursor.Position, cursor.Fill, cursor.PenColor);
+                    shape.draw(g);
+                    cursor.draw(g);
+                }
+            }
         }
 
         private void btnRun_Click(object sender, EventArgs e)
