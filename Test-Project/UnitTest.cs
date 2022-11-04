@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Collections.Generic;
 
 namespace ASE_Assignment.Tests
 {
@@ -298,6 +299,51 @@ namespace ASE_Assignment.Tests
             Assert.AreEqual(125, command.ActionValues[0]);
             Assert.AreEqual(210, command.ActionValues[1]);
             Assert.AreEqual(2, command.ActionValues.Length);
+        }
+    }
+
+    [TestClass()]
+    public class PartTwo
+    {
+        Parser parser = new Parser();
+
+        [TestMethod()]
+        public void ParseMultiline_DrawingRectangle_WithVariables()
+        {
+            // arrange
+            string input = "x = 10\ny = 25\nrectangle x y";
+
+            // act
+            List<Command> commands = parser.ParseMultilineInput(input);
+
+            // assert
+            Assert.AreEqual(3, commands.Count);
+        }
+
+        [TestMethod()]
+        public void ParseMultiline_DrawingCircles_WithWhileLoop()
+        {
+            // arrange
+            string input = "x = 0\n   size = 10\n   while x < 100\n   circle size\n   x = x + 10\n   size = size + 10\n   endwhile";
+
+            // act
+            List<Command> commands = parser.ParseMultilineInput(input);
+
+            // assert
+            Assert.AreEqual(7, commands.Count);
+        }
+
+        [TestMethod()]
+        public void ParseMultiline_DrawingRectangles_WithForLoop()
+        {
+            // arrange
+            string input = "i = 0\n size = 10\n for(i;i<10;i+1)\n rectangle size size\n size = size + 10\n endfor";
+
+            // act
+            List<Command> commands = parser.ParseMultilineInput(input);
+
+            // assert
+            Assert.AreEqual(6, commands.Count);
         }
     }
 }
