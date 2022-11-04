@@ -111,7 +111,7 @@ namespace ASE_Assignment
                     }
                 default:
                     {
-                        Shape shape = shapeFactory.CreateShape(command, cursor.Position, cursor.Fill, cursor.PenColor);
+                        Shape shape = shapeFactory.CreateShape(command, cursor.Position, cursor.Fill, cursor.PenColor, lblError);
                         shape.draw(g);
                         cursor.moveTo(shape.Position);
                         cursor.draw(g);
