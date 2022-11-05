@@ -7,7 +7,7 @@
     <ProjectGuid>{4985AEBE-1468-465C-803D-A1227D32899F}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>ASE_Assignment</RootNamespace>
-    <AssemblyName>ASE-Assignment</AssemblyName>
+    <AssemblyName>ASE_Assignment</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -103,6 +103,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="ASE-Assignment_TemporaryKey.pfx" />
     <None Include="ClassDiagram.cd" />
