@@ -47,7 +47,7 @@ namespace ASE_Assignment
             txtCommandLine.Text = "";
         }
 
-        public void ExecuteCommand(Graphics g, Command command)
+        private void ExecuteCommand(Graphics g, Command command)
         {
             switch (command.ActionWord)
             {
@@ -60,12 +60,12 @@ namespace ASE_Assignment
                     }
                 case Action.fill:
                     {
-                        if (command.ActionValues[0] == 1)
+                        if (command.ActionValues[0].Equals(1))
                         {
                             cursor.Fill = true;
                             lblFillState.Text = "fill: enabled";
                         }
-                        if (command.ActionValues[0] == 0)
+                        if (command.ActionValues[0].Equals(0))
                         {
                             cursor.Fill = false;
                             lblFillState.Text = "fill: disabled";
@@ -90,17 +90,17 @@ namespace ASE_Assignment
                     }
                 case Action.pen:
                     {
-                        if (command.ActionValues[0] == 1)
+                        if (command.ActionValues[0].Equals(1))
                         {
                             cursor.PenColor = Color.Red;
                             lblPenColor.Text = "pen: red";
                         }
-                        if (command.ActionValues[0] == 2)
+                        if (command.ActionValues[0].Equals(2))
                         {
                             cursor.PenColor = Color.Green;
                             lblPenColor.Text = "pen: green";
                         }
-                        if (command.ActionValues[0] == 3)
+                        if (command.ActionValues[0].Equals(3))
                         {
                             cursor.PenColor = Color.Blue;
                             lblPenColor.Text = "pen: blue";
