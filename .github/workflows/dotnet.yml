@@ -25,6 +25,3 @@ jobs:
       
     - name: Build Solution
       run: msbuild ASE_Assignment.sln
-      
-    - name: Deploy Solution
-      run: msbuild ASE-Assignment-Solution.sln /p:DeployOnBuild=true
