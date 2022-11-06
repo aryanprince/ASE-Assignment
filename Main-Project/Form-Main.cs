@@ -75,14 +75,18 @@ namespace ASE_Assignment
                 case Action.reset:
                     {
                         cursor.MoveTo(new Point(0, 0));
+                        cursor.ChangePenColor(cursor._defaultPenColor); // Resets cursor to default color (Red)
+                        cursor.ChangeFillState(cursor._defaultFill); // Resets cursor to default fill state (false ie; no fill)
                         cursor.Draw(g);
                         lblCoordinates.Text = "X:" + cursor.Position.X + ", Y:" + cursor.Position.Y;
                         lblFillState.Text = "fill: disabled";
+                        lblPenColor.Text = "pen: red";
                         break;
                     }
                 case Action.clear:
                     {
-                        picboxCanvas.Refresh();
+                        //picboxCanvas.Refresh();
+                        g.Clear(Color.White);
                         cursor.Draw(g);
                         lblCoordinates.Text = "X:" + cursor.Position.X + ", Y:" + cursor.Position.Y;
                         lblFillState.Text = "fill: disabled";
@@ -122,13 +126,20 @@ namespace ASE_Assignment
 
         private void btnClear_Click(object sender, EventArgs e)
         {
-            picboxCanvas.Refresh(); // 
-            cursor.MoveTo(new Point(0, 0)); // Resets cursor position to 0,0
+            var g = picboxCanvas.CreateGraphics();
+            g.Clear(Color.White);
+            //picboxCanvas.Refresh();
+            cursor.MoveTo(cursor._defaultPosition); // Resets cursor to default position (0,0)
+            cursor.ChangePenColor(cursor._defaultPenColor); // Resets cursor to default color (Red)
+            cursor.ChangeFillState(cursor._defaultFill); // Resets cursor to default fill state (false ie; no fill)
+            cursor.Draw(g);
 
             // Clearing all the labels in the WinForms window
             txtCommandLine.Text = "";
             lblError.Text = "";
             lblCoordinates.Text = "X:" + cursor.Position.X + ", Y:" + cursor.Position.Y;
+            lblFillState.Text = "fill: disabled";
+            lblPenColor.Text = "pen: red";
         }
 
         private void txtCommandLine_KeyDown(object sender, KeyEventArgs e)

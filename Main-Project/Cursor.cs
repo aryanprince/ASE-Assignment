@@ -21,6 +21,16 @@ namespace ASE_Assignment
             Position = position;
         }
 
+        public void ChangePenColor(Color penColor)
+        {
+            PenColor = penColor;
+        }
+
+        public void ChangeFillState(bool fillState)
+        {
+            Fill = fillState;
+        }
+
         /// <summary>
         /// Draws a cursor on a WinForms control.
         /// </summary>
