@@ -1,11 +1,11 @@
-name: CI Workflow with GitHub Actions
+name: CI Build .NET 4.7.2
 
 on:
   workflow_dispatch:
   push:
-    branches: [ master ]
+    branches: [ main ]
   pull_request:
-    branches: [ master ]
+    branches: [ main ]
 
 jobs:
   build:
@@ -20,11 +20,8 @@ jobs:
     - name: Setup NuGet
       uses: NuGet/setup-nuget@v1.0.5
       
-    - name: Restore NuGet packages
+    - name: Restore NuGet Packages
       run: nuget restore ASE_Assignment.sln
       
-    - name: Build the Solution
+    - name: Build Solution
       run: msbuild ASE_Assignment.sln
-
-    - name: Deploy solution
-      run: msbuild ASE_Assignment.sln /p:DeployOnBuild=true
