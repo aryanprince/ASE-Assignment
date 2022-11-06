@@ -1,7 +1,8 @@
 # ASE-Assignment
 LBU Assignment to make a C# WinForms program that draws shapes
 
-![](https://hits.dwyl.com/aryanprince/ASE-Assignment.svg?style=flat-square)
+![](https://hits.dwyl.com/aryanprince/ASE-Assignment.svg?style=flat-square) 
+[![CI Build](https://github.com/aryanprince/ASE-Assignment/actions/workflows/dotnet.yml/badge.svg)](https://github.com/aryanprince/ASE-Assignment/actions/workflows/dotnet.yml)
 
 ## Test Code for Program
 ```
