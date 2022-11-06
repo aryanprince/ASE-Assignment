@@ -21,7 +21,7 @@ namespace ASE_Assignment
         private void btnRunMultiline_Click(object sender, EventArgs e)
         {
             Graphics g = picboxCanvas.CreateGraphics();
-            List<Command> commands = parser.ParseMultilineInput(txtCommandArea.Text);
+            List<Command> commands = parser.ParseInput_MultiLine(txtCommandArea.Text);
 
             foreach (Command command in commands) { ExecuteCommand(g, command); }
         }
@@ -37,7 +37,7 @@ namespace ASE_Assignment
 
             var validActions = Enum.GetNames(typeof(Action));
 
-            Command command = parser.ParseInput(txtCommandLine.Text);
+            Command command = parser.ParseInput_SingleLine(txtCommandLine.Text);
 
             if (validActions.Contains(splitCommand[0])) // Checks if first word in 'command line' is in the Actions Enum, if not it's an invalid command
                 ExecuteCommand(g, command);

@@ -16,7 +16,7 @@ namespace ASE_Assignment.Tests
             string input = "rectangle 100 150";
 
             // act
-            Action action = parser.ParseActionWord(input);
+            Action action = parser.ParseAction_Command(input);
 
             // assert
             Assert.AreEqual(Action.rectangle, action);
@@ -30,7 +30,7 @@ namespace ASE_Assignment.Tests
             string input = "rectangle";
 
             // act
-            Action action = parser.ParseActionWord(input);
+            Action action = parser.ParseAction_Command(input);
 
             // assert
             Assert.AreEqual(Action.rectangle, action);
@@ -45,7 +45,7 @@ namespace ASE_Assignment.Tests
             string input = "rectangle 100 150";
 
             // act
-            Command command = parser.ParseInput(input);
+            Command command = parser.ParseInput_SingleLine(input);
 
             // assert
             Assert.AreEqual(Action.rectangle, command.ActionWord);
@@ -64,7 +64,7 @@ namespace ASE_Assignment.Tests
                 string input = "rectangle 100 150";
 
                 // act
-                Command command = parser.ParseInput(input);
+                Command command = parser.ParseInput_SingleLine(input);
 
                 // assert
                 Assert.AreEqual(Action.rectangle, command.ActionWord);
@@ -76,7 +76,7 @@ namespace ASE_Assignment.Tests
                 input = "fill on";
 
                 // act
-                command = parser.ParseInput(input);
+                command = parser.ParseInput_SingleLine(input);
 
                 // assert
                 Assert.AreEqual(Action.fill, command.ActionWord);
@@ -96,7 +96,7 @@ namespace ASE_Assignment.Tests
             string input = "circle 100 150";
 
             // act
-            Action action = parser.ParseActionWord(input);
+            Action action = parser.ParseAction_Command(input);
 
             // assert
             Assert.AreEqual(Action.circle, action);
@@ -110,7 +110,7 @@ namespace ASE_Assignment.Tests
             string input = "circle";
 
             // act
-            Action action = parser.ParseActionWord(input);
+            Action action = parser.ParseAction_Command(input);
 
             // assert
             Assert.AreEqual(Action.circle, action);
@@ -124,7 +124,7 @@ namespace ASE_Assignment.Tests
             string input = "circle 100 150";
 
             // act
-            Command command = parser.ParseInput(input);
+            Command command = parser.ParseInput_SingleLine(input);
 
             // assert
             Assert.AreEqual(Action.circle, command.ActionWord);
@@ -146,7 +146,7 @@ namespace ASE_Assignment.Tests
             string input = "square 125";
 
             // act
-            Action action = parser.ParseActionWord(input);
+            Action action = parser.ParseAction_Command(input);
 
             // assert
             Assert.AreEqual(Action.square, action);
@@ -161,7 +161,7 @@ namespace ASE_Assignment.Tests
             string input = "square";
 
             // act
-            Action action = parser.ParseActionWord(input);
+            Action action = parser.ParseAction_Command(input);
 
             // assert
             Assert.AreEqual(Action.square, action);
@@ -176,7 +176,7 @@ namespace ASE_Assignment.Tests
             string input = "square 125";
 
             // act
-            Command command = parser.ParseInput(input);
+            Command command = parser.ParseInput_SingleLine(input);
 
             // assert
             Assert.AreEqual(Action.square, command.ActionWord);
@@ -199,7 +199,7 @@ namespace ASE_Assignment.Tests
             string input = "triangle 225";
 
             // act
-            Action action = parser.ParseActionWord(input);
+            Action action = parser.ParseAction_Command(input);
 
             // assert
             Assert.AreEqual(Action.triangle, action);
@@ -215,7 +215,7 @@ namespace ASE_Assignment.Tests
             string input = "triangle";
 
             // act
-            Action action = parser.ParseActionWord(input);
+            Action action = parser.ParseAction_Command(input);
 
             // assert
             Assert.AreEqual(Action.triangle, action);
@@ -231,7 +231,7 @@ namespace ASE_Assignment.Tests
             string input = "triangle 225";
 
             // act
-            Command command = parser.ParseInput(input);
+            Command command = parser.ParseInput_SingleLine(input);
 
             // assert
             Assert.AreEqual(Action.triangle, command.ActionWord);
@@ -254,7 +254,7 @@ namespace ASE_Assignment.Tests
             string input = "drawto 125 210";
 
             // act
-            Action action = parser.ParseActionWord(input);
+            Action action = parser.ParseAction_Command(input);
 
             // assert
             Assert.AreEqual(Action.drawto, action);
@@ -271,7 +271,7 @@ namespace ASE_Assignment.Tests
             string input = "drawto";
 
             // act
-            Action action = parser.ParseActionWord(input);
+            Action action = parser.ParseAction_Command(input);
 
             // assert
             Assert.AreEqual(Action.drawto, action);
@@ -288,7 +288,7 @@ namespace ASE_Assignment.Tests
             string input = "drawto 125 210";
 
             // act
-            Command command = parser.ParseInput(input);
+            Command command = parser.ParseInput_SingleLine(input);
 
             // assert
             Assert.AreEqual(Action.drawto, command.ActionWord);
@@ -314,7 +314,7 @@ namespace ASE_Assignment.Tests
             string input = "x = 10\ny = 25\nrectangle x y";
 
             // act
-            List<Command> commands = parser.ParseMultilineInput(input);
+            List<Command> commands = parser.ParseInput_MultiLine(input);
 
             // assert
             Assert.AreEqual(3, commands.Count);
@@ -327,7 +327,7 @@ namespace ASE_Assignment.Tests
             string input = "x = 0\n   size = 10\n   while x < 100\n   circle size\n   x = x + 10\n   size = size + 10\n   endwhile";
 
             // act
-            List<Command> commands = parser.ParseMultilineInput(input);
+            List<Command> commands = parser.ParseInput_MultiLine(input);
 
             // assert
             Assert.AreEqual(7, commands.Count);
@@ -340,7 +340,7 @@ namespace ASE_Assignment.Tests
             string input = "i = 0\n size = 10\n for(i;i<10;i+1)\n rectangle size size\n size = size + 10\n endfor";
 
             // act
-            List<Command> commands = parser.ParseMultilineInput(input);
+            List<Command> commands = parser.ParseInput_MultiLine(input);
 
             // assert
             Assert.AreEqual(6, commands.Count);
