@@ -29,7 +29,7 @@ namespace ASE_Assignment
         private void btnRun_Click(object sender, EventArgs e)
         {
             Graphics g = picboxCanvas.CreateGraphics();
-            cursor.draw(g);
+            cursor.Draw(g);
 
             string fullCommand = txtCommandLine.Text.ToLower();
             string[] splitCommand = fullCommand.Split(' ');
@@ -39,11 +39,10 @@ namespace ASE_Assignment
 
             Command command = parser.ParseInput_SingleLine(txtCommandLine.Text);
 
-            if (validActions.Contains(splitCommand[0])) // Checks if first word in 'command line' is in the Actions Enum, if not it's an invalid command
-                ExecuteCommand(g, command);
-
-            else // If the command is not part of the Action enum, it's considered invalid
+            if (!validActions.Contains(splitCommand[0])) // Checks if first word in 'command line' is in the Actions Enum, if not it's an invalid command
                 lblError.Text = "Invalid command!";
+
+            ExecuteCommand(g, command);
 
             txtCommandLine.Text = "";
         }
@@ -54,8 +53,8 @@ namespace ASE_Assignment
             {
                 case Action.move:
                     {
-                        cursor.moveTo(new Point(command.ActionValues[0], command.ActionValues[1]));
-                        cursor.draw(g);
+                        cursor.MoveTo(new Point(command.ActionValues[0], command.ActionValues[1]));
+                        cursor.Draw(g);
                         lblCoordinates.Text = "X:" + cursor.Position.X + ", Y:" + cursor.Position.Y;
                         break;
                     }
@@ -75,8 +74,8 @@ namespace ASE_Assignment
                     }
                 case Action.reset:
                     {
-                        cursor.moveTo(new Point(0, 0));
-                        cursor.draw(g);
+                        cursor.MoveTo(new Point(0, 0));
+                        cursor.Draw(g);
                         lblCoordinates.Text = "X:" + cursor.Position.X + ", Y:" + cursor.Position.Y;
                         lblFillState.Text = "fill: disabled";
                         break;
@@ -84,7 +83,7 @@ namespace ASE_Assignment
                 case Action.clear:
                     {
                         picboxCanvas.Refresh();
-                        cursor.draw(g);
+                        cursor.Draw(g);
                         lblCoordinates.Text = "X:" + cursor.Position.X + ", Y:" + cursor.Position.Y;
                         lblFillState.Text = "fill: disabled";
                         break;
@@ -106,15 +105,15 @@ namespace ASE_Assignment
                             cursor.PenColor = Color.Blue;
                             lblPenColor.Text = "pen: blue";
                         }
-                        cursor.draw(g);
+                        cursor.Draw(g);
                         break;
                     }
                 default:
                     {
                         Shape shape = shapeFactory.CreateShape(command, cursor.Position, cursor.Fill, cursor.PenColor, lblError);
-                        shape.draw(g);
-                        cursor.moveTo(shape.Position);
-                        cursor.draw(g);
+                        shape.Draw(g);
+                        cursor.MoveTo(shape.Position);
+                        cursor.Draw(g);
                         lblCoordinates.Text = "X:" + cursor.Position.X + ", Y:" + cursor.Position.Y;
                         break;
                     }
@@ -124,7 +123,7 @@ namespace ASE_Assignment
         private void btnClear_Click(object sender, EventArgs e)
         {
             picboxCanvas.Refresh(); // 
-            cursor.moveTo(new Point(0, 0)); // Resets cursor position to 0,0
+            cursor.MoveTo(new Point(0, 0)); // Resets cursor position to 0,0
 
             // Clearing all the labels in the WinForms window
             txtCommandLine.Text = "";
@@ -148,7 +147,7 @@ namespace ASE_Assignment
         private void picboxCanvas_Paint(object sender, PaintEventArgs e)
         {
             Graphics g = e.Graphics;
-            cursor.draw(g);
+            cursor.Draw(g);
         }
 
         private void saveMenuItem_Click(object sender, EventArgs e)

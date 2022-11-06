@@ -12,27 +12,30 @@ namespace ASE_Assignment
         /// <param name="inputFull">String input from the Text Box.</param>
         /// <returns>Command object containing an action and parameters.</returns>
         /// <exception cref="FormatException"></exception>
-        public Command ParseInput_SingleLine(string inputFull) // ParseInput_SingleLine is a method that takes a string as input and returns a Command object
+        public Command ParseInput_SingleLine(string inputFull)
         {
-            string[] inputSplitBySpaces = inputFull.ToLower().Split(' '); // Split the input string into an array of strings, separated by spaces
+            // Split the input string into an array of strings, separated by spaces
+            var inputSplitBySpaces = inputFull.ToLower().Split(' ');
 
-            if (inputSplitBySpaces.Length > 3) // Invalid when more than 3 words
+            // Invalid when more than 3 words are passed to the parser
+            if (inputSplitBySpaces.Length > 3)
                 throw new FormatException();
 
-            string stringCommand = inputSplitBySpaces[0];
+            // Parses the command string
+            var stringCommand = inputSplitBySpaces[0];
+            var actionWord = ParseAction_Command(stringCommand);
 
-            List<string> stringParamsList = new List<string>();
+            // Parses the parameters of the command
+            var stringParamsList = new List<string>();
             for (int i = 1; i < inputSplitBySpaces.Length; i++)
             {
                 stringParamsList.Add(inputSplitBySpaces[i]);
             }
-            string[] stringParams = stringParamsList.ToArray();
+            var stringParams = stringParamsList.ToArray();
+            var actionParams = ParseAction_CommandParameters(stringParams);
 
-
-            Action actionWord = ParseAction_Command(stringCommand); // Set the ActionWord property of the Command object to the Action enum value returned by ParseAction
-            int[] actionParams = ParseAction_CommandParameters(stringParams); // Set the ActionValues property of the Command object to the array of integers returned by ParseValues
-
-            return new Command(actionWord, actionParams); // Creates and returns a Command object
+            // Uses the parsed command string and command parameters to create and return a Command object
+            return new Command(actionWord, actionParams);
         }
 
         /// <summary>
@@ -42,9 +45,12 @@ namespace ASE_Assignment
         /// <returns>A list of Command objects, each containing an action and parameters.</returns>
         public List<Command> ParseInput_MultiLine(string inputFull)
         {
-            List<Command> commandsList = new List<Command>();
-            string[] inputSplitByLines = inputFull.Split('\n');
-            inputSplitByLines.ToList().ForEach(input => commandsList.Add(ParseInput_SingleLine(input))); //ForEach command from System.Linq used here instead of a typical for-each loop
+            // Splits the multi-line string by a new line and stores this in a new list
+            var commandsList = new List<Command>();
+            var inputSplitByLines = inputFull.Split('\n');
+
+            // Loops around the list of commands, calling the single line parser on every element in the commandsList list
+            inputSplitByLines.ToList().ForEach(input => commandsList.Add(ParseInput_SingleLine(input))); // ForEach command from System.LINQ used here instead of a typical for-each loop
             return commandsList;
         }
 
@@ -52,11 +58,12 @@ namespace ASE_Assignment
         /// Parses the first word from ParseInput_SingleLine() to determine an action.
         /// </summary>
         /// <param name="input">String value for an Action.</param>
-        /// <returns>An Action enum representing a command for the Command class.</returns>
+        /// <returns>An Action enum representing a command for the Command class, or Action.none if nothing is found.</returns>
         public Action ParseAction_Command(string input)
         {
-            input = input.Split()[0].Trim().ToLower(); // Cleans the input param by removing any extra words (if any) in the input string, trims leading/trailing spaces, and makes it lowercase
+            input = input.Split()[0].Trim().ToLower(); // Cleans the input string by removing any extra words (if any) in the input string
 
+            // Returns an appropriate Action enum for a given string
             switch (input)
             {
                 case "rectangle":
@@ -91,8 +98,7 @@ namespace ASE_Assignment
         /// <returns>An integer array of parameters for the Command class.</returns>
         public int[] ParseAction_CommandParameters(string[] inputStringArray)
         {
-            int[] inputIntArray = Array.ConvertAll(inputStringArray, int.Parse);
-
+            var inputIntArray = Array.ConvertAll(inputStringArray, int.Parse);
             return inputIntArray;
         }
     }

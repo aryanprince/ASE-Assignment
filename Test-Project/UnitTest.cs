@@ -310,6 +310,8 @@ namespace ASE_Assignment.Tests
         [TestMethod()]
         public void ParseMultiline_DrawingRectangle_WithVariables()
         {
+            // Creates a couple of variables and attempts to draw a rectangle with the variable values for dimensions.
+
             // arrange
             string input = "x = 10\ny = 25\nrectangle x y";
 
@@ -323,6 +325,8 @@ namespace ASE_Assignment.Tests
         [TestMethod()]
         public void ParseMultiline_DrawingCircles_WithWhileLoop()
         {
+            // Creates and starts a while loop to draw increasingly larger circles with the help of two counter variables.
+
             // arrange
             string input = "x = 0\n   size = 10\n   while x < 100\n   circle size\n   x = x + 10\n   size = size + 10\n   endwhile";
 
@@ -336,8 +340,10 @@ namespace ASE_Assignment.Tests
         [TestMethod()]
         public void ParseMultiline_DrawingRectangles_WithForLoop()
         {
+            // Creates and starts a for loop to draw increasingly smaller rectangles with the help of a couple of counter variables.
+
             // arrange
-            string input = "i = 0\n size = 10\n for(i;i<10;i+1)\n rectangle size size\n size = size + 10\n endfor";
+            string input = "x = 10\n size = 100\n for(x;x<10;x-1)\n rectangle size size\n size = size - 10\n endfor";
 
             // act
             List<Command> commands = parser.ParseInput_MultiLine(input);
