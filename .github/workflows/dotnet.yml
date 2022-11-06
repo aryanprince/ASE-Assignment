@@ -21,10 +21,10 @@ jobs:
       uses: NuGet/setup-nuget@v1.0.5
       
     - name: Restore NuGet packages
-      run: nuget restore ASE-Assignment-Solution.sln
+      run: nuget restore ASE_Assignment.sln
       
     - name: Build the Solution
-      run: msbuild ASE-Assignment-Solution.sln
+      run: msbuild ASE_Assignment.sln
 
     - name: Deploy solution
-      run: msbuild ASE-Assignment-Solution.sln /p:DeployOnBuild=true
+      run: msbuild ASE_Assignment.sln /p:DeployOnBuild=true
