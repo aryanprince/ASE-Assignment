@@ -5,9 +5,9 @@ namespace ASE_Assignment
     public abstract class Shape
     {
         // Sets up default values for the blank constructor when the user doesn't pass any values. Currently unused in this program.
-        public readonly Point _defaultPosition = new Point(0, 0);
-        public readonly bool _defaultFill = false;
-        public readonly Color _defaultPenColor = Color.Red;
+        public readonly Point DefaultPosition = new Point(0, 0);
+        public readonly bool DefaultFill = false;
+        public readonly Color DefaultPenColor = Color.Red;
 
         // Properties for other values used in the class.
         public Point Position { get; set; } // Position of the cursor
@@ -19,9 +19,9 @@ namespace ASE_Assignment
         /// </summary>
         protected Shape()
         {
-            Position = _defaultPosition;
-            Fill = _defaultFill;
-            PenColor = _defaultPenColor;
+            Position = DefaultPosition;
+            Fill = DefaultFill;
+            PenColor = DefaultPenColor;
         }
 
         /// <summary>

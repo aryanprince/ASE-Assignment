@@ -75,8 +75,8 @@ namespace ASE_Assignment
                 case Action.reset:
                     {
                         cursor.MoveTo(new Point(0, 0));
-                        cursor.ChangePenColor(cursor._defaultPenColor); // Resets cursor to default color (Red)
-                        cursor.ChangeFillState(cursor._defaultFill); // Resets cursor to default fill state (false ie; no fill)
+                        cursor.ChangePenColor(cursor.DefaultPenColor); // Resets cursor to default color (Red)
+                        cursor.ChangeFillState(cursor.DefaultFill); // Resets cursor to default fill state (false ie; no fill)
                         cursor.Draw(g);
                         lblCoordinates.Text = "X:" + cursor.Position.X + ", Y:" + cursor.Position.Y;
                         lblFillState.Text = "fill: disabled";
@@ -129,9 +129,9 @@ namespace ASE_Assignment
             var g = picboxCanvas.CreateGraphics();
             g.Clear(Color.White);
             //picboxCanvas.Refresh();
-            cursor.MoveTo(cursor._defaultPosition); // Resets cursor to default position (0,0)
-            cursor.ChangePenColor(cursor._defaultPenColor); // Resets cursor to default color (Red)
-            cursor.ChangeFillState(cursor._defaultFill); // Resets cursor to default fill state (false ie; no fill)
+            cursor.MoveTo(cursor.DefaultPosition); // Resets cursor to default position (0,0)
+            cursor.ChangePenColor(cursor.DefaultPenColor); // Resets cursor to default color (Red)
+            cursor.ChangeFillState(cursor.DefaultFill); // Resets cursor to default fill state (false ie; no fill)
             cursor.Draw(g);
 
             // Clearing all the labels in the WinForms window
