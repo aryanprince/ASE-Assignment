@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
-using System.Linq;
 using System.Windows.Forms;
 
 namespace ASE_Assignment
@@ -23,7 +22,14 @@ namespace ASE_Assignment
             Graphics g = picboxCanvas.CreateGraphics();
             List<Command> commands = parser.ParseInput_MultiLine(txtCommandArea.Text);
 
-            foreach (Command command in commands) { ExecuteCommand(g, command); }
+            try
+            {
+                foreach (Command command in commands) { ExecuteCommand(g, command); }
+            }
+            catch
+            {
+
+            }
         }
 
         private void btnRun_Click(object sender, EventArgs e)
@@ -35,22 +41,28 @@ namespace ASE_Assignment
             string[] splitCommand = fullCommand.Split(' ');
             lblError.Text = "";
 
-            var validActions = Enum.GetNames(typeof(Action));
-
-            Command command = parser.ParseInput_SingleLine(txtCommandLine.Text);
-
-            if (!validActions.Contains(splitCommand[0])) // Checks if first word in 'command line' is in the Actions Enum, if not it's an invalid command
-                lblError.Text = "Invalid command!";
-
-            ExecuteCommand(g, command);
-
-            txtCommandLine.Text = "";
+            try
+            {
+                Command command = parser.ParseInput_SingleLine(txtCommandLine.Text);
+                ExecuteCommand(g, command);
+                txtCommandLine.Text = "";
+            }
+            catch (Exception exception)
+            {
+                lblError.Text = exception.Message;
+            }
         }
 
         private void ExecuteCommand(Graphics g, Command command)
         {
-            switch (command.ActionWord)
+            switch (command.ActionWord) // sample
             {
+                case Action.run:
+                    {
+                        List<Command> commands = parser.ParseInput_MultiLine(txtCommandArea.Text);
+                        foreach (Command c in commands) { ExecuteCommand(g, c); }
+                        break;
+                    }
                 case Action.move:
                     {
                         cursor.MoveTo(new Point(command.ActionValues[0], command.ActionValues[1]));
@@ -166,7 +178,6 @@ namespace ASE_Assignment
             SaveFileDialog save = new SaveFileDialog();
             save.FileName = "Commands.txt";
             save.Filter = "Text File | *.txt";
-            save.InitialDirectory = "C:\\";
             save.RestoreDirectory = true;
 
             if (save.ShowDialog() == DialogResult.OK)
@@ -179,7 +190,6 @@ namespace ASE_Assignment
         {
             OpenFileDialog load = new OpenFileDialog();
             load.Filter = "Text File | *.txt";
-            load.InitialDirectory = "C:\\";
             load.RestoreDirectory = true;
 
             if (load.ShowDialog() == DialogResult.OK)

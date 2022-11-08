@@ -19,11 +19,18 @@ namespace ASE_Assignment
 
             // Invalid when more than 3 words are passed to the parser
             if (inputSplitBySpaces.Length > 3)
-                throw new FormatException();
+                throw new Exception("Too many parameters!");
 
             // Parses the command string
             var stringCommand = inputSplitBySpaces[0];
             var actionWord = ParseAction_Command(stringCommand);
+
+            if (actionWord == Action.none)
+                throw new Exception("Invalid command!");
+            if (actionWord == Action.run)
+            {
+                return new Command(actionWord, null);
+            }
 
             // Parses the parameters of the command
             var stringParamsList = new List<string>();
@@ -32,6 +39,14 @@ namespace ASE_Assignment
                 stringParamsList.Add(inputSplitBySpaces[i]);
             }
             var stringParams = stringParamsList.ToArray();
+
+            // Checks if the string parameter contains only numbers before parsing them
+            foreach (var s in stringParams)
+            {
+                if (!s.All(char.IsDigit))
+                    throw new System.Exception("ERROR: Invalid parameters, please use int!");
+            }
+
             var actionParams = ParseAction_CommandParameters(stringParams);
 
             // Uses the parsed command string and command parameters to create and return a Command object
@@ -47,7 +62,7 @@ namespace ASE_Assignment
         {
             // Splits the multi-line string by a new line and stores this in a new list
             var commandsList = new List<Command>();
-            var inputSplitByLines = inputFull.Split('\n');
+            var inputSplitByLines = inputFull.Split(new char[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries); // Windows splits newlines by '\r\n' so here we split by 2 chars and remove any empty string split entries
 
             // Loops around the list of commands, calling the single line parser on every element in the commandsList list
             inputSplitByLines.ToList().ForEach(input => commandsList.Add(ParseInput_SingleLine(input))); // ForEach command from System.LINQ used here instead of a typical for-each loop
