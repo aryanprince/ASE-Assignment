@@ -11,17 +11,7 @@ namespace ASE_Assignment
             switch (command.ActionWord)
             {
                 case Action.rectangle:
-                    {
-                        try
-                        {
-                            return new Rectangle(position, fill, penColor, command.ActionValues[0], command.ActionValues[1]);
-                        }
-                        catch (IndexOutOfRangeException)
-                        {
-                            errorLabel.Text = "Invalid command!\nRectangle requires 2 parameters.";
-                            break;
-                        }
-                    }
+                    return new Rectangle(position, fill, penColor, command.ActionValues[0], command.ActionValues[1]);
                 case Action.square:
                     return new Rectangle(position, fill, penColor, command.ActionValues[0], command.ActionValues[0]);
                 case Action.circle:
@@ -31,7 +21,7 @@ namespace ASE_Assignment
                 case Action.drawto:
                     return new Line(position, fill, penColor, new Point(command.ActionValues[0], command.ActionValues[1]));
                 default:
-                    break; ;
+                    break;
             }
             return null;
         }

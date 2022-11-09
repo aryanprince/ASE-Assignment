@@ -44,7 +44,7 @@ namespace ASE_Assignment
             foreach (var s in stringParams)
             {
                 if (!s.All(char.IsDigit))
-                    throw new System.Exception("ERROR: Invalid parameters, please use int!");
+                    throw new Exception("ERROR: Invalid parameters, please use int!");
             }
 
             var actionParams = ParseAction_CommandParameters(stringParams);

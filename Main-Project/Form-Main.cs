@@ -20,36 +20,38 @@ namespace ASE_Assignment
         private void btnRunMultiline_Click(object sender, EventArgs e)
         {
             Graphics g = picboxCanvas.CreateGraphics();
-            List<Command> commands = parser.ParseInput_MultiLine(txtCommandArea.Text);
 
             try
             {
+                List<Command> commands = parser.ParseInput_MultiLine(txtCommandArea.Text);
                 foreach (Command command in commands) { ExecuteCommand(g, command); }
             }
-            catch
+            catch (Exception exception)
             {
-
+                lblError.Text = "ML: " + exception.Message;
             }
         }
 
         private void btnRun_Click(object sender, EventArgs e)
         {
             Graphics g = picboxCanvas.CreateGraphics();
-            cursor.Draw(g);
-
-            string fullCommand = txtCommandLine.Text.ToLower();
-            string[] splitCommand = fullCommand.Split(' ');
-            lblError.Text = "";
 
             try
             {
+                cursor.Draw(g); // Draws a new cursor before every command incase it gets covered by another shape
+                string fullCommand = txtCommandLine.Text.ToLower();
+                string[] splitCommand = fullCommand.Split(' ');
+
                 Command command = parser.ParseInput_SingleLine(txtCommandLine.Text);
                 ExecuteCommand(g, command);
+
+                // Resets all the labels if execute command works
+                lblError.Text = "";
                 txtCommandLine.Text = "";
             }
             catch (Exception exception)
             {
-                lblError.Text = exception.Message;
+                lblError.Text = "SL: " + exception.Message;
             }
         }
 
