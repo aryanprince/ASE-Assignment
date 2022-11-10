@@ -1,14 +1,11 @@
-name: "PR Labeller"
+name: PR Labeller
 
 on:
   pull_request_target:
-    types:
-      - opened
-      - edited
-      - synchronize
+    types: [ opened, reopened, edited, synchronize ]
 
 jobs:
-  main:
+  validate-pr:
     name: Validate PR title
     runs-on: ubuntu-latest
     steps:
