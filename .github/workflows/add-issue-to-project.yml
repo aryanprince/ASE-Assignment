@@ -1,0 +1,17 @@
+name: Add Issue To Project
+
+on:
+  issues:
+    types:
+      - opened
+      - reopened
+
+jobs:
+  add-to-project:
+    name: Add issue to project
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/add-to-project@RELEASE_VERSION
+        with:
+          project-url: https://github.com/users/aryanprince/projects/2
+          github-token: ${{ secrets.ADD_TO_PROJECT_PAT }}
