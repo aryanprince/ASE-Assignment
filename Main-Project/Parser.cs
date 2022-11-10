@@ -101,6 +101,8 @@ namespace ASE_Assignment
                     return Action.fill;
                 case "pen":
                     return Action.pen;
+                case "run":
+                    return Action.run;
                 default:
                     return Action.none;
             }
