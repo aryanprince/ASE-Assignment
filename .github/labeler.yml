@@ -1,0 +1,9 @@
+"🤖 testing":
+  - any: ["./Test-Project/**/*"]
+
+"🏭 ci":
+  - any: [".github/**/*"]
+
+"✏️ design":
+  - any: ["./Main-Project/Form-Main.Designer.cs"]
+
