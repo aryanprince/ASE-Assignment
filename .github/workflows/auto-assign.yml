@@ -1,0 +1,21 @@
+name: Auto Assign
+
+on:
+    issues:
+        types: [opened]
+    pull_request:
+        types: [opened, edited, synchronize, reopened]
+
+jobs:
+    auto-assign:
+        runs-on: ubuntu-latest
+        steps:
+            - name: 'Auto-assign Issue'
+              uses: pozil/auto-assign-issue@v1
+              with:
+                  allowSelfAssign: true
+            - name: 'Auto-assign PR'
+              uses: pozil/auto-assign-issue@v1
+              with:
+                  repo-token: ${{ secrets.MY_PERSONAL_ACCESS_TOKEN }}
+                  allowSelfAssign: true
