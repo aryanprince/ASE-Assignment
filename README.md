@@ -4,6 +4,11 @@ LBU Assignment to make a C# WinForms program that draws shapes
 ![](https://hits.dwyl.com/aryanprince/ASE-Assignment.svg?style=flat-square) 
 [![CI Build](https://github.com/aryanprince/ASE-Assignment/actions/workflows/ci-build.yml/badge.svg)](https://github.com/aryanprince/ASE-Assignment/actions/workflows/ci-build.yml)
 
+<!-- 
+# Issues badge doesn't work cus repo not public
+[![GitHub issues](https://img.shields.io/github/issues/aryanprince/ASE-Assignment?logo=github)](https://github.com/aryanprince/ASE-Assignment/issues) 
+-->
+
 ## Test Code for Program
 ```
 rectangle 150 200
