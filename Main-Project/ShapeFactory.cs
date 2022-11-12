@@ -1,12 +1,10 @@
-﻿using System;
-using System.Drawing;
-using System.Windows.Forms;
+﻿using System.Drawing;
 
 namespace ASE_Assignment
 {
     public class ShapeFactory
     {
-        public Shape CreateShape(Command command, Point position, bool fill, Color penColor, Label errorLabel)
+        public Shape CreateShape(Command command, Point position, bool fill, Color penColor)
         {
             switch (command.ActionWord)
             {
