@@ -11,15 +11,13 @@ namespace ASE_Assignment
                 case Action.rectangle:
                     return new Rectangle(position, fill, penColor, command.ActionValues[0], command.ActionValues[1]);
                 case Action.square:
-                    return new Rectangle(position, fill, penColor, command.ActionValues[0], command.ActionValues[0]);
+                    return new Square(position, fill, penColor, command.ActionValues[0]);
                 case Action.circle:
                     return new Circle(position, fill, penColor, command.ActionValues[0]);
                 case Action.triangle:
                     return new Triangle(position, fill, penColor, command.ActionValues[0]);
                 case Action.drawto:
                     return new Line(position, fill, penColor, new Point(command.ActionValues[0], command.ActionValues[1]));
-                default:
-                    break;
             }
             return null;
         }
