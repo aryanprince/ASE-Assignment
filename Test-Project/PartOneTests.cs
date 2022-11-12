@@ -163,6 +163,7 @@ namespace Unit_Tests
             Action action = _parser.ParseAction_Command(input);
 
             // assert
+            Assert.IsNotNull(action);
             Assert.AreEqual(Action.circle, action);
             Assert.AreNotEqual(Action.rectangle, action);
         }
@@ -177,6 +178,7 @@ namespace Unit_Tests
             Action action = _parser.ParseAction_Command(input);
 
             // assert
+            Assert.IsNotNull(action);
             Assert.AreEqual(Action.circle, action);
             Assert.AreNotEqual(Action.rectangle, action);
         }
@@ -191,6 +193,7 @@ namespace Unit_Tests
             Action action = _parser.ParseAction_Command(input);
 
             // assert
+            Assert.IsNotNull(action);
             Assert.AreEqual(Action.circle, action);
             Assert.AreNotEqual(Action.rectangle, action);
         }
@@ -205,6 +208,7 @@ namespace Unit_Tests
             Command command = _parser.ParseInput_SingleLine(input);
 
             // assert
+            Assert.IsNotNull(command);
             Assert.AreEqual(Action.circle, command.ActionWord);
             Assert.AreEqual(100, command.ActionValues[0]);
             Assert.AreEqual(150, command.ActionValues[1]);
@@ -221,6 +225,7 @@ namespace Unit_Tests
             Command command = _parser.ParseInput_SingleLine(input);
 
             // assert
+            Assert.IsNotNull(command);
             Assert.AreEqual(Action.circle, command.ActionWord);
             Assert.AreEqual(100, command.ActionValues[0]);
             Assert.AreEqual(150, command.ActionValues[1]);
@@ -295,6 +300,7 @@ namespace Unit_Tests
             Action action = _parser.ParseAction_Command(input);
 
             // assert
+            Assert.IsNotNull(action);
             Assert.AreEqual(Action.square, action);
             Assert.AreNotEqual(Action.circle, action);
             Assert.AreNotEqual(Action.rectangle, action);
@@ -310,6 +316,7 @@ namespace Unit_Tests
             Action action = _parser.ParseAction_Command(input);
 
             // assert
+            Assert.IsNotNull(action);
             Assert.AreEqual(Action.square, action);
             Assert.AreNotEqual(Action.circle, action);
             Assert.AreNotEqual(Action.rectangle, action);
@@ -325,6 +332,7 @@ namespace Unit_Tests
             Action action = _parser.ParseAction_Command(input);
 
             // assert
+            Assert.IsNotNull(action);
             Assert.AreEqual(Action.square, action);
             Assert.AreNotEqual(Action.circle, action);
             Assert.AreNotEqual(Action.rectangle, action);
@@ -340,6 +348,7 @@ namespace Unit_Tests
             Command command = _parser.ParseInput_SingleLine(input);
 
             // assert
+            Assert.IsNotNull(command);
             Assert.AreEqual(Action.square, command.ActionWord);
             Assert.AreNotEqual(Action.circle, command.ActionWord);
             Assert.AreNotEqual(Action.rectangle, command.ActionWord);
@@ -357,6 +366,7 @@ namespace Unit_Tests
             Command command = _parser.ParseInput_SingleLine(input);
 
             // assert
+            Assert.IsNotNull(command);
             Assert.AreEqual(Action.square, command.ActionWord);
             Assert.AreNotEqual(Action.circle, command.ActionWord);
             Assert.AreNotEqual(Action.rectangle, command.ActionWord);
@@ -434,6 +444,7 @@ namespace Unit_Tests
             Action action = _parser.ParseAction_Command(input);
 
             // assert
+            Assert.IsNotNull(action);
             Assert.AreEqual(Action.triangle, action);
             Assert.AreNotEqual(Action.circle, action);
             Assert.AreNotEqual(Action.rectangle, action);
@@ -450,6 +461,7 @@ namespace Unit_Tests
             Action action = _parser.ParseAction_Command(input);
 
             // assert
+            Assert.IsNotNull(action);
             Assert.AreEqual(Action.triangle, action);
             Assert.AreNotEqual(Action.circle, action);
             Assert.AreNotEqual(Action.rectangle, action);
@@ -466,6 +478,7 @@ namespace Unit_Tests
             Action action = _parser.ParseAction_Command(input);
 
             // assert
+            Assert.IsNotNull(action);
             Assert.AreEqual(Action.triangle, action);
             Assert.AreNotEqual(Action.circle, action);
             Assert.AreNotEqual(Action.rectangle, action);
@@ -482,6 +495,7 @@ namespace Unit_Tests
             Command command = _parser.ParseInput_SingleLine(input);
 
             // assert
+            Assert.IsNotNull(command);
             Assert.AreEqual(Action.triangle, command.ActionWord);
             Assert.AreNotEqual(Action.rectangle, command.ActionWord);
             Assert.AreNotEqual(Action.square, command.ActionWord);
@@ -499,6 +513,7 @@ namespace Unit_Tests
             Command command = _parser.ParseInput_SingleLine(input);
 
             // assert
+            Assert.IsNotNull(command);
             Assert.AreEqual(Action.triangle, command.ActionWord);
             Assert.AreNotEqual(Action.rectangle, command.ActionWord);
             Assert.AreNotEqual(Action.square, command.ActionWord);
@@ -578,6 +593,7 @@ namespace Unit_Tests
             Action action = _parser.ParseAction_Command(input);
 
             // assert
+            Assert.IsNotNull(action);
             Assert.AreEqual(Action.drawto, action);
             Assert.AreNotEqual(Action.circle, action);
             Assert.AreNotEqual(Action.rectangle, action);
@@ -595,6 +611,7 @@ namespace Unit_Tests
             Action action = _parser.ParseAction_Command(input);
 
             // assert
+            Assert.IsNotNull(action);
             Assert.AreEqual(Action.drawto, action);
             Assert.AreNotEqual(Action.circle, action);
             Assert.AreNotEqual(Action.rectangle, action);
@@ -612,6 +629,7 @@ namespace Unit_Tests
             Command command = _parser.ParseInput_SingleLine(input);
 
             // assert
+            Assert.IsNotNull(command);
             Assert.AreEqual(Action.drawto, command.ActionWord);
             Assert.AreNotEqual(Action.circle, command.ActionWord);
             Assert.AreNotEqual(Action.rectangle, command.ActionWord);
