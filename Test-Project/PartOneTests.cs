@@ -333,6 +333,93 @@ namespace Unit_Tests
             Assert.AreEqual(125, command.ActionValues[0]);
             Assert.AreEqual(1, command.ActionValues.Length);
         }
+
+        [TestMethod()]
+        public void ParseInput_DrawingSquareWithZeroParameters()
+        {
+            //arrange
+            string input = "square";
+
+            // act
+            Command command = _parser.ParseInput_SingleLine(input);
+
+            // assert
+            Assert.AreEqual(Action.square, command.ActionWord);
+            Assert.AreNotEqual(Action.circle, command.ActionWord);
+            Assert.AreNotEqual(Action.rectangle, command.ActionWord);
+            Assert.AreEqual(0, command.ActionValues.Length);
+        }
+
+        [TestMethod()]
+        public void ParseInput_DrawingSquareWithDifferentCase()
+        {
+            //arrange
+            string input = "sQuArE 125";
+
+            // act
+            Command command = _parser.ParseInput_SingleLine(input);
+
+            // assert
+            Assert.AreEqual(Action.square, command.ActionWord);
+            Assert.AreNotEqual(Action.circle, command.ActionWord);
+            Assert.AreNotEqual(Action.rectangle, command.ActionWord);
+            Assert.AreEqual(125, command.ActionValues[0]);
+            Assert.AreEqual(1, command.ActionValues.Length);
+        }
+
+        [TestMethod()]
+        public void ParseInput_CreatingSquareInstance()
+        {
+            //arrange
+            string input = "square 125";
+
+            // act
+            Command command = _parser.ParseInput_SingleLine(input);
+            ShapeFactory shapeFactory = new ShapeFactory();
+            Cursor cursor = new Cursor();
+            Shape shape = shapeFactory.CreateShape(command, cursor.Position, cursor.Fill, cursor.PenColor);
+
+            // assert
+            Assert.IsNotNull(shape);
+            Assert.IsInstanceOfType(shape, typeof(Square)); // assert that shape is a square
+            Assert.IsInstanceOfType(shape, typeof(Rectangle)); // assert that shape is also a rectangle since square is a rectangle
+            Assert.IsNotInstanceOfType(shape, typeof(Circle));
+            // checks that the values are set to default values as they are not specified in the input
+            Assert.AreEqual(shape.DefaultFill, shape.Fill);
+            Assert.AreEqual(shape.DefaultPenColor, shape.PenColor);
+            Assert.AreEqual(shape.DefaultPosition, shape.Position);
+            // manually checking the values to check that they are set correctly
+            Assert.AreEqual(false, shape.Fill);
+            Assert.AreEqual(Color.Red, shape.PenColor);
+            Assert.AreEqual(new Point(0, 0), shape.Position);
+        }
+
+        [TestMethod()]
+        public void ParseInput_CreatingSquareInstanceWithDifferentCase()
+        {
+            //arrange
+            string input = "sQuArE 125";
+
+            // act
+            Command command = _parser.ParseInput_SingleLine(input);
+            ShapeFactory shapeFactory = new ShapeFactory();
+            Cursor cursor = new Cursor();
+            Shape shape = shapeFactory.CreateShape(command, cursor.Position, cursor.Fill, cursor.PenColor);
+
+            // assert
+            Assert.IsNotNull(shape);
+            Assert.IsInstanceOfType(shape, typeof(Square)); // assert that shape is a square
+            Assert.IsInstanceOfType(shape, typeof(Rectangle)); // assert that shape is also a rectangle since square is a rectangle
+            Assert.IsNotInstanceOfType(shape, typeof(Circle));
+            // checks that the values are set to default values as they are not specified in the input
+            Assert.AreEqual(shape.DefaultFill, shape.Fill);
+            Assert.AreEqual(shape.DefaultPenColor, shape.PenColor);
+            Assert.AreEqual(shape.DefaultPosition, shape.Position);
+            // manually checking the values to check that they are set correctly
+            Assert.AreEqual(false, shape.Fill);
+            Assert.AreEqual(Color.Red, shape.PenColor);
+            Assert.AreEqual(new Point(0, 0), shape.Position);
+        }
     }
 
     [TestClass()]
