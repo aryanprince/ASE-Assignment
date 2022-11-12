@@ -9,7 +9,7 @@ namespace Unit_Tests
     [TestClass()]
     public class DrawingRectangles
     {
-        Parser parser = new Parser();
+        private readonly Parser _parser = new Parser();
 
         [TestMethod()]
         public void ParseAction_DrawingCircleWithZeroParameters()
@@ -18,7 +18,7 @@ namespace Unit_Tests
             string input = "rectangle";
 
             // act
-            Action action = parser.ParseAction_Command(input);
+            Action action = _parser.ParseAction_Command(input);
 
             // assert
             Assert.IsNotNull(action);
@@ -34,7 +34,7 @@ namespace Unit_Tests
             string input = "rectangle 100 150";
 
             // act
-            Action action = parser.ParseAction_Command(input);
+            Action action = _parser.ParseAction_Command(input);
 
             // assert
             Assert.IsNotNull(action);
@@ -49,7 +49,7 @@ namespace Unit_Tests
             string input = "rectangle";
 
             // act
-            Command command = parser.ParseInput_SingleLine(input);
+            Command command = _parser.ParseInput_SingleLine(input);
 
             // assert
             Assert.IsNotNull(command);
@@ -66,7 +66,7 @@ namespace Unit_Tests
             string input = "rectangle 100 150";
 
             // act
-            Command command = parser.ParseInput_SingleLine(input);
+            Command command = _parser.ParseInput_SingleLine(input);
 
             // assert
             Assert.IsNotNull(command);
@@ -85,7 +85,7 @@ namespace Unit_Tests
             string input = "rEcTaNgLe 100 150";
 
             // act
-            Command command = parser.ParseInput_SingleLine(input);
+            Command command = _parser.ParseInput_SingleLine(input);
 
             // assert
             Assert.IsNotNull(command);
@@ -104,7 +104,7 @@ namespace Unit_Tests
             string input = "rectangle 100 150";
 
             // act
-            Command command = parser.ParseInput_SingleLine(input);
+            Command command = _parser.ParseInput_SingleLine(input);
             ShapeFactory shapeFactory = new ShapeFactory();
             Cursor cursor = new Cursor();
             Shape shape = shapeFactory.CreateShape(command, cursor.Position, cursor.Fill, cursor.PenColor);
@@ -130,7 +130,7 @@ namespace Unit_Tests
             string input = "rEcTaNgLe 100 150";
 
             // act
-            Command command = parser.ParseInput_SingleLine(input);
+            Command command = _parser.ParseInput_SingleLine(input);
             ShapeFactory shapeFactory = new ShapeFactory();
             Cursor cursor = new Cursor();
             Shape shape = shapeFactory.CreateShape(command, cursor.Position, cursor.Fill, cursor.PenColor);
@@ -153,16 +153,16 @@ namespace Unit_Tests
     [TestClass()]
     public class DrawingCircles
     {
-        Parser parser = new Parser();
+        private readonly Parser _parser = new Parser();
 
         [TestMethod()]
         public void ParseAction_DrawingCircleWithParameters()
         {
-            //arrange
+            // arrange
             string input = "circle 100 150";
 
             // act
-            Action action = parser.ParseAction_Command(input);
+            Action action = _parser.ParseAction_Command(input);
 
             // assert
             Assert.AreEqual(Action.circle, action);
@@ -172,11 +172,11 @@ namespace Unit_Tests
         [TestMethod()]
         public void ParseAction_DrawingCircleWithZeroParameters()
         {
-            //arrange
+            // arrange
             string input = "circle";
 
             // act
-            Action action = parser.ParseAction_Command(input);
+            Action action = _parser.ParseAction_Command(input);
 
             // assert
             Assert.AreEqual(Action.circle, action);
@@ -186,11 +186,11 @@ namespace Unit_Tests
         [TestMethod()]
         public void ParseInput_DrawingCircleWithParameters()
         {
-            //arrange
+            // arrange
             string input = "circle 100 150";
 
             // act
-            Command command = parser.ParseInput_SingleLine(input);
+            Command command = _parser.ParseInput_SingleLine(input);
 
             // assert
             Assert.AreEqual(Action.circle, command.ActionWord);
@@ -198,12 +198,94 @@ namespace Unit_Tests
             Assert.AreEqual(150, command.ActionValues[1]);
             Assert.AreEqual(2, command.ActionValues.Length);
         }
+
+        [TestMethod()]
+        public void ParseInput_DrawingCircleWithZeroParameters()
+        {
+            // arrange
+            string input = "circle";
+
+            // act
+            Command command = _parser.ParseInput_SingleLine(input);
+
+            // assert
+            Assert.AreEqual(Action.circle, command.ActionWord);
+            Assert.AreEqual(0, command.ActionValues.Length);
+        }
+
+        [TestMethod()]
+        public void ParseInput_DrawingCircleWithDifferentCase()
+        {
+            // arrange
+            string input = "cIrClE 100 150";
+
+            // act
+            Command command = _parser.ParseInput_SingleLine(input);
+
+            // assert
+            Assert.AreEqual(Action.circle, command.ActionWord);
+            Assert.AreEqual(100, command.ActionValues[0]);
+            Assert.AreEqual(150, command.ActionValues[1]);
+            Assert.AreEqual(2, command.ActionValues.Length);
+        }
+
+        [TestMethod()]
+        public void ParseInput_CreatingCircleInstance()
+        {
+            // arrange
+            string input = "circle 100 150";
+
+            // act
+            Command command = _parser.ParseInput_SingleLine(input);
+            ShapeFactory shapeFactory = new ShapeFactory();
+            Cursor cursor = new Cursor();
+            Shape shape = shapeFactory.CreateShape(command, cursor.Position, cursor.Fill, cursor.PenColor);
+
+            // assert
+            Assert.IsNotNull(shape);
+            Assert.IsInstanceOfType(shape, typeof(Circle)); // assert that shape is a circle
+            Assert.IsNotInstanceOfType(shape, typeof(Rectangle));
+            // checks that the values are set to default values as they are not specified in the input
+            Assert.AreEqual(shape.DefaultFill, shape.Fill);
+            Assert.AreEqual(shape.DefaultPenColor, shape.PenColor);
+            Assert.AreEqual(shape.DefaultPosition, shape.Position);
+            // manually checking the values to check that they are set correctly
+            Assert.AreEqual(false, shape.Fill);
+            Assert.AreEqual(Color.Red, shape.PenColor);
+            Assert.AreEqual(new Point(0, 0), shape.Position);
+        }
+
+        [TestMethod()]
+        public void ParseInput_CreatingCircleInstanceWithDifferentCase()
+        {
+            // arrange
+            string input = "cIrClE 100 150";
+
+            // act
+            Command command = _parser.ParseInput_SingleLine(input);
+            ShapeFactory shapeFactory = new ShapeFactory();
+            Cursor cursor = new Cursor();
+            Shape shape = shapeFactory.CreateShape(command, cursor.Position, cursor.Fill, cursor.PenColor);
+
+            // assert
+            Assert.IsNotNull(shape);
+            Assert.IsInstanceOfType(shape, typeof(Circle)); // assert that shape is a circle
+            Assert.IsNotInstanceOfType(shape, typeof(Rectangle));
+            // checks that the values are set to default values as they are not specified in the input
+            Assert.AreEqual(shape.DefaultFill, shape.Fill);
+            Assert.AreEqual(shape.DefaultPenColor, shape.PenColor);
+            Assert.AreEqual(shape.DefaultPosition, shape.Position);
+            // manually checking the values to check that they are set correctly
+            Assert.AreEqual(false, shape.Fill);
+            Assert.AreEqual(Color.Red, shape.PenColor);
+            Assert.AreEqual(new Point(0, 0), shape.Position);
+        }
     }
 
     [TestClass()]
     public class DrawingSquares
     {
-        Parser parser = new Parser();
+        private readonly Parser _parser = new Parser();
 
         [TestMethod()]
         public void ParseAction_DrawingSquareWithParameters()
@@ -212,7 +294,7 @@ namespace Unit_Tests
             string input = "square 125";
 
             // act
-            Action action = parser.ParseAction_Command(input);
+            Action action = _parser.ParseAction_Command(input);
 
             // assert
             Assert.AreEqual(Action.square, action);
@@ -227,7 +309,7 @@ namespace Unit_Tests
             string input = "square";
 
             // act
-            Action action = parser.ParseAction_Command(input);
+            Action action = _parser.ParseAction_Command(input);
 
             // assert
             Assert.AreEqual(Action.square, action);
@@ -242,7 +324,7 @@ namespace Unit_Tests
             string input = "square 125";
 
             // act
-            Command command = parser.ParseInput_SingleLine(input);
+            Command command = _parser.ParseInput_SingleLine(input);
 
             // assert
             Assert.AreEqual(Action.square, command.ActionWord);
@@ -256,7 +338,7 @@ namespace Unit_Tests
     [TestClass()]
     public class DrawingTriangles
     {
-        Parser parser = new Parser();
+        private readonly Parser _parser = new Parser();
 
         [TestMethod()]
         public void ParseAction_DrawingTriangleWithParameters()
@@ -265,7 +347,7 @@ namespace Unit_Tests
             string input = "triangle 225";
 
             // act
-            Action action = parser.ParseAction_Command(input);
+            Action action = _parser.ParseAction_Command(input);
 
             // assert
             Assert.AreEqual(Action.triangle, action);
@@ -281,7 +363,7 @@ namespace Unit_Tests
             string input = "triangle";
 
             // act
-            Action action = parser.ParseAction_Command(input);
+            Action action = _parser.ParseAction_Command(input);
 
             // assert
             Assert.AreEqual(Action.triangle, action);
@@ -297,7 +379,7 @@ namespace Unit_Tests
             string input = "triangle 225";
 
             // act
-            Command command = parser.ParseInput_SingleLine(input);
+            Command command = _parser.ParseInput_SingleLine(input);
 
             // assert
             Assert.AreEqual(Action.triangle, command.ActionWord);
@@ -311,7 +393,7 @@ namespace Unit_Tests
     [TestClass()]
     public class DrawingLines
     {
-        Parser parser = new Parser();
+        private readonly Parser _parser = new Parser();
 
         [TestMethod()]
         public void ParseAction_DrawingLineWithParameters()
@@ -320,7 +402,7 @@ namespace Unit_Tests
             string input = "drawto 125 210";
 
             // act
-            Action action = parser.ParseAction_Command(input);
+            Action action = _parser.ParseAction_Command(input);
 
             // assert
             Assert.AreEqual(Action.drawto, action);
@@ -337,7 +419,7 @@ namespace Unit_Tests
             string input = "drawto";
 
             // act
-            Action action = parser.ParseAction_Command(input);
+            Action action = _parser.ParseAction_Command(input);
 
             // assert
             Assert.AreEqual(Action.drawto, action);
@@ -354,7 +436,7 @@ namespace Unit_Tests
             string input = "drawto 125 210";
 
             // act
-            Command command = parser.ParseInput_SingleLine(input);
+            Command command = _parser.ParseInput_SingleLine(input);
 
             // assert
             Assert.AreEqual(Action.drawto, command.ActionWord);
