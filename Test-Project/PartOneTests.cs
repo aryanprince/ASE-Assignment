@@ -1,5 +1,7 @@
 ﻿using ASE_Assignment;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Drawing;
+using Rectangle = ASE_Assignment.Rectangle;
 
 namespace Unit_Tests
 {
@@ -12,7 +14,7 @@ namespace Unit_Tests
         [TestMethod()]
         public void ParseAction_DrawingCircleWithZeroParameters()
         {
-            //arrange
+            // arrange
             string input = "rectangle";
 
             // act
@@ -28,7 +30,7 @@ namespace Unit_Tests
         [TestMethod()]
         public void ParseAction_DrawingCircleWithParameters()
         {
-            //arrange
+            // arrange
             string input = "rectangle 100 150";
 
             // act
@@ -43,7 +45,7 @@ namespace Unit_Tests
         [TestMethod()]
         public void ParseInput_DrawingRectangleWithZeroParameters()
         {
-            //arrange
+            // arrange
             string input = "rectangle";
 
             // act
@@ -60,7 +62,7 @@ namespace Unit_Tests
         [TestMethod()]
         public void ParseInput_DrawingRectangleWithParameters()
         {
-            //arrange
+            // arrange
             string input = "rectangle 100 150";
 
             // act
@@ -79,7 +81,7 @@ namespace Unit_Tests
         [TestMethod()]
         public void ParseInput_DrawingRectangleWithDifferentCase()
         {
-            //arrange
+            // arrange
             string input = "rEcTaNgLe 100 150";
 
             // act
@@ -93,6 +95,58 @@ namespace Unit_Tests
             Assert.AreEqual(100, command.ActionValues[0]);
             Assert.AreEqual(150, command.ActionValues[1]);
             Assert.AreEqual(2, command.ActionValues.Length);
+        }
+
+        [TestMethod()]
+        public void ParseInput_CreatingRectangleInstance()
+        {
+            // arrange
+            string input = "rectangle 100 150";
+
+            // act
+            Command command = parser.ParseInput_SingleLine(input);
+            ShapeFactory shapeFactory = new ShapeFactory();
+            Cursor cursor = new Cursor();
+            Shape shape = shapeFactory.CreateShape(command, cursor.Position, cursor.Fill, cursor.PenColor);
+
+            // assert
+            Assert.IsNotNull(shape);
+            Assert.IsInstanceOfType(shape, typeof(Rectangle)); // assert that shape is a rectangle
+            Assert.IsNotInstanceOfType(shape, typeof(Circle));
+            // checks that the values are set to default values as they are not specified in the input
+            Assert.AreEqual(shape.DefaultFill, shape.Fill);
+            Assert.AreEqual(shape.DefaultPenColor, shape.PenColor);
+            Assert.AreEqual(shape.DefaultPosition, shape.Position);
+            // manually checking the values to check that they are set correctly
+            Assert.AreEqual(false, shape.Fill);
+            Assert.AreEqual(Color.Red, shape.PenColor);
+            Assert.AreEqual(new Point(0, 0), shape.Position);
+        }
+
+        [TestMethod()]
+        public void ParseInput_CreatingRectangleInstanceWithDifferentCase()
+        {
+            // arrange
+            string input = "rEcTaNgLe 100 150";
+
+            // act
+            Command command = parser.ParseInput_SingleLine(input);
+            ShapeFactory shapeFactory = new ShapeFactory();
+            Cursor cursor = new Cursor();
+            Shape shape = shapeFactory.CreateShape(command, cursor.Position, cursor.Fill, cursor.PenColor);
+
+            // assert
+            Assert.IsNotNull(shape);
+            Assert.IsInstanceOfType(shape, typeof(Rectangle)); // assert that shape is a rectangle
+            Assert.IsNotInstanceOfType(shape, typeof(Circle));
+            // checks that the values are set to default values as they are not specified in the input
+            Assert.AreEqual(shape.DefaultFill, shape.Fill);
+            Assert.AreEqual(shape.DefaultPenColor, shape.PenColor);
+            Assert.AreEqual(shape.DefaultPosition, shape.Position);
+            // manually checking the values to check that they are set correctly
+            Assert.AreEqual(false, shape.Fill);
+            Assert.AreEqual(Color.Red, shape.PenColor);
+            Assert.AreEqual(new Point(0, 0), shape.Position);
         }
     }
 

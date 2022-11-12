@@ -5,6 +5,7 @@ using System.Collections.Generic;
 namespace Unit_Tests
 {
     [TestClass()]
+    [Ignore] // These tests are ignored for Part 1 submission but will be used for Part 2
     public class PartTwoTestsForPartOneRequirements
     {
         Parser parser = new Parser();
