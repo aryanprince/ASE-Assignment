@@ -8,9 +8,9 @@ namespace ASE_Assignment
 {
     public partial class form : Form
     {
-        Cursor cursor = new Cursor();
-        Parser parser = new Parser();
-        ShapeFactory shapeFactory = new ShapeFactory();
+        Cursor _cursor = new Cursor();
+        Parser _parser = new Parser();
+        ShapeFactory _shapeFactory = new ShapeFactory();
 
         public form()
         {
@@ -23,7 +23,7 @@ namespace ASE_Assignment
 
             try
             {
-                List<Command> commands = parser.ParseInput_MultiLine(txtCommandArea.Text);
+                List<Command> commands = _parser.ParseInput_MultiLine(txtCommandArea.Text);
                 foreach (Command command in commands) { ExecuteCommand(g, command); }
             }
             catch (Exception exception)
@@ -38,11 +38,11 @@ namespace ASE_Assignment
 
             try
             {
-                cursor.Draw(g); // Draws a new cursor before every command incase it gets covered by another shape
+                _cursor.Draw(g); // Draws a new cursor before every command incase it gets covered by another shape
                 string fullCommand = txtCommandLine.Text.ToLower();
                 string[] splitCommand = fullCommand.Split(' ');
 
-                Command command = parser.ParseInput_SingleLine(txtCommandLine.Text);
+                Command command = _parser.ParseInput_SingleLine(txtCommandLine.Text);
                 ExecuteCommand(g, command);
 
                 // Resets all the labels if execute command works
@@ -61,38 +61,38 @@ namespace ASE_Assignment
             {
                 case Action.run:
                     {
-                        List<Command> commands = parser.ParseInput_MultiLine(txtCommandArea.Text);
+                        List<Command> commands = _parser.ParseInput_MultiLine(txtCommandArea.Text);
                         foreach (Command c in commands) { ExecuteCommand(g, c); }
                         break;
                     }
                 case Action.move:
                     {
-                        cursor.MoveTo(new Point(command.ActionValues[0], command.ActionValues[1]));
-                        cursor.Draw(g);
-                        lblCoordinates.Text = "X:" + cursor.Position.X + ", Y:" + cursor.Position.Y;
+                        _cursor.MoveTo(new Point(command.ActionValues[0], command.ActionValues[1]));
+                        _cursor.Draw(g);
+                        lblCoordinates.Text = "X:" + _cursor.Position.X + ", Y:" + _cursor.Position.Y;
                         break;
                     }
                 case Action.fill:
                     {
                         if (command.ActionValues[0].Equals(1))
                         {
-                            cursor.Fill = true;
+                            _cursor.Fill = true;
                             lblFillState.Text = "fill: enabled";
                         }
                         if (command.ActionValues[0].Equals(0))
                         {
-                            cursor.Fill = false;
+                            _cursor.Fill = false;
                             lblFillState.Text = "fill: disabled";
                         }
                         break;
                     }
                 case Action.reset:
                     {
-                        cursor.MoveTo(new Point(0, 0));
-                        cursor.ChangePenColor(cursor.DefaultPenColor); // Resets cursor to default color (Red)
-                        cursor.ChangeFillState(cursor.DefaultFill); // Resets cursor to default fill state (false ie; no fill)
-                        cursor.Draw(g);
-                        lblCoordinates.Text = "X:" + cursor.Position.X + ", Y:" + cursor.Position.Y;
+                        _cursor.MoveTo(new Point(0, 0));
+                        _cursor.ChangePenColor(_cursor.DefaultPenColor); // Resets cursor to default color (Red)
+                        _cursor.ChangeFillState(_cursor.DefaultFill); // Resets cursor to default fill state (false ie; no fill)
+                        _cursor.Draw(g);
+                        lblCoordinates.Text = "X:" + _cursor.Position.X + ", Y:" + _cursor.Position.Y;
                         lblFillState.Text = "fill: disabled";
                         lblPenColor.Text = "pen: red";
                         break;
@@ -101,8 +101,8 @@ namespace ASE_Assignment
                     {
                         //picboxCanvas.Refresh();
                         g.Clear(Color.White);
-                        cursor.Draw(g);
-                        lblCoordinates.Text = "X:" + cursor.Position.X + ", Y:" + cursor.Position.Y;
+                        _cursor.Draw(g);
+                        lblCoordinates.Text = "X:" + _cursor.Position.X + ", Y:" + _cursor.Position.Y;
                         lblFillState.Text = "fill: disabled";
                         break;
                     }
@@ -110,29 +110,29 @@ namespace ASE_Assignment
                     {
                         if (command.ActionValues[0].Equals(1))
                         {
-                            cursor.PenColor = Color.Red;
+                            _cursor.PenColor = Color.Red;
                             lblPenColor.Text = "pen: red";
                         }
                         if (command.ActionValues[0].Equals(2))
                         {
-                            cursor.PenColor = Color.Green;
+                            _cursor.PenColor = Color.Green;
                             lblPenColor.Text = "pen: green";
                         }
                         if (command.ActionValues[0].Equals(3))
                         {
-                            cursor.PenColor = Color.Blue;
+                            _cursor.PenColor = Color.Blue;
                             lblPenColor.Text = "pen: blue";
                         }
-                        cursor.Draw(g);
+                        _cursor.Draw(g);
                         break;
                     }
                 default:
                     {
-                        Shape shape = shapeFactory.CreateShape(command, cursor.Position, cursor.Fill, cursor.PenColor, lblError);
+                        Shape shape = _shapeFactory.CreateShape(command, _cursor.Position, _cursor.Fill, _cursor.PenColor);
                         shape.Draw(g);
-                        cursor.MoveTo(shape.Position);
-                        cursor.Draw(g);
-                        lblCoordinates.Text = "X:" + cursor.Position.X + ", Y:" + cursor.Position.Y;
+                        _cursor.MoveTo(shape.Position);
+                        _cursor.Draw(g);
+                        lblCoordinates.Text = "X:" + _cursor.Position.X + ", Y:" + _cursor.Position.Y;
                         break;
                     }
             }
@@ -143,15 +143,15 @@ namespace ASE_Assignment
             var g = picboxCanvas.CreateGraphics();
             g.Clear(Color.White);
             //picboxCanvas.Refresh();
-            cursor.MoveTo(cursor.DefaultPosition); // Resets cursor to default position (0,0)
-            cursor.ChangePenColor(cursor.DefaultPenColor); // Resets cursor to default color (Red)
-            cursor.ChangeFillState(cursor.DefaultFill); // Resets cursor to default fill state (false ie; no fill)
-            cursor.Draw(g);
+            _cursor.MoveTo(_cursor.DefaultPosition); // Resets cursor to default position (0,0)
+            _cursor.ChangePenColor(_cursor.DefaultPenColor); // Resets cursor to default color (Red)
+            _cursor.ChangeFillState(_cursor.DefaultFill); // Resets cursor to default fill state (false ie; no fill)
+            _cursor.Draw(g);
 
             // Clearing all the labels in the WinForms window
             txtCommandLine.Text = "";
             lblError.Text = "";
-            lblCoordinates.Text = "X:" + cursor.Position.X + ", Y:" + cursor.Position.Y;
+            lblCoordinates.Text = "X:" + _cursor.Position.X + ", Y:" + _cursor.Position.Y;
             lblFillState.Text = "fill: disabled";
             lblPenColor.Text = "pen: red";
         }
@@ -172,7 +172,7 @@ namespace ASE_Assignment
         private void picboxCanvas_Paint(object sender, PaintEventArgs e)
         {
             Graphics g = e.Graphics;
-            cursor.Draw(g);
+            _cursor.Draw(g);
         }
 
         private void saveMenuItem_Click(object sender, EventArgs e)

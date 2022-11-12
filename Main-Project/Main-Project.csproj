@@ -91,6 +91,7 @@
     <Compile Include="Rectangle.cs" />
     <Compile Include="Shape.cs" />
     <Compile Include="ShapeFactory.cs" />
+    <Compile Include="Square.cs" />
     <Compile Include="Triangle.cs" />
     <EmbeddedResource Include="Form-Main.resx">
       <DependentUpon>Form-Main.cs</DependentUpon>

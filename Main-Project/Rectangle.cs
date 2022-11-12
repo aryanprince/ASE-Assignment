@@ -15,7 +15,7 @@ namespace ASE_Assignment
         /// <summary>
         /// Blank constructor to create a Rectangle object with constant default dimension values.
         /// </summary>
-        public Rectangle() : base()
+        public Rectangle()
         {
             Length = _defaultLength;
             Height = _defaultHeight;
