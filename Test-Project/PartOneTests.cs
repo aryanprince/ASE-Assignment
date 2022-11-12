@@ -1,27 +1,13 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Collections.Generic;
+﻿using ASE_Assignment;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace ASE_Assignment.Tests
+namespace Unit_Tests
 {
 
     [TestClass()]
     public class DrawingRectangles
     {
         Parser parser = new Parser();
-
-        [TestMethod()]
-        public void ParseAction_DrawingCircleWithParameters()
-        {
-            //arrange
-            string input = "rectangle 100 150";
-
-            // act
-            Action action = parser.ParseAction_Command(input);
-
-            // assert
-            Assert.AreEqual(Action.rectangle, action);
-            Assert.AreNotEqual(Action.circle, action);
-        }
 
         [TestMethod()]
         public void ParseAction_DrawingCircleWithZeroParameters()
@@ -33,9 +19,42 @@ namespace ASE_Assignment.Tests
             Action action = parser.ParseAction_Command(input);
 
             // assert
+            Assert.IsNotNull(action);
             Assert.AreEqual(Action.rectangle, action);
             Assert.AreNotEqual(Action.square, action);
             Assert.AreNotEqual(Action.circle, action);
+        }
+
+        [TestMethod()]
+        public void ParseAction_DrawingCircleWithParameters()
+        {
+            //arrange
+            string input = "rectangle 100 150";
+
+            // act
+            Action action = parser.ParseAction_Command(input);
+
+            // assert
+            Assert.IsNotNull(action);
+            Assert.AreEqual(Action.rectangle, action);
+            Assert.AreNotEqual(Action.circle, action);
+        }
+
+        [TestMethod()]
+        public void ParseInput_DrawingRectangleWithZeroParameters()
+        {
+            //arrange
+            string input = "rectangle";
+
+            // act
+            Command command = parser.ParseInput_SingleLine(input);
+
+            // assert
+            Assert.IsNotNull(command);
+            Assert.AreEqual(Action.rectangle, command.ActionWord);
+            Assert.AreNotEqual(Action.circle, command.ActionWord);
+            Assert.AreNotEqual(Action.square, command.ActionWord);
+            Assert.AreEqual(0, command.ActionValues.Length);
         }
 
         [TestMethod()]
@@ -48,6 +67,7 @@ namespace ASE_Assignment.Tests
             Command command = parser.ParseInput_SingleLine(input);
 
             // assert
+            Assert.IsNotNull(command);
             Assert.AreEqual(Action.rectangle, command.ActionWord);
             Assert.AreNotEqual(Action.circle, command.ActionWord);
             Assert.AreNotEqual(Action.square, command.ActionWord);
@@ -57,30 +77,22 @@ namespace ASE_Assignment.Tests
         }
 
         [TestMethod()]
-        public void ParseInput_DrawingRectangleWithFillOn()
+        public void ParseInput_DrawingRectangleWithDifferentCase()
         {
-            {
-                //arrange
-                string input = "rectangle 100 150";
+            //arrange
+            string input = "rEcTaNgLe 100 150";
 
-                // act
-                Command command = parser.ParseInput_SingleLine(input);
+            // act
+            Command command = parser.ParseInput_SingleLine(input);
 
-                // assert
-                Assert.AreEqual(Action.rectangle, command.ActionWord);
-                Assert.AreEqual(100, command.ActionValues[0]);
-                Assert.AreEqual(150, command.ActionValues[1]);
-                Assert.AreEqual(2, command.ActionValues.Length);
-
-                //arrange
-                input = "fill on";
-
-                // act
-                command = parser.ParseInput_SingleLine(input);
-
-                // assert
-                Assert.AreEqual(Action.fill, command.ActionWord);
-            }
+            // assert
+            Assert.IsNotNull(command);
+            Assert.AreEqual(Action.rectangle, command.ActionWord);
+            Assert.AreNotEqual(Action.circle, command.ActionWord);
+            Assert.AreNotEqual(Action.square, command.ActionWord);
+            Assert.AreEqual(100, command.ActionValues[0]);
+            Assert.AreEqual(150, command.ActionValues[1]);
+            Assert.AreEqual(2, command.ActionValues.Length);
         }
     }
 
@@ -299,57 +311,6 @@ namespace ASE_Assignment.Tests
             Assert.AreEqual(125, command.ActionValues[0]);
             Assert.AreEqual(210, command.ActionValues[1]);
             Assert.AreEqual(2, command.ActionValues.Length);
-        }
-    }
-
-    [TestClass()]
-    public class PartTwo
-    {
-        Parser parser = new Parser();
-
-        [TestMethod()]
-        public void ParseMultiline_DrawingRectangle_WithVariables()
-        {
-            // Creates a couple of variables and attempts to draw a rectangle with the variable values for dimensions.
-
-            // arrange
-            string input = "x = 10\ny = 25\nrectangle x y";
-
-            // act
-            List<Command> commands = parser.ParseInput_MultiLine(input);
-
-            // assert
-            Assert.AreEqual(3, commands.Count);
-        }
-
-        [TestMethod()]
-        public void ParseMultiline_DrawingCircles_WithWhileLoop()
-        {
-            // Creates and starts a while loop to draw increasingly larger circles with the help of two counter variables.
-
-            // arrange
-            string input = "x = 0\n   size = 10\n   while x < 100\n   circle size\n   x = x + 10\n   size = size + 10\n   endwhile";
-
-            // act
-            List<Command> commands = parser.ParseInput_MultiLine(input);
-
-            // assert
-            Assert.AreEqual(7, commands.Count);
-        }
-
-        [TestMethod()]
-        public void ParseMultiline_DrawingRectangles_WithForLoop()
-        {
-            // Creates and starts a for loop to draw increasingly smaller rectangles with the help of a couple of counter variables.
-
-            // arrange
-            string input = "x = 10\n size = 100\n for(x;x<10;x-1)\n rectangle size size\n size = size - 10\n endfor";
-
-            // act
-            List<Command> commands = parser.ParseInput_MultiLine(input);
-
-            // assert
-            Assert.AreEqual(6, commands.Count);
         }
     }
 }
