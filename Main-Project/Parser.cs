@@ -17,9 +17,13 @@ namespace ASE_Assignment
             // Split the input string into an array of strings, separated by spaces
             var inputSplitBySpaces = inputFull.ToLower().Split(' ');
 
+            // Invalid when no words are passed
+            if (inputFull.Equals(""))
+                throw new Exception("No words were passed.");
+
             // Invalid when more than 3 words are passed to the parser
             if (inputSplitBySpaces.Length > 3)
-                throw new Exception("Too many parameters!");
+                throw new Exception("Too many parameters or words.");
 
             // Parses the command string
             var stringCommand = inputSplitBySpaces[0];
