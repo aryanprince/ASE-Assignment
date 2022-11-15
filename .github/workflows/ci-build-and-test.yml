@@ -35,6 +35,6 @@ jobs:
       run: msbuild ASE_Assignment.sln
       
     # Runs all my Unit Tests (check logs to see test results)
-    - name: VSTest
+    - name: Run unit tests
       run: vstest.console.exe /Platform:x64 ".\Test-Project\bin\Debug\Unit-Tests.dll"
 
