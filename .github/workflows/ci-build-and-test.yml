@@ -1,4 +1,4 @@
-name: CI Build
+name: CI Build and Test
 
 on:
   workflow_dispatch:
@@ -10,24 +10,31 @@ jobs:
     runs-on: windows-latest
 
     steps:
+    # Checkout my repository for workflow
     - name: Checkout code
       uses: actions/checkout@v2
 
-    - name: Setup MSBuild
+    # Used to build solution
+    - name: Setup MSBuild 
       uses: microsoft/setup-msbuild@v1
       
-    - name: Setup VSTest Path
+    # Used to run all MSUnit Tests
+    - name: Setup VSTest Path 
       uses: darenm/Setup-VSTest@v1.2
       
+    # Sets up package manager
     - name: Setup NuGet
       uses: NuGet/setup-nuget@v1.0.5
       
+    # Restores any packages or dependancies
     - name: Restore NuGet packages
       run: nuget restore ASE_Assignment.sln
       
+    # Builds my solution
     - name: Build solution
       run: msbuild ASE_Assignment.sln
       
+    # Runs all my Unit Tests (check logs to see test results)
     - name: VSTest
       run: vstest.console.exe /Platform:x64 ".\Test-Project\bin\Debug\Unit-Tests.dll"
 
