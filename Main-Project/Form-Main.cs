@@ -28,7 +28,7 @@ namespace ASE_Assignment
             }
             catch (Exception exception)
             {
-                lblError.Text = "ML: " + exception.Message;
+                lblError.Text = "Multi-line code warning: \n" + exception.Message;
             }
         }
 
@@ -38,11 +38,9 @@ namespace ASE_Assignment
 
             try
             {
-                _cursor.Draw(g); // Draws a new cursor before every command incase it gets covered by another shape
-                string fullCommand = txtCommandLine.Text.ToLower();
-                string[] splitCommand = fullCommand.Split(' ');
+                _cursor.Draw(g); // Draws a new cursor before every command in case it gets covered by another shape
 
-                Command command = _parser.ParseInput_SingleLine(txtCommandLine.Text);
+                Command command = _parser.ParseInput_SingleLine(txtCommandLine.Text.Trim().ToLower());
                 ExecuteCommand(g, command);
 
                 // Resets all the labels if execute command works
@@ -51,13 +49,13 @@ namespace ASE_Assignment
             }
             catch (Exception exception)
             {
-                lblError.Text = "SL: " + exception.Message;
+                lblError.Text = exception.Message;
             }
         }
 
         private void ExecuteCommand(Graphics g, Command command)
         {
-            switch (command.ActionWord) // sample
+            switch (command.ActionWord)
             {
                 case Action.run:
                     {
