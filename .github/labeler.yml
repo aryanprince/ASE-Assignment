@@ -5,5 +5,5 @@
   - any: [".github/**/*"]
 
 "✏️ design":
-  - any: ["./Main-Project/Form-Main.Designer.cs"]
+  - "./Main-Project/Form-Main.Designer.cs"
 
