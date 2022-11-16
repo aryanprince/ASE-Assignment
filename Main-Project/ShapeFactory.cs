@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
 
 namespace ASE_Assignment
 {
@@ -18,8 +19,9 @@ namespace ASE_Assignment
                     return new Triangle(position, fill, penColor, command.ActionValues[0]);
                 case Action.drawto:
                     return new Line(position, fill, penColor, new Point(command.ActionValues[0], command.ActionValues[1]));
+                default:
+                    throw new Exception("Invalid command!");
             }
-            return null;
         }
     }
 }
