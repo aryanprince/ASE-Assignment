@@ -120,6 +120,12 @@ namespace ASE_Assignment
         public int[] ParseAction_CommandParameters(string[] inputStringArray)
         {
             var inputIntArray = Array.ConvertAll(inputStringArray, int.Parse);
+
+            if (inputIntArray[0] > 900)
+                throw new Exception("ERROR: Invalid parameters\nX-value for parameter must be less than 900!");
+            if (inputIntArray[1] > 500)
+                throw new Exception("ERROR: Invalid parameters\nY-value for parameter must be less than 500!");
+
             return inputIntArray;
         }
     }
