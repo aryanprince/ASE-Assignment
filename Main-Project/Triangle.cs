@@ -62,11 +62,13 @@ namespace ASE_Assignment
                 // Draws a triangle
                 var pen = new Pen(PenColor, 2);
                 g.DrawPolygon(pen, vertices);
+                pen.Dispose(); // Dispose of the pen to avoid memory leaks
                 return; // Return to avoid drawing the fill
             }
             // Fills a triangle
             var brush = new SolidBrush(PenColor);
             g.FillPolygon(brush, vertices);
+            brush.Dispose(); // Dispose of the brush to avoid memory leaks
         }
     }
 }

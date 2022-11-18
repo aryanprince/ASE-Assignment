@@ -41,11 +41,13 @@ namespace ASE_Assignment
                 // Draws a circle
                 var pen = new Pen(PenColor, 2);
                 g.DrawEllipse(pen, Position.X - Radius, Position.Y - Radius, Radius * 2, Radius * 2); // Position if offset so that center of the circle is at the current cursor
+                pen.Dispose(); // Dispose of the pen to avoid memory leaks
                 return; // Return to avoid drawing the fill
             }
             // Fills a circle
             var brush = new SolidBrush(PenColor);
             g.FillEllipse(brush, Position.X - Radius, Position.Y - Radius, Radius * 2, Radius * 2);
+            brush.Dispose(); // Dispose of the brush to avoid memory leaks
         }
     }
 }
