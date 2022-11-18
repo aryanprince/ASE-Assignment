@@ -2,7 +2,7 @@
 
 namespace ASE_Assignment
 {
-    public abstract class Shape
+    public abstract class Shape : IShape
     {
         // Sets up default values for the blank constructor when the user doesn't pass any values. Currently unused in this program.
         public readonly Point DefaultPosition = new Point(0, 0);
