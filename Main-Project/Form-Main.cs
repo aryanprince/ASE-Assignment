@@ -197,5 +197,10 @@ namespace ASE_Assignment
                 txtCommandArea.Text = File.ReadAllText(load.FileName);
             }
         }
+
+        private void aryanMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("http://github.com/aryanprince");
+        }
     }
 }
