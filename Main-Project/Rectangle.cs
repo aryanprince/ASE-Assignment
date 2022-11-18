@@ -46,11 +46,13 @@ namespace ASE_Assignment
                 // Draws a rectangle
                 var pen = new Pen(PenColor, 2);
                 g.DrawRectangle(pen, Position.X, Position.Y, Length, Height);
+                pen.Dispose(); // Dispose of the pen to avoid memory leaks
                 return; // Return to avoid drawing the fill
             }
             // Fills a rectangle
             var brush = new SolidBrush(PenColor);
             g.FillRectangle(brush, Position.X, Position.Y, Length, Height);
+            brush.Dispose(); // Dispose of the brush to avoid memory leaks
         }
     }
 }

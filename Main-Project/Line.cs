@@ -39,6 +39,7 @@ namespace ASE_Assignment
             var pen = new Pen(PenColor, 2);
             g.DrawLine(pen, Position.X, Position.Y, ToPosition.X, ToPosition.Y);
             Position = ToPosition;
+            pen.Dispose(); // Dispose of the pen to avoid memory leaks
         }
     }
 }
