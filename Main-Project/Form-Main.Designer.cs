@@ -1,6 +1,6 @@
 ﻿namespace ASE_Assignment
 {
-    partial class form
+    partial class MyForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(form));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MyForm));
             this.picboxCanvas = new System.Windows.Forms.PictureBox();
             this.txtCommandLine = new System.Windows.Forms.TextBox();
             this.btnRun = new System.Windows.Forms.Button();
@@ -325,7 +325,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.Name = "form";
+            this.Name = "MyForm";
             this.Text = "Graphical Programming Language";
             ((System.ComponentModel.ISupportInitialize)(this.picboxCanvas)).EndInit();
             this.menuStrip.ResumeLayout(false);
