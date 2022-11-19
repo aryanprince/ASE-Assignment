@@ -32,7 +32,7 @@ namespace ASE_Assignment
         }
 
         /// <summary>
-        /// Handles the Click event of the btnRunMultiline control.
+        /// Handles the Click event of the Run button for the multi-line text box control.
         /// </summary>
         /// <param name="sender">The source of the event.</param>
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
@@ -52,7 +52,7 @@ namespace ASE_Assignment
         }
 
         /// <summary>
-        /// Handles the Click event of the BtnRun control.
+        /// Handles the Click event of the Run button for the single-line text box control.
         /// </summary>
         /// <param name="sender">The source of the event.</param>
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>

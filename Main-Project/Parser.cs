@@ -19,7 +19,7 @@ namespace ASE_Assignment
 
             // Invalid when no words are passed
             if (inputFull.Equals(""))
-                throw new Exception("ERROR: No words were passed.");
+                throw new Exception("ERROR: No commands were passed.");
 
             // Invalid when more than 3 words are passed to the parser
             if (inputSplitBySpaces.Length > 3)
@@ -31,14 +31,14 @@ namespace ASE_Assignment
 
             if (actionWord == Action.none)
                 throw new Exception("ERROR: Invalid command!");
+            // If the command action is valid, but no parameters are passed - it throws this exception
+            if (inputSplitBySpaces.Length == 1 && actionWord != Action.run)
+            {
+                throw new Exception("ERROR: Please use a parameter with this command.");
+            }
             if (actionWord == Action.run)
             {
                 return new Command(actionWord, null);
-            }
-
-            if (inputSplitBySpaces.Length == 1)
-            {
-                throw new Exception("ERROR: Please use a parameter with this command.");
             }
 
             // Parses the parameters of the command
