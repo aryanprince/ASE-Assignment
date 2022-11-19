@@ -8,15 +8,23 @@ namespace ASE_Assignment
 {
     public partial class form : Form
     {
-        Cursor _cursor = new Cursor();
-        Parser _parser = new Parser();
-        ShapeFactory _shapeFactory = new ShapeFactory();
+        private readonly Cursor _cursor = new Cursor();
+        private readonly Parser _parser = new Parser();
+        private readonly ShapeFactory _shapeFactory = new ShapeFactory();
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="form"/> class.
+        /// </summary>
         public form()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Handles the Click event of the btnRunMultiline control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void btnRunMultiline_Click(object sender, EventArgs e)
         {
             Graphics g = picboxCanvas.CreateGraphics();
@@ -32,6 +40,11 @@ namespace ASE_Assignment
             }
         }
 
+        /// <summary>
+        /// Handles the Click event of the btnRun control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void btnRun_Click(object sender, EventArgs e)
         {
             Graphics g = picboxCanvas.CreateGraphics();
@@ -53,6 +66,11 @@ namespace ASE_Assignment
             }
         }
 
+        /// <summary>
+        /// Executes all of my commands for various shapes and other commands.
+        /// </summary>
+        /// <param name="g">The graphics context from my picture box.</param>
+        /// <param name="command">Command class contains information about every command.</param>
         private void ExecuteCommand(Graphics g, Command command)
         {
             switch (command.ActionWord)
@@ -136,6 +154,11 @@ namespace ASE_Assignment
             }
         }
 
+        /// <summary>
+        /// Clears the picture box, resets the cursor, and resets the color and fill state of the cursor to default values.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void btnClear_Click(object sender, EventArgs e)
         {
             var g = picboxCanvas.CreateGraphics();
@@ -154,6 +177,11 @@ namespace ASE_Assignment
             lblPenColor.Text = "pen color: red";
         }
 
+        /// <summary>
+        /// Handles the KeyDown event of the txtCommandLine control allowing the user to execute commands on pressing Enter.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="KeyEventArgs"/> instance containing the event data.</param>
         private void txtCommandLine_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode != Keys.Enter) //Checks if Enter key is pressed
@@ -167,12 +195,22 @@ namespace ASE_Assignment
             e.SuppressKeyPress = true;
         }
 
+        /// <summary>
+        /// Handles the Paint event of the picboxCanvas control. Used to draw the cursor on the picture box every time the program starts.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="PaintEventArgs"/> instance containing the event data.</param>
         private void picboxCanvas_Paint(object sender, PaintEventArgs e)
         {
             Graphics g = e.Graphics;
             _cursor.Draw(g);
         }
 
+        /// <summary>
+        /// Saves the text from the multi-line text box to a text file.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void saveMenuItem_Click(object sender, EventArgs e)
         {
             SaveFileDialog save = new SaveFileDialog();
@@ -186,6 +224,11 @@ namespace ASE_Assignment
             }
         }
 
+        /// <summary>
+        /// Loads text from a text file to the multi-line text.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void loadMenuItem_Click(object sender, EventArgs e)
         {
             OpenFileDialog load = new OpenFileDialog();
@@ -198,6 +241,11 @@ namespace ASE_Assignment
             }
         }
 
+        /// <summary>
+        /// Links to my GitHub page from the Menu Bar.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void aryanMenuItem_Click(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start("http://github.com/aryanprince");
