@@ -14,6 +14,8 @@ namespace ASE_Assignment
         /// <exception cref="FormatException"></exception>
         public Command ParseInput_SingleLine(string inputFull)
         {
+            inputFull = inputFull.Trim().ToLower(); // Trim the input and convert it to lowercase
+
             // Split the input string into an array of strings, separated by spaces
             var inputSplitBySpaces = inputFull.ToLower().Split(' ');
 

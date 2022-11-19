@@ -64,7 +64,7 @@ namespace ASE_Assignment
             {
                 _cursor.Draw(g); // Draws a new cursor before every command in case it gets covered by another shape
 
-                Command command = _parser.ParseInput_SingleLine(txtCommandLine.Text.Trim().ToLower());
+                Command command = _parser.ParseInput_SingleLine(txtCommandLine.Text);
                 ExecuteCommand(g, command);
 
                 // Resets all the labels if execute command works
