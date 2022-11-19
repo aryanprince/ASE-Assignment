@@ -6,16 +6,24 @@ using System.Windows.Forms;
 
 namespace ASE_Assignment
 {
-    public partial class form : Form
+    public partial class MyForm : Form
     {
         private readonly Cursor _cursor = new Cursor();
         private readonly Parser _parser = new Parser();
         private readonly ShapeFactory _shapeFactory = new ShapeFactory();
+        private const string PenColorBlueText = "pen color: blue";
+        private const string PenColorGreenText = "pen color: green";
+        private const string PenColorRedText = "pen color: red";
+        private const string FillDisabledText = "fill: disabled";
+        private const string FillEnabledText = "fill: enabled";
+        private const string TextFileTxt = "Text File | *.txt";
+        private const string XAxisCoordinateLabelText = "X:";
+        private const string YAxisCoordinateLabelText = ", Y:";
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="form"/> class.
+        /// Initializes a new instance of the <see cref="MyForm"/> class.
         /// </summary>
-        public form()
+        public MyForm()
         {
             InitializeComponent();
         }
@@ -31,12 +39,12 @@ namespace ASE_Assignment
 
             try
             {
-                List<Command> commands = _parser.ParseInput_MultiLine(txtCommandArea.Text);
-                foreach (Command command in commands) { ExecuteCommand(g, command); }
+                var commandsList = _parser.ParseInput_MultiLine(txtCommandArea.Text);
+                foreach (var command in commandsList) { ExecuteCommand(g, command); }
             }
             catch (Exception exception)
             {
-                lblError.Text = "Multi-line code warning: \n" + exception.Message;
+                lblError.Text = exception.Message;
             }
         }
 
@@ -85,7 +93,7 @@ namespace ASE_Assignment
                     {
                         _cursor.MoveTo(new Point(command.ActionValues[0], command.ActionValues[1]));
                         _cursor.Draw(g);
-                        lblCoordinates.Text = "X:" + _cursor.Position.X + ", Y:" + _cursor.Position.Y;
+                        lblCoordinates.Text = XAxisCoordinateLabelText + _cursor.Position.X + YAxisCoordinateLabelText + _cursor.Position.Y;
                         break;
                     }
                 case Action.fill:
@@ -93,12 +101,12 @@ namespace ASE_Assignment
                         if (command.ActionValues[0].Equals(1))
                         {
                             _cursor.Fill = true;
-                            lblFillState.Text = "fill: enabled";
+                            lblFillState.Text = FillEnabledText;
                         }
                         if (command.ActionValues[0].Equals(0))
                         {
                             _cursor.Fill = false;
-                            lblFillState.Text = "fill: disabled";
+                            lblFillState.Text = FillDisabledText;
                         }
                         break;
                     }
@@ -108,9 +116,9 @@ namespace ASE_Assignment
                         _cursor.ChangePenColor(_cursor.DefaultPenColor); // Resets cursor to default color (Red)
                         _cursor.ChangeFillState(_cursor.DefaultFill); // Resets cursor to default fill state (false ie; no fill)
                         _cursor.Draw(g);
-                        lblCoordinates.Text = "X:" + _cursor.Position.X + ", Y:" + _cursor.Position.Y;
-                        lblFillState.Text = "fill: disabled";
-                        lblPenColor.Text = "pen color: red";
+                        lblCoordinates.Text = XAxisCoordinateLabelText + _cursor.Position.X + YAxisCoordinateLabelText + _cursor.Position.Y;
+                        lblFillState.Text = FillDisabledText;
+                        lblPenColor.Text = PenColorRedText;
                         break;
                     }
                 case Action.clear:
@@ -118,8 +126,8 @@ namespace ASE_Assignment
                         //picboxCanvas.Refresh();
                         g.Clear(Color.White);
                         _cursor.Draw(g);
-                        lblCoordinates.Text = "X:" + _cursor.Position.X + ", Y:" + _cursor.Position.Y;
-                        lblFillState.Text = "fill: disabled";
+                        lblCoordinates.Text = XAxisCoordinateLabelText + _cursor.Position.X + YAxisCoordinateLabelText + _cursor.Position.Y;
+                        lblFillState.Text = FillDisabledText;
                         break;
                     }
                 case Action.pen:
@@ -127,17 +135,17 @@ namespace ASE_Assignment
                         if (command.ActionValues[0].Equals(1))
                         {
                             _cursor.PenColor = Color.Red;
-                            lblPenColor.Text = "pen color: red";
+                            lblPenColor.Text = PenColorRedText;
                         }
                         if (command.ActionValues[0].Equals(2))
                         {
                             _cursor.PenColor = Color.Green;
-                            lblPenColor.Text = "pen color: green";
+                            lblPenColor.Text = PenColorGreenText;
                         }
                         if (command.ActionValues[0].Equals(3))
                         {
                             _cursor.PenColor = Color.Blue;
-                            lblPenColor.Text = "pen color: blue";
+                            lblPenColor.Text = PenColorBlueText;
                         }
                         _cursor.Draw(g);
                         break;
@@ -148,7 +156,7 @@ namespace ASE_Assignment
                         shape.Draw(g);
                         _cursor.MoveTo(shape.Position);
                         _cursor.Draw(g);
-                        lblCoordinates.Text = "X:" + _cursor.Position.X + ", Y:" + _cursor.Position.Y;
+                        lblCoordinates.Text = XAxisCoordinateLabelText + _cursor.Position.X + YAxisCoordinateLabelText + _cursor.Position.Y;
                         break;
                     }
             }
@@ -172,9 +180,9 @@ namespace ASE_Assignment
             // Clearing all the labels in the WinForms window
             txtCommandLine.Text = "";
             lblError.Text = "";
-            lblCoordinates.Text = "X:" + _cursor.Position.X + ", Y:" + _cursor.Position.Y;
-            lblFillState.Text = "fill: disabled";
-            lblPenColor.Text = "pen color: red";
+            lblCoordinates.Text = XAxisCoordinateLabelText + _cursor.Position.X + YAxisCoordinateLabelText + _cursor.Position.Y;
+            lblFillState.Text = FillDisabledText;
+            lblPenColor.Text = PenColorRedText;
         }
 
         /// <summary>
@@ -215,7 +223,7 @@ namespace ASE_Assignment
         {
             SaveFileDialog save = new SaveFileDialog();
             save.FileName = "Commands.txt";
-            save.Filter = "Text File | *.txt";
+            save.Filter = TextFileTxt;
             save.RestoreDirectory = true;
 
             if (save.ShowDialog() == DialogResult.OK)
@@ -232,7 +240,7 @@ namespace ASE_Assignment
         private void loadMenuItem_Click(object sender, EventArgs e)
         {
             OpenFileDialog load = new OpenFileDialog();
-            load.Filter = "Text File | *.txt";
+            load.Filter = TextFileTxt;
             load.RestoreDirectory = true;
 
             if (load.ShowDialog() == DialogResult.OK)
