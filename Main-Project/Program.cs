@@ -13,7 +13,7 @@ namespace ASE_Assignment
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MyForm());
+            Application.Run(new frmMainForm());
         }
     }
 }

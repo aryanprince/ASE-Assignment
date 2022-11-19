@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace ASE_Assignment
 {
-    public partial class MyForm : Form
+    public partial class frmMainForm : Form
     {
         // Instances of the classes that are used in the form
         private readonly Cursor _cursor = new Cursor();
@@ -24,9 +24,9 @@ namespace ASE_Assignment
         private const string YAxisCoordinateLabelText = ", Y:";
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="MyForm"/> class.
+        /// Initializes a new instance of the <see cref="frmMainForm"/> class.
         /// </summary>
-        public MyForm()
+        public frmMainForm()
         {
             InitializeComponent();
         }
@@ -38,11 +38,11 @@ namespace ASE_Assignment
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void btnRunMultiline_Click(object sender, EventArgs e)
         {
-            Graphics g = PictureBoxCanvas.CreateGraphics();
+            Graphics g = pbDrawingCanvas.CreateGraphics();
 
             try
             {
-                var commandsList = _parser.ParseInput_MultiLine(TxtCommandArea.Text);
+                var commandsList = _parser.ParseInput_MultiLine(txtCommandArea.Text);
                 foreach (var command in commandsList) { ExecuteCommand(g, command); }
             }
             catch (Exception exception)
@@ -58,18 +58,18 @@ namespace ASE_Assignment
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void BtnRun_Click(object sender, EventArgs e)
         {
-            Graphics g = PictureBoxCanvas.CreateGraphics();
+            Graphics g = pbDrawingCanvas.CreateGraphics();
 
             try
             {
                 _cursor.Draw(g); // Draws a new cursor before every command in case it gets covered by another shape
 
-                Command command = _parser.ParseInput_SingleLine(TxtCommandLine.Text.Trim().ToLower());
+                Command command = _parser.ParseInput_SingleLine(txtCommandLine.Text.Trim().ToLower());
                 ExecuteCommand(g, command);
 
                 // Resets all the labels if execute command works
                 lblError.Text = "";
-                TxtCommandLine.Text = "";
+                txtCommandLine.Text = "";
             }
             catch (Exception exception)
             {
@@ -88,7 +88,7 @@ namespace ASE_Assignment
             {
                 case Action.run:
                     {
-                        List<Command> commands = _parser.ParseInput_MultiLine(TxtCommandArea.Text);
+                        List<Command> commands = _parser.ParseInput_MultiLine(txtCommandArea.Text);
                         foreach (Command c in commands) { ExecuteCommand(g, c); }
                         break;
                     }
@@ -96,7 +96,7 @@ namespace ASE_Assignment
                     {
                         _cursor.MoveTo(new Point(command.ActionValues[0], command.ActionValues[1]));
                         _cursor.Draw(g);
-                        lblCoordinates.Text = XAxisCoordinateLabelText + _cursor.Position.X + YAxisCoordinateLabelText + _cursor.Position.Y;
+                        lblCoordinatesValues.Text = XAxisCoordinateLabelText + _cursor.Position.X + YAxisCoordinateLabelText + _cursor.Position.Y;
                         break;
                     }
                 case Action.fill:
@@ -119,7 +119,7 @@ namespace ASE_Assignment
                         _cursor.ChangePenColor(_cursor.DefaultPenColor); // Resets cursor to default color (Red)
                         _cursor.ChangeFillState(_cursor.DefaultFill); // Resets cursor to default fill state (false ie; no fill)
                         _cursor.Draw(g);
-                        lblCoordinates.Text = XAxisCoordinateLabelText + _cursor.Position.X + YAxisCoordinateLabelText + _cursor.Position.Y;
+                        lblCoordinatesValues.Text = XAxisCoordinateLabelText + _cursor.Position.X + YAxisCoordinateLabelText + _cursor.Position.Y;
                         lblFillState.Text = FillDisabledText;
                         lblPenColor.Text = PenColorRedText;
                         break;
@@ -128,7 +128,7 @@ namespace ASE_Assignment
                     {
                         g.Clear(Color.White);
                         _cursor.Draw(g);
-                        lblCoordinates.Text = XAxisCoordinateLabelText + _cursor.Position.X + YAxisCoordinateLabelText + _cursor.Position.Y;
+                        lblCoordinatesValues.Text = XAxisCoordinateLabelText + _cursor.Position.X + YAxisCoordinateLabelText + _cursor.Position.Y;
                         lblFillState.Text = FillDisabledText;
                         break;
                     }
@@ -158,7 +158,7 @@ namespace ASE_Assignment
                         shape.Draw(g);
                         _cursor.MoveTo(shape.Position);
                         _cursor.Draw(g);
-                        lblCoordinates.Text = XAxisCoordinateLabelText + _cursor.Position.X + YAxisCoordinateLabelText + _cursor.Position.Y;
+                        lblCoordinatesValues.Text = XAxisCoordinateLabelText + _cursor.Position.X + YAxisCoordinateLabelText + _cursor.Position.Y;
                         break;
                     }
             }
@@ -171,7 +171,7 @@ namespace ASE_Assignment
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void BtnClear_Click(object sender, EventArgs e)
         {
-            var g = PictureBoxCanvas.CreateGraphics();
+            var g = pbDrawingCanvas.CreateGraphics();
             g.Clear(Color.White);
             _cursor.MoveTo(_cursor.DefaultPosition); // Resets cursor to default position (0,0)
             _cursor.ChangePenColor(_cursor.DefaultPenColor); // Resets cursor to default color (Red)
@@ -179,9 +179,9 @@ namespace ASE_Assignment
             _cursor.Draw(g);
 
             // Clearing all the labels in the WinForms window
-            TxtCommandLine.Text = "";
+            txtCommandLine.Text = "";
             lblError.Text = "";
-            lblCoordinates.Text = XAxisCoordinateLabelText + _cursor.Position.X + YAxisCoordinateLabelText + _cursor.Position.Y;
+            lblCoordinatesValues.Text = XAxisCoordinateLabelText + _cursor.Position.X + YAxisCoordinateLabelText + _cursor.Position.Y;
             lblFillState.Text = FillDisabledText;
             lblPenColor.Text = PenColorRedText;
         }
@@ -197,7 +197,7 @@ namespace ASE_Assignment
             {
                 return;
             }
-            BtnRun.PerformClick();
+            btnRun.PerformClick();
 
             //Stops the 'ding' when pressing Enter
             e.Handled = true;
@@ -229,7 +229,7 @@ namespace ASE_Assignment
 
             if (save.ShowDialog() == DialogResult.OK)
             {
-                File.WriteAllText(save.FileName, TxtCommandArea.Text);
+                File.WriteAllText(save.FileName, txtCommandArea.Text);
             }
         }
 
@@ -246,7 +246,7 @@ namespace ASE_Assignment
 
             if (load.ShowDialog() == DialogResult.OK)
             {
-                TxtCommandArea.Text = File.ReadAllText(load.FileName);
+                txtCommandArea.Text = File.ReadAllText(load.FileName);
             }
         }
 
