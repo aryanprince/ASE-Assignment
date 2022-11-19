@@ -38,7 +38,7 @@ namespace ASE_Assignment
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void btnRunMultiline_Click(object sender, EventArgs e)
         {
-            Graphics g = picboxCanvas.CreateGraphics();
+            Graphics g = pictureBoxCanvas.CreateGraphics();
 
             try
             {
@@ -58,7 +58,7 @@ namespace ASE_Assignment
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void btnRun_Click(object sender, EventArgs e)
         {
-            Graphics g = picboxCanvas.CreateGraphics();
+            Graphics g = pictureBoxCanvas.CreateGraphics();
 
             try
             {
@@ -126,7 +126,6 @@ namespace ASE_Assignment
                     }
                 case Action.clear:
                     {
-                        //picboxCanvas.Refresh();
                         g.Clear(Color.White);
                         _cursor.Draw(g);
                         lblCoordinates.Text = XAxisCoordinateLabelText + _cursor.Position.X + YAxisCoordinateLabelText + _cursor.Position.Y;
@@ -172,9 +171,8 @@ namespace ASE_Assignment
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void btnClear_Click(object sender, EventArgs e)
         {
-            var g = picboxCanvas.CreateGraphics();
+            var g = pictureBoxCanvas.CreateGraphics();
             g.Clear(Color.White);
-            //picboxCanvas.Refresh();
             _cursor.MoveTo(_cursor.DefaultPosition); // Resets cursor to default position (0,0)
             _cursor.ChangePenColor(_cursor.DefaultPenColor); // Resets cursor to default color (Red)
             _cursor.ChangeFillState(_cursor.DefaultFill); // Resets cursor to default fill state (false ie; no fill)
@@ -207,11 +205,11 @@ namespace ASE_Assignment
         }
 
         /// <summary>
-        /// Handles the Paint event of the picboxCanvas control. Used to draw the cursor on the picture box every time the program starts.
+        /// Handles the Paint event of the picture box control. Used to draw the cursor on the picture box every time the program starts.
         /// </summary>
         /// <param name="sender">The source of the event.</param>
         /// <param name="e">The <see cref="PaintEventArgs"/> instance containing the event data.</param>
-        private void picboxCanvas_Paint(object sender, PaintEventArgs e)
+        private void pictureBoxCanvas_Paint(object sender, PaintEventArgs e)
         {
             Graphics g = e.Graphics;
             _cursor.Draw(g);

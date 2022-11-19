@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MyForm));
-            this.picboxCanvas = new System.Windows.Forms.PictureBox();
+            this.pictureBoxCanvas = new System.Windows.Forms.PictureBox();
             this.txtCommandLine = new System.Windows.Forms.TextBox();
             this.btnRun = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
@@ -50,23 +50,23 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            ((System.ComponentModel.ISupportInitialize)(this.picboxCanvas)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCanvas)).BeginInit();
             this.menuStrip.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
-            // picboxCanvas
+            // pictureBoxCanvas
             // 
-            this.picboxCanvas.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.picboxCanvas.Location = new System.Drawing.Point(7, 28);
-            this.picboxCanvas.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.picboxCanvas.Name = "picboxCanvas";
-            this.picboxCanvas.Size = new System.Drawing.Size(800, 500);
-            this.picboxCanvas.TabIndex = 0;
-            this.picboxCanvas.TabStop = false;
-            this.picboxCanvas.Paint += new System.Windows.Forms.PaintEventHandler(this.picboxCanvas_Paint);
+            this.pictureBoxCanvas.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.pictureBoxCanvas.Location = new System.Drawing.Point(7, 28);
+            this.pictureBoxCanvas.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pictureBoxCanvas.Name = "pictureBoxCanvas";
+            this.pictureBoxCanvas.Size = new System.Drawing.Size(800, 500);
+            this.pictureBoxCanvas.TabIndex = 0;
+            this.pictureBoxCanvas.TabStop = false;
+            this.pictureBoxCanvas.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBoxCanvas_Paint);
             // 
             // txtCommandLine
             // 
@@ -143,7 +143,7 @@
             this.saveMenuItem.ForeColor = System.Drawing.Color.White;
             this.saveMenuItem.Name = "saveMenuItem";
             this.saveMenuItem.ShortcutKeyDisplayString = "";
-            this.saveMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.saveMenuItem.Size = new System.Drawing.Size(100, 22);
             this.saveMenuItem.Text = "Save";
             this.saveMenuItem.Click += new System.EventHandler(this.saveMenuItem_Click);
             // 
@@ -152,7 +152,7 @@
             this.loadMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
             this.loadMenuItem.ForeColor = System.Drawing.Color.White;
             this.loadMenuItem.Name = "loadMenuItem";
-            this.loadMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.loadMenuItem.Size = new System.Drawing.Size(100, 22);
             this.loadMenuItem.Text = "Load";
             this.loadMenuItem.Click += new System.EventHandler(this.loadMenuItem_Click);
             // 
@@ -280,7 +280,7 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.picboxCanvas);
+            this.groupBox2.Controls.Add(this.pictureBoxCanvas);
             this.groupBox2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.ForeColor = System.Drawing.Color.White;
             this.groupBox2.Location = new System.Drawing.Point(481, 42);
@@ -302,7 +302,7 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Single-line Commands";
             // 
-            // form
+            // MyForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -327,7 +327,7 @@
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "MyForm";
             this.Text = "Graphical Programming Language";
-            ((System.ComponentModel.ISupportInitialize)(this.picboxCanvas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCanvas)).EndInit();
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
             this.groupBox1.ResumeLayout(false);
@@ -342,7 +342,7 @@
 
         #endregion
 
-        private System.Windows.Forms.PictureBox picboxCanvas;
+        private System.Windows.Forms.PictureBox pictureBoxCanvas;
         private System.Windows.Forms.TextBox txtCommandLine;
         private System.Windows.Forms.Button btnRun;
         private System.Windows.Forms.Button btnClear;
