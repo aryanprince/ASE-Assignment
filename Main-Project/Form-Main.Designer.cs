@@ -90,7 +90,7 @@
             this.btnRun.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnRun.Name = "btnRun";
             this.btnRun.Size = new System.Drawing.Size(96, 40);
-            this.btnRun.TabIndex = 2;
+            this.btnRun.TabIndex = 4;
             this.btnRun.Text = "run";
             this.btnRun.UseVisualStyleBackColor = false;
             this.btnRun.Click += new System.EventHandler(this.BtnRun_Click);
@@ -106,7 +106,7 @@
             this.btnClear.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(96, 40);
-            this.btnClear.TabIndex = 3;
+            this.btnClear.TabIndex = 5;
             this.btnClear.Text = "clear";
             this.btnClear.UseVisualStyleBackColor = false;
             this.btnClear.Click += new System.EventHandler(this.BtnClear_Click);
@@ -143,7 +143,7 @@
             this.mniSave.ForeColor = System.Drawing.Color.White;
             this.mniSave.Name = "mniSave";
             this.mniSave.ShortcutKeyDisplayString = "";
-            this.mniSave.Size = new System.Drawing.Size(180, 22);
+            this.mniSave.Size = new System.Drawing.Size(100, 22);
             this.mniSave.Text = "Save";
             this.mniSave.Click += new System.EventHandler(this.SaveMenuItem_Click);
             // 
@@ -152,7 +152,7 @@
             this.mniLoad.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
             this.mniLoad.ForeColor = System.Drawing.Color.White;
             this.mniLoad.Name = "mniLoad";
-            this.mniLoad.Size = new System.Drawing.Size(180, 22);
+            this.mniLoad.Size = new System.Drawing.Size(100, 22);
             this.mniLoad.Text = "Load";
             this.mniLoad.Click += new System.EventHandler(this.LoadMenuItem_Click);
             // 
@@ -215,7 +215,7 @@
             this.lblError.Location = new System.Drawing.Point(20, 662);
             this.lblError.Name = "lblError";
             this.lblError.Size = new System.Drawing.Size(2, 23);
-            this.lblError.TabIndex = 11;
+            this.lblError.TabIndex = 1;
             // 
             // lblFillState
             // 
@@ -248,7 +248,7 @@
             this.txtCommandArea.Multiline = true;
             this.txtCommandArea.Name = "txtCommandArea";
             this.txtCommandArea.Size = new System.Drawing.Size(431, 355);
-            this.txtCommandArea.TabIndex = 14;
+            this.txtCommandArea.TabIndex = 0;
             // 
             // btnRunMultiLine
             // 
@@ -261,7 +261,7 @@
             this.btnRunMultiLine.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnRunMultiLine.Name = "btnRunMultiLine";
             this.btnRunMultiLine.Size = new System.Drawing.Size(145, 40);
-            this.btnRunMultiLine.TabIndex = 15;
+            this.btnRunMultiLine.TabIndex = 10;
             this.btnRunMultiLine.Text = "run multiline";
             this.btnRunMultiLine.UseVisualStyleBackColor = false;
             this.btnRunMultiLine.Click += new System.EventHandler(this.btnRunMultiline_Click);
@@ -274,7 +274,7 @@
             this.gbMultiLineCommands.Location = new System.Drawing.Point(12, 42);
             this.gbMultiLineCommands.Name = "gbMultiLineCommands";
             this.gbMultiLineCommands.Size = new System.Drawing.Size(445, 391);
-            this.gbMultiLineCommands.TabIndex = 16;
+            this.gbMultiLineCommands.TabIndex = 10;
             this.gbMultiLineCommands.TabStop = false;
             this.gbMultiLineCommands.Text = "Multi-line Commands";
             // 
@@ -286,7 +286,7 @@
             this.gbDrawingCanvas.Location = new System.Drawing.Point(481, 42);
             this.gbDrawingCanvas.Name = "gbDrawingCanvas";
             this.gbDrawingCanvas.Size = new System.Drawing.Size(816, 536);
-            this.gbDrawingCanvas.TabIndex = 17;
+            this.gbDrawingCanvas.TabIndex = 8;
             this.gbDrawingCanvas.TabStop = false;
             this.gbDrawingCanvas.Text = "Drawing Canvas";
             // 
@@ -298,7 +298,7 @@
             this.gbSingleLineCommands.Location = new System.Drawing.Point(12, 512);
             this.gbSingleLineCommands.Name = "gbSingleLineCommands";
             this.gbSingleLineCommands.Size = new System.Drawing.Size(445, 66);
-            this.gbSingleLineCommands.TabIndex = 18;
+            this.gbSingleLineCommands.TabIndex = 0;
             this.gbSingleLineCommands.TabStop = false;
             this.gbSingleLineCommands.Text = "Single-line Commands";
             // 
