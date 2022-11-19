@@ -18,12 +18,12 @@ namespace Unit_Tests
             string input = "rectangle";
 
             // act
-            Action action = _parser.ParseAction_Command(input);
+            Action action = _parser.ParseAction_Command(input); // Parse the input and get the action
 
             // assert
             Assert.IsNotNull(action);
-            Assert.AreEqual(Action.rectangle, action);
-            Assert.AreNotEqual(Action.square, action);
+            Assert.AreEqual(Action.rectangle, action); // Assert that the action is a rectangle
+            Assert.AreNotEqual(Action.square, action); // Assert that the action is not a square
             Assert.AreNotEqual(Action.circle, action);
         }
 
@@ -34,7 +34,7 @@ namespace Unit_Tests
             string input = "rectangle 100 150";
 
             // act
-            Action action = _parser.ParseAction_Command(input);
+            Action action = _parser.ParseAction_Command(input); // Parse the input and get the action
 
             // assert
             Assert.IsNotNull(action);
@@ -49,7 +49,7 @@ namespace Unit_Tests
             string input = "RECTANGLE 100 150";
 
             // act
-            Action action = _parser.ParseAction_Command(input);
+            Action action = _parser.ParseAction_Command(input); // Parse the input and get the action
 
             // assert
             Assert.IsNotNull(action);
@@ -64,7 +64,7 @@ namespace Unit_Tests
             string input = "rectangle 100 150";
 
             // act
-            Command command = _parser.ParseInput_SingleLine(input);
+            Command command = _parser.ParseInput_SingleLine(input); // Parse the input and get the command
 
             // assert
             Assert.IsNotNull(command);
@@ -83,7 +83,7 @@ namespace Unit_Tests
             string input = "rEcTaNgLe 100 150";
 
             // act
-            Command command = _parser.ParseInput_SingleLine(input);
+            Command command = _parser.ParseInput_SingleLine(input); // Parse the input and get the command
 
             // assert
             Assert.IsNotNull(command);
@@ -102,10 +102,11 @@ namespace Unit_Tests
             string input = "rectangle 100 150";
 
             // act
+            // Creating an instance of all the classes that are needed to create a rectangle
             Command command = _parser.ParseInput_SingleLine(input);
             ShapeFactory shapeFactory = new ShapeFactory();
             Cursor cursor = new Cursor();
-            Shape shape = shapeFactory.CreateShape(command, cursor.Position, cursor.Fill, cursor.PenColor);
+            Shape shape = shapeFactory.CreateShape(command, cursor.Position, cursor.Fill, cursor.PenColor); // Creates the shape
 
             // assert
             Assert.IsNotNull(shape);
@@ -128,10 +129,11 @@ namespace Unit_Tests
             string input = "rEcTaNgLe 100 150";
 
             // act
+            // Creating an instance of all the classes that are needed to create a rectangle
             Command command = _parser.ParseInput_SingleLine(input);
             ShapeFactory shapeFactory = new ShapeFactory();
             Cursor cursor = new Cursor();
-            Shape shape = shapeFactory.CreateShape(command, cursor.Position, cursor.Fill, cursor.PenColor);
+            Shape shape = shapeFactory.CreateShape(command, cursor.Position, cursor.Fill, cursor.PenColor); // Creates the shape
 
             // assert
             Assert.IsNotNull(shape);
@@ -160,7 +162,7 @@ namespace Unit_Tests
             string input = "circle 100 150";
 
             // act
-            Action action = _parser.ParseAction_Command(input);
+            Action action = _parser.ParseAction_Command(input); // Parse the input and get the action
 
             // assert
             Assert.IsNotNull(action);
@@ -175,7 +177,7 @@ namespace Unit_Tests
             string input = "circle";
 
             // act
-            Action action = _parser.ParseAction_Command(input);
+            Action action = _parser.ParseAction_Command(input); // Parse the input and get the action
 
             // assert
             Assert.IsNotNull(action);
@@ -190,7 +192,7 @@ namespace Unit_Tests
             string input = "CiRcLe";
 
             // act
-            Action action = _parser.ParseAction_Command(input);
+            Action action = _parser.ParseAction_Command(input); // Parse the input and get the action
 
             // assert
             Assert.IsNotNull(action);
@@ -205,7 +207,7 @@ namespace Unit_Tests
             string input = "circle 100 150";
 
             // act
-            Command command = _parser.ParseInput_SingleLine(input);
+            Command command = _parser.ParseInput_SingleLine(input); // Parse the input and get the command
 
             // assert
             Assert.IsNotNull(command);
@@ -222,7 +224,7 @@ namespace Unit_Tests
             string input = "cIrClE 100 150";
 
             // act
-            Command command = _parser.ParseInput_SingleLine(input);
+            Command command = _parser.ParseInput_SingleLine(input); // Parse the input and get the command
 
             // assert
             Assert.IsNotNull(command);
@@ -239,10 +241,11 @@ namespace Unit_Tests
             string input = "circle 100 150";
 
             // act
+            // Creating an instance of all the classes that are needed to create a circle
             Command command = _parser.ParseInput_SingleLine(input);
             ShapeFactory shapeFactory = new ShapeFactory();
             Cursor cursor = new Cursor();
-            Shape shape = shapeFactory.CreateShape(command, cursor.Position, cursor.Fill, cursor.PenColor);
+            Shape shape = shapeFactory.CreateShape(command, cursor.Position, cursor.Fill, cursor.PenColor); // Creates a circle using the factory
 
             // assert
             Assert.IsNotNull(shape);
@@ -265,10 +268,11 @@ namespace Unit_Tests
             string input = "cIrClE 100 150";
 
             // act
+            // Creating an instance of all the classes that are needed to create a circle
             Command command = _parser.ParseInput_SingleLine(input);
             ShapeFactory shapeFactory = new ShapeFactory();
             Cursor cursor = new Cursor();
-            Shape shape = shapeFactory.CreateShape(command, cursor.Position, cursor.Fill, cursor.PenColor);
+            Shape shape = shapeFactory.CreateShape(command, cursor.Position, cursor.Fill, cursor.PenColor); // Creates a circle using the factory
 
             // assert
             Assert.IsNotNull(shape);
@@ -297,7 +301,7 @@ namespace Unit_Tests
             string input = "square 125";
 
             // act
-            Action action = _parser.ParseAction_Command(input);
+            Action action = _parser.ParseAction_Command(input); // Parse the input and get the action
 
             // assert
             Assert.IsNotNull(action);
@@ -313,7 +317,7 @@ namespace Unit_Tests
             string input = "square";
 
             // act
-            Action action = _parser.ParseAction_Command(input);
+            Action action = _parser.ParseAction_Command(input); // Parse the input and get the action
 
             // assert
             Assert.IsNotNull(action);
@@ -329,7 +333,7 @@ namespace Unit_Tests
             string input = "sQuArE";
 
             // act
-            Action action = _parser.ParseAction_Command(input);
+            Action action = _parser.ParseAction_Command(input); // Parse the input and get the action
 
             // assert
             Assert.IsNotNull(action);
@@ -345,7 +349,7 @@ namespace Unit_Tests
             string input = "square 125";
 
             // act
-            Command command = _parser.ParseInput_SingleLine(input);
+            Command command = _parser.ParseInput_SingleLine(input); // Parse the input and get the command
 
             // assert
             Assert.IsNotNull(command);
@@ -363,7 +367,7 @@ namespace Unit_Tests
             string input = "sQuArE 125";
 
             // act
-            Command command = _parser.ParseInput_SingleLine(input);
+            Command command = _parser.ParseInput_SingleLine(input); // Parse the input and get the command
 
             // assert
             Assert.IsNotNull(command);
@@ -381,10 +385,11 @@ namespace Unit_Tests
             string input = "square 125";
 
             // act
+            // Creating an instance of all the classes that are needed to create a square
             Command command = _parser.ParseInput_SingleLine(input);
             ShapeFactory shapeFactory = new ShapeFactory();
             Cursor cursor = new Cursor();
-            Shape shape = shapeFactory.CreateShape(command, cursor.Position, cursor.Fill, cursor.PenColor);
+            Shape shape = shapeFactory.CreateShape(command, cursor.Position, cursor.Fill, cursor.PenColor); // Creates a square using the factory
 
             // assert
             Assert.IsNotNull(shape);
@@ -408,10 +413,11 @@ namespace Unit_Tests
             string input = "sQuArE 125";
 
             // act
+            // Creating an instance of all the classes that are needed to create a square
             Command command = _parser.ParseInput_SingleLine(input);
             ShapeFactory shapeFactory = new ShapeFactory();
             Cursor cursor = new Cursor();
-            Shape shape = shapeFactory.CreateShape(command, cursor.Position, cursor.Fill, cursor.PenColor);
+            Shape shape = shapeFactory.CreateShape(command, cursor.Position, cursor.Fill, cursor.PenColor); // Creates a square using the factory
 
             // assert
             Assert.IsNotNull(shape);
@@ -441,7 +447,7 @@ namespace Unit_Tests
             string input = "triangle 225";
 
             // act
-            Action action = _parser.ParseAction_Command(input);
+            Action action = _parser.ParseAction_Command(input); // Parse the input and get the action
 
             // assert
             Assert.IsNotNull(action);
@@ -458,7 +464,7 @@ namespace Unit_Tests
             string input = "triangle";
 
             // act
-            Action action = _parser.ParseAction_Command(input);
+            Action action = _parser.ParseAction_Command(input); // Parse the input and get the action
 
             // assert
             Assert.IsNotNull(action);
@@ -475,7 +481,7 @@ namespace Unit_Tests
             string input = "tRiAnGlE";
 
             // act
-            Action action = _parser.ParseAction_Command(input);
+            Action action = _parser.ParseAction_Command(input); // Parse the input and get the action
 
             // assert
             Assert.IsNotNull(action);
@@ -492,7 +498,7 @@ namespace Unit_Tests
             string input = "triangle 225";
 
             // act
-            Command command = _parser.ParseInput_SingleLine(input);
+            Command command = _parser.ParseInput_SingleLine(input); // Parse the input and get the command
 
             // assert
             Assert.IsNotNull(command);
@@ -510,7 +516,7 @@ namespace Unit_Tests
             string input = "tRiAnGlE 225";
 
             // act
-            Command command = _parser.ParseInput_SingleLine(input);
+            Command command = _parser.ParseInput_SingleLine(input); // Parse the input and get the command
 
             // assert
             Assert.IsNotNull(command);
@@ -528,10 +534,11 @@ namespace Unit_Tests
             string input = "triangle 225";
 
             // act
+            // Creating an instance of all the classes that are needed to create a triangle
             Command command = _parser.ParseInput_SingleLine(input);
             ShapeFactory shapeFactory = new ShapeFactory();
             Cursor cursor = new Cursor();
-            Shape shape = shapeFactory.CreateShape(command, cursor.Position, cursor.Fill, cursor.PenColor);
+            Shape shape = shapeFactory.CreateShape(command, cursor.Position, cursor.Fill, cursor.PenColor); // Creates a triangle using the factory
 
             // assert
             Assert.IsNotNull(shape);
@@ -556,10 +563,11 @@ namespace Unit_Tests
             string input = "tRiAnGlE 225";
 
             // act
+            // Creating an instance of all the classes that are needed to create a triangle
             Command command = _parser.ParseInput_SingleLine(input);
             ShapeFactory shapeFactory = new ShapeFactory();
             Cursor cursor = new Cursor();
-            Shape shape = shapeFactory.CreateShape(command, cursor.Position, cursor.Fill, cursor.PenColor);
+            Shape shape = shapeFactory.CreateShape(command, cursor.Position, cursor.Fill, cursor.PenColor); // Creates a triangle using the factory
 
             // assert
             Assert.IsNotNull(shape);
@@ -590,7 +598,7 @@ namespace Unit_Tests
             string input = "drawto 125 210";
 
             // act
-            Action action = _parser.ParseAction_Command(input);
+            Action action = _parser.ParseAction_Command(input); // Parse the input and get the action
 
             // assert
             Assert.IsNotNull(action);
@@ -608,7 +616,7 @@ namespace Unit_Tests
             string input = "drawto";
 
             // act
-            Action action = _parser.ParseAction_Command(input);
+            Action action = _parser.ParseAction_Command(input); // Parse the input and get the action
 
             // assert
             Assert.IsNotNull(action);
@@ -626,7 +634,7 @@ namespace Unit_Tests
             string input = "dRaWtO 125 210";
 
             // act
-            Action action = _parser.ParseAction_Command(input);
+            Action action = _parser.ParseAction_Command(input); // Parse the input and get the action
 
             // assert
             Assert.IsNotNull(action);
@@ -644,7 +652,7 @@ namespace Unit_Tests
             string input = "drawto 125 210";
 
             // act
-            Command command = _parser.ParseInput_SingleLine(input);
+            Command command = _parser.ParseInput_SingleLine(input); // Parse the input and get the command
 
             // assert
             Assert.IsNotNull(command);
@@ -665,7 +673,7 @@ namespace Unit_Tests
             string input = "dRaWtO 125 210";
 
             // act
-            Command command = _parser.ParseInput_SingleLine(input);
+            Command command = _parser.ParseInput_SingleLine(input); // Parse the input and get the command
 
             // assert
             Assert.IsNotNull(command);
@@ -686,10 +694,11 @@ namespace Unit_Tests
             string input = "drawto 125 210";
 
             // act
+            // Creating an instance of all the classes that are needed to create a line
             Command command = _parser.ParseInput_SingleLine(input);
             ShapeFactory shapeFactory = new ShapeFactory();
             Cursor cursor = new Cursor();
-            Shape shape = shapeFactory.CreateShape(command, cursor.Position, cursor.Fill, cursor.PenColor);
+            Shape shape = shapeFactory.CreateShape(command, cursor.Position, cursor.Fill, cursor.PenColor); // Creates a line using the factory
 
             // assert
             Assert.IsNotNull(shape);
@@ -715,10 +724,11 @@ namespace Unit_Tests
             string input = "dRaWtO 125 210";
 
             // act
+            // Creating an instance of all the classes that are needed to create a line
             Command command = _parser.ParseInput_SingleLine(input);
             ShapeFactory shapeFactory = new ShapeFactory();
             Cursor cursor = new Cursor();
-            Shape shape = shapeFactory.CreateShape(command, cursor.Position, cursor.Fill, cursor.PenColor);
+            Shape shape = shapeFactory.CreateShape(command, cursor.Position, cursor.Fill, cursor.PenColor); // Creates a line using the factory
 
             // assert
             Assert.IsNotNull(shape);
