@@ -12,6 +12,14 @@ namespace ASE_Assignment
         private readonly Cursor _cursor = new Cursor();
         private readonly Parser _parser = new Parser();
         private readonly ShapeFactory _shapeFactory = new ShapeFactory();
+        private const string PenColorBlueText = "pen color: blue";
+        private const string PenColorGreenText = "pen color: green";
+        private const string PenColorRedText = "pen color: red";
+        private const string FillDisabledText = "fill: disabled";
+        private const string FillEnabledText = "fill: enabled";
+        private const string TextFileTxt = "Text File | *.txt";
+        private const string XAxisCoordinateLabelText = "X:";
+        private const string YAxisCoordinateLabelText = ", Y:";
 
         // Localized strings for WinForms controls
         private const string PenColorBlueText = "pen color: blue";
