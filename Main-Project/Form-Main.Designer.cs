@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMainForm));
-            this.pbDrawingCanvas = new System.Windows.Forms.PictureBox();
+            this.picDrawingCanvas = new System.Windows.Forms.PictureBox();
             this.txtCommandLine = new System.Windows.Forms.TextBox();
             this.btnRun = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
@@ -50,23 +50,23 @@
             this.gbMultiLineCommands = new System.Windows.Forms.GroupBox();
             this.gbDrawingCanvas = new System.Windows.Forms.GroupBox();
             this.gbSingleLineCommands = new System.Windows.Forms.GroupBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pbDrawingCanvas)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picDrawingCanvas)).BeginInit();
             this.mnuMenuStrip.SuspendLayout();
             this.gbMultiLineCommands.SuspendLayout();
             this.gbDrawingCanvas.SuspendLayout();
             this.gbSingleLineCommands.SuspendLayout();
             this.SuspendLayout();
             // 
-            // pbDrawingCanvas
+            // picDrawingCanvas
             // 
-            this.pbDrawingCanvas.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.pbDrawingCanvas.Location = new System.Drawing.Point(7, 28);
-            this.pbDrawingCanvas.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.pbDrawingCanvas.Name = "pbDrawingCanvas";
-            this.pbDrawingCanvas.Size = new System.Drawing.Size(800, 500);
-            this.pbDrawingCanvas.TabIndex = 0;
-            this.pbDrawingCanvas.TabStop = false;
-            this.pbDrawingCanvas.Paint += new System.Windows.Forms.PaintEventHandler(this.PictureBoxCanvas_Paint);
+            this.picDrawingCanvas.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.picDrawingCanvas.Location = new System.Drawing.Point(7, 28);
+            this.picDrawingCanvas.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.picDrawingCanvas.Name = "picDrawingCanvas";
+            this.picDrawingCanvas.Size = new System.Drawing.Size(800, 500);
+            this.picDrawingCanvas.TabIndex = 0;
+            this.picDrawingCanvas.TabStop = false;
+            this.picDrawingCanvas.Paint += new System.Windows.Forms.PaintEventHandler(this.PictureBoxCanvas_Paint);
             // 
             // txtCommandLine
             // 
@@ -280,7 +280,7 @@
             // 
             // gbDrawingCanvas
             // 
-            this.gbDrawingCanvas.Controls.Add(this.pbDrawingCanvas);
+            this.gbDrawingCanvas.Controls.Add(this.picDrawingCanvas);
             this.gbDrawingCanvas.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbDrawingCanvas.ForeColor = System.Drawing.Color.White;
             this.gbDrawingCanvas.Location = new System.Drawing.Point(481, 42);
@@ -327,7 +327,7 @@
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "frmMainForm";
             this.Text = "Graphical Programming Language";
-            ((System.ComponentModel.ISupportInitialize)(this.pbDrawingCanvas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picDrawingCanvas)).EndInit();
             this.mnuMenuStrip.ResumeLayout(false);
             this.mnuMenuStrip.PerformLayout();
             this.gbMultiLineCommands.ResumeLayout(false);
@@ -342,7 +342,7 @@
 
         #endregion
 
-        private System.Windows.Forms.PictureBox pbDrawingCanvas;
+        private System.Windows.Forms.PictureBox picDrawingCanvas;
         private System.Windows.Forms.TextBox txtCommandLine;
         private System.Windows.Forms.Button btnRun;
         private System.Windows.Forms.Button btnClear;

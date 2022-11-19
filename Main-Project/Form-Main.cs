@@ -38,7 +38,7 @@ namespace ASE_Assignment
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void btnRunMultiline_Click(object sender, EventArgs e)
         {
-            Graphics g = pbDrawingCanvas.CreateGraphics();
+            Graphics g = picDrawingCanvas.CreateGraphics();
 
             try
             {
@@ -58,7 +58,7 @@ namespace ASE_Assignment
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void BtnRun_Click(object sender, EventArgs e)
         {
-            Graphics g = pbDrawingCanvas.CreateGraphics();
+            Graphics g = picDrawingCanvas.CreateGraphics();
 
             try
             {
@@ -171,7 +171,7 @@ namespace ASE_Assignment
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void BtnClear_Click(object sender, EventArgs e)
         {
-            var g = pbDrawingCanvas.CreateGraphics();
+            var g = picDrawingCanvas.CreateGraphics();
             g.Clear(Color.White);
             _cursor.MoveTo(_cursor.DefaultPosition); // Resets cursor to default position (0,0)
             _cursor.ChangePenColor(_cursor.DefaultPenColor); // Resets cursor to default color (Red)
