@@ -8,7 +8,7 @@ A .NET C# WinForms application that allows the user to draw different shapes.
 
 Part of the Advanced Software Engineering course at Leeds Beckett University.
 
-![Repo Hits](https://hits.dwyl.com/aryanprince/ASE-Assignment.svg?style=flat-square)
+![](https://hits.dwyl.com/aryanprince/ASE-Assignment.svg?style=flat-square)
 [![CI Build and Test](https://github.com/aryanprince/ASE-Assignment/actions/workflows/ci-build-and-test.yml/badge.svg)](https://github.com/aryanprince/ASE-Assignment/actions/workflows/ci-build-and-test.yml)
 
 <!-- 
@@ -39,7 +39,7 @@ circle 50
 
 ## Naming Conventions
 
-Hungarian Notation is used for WinForms controls, and PascalCase is used for everything else.
+Hungarian Notation is used for WinForms controls, and PascalCase is used for almost everything else.
 
 ## How to run
 
@@ -59,7 +59,7 @@ Hungarian Notation is used for WinForms controls, and PascalCase is used for eve
 
 ## License
 
-[MIT](https://choosealicense.com/licenses/mit/)
+[MIT](https://choosealicense.com/licenses/mit/) (soon)
 
 ## Other CI workflows
 
