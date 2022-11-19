@@ -35,11 +35,11 @@
             this.btnClear = new System.Windows.Forms.Button();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.menuStripFile = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.loadMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStripHelp = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStripAbout = new System.Windows.Forms.ToolStripMenuItem();
-            this.lblCommandArea = new System.Windows.Forms.Label();
-            this.lblDrawingArea = new System.Windows.Forms.Label();
-            this.lblCommandLine = new System.Windows.Forms.Label();
+            this.aryanMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lblCoordinates = new System.Windows.Forms.Label();
             this.lblCoordinatesInfo = new System.Windows.Forms.Label();
             this.lblError = new System.Windows.Forms.Label();
@@ -47,19 +47,23 @@
             this.lblPenColor = new System.Windows.Forms.Label();
             this.txtCommandArea = new System.Windows.Forms.TextBox();
             this.btnRunMultiline = new System.Windows.Forms.Button();
-            this.saveMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.loadMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.picboxCanvas)).BeginInit();
             this.menuStrip.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // picboxCanvas
             // 
             this.picboxCanvas.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.picboxCanvas.Location = new System.Drawing.Point(541, 86);
+            this.picboxCanvas.Location = new System.Drawing.Point(7, 28);
             this.picboxCanvas.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.picboxCanvas.Name = "picboxCanvas";
-            this.picboxCanvas.Size = new System.Drawing.Size(900, 500);
+            this.picboxCanvas.Size = new System.Drawing.Size(800, 500);
             this.picboxCanvas.TabIndex = 0;
             this.picboxCanvas.TabStop = false;
             this.picboxCanvas.Paint += new System.Windows.Forms.PaintEventHandler(this.picboxCanvas_Paint);
@@ -67,24 +71,25 @@
             // txtCommandLine
             // 
             this.txtCommandLine.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtCommandLine.Font = new System.Drawing.Font("FiraCode NF", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCommandLine.Location = new System.Drawing.Point(23, 568);
+            this.txtCommandLine.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCommandLine.Location = new System.Drawing.Point(7, 28);
             this.txtCommandLine.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtCommandLine.Name = "txtCommandLine";
-            this.txtCommandLine.Size = new System.Drawing.Size(481, 27);
-            this.txtCommandLine.TabIndex = 1;
+            this.txtCommandLine.Size = new System.Drawing.Size(431, 26);
+            this.txtCommandLine.TabIndex = 0;
             this.txtCommandLine.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCommandLine_KeyDown);
             // 
             // btnRun
             // 
-            this.btnRun.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(62)))));
+            this.btnRun.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(54)))), ((int)(((byte)(61)))));
+            this.btnRun.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnRun.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRun.Font = new System.Drawing.Font("FiraCode NF", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRun.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(203)))), ((int)(((byte)(107)))));
-            this.btnRun.Location = new System.Drawing.Point(23, 605);
+            this.btnRun.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRun.ForeColor = System.Drawing.Color.White;
+            this.btnRun.Location = new System.Drawing.Point(19, 591);
             this.btnRun.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnRun.Name = "btnRun";
-            this.btnRun.Size = new System.Drawing.Size(112, 33);
+            this.btnRun.Size = new System.Drawing.Size(96, 40);
             this.btnRun.TabIndex = 2;
             this.btnRun.Text = "run";
             this.btnRun.UseVisualStyleBackColor = false;
@@ -92,14 +97,15 @@
             // 
             // btnClear
             // 
-            this.btnClear.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(62)))));
+            this.btnClear.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(54)))), ((int)(((byte)(61)))));
+            this.btnClear.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClear.Font = new System.Drawing.Font("FiraCode NF", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClear.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(203)))), ((int)(((byte)(107)))));
-            this.btnClear.Location = new System.Drawing.Point(143, 605);
+            this.btnClear.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClear.ForeColor = System.Drawing.Color.White;
+            this.btnClear.Location = new System.Drawing.Point(132, 591);
             this.btnClear.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(112, 33);
+            this.btnClear.Size = new System.Drawing.Size(96, 40);
             this.btnClear.TabIndex = 3;
             this.btnClear.Text = "clear";
             this.btnClear.UseVisualStyleBackColor = false;
@@ -107,15 +113,16 @@
             // 
             // menuStrip
             // 
-            this.menuStrip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(62)))));
+            this.menuStrip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
+            this.menuStrip.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuStripFile,
             this.menuStripHelp,
             this.menuStripAbout});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Padding = new System.Windows.Forms.Padding(9, 2, 0, 2);
-            this.menuStrip.Size = new System.Drawing.Size(1460, 24);
+            this.menuStrip.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
+            this.menuStrip.Size = new System.Drawing.Size(1339, 24);
             this.menuStrip.TabIndex = 5;
             this.menuStrip.Text = "menuStrip1";
             // 
@@ -124,84 +131,78 @@
             this.menuStripFile.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.saveMenuItem,
             this.loadMenuItem});
-            this.menuStripFile.Font = new System.Drawing.Font("FiraCode NF", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.menuStripFile.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(203)))), ((int)(((byte)(107)))));
+            this.menuStripFile.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.menuStripFile.ForeColor = System.Drawing.Color.White;
             this.menuStripFile.Name = "menuStripFile";
-            this.menuStripFile.Size = new System.Drawing.Size(47, 20);
+            this.menuStripFile.Size = new System.Drawing.Size(37, 20);
             this.menuStripFile.Text = "File";
+            // 
+            // saveMenuItem
+            // 
+            this.saveMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
+            this.saveMenuItem.ForeColor = System.Drawing.Color.White;
+            this.saveMenuItem.Name = "saveMenuItem";
+            this.saveMenuItem.ShortcutKeyDisplayString = "";
+            this.saveMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.saveMenuItem.Text = "Save";
+            this.saveMenuItem.Click += new System.EventHandler(this.saveMenuItem_Click);
+            // 
+            // loadMenuItem
+            // 
+            this.loadMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
+            this.loadMenuItem.ForeColor = System.Drawing.Color.White;
+            this.loadMenuItem.Name = "loadMenuItem";
+            this.loadMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.loadMenuItem.Text = "Load";
+            this.loadMenuItem.Click += new System.EventHandler(this.loadMenuItem_Click);
             // 
             // menuStripHelp
             // 
-            this.menuStripHelp.Font = new System.Drawing.Font("FiraCode NF", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.menuStripHelp.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(203)))), ((int)(((byte)(107)))));
+            this.menuStripHelp.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.menuStripHelp.ForeColor = System.Drawing.Color.White;
             this.menuStripHelp.Name = "menuStripHelp";
-            this.menuStripHelp.Size = new System.Drawing.Size(47, 20);
+            this.menuStripHelp.Size = new System.Drawing.Size(44, 20);
             this.menuStripHelp.Text = "Help";
             // 
             // menuStripAbout
             // 
-            this.menuStripAbout.Font = new System.Drawing.Font("FiraCode NF", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.menuStripAbout.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(203)))), ((int)(((byte)(107)))));
+            this.menuStripAbout.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.aryanMenuItem});
+            this.menuStripAbout.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.menuStripAbout.ForeColor = System.Drawing.Color.White;
             this.menuStripAbout.Name = "menuStripAbout";
-            this.menuStripAbout.Size = new System.Drawing.Size(54, 20);
+            this.menuStripAbout.Size = new System.Drawing.Size(52, 20);
             this.menuStripAbout.Text = "About";
             // 
-            // lblCommandArea
+            // aryanMenuItem
             // 
-            this.lblCommandArea.AutoSize = true;
-            this.lblCommandArea.Font = new System.Drawing.Font("FiraCode NF", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCommandArea.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(203)))), ((int)(((byte)(107)))));
-            this.lblCommandArea.Location = new System.Drawing.Point(18, 56);
-            this.lblCommandArea.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblCommandArea.Name = "lblCommandArea";
-            this.lblCommandArea.Size = new System.Drawing.Size(348, 25);
-            this.lblCommandArea.TabIndex = 6;
-            this.lblCommandArea.Text = "enter big commands here:";
-            // 
-            // lblDrawingArea
-            // 
-            this.lblDrawingArea.AutoSize = true;
-            this.lblDrawingArea.Font = new System.Drawing.Font("FiraCode NF", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDrawingArea.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(203)))), ((int)(((byte)(107)))));
-            this.lblDrawingArea.Location = new System.Drawing.Point(536, 56);
-            this.lblDrawingArea.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblDrawingArea.Name = "lblDrawingArea";
-            this.lblDrawingArea.Size = new System.Drawing.Size(194, 25);
-            this.lblDrawingArea.TabIndex = 7;
-            this.lblDrawingArea.Text = "drawing area:";
-            // 
-            // lblCommandLine
-            // 
-            this.lblCommandLine.AutoSize = true;
-            this.lblCommandLine.Font = new System.Drawing.Font("FiraCode NF", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCommandLine.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(203)))), ((int)(((byte)(107)))));
-            this.lblCommandLine.Location = new System.Drawing.Point(18, 538);
-            this.lblCommandLine.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblCommandLine.Name = "lblCommandLine";
-            this.lblCommandLine.Size = new System.Drawing.Size(390, 25);
-            this.lblCommandLine.TabIndex = 8;
-            this.lblCommandLine.Text = "enter little commands here:";
+            this.aryanMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
+            this.aryanMenuItem.ForeColor = System.Drawing.Color.White;
+            this.aryanMenuItem.Name = "aryanMenuItem";
+            this.aryanMenuItem.Size = new System.Drawing.Size(225, 22);
+            this.aryanMenuItem.Text = "Built with ❤️ by Aryan Prince";
+            this.aryanMenuItem.Click += new System.EventHandler(this.aryanMenuItem_Click);
             // 
             // lblCoordinates
             // 
             this.lblCoordinates.AutoSize = true;
-            this.lblCoordinates.Font = new System.Drawing.Font("FiraCode NF", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCoordinates.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(203)))), ((int)(((byte)(107)))));
-            this.lblCoordinates.Location = new System.Drawing.Point(536, 621);
+            this.lblCoordinates.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCoordinates.ForeColor = System.Drawing.Color.White;
+            this.lblCoordinates.Location = new System.Drawing.Point(476, 626);
             this.lblCoordinates.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCoordinates.Name = "lblCoordinates";
-            this.lblCoordinates.Size = new System.Drawing.Size(264, 25);
+            this.lblCoordinates.Size = new System.Drawing.Size(154, 26);
             this.lblCoordinates.TabIndex = 9;
             this.lblCoordinates.Text = "X:0, Y:0 (default)";
             // 
             // lblCoordinatesInfo
             // 
             this.lblCoordinatesInfo.AutoSize = true;
-            this.lblCoordinatesInfo.Font = new System.Drawing.Font("FiraCode NF", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCoordinatesInfo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(203)))), ((int)(((byte)(107)))));
-            this.lblCoordinatesInfo.Location = new System.Drawing.Point(537, 600);
+            this.lblCoordinatesInfo.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCoordinatesInfo.ForeColor = System.Drawing.Color.White;
+            this.lblCoordinatesInfo.Location = new System.Drawing.Point(476, 598);
             this.lblCoordinatesInfo.Name = "lblCoordinatesInfo";
-            this.lblCoordinatesInfo.Size = new System.Drawing.Size(229, 20);
+            this.lblCoordinatesInfo.Size = new System.Drawing.Size(186, 26);
             this.lblCoordinatesInfo.TabIndex = 10;
             this.lblCoordinatesInfo.Text = "current coordinates:";
             // 
@@ -209,97 +210,117 @@
             // 
             this.lblError.AutoSize = true;
             this.lblError.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblError.Font = new System.Drawing.Font("FiraCode NF", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblError.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(203)))), ((int)(((byte)(107)))));
-            this.lblError.Location = new System.Drawing.Point(23, 662);
+            this.lblError.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblError.ForeColor = System.Drawing.Color.White;
+            this.lblError.Location = new System.Drawing.Point(20, 662);
             this.lblError.Name = "lblError";
-            this.lblError.Size = new System.Drawing.Size(2, 22);
+            this.lblError.Size = new System.Drawing.Size(2, 23);
             this.lblError.TabIndex = 11;
             // 
             // lblFillState
             // 
             this.lblFillState.AutoSize = true;
-            this.lblFillState.Font = new System.Drawing.Font("FiraCode NF", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFillState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(203)))), ((int)(((byte)(107)))));
-            this.lblFillState.Location = new System.Drawing.Point(1246, 600);
+            this.lblFillState.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFillState.ForeColor = System.Drawing.Color.White;
+            this.lblFillState.Location = new System.Drawing.Point(1172, 598);
             this.lblFillState.Name = "lblFillState";
-            this.lblFillState.Size = new System.Drawing.Size(163, 20);
+            this.lblFillState.Size = new System.Drawing.Size(116, 26);
             this.lblFillState.TabIndex = 12;
             this.lblFillState.Text = "fill: disabled";
             // 
             // lblPenColor
             // 
             this.lblPenColor.AutoSize = true;
-            this.lblPenColor.Font = new System.Drawing.Font("FiraCode NF", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPenColor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(203)))), ((int)(((byte)(107)))));
-            this.lblPenColor.Location = new System.Drawing.Point(1246, 626);
+            this.lblPenColor.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPenColor.ForeColor = System.Drawing.Color.White;
+            this.lblPenColor.Location = new System.Drawing.Point(1166, 626);
             this.lblPenColor.Name = "lblPenColor";
-            this.lblPenColor.Size = new System.Drawing.Size(163, 20);
+            this.lblPenColor.Size = new System.Drawing.Size(131, 26);
             this.lblPenColor.TabIndex = 13;
             this.lblPenColor.Text = "pen color: red";
             // 
             // txtCommandArea
             // 
             this.txtCommandArea.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtCommandArea.Font = new System.Drawing.Font("FiraCode NF", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCommandArea.Location = new System.Drawing.Point(23, 86);
+            this.txtCommandArea.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCommandArea.Location = new System.Drawing.Point(7, 28);
             this.txtCommandArea.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtCommandArea.Multiline = true;
             this.txtCommandArea.Name = "txtCommandArea";
-            this.txtCommandArea.Size = new System.Drawing.Size(481, 384);
+            this.txtCommandArea.Size = new System.Drawing.Size(431, 355);
             this.txtCommandArea.TabIndex = 14;
             // 
             // btnRunMultiline
             // 
-            this.btnRunMultiline.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(62)))));
+            this.btnRunMultiline.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(54)))), ((int)(((byte)(61)))));
+            this.btnRunMultiline.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnRunMultiline.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRunMultiline.Font = new System.Drawing.Font("FiraCode NF", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRunMultiline.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(203)))), ((int)(((byte)(107)))));
-            this.btnRunMultiline.Location = new System.Drawing.Point(23, 480);
+            this.btnRunMultiline.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRunMultiline.ForeColor = System.Drawing.Color.White;
+            this.btnRunMultiline.Location = new System.Drawing.Point(19, 455);
             this.btnRunMultiline.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnRunMultiline.Name = "btnRunMultiline";
-            this.btnRunMultiline.Size = new System.Drawing.Size(197, 33);
+            this.btnRunMultiline.Size = new System.Drawing.Size(145, 40);
             this.btnRunMultiline.TabIndex = 15;
             this.btnRunMultiline.Text = "run multiline";
             this.btnRunMultiline.UseVisualStyleBackColor = false;
             this.btnRunMultiline.Click += new System.EventHandler(this.btnRunMultiline_Click);
             // 
-            // saveMenuItem
+            // groupBox1
             // 
-            this.saveMenuItem.Name = "saveMenuItem";
-            this.saveMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.saveMenuItem.Text = "Save";
-            this.saveMenuItem.Click += new System.EventHandler(this.saveMenuItem_Click);
+            this.groupBox1.Controls.Add(this.txtCommandArea);
+            this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.ForeColor = System.Drawing.Color.White;
+            this.groupBox1.Location = new System.Drawing.Point(12, 42);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(445, 391);
+            this.groupBox1.TabIndex = 16;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Multi-line Commands";
             // 
-            // loadMenuItem
+            // groupBox2
             // 
-            this.loadMenuItem.Name = "loadMenuItem";
-            this.loadMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.loadMenuItem.Text = "Load";
-            this.loadMenuItem.Click += new System.EventHandler(this.loadMenuItem_Click);
+            this.groupBox2.Controls.Add(this.picboxCanvas);
+            this.groupBox2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.ForeColor = System.Drawing.Color.White;
+            this.groupBox2.Location = new System.Drawing.Point(481, 42);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(816, 536);
+            this.groupBox2.TabIndex = 17;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Drawing Canvas";
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.txtCommandLine);
+            this.groupBox3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox3.ForeColor = System.Drawing.Color.White;
+            this.groupBox3.Location = new System.Drawing.Point(12, 512);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(445, 66);
+            this.groupBox3.TabIndex = 18;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Single-line Commands";
             // 
             // form
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(62)))));
-            this.ClientSize = new System.Drawing.Size(1460, 770);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
+            this.ClientSize = new System.Drawing.Size(1339, 747);
+            this.Controls.Add(this.groupBox3);
+            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnRunMultiline);
-            this.Controls.Add(this.txtCommandArea);
             this.Controls.Add(this.lblPenColor);
             this.Controls.Add(this.lblFillState);
             this.Controls.Add(this.lblError);
             this.Controls.Add(this.lblCoordinatesInfo);
             this.Controls.Add(this.lblCoordinates);
-            this.Controls.Add(this.lblCommandLine);
-            this.Controls.Add(this.lblDrawingArea);
-            this.Controls.Add(this.lblCommandArea);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnRun);
-            this.Controls.Add(this.txtCommandLine);
-            this.Controls.Add(this.picboxCanvas);
             this.Controls.Add(this.menuStrip);
-            this.Font = new System.Drawing.Font("Lato", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip;
@@ -309,6 +330,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.picboxCanvas)).EndInit();
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -324,9 +350,6 @@
         private System.Windows.Forms.ToolStripMenuItem menuStripFile;
         private System.Windows.Forms.ToolStripMenuItem menuStripHelp;
         private System.Windows.Forms.ToolStripMenuItem menuStripAbout;
-        private System.Windows.Forms.Label lblCommandArea;
-        private System.Windows.Forms.Label lblDrawingArea;
-        private System.Windows.Forms.Label lblCommandLine;
         private System.Windows.Forms.Label lblCoordinates;
         private System.Windows.Forms.Label lblCoordinatesInfo;
         private System.Windows.Forms.Label lblError;
@@ -336,6 +359,10 @@
         private System.Windows.Forms.Button btnRunMultiline;
         private System.Windows.Forms.ToolStripMenuItem saveMenuItem;
         private System.Windows.Forms.ToolStripMenuItem loadMenuItem;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.ToolStripMenuItem aryanMenuItem;
     }
 }
 
