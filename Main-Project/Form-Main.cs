@@ -92,7 +92,7 @@ namespace ASE_Assignment
                         _cursor.Draw(g);
                         lblCoordinates.Text = "X:" + _cursor.Position.X + ", Y:" + _cursor.Position.Y;
                         lblFillState.Text = "fill: disabled";
-                        lblPenColor.Text = "pen: red";
+                        lblPenColor.Text = "pen color: red";
                         break;
                     }
                 case Action.clear:
@@ -109,17 +109,17 @@ namespace ASE_Assignment
                         if (command.ActionValues[0].Equals(1))
                         {
                             _cursor.PenColor = Color.Red;
-                            lblPenColor.Text = "pen: red";
+                            lblPenColor.Text = "pen color: red";
                         }
                         if (command.ActionValues[0].Equals(2))
                         {
                             _cursor.PenColor = Color.Green;
-                            lblPenColor.Text = "pen: green";
+                            lblPenColor.Text = "pen color: green";
                         }
                         if (command.ActionValues[0].Equals(3))
                         {
                             _cursor.PenColor = Color.Blue;
-                            lblPenColor.Text = "pen: blue";
+                            lblPenColor.Text = "pen color: blue";
                         }
                         _cursor.Draw(g);
                         break;
@@ -151,7 +151,7 @@ namespace ASE_Assignment
             lblError.Text = "";
             lblCoordinates.Text = "X:" + _cursor.Position.X + ", Y:" + _cursor.Position.Y;
             lblFillState.Text = "fill: disabled";
-            lblPenColor.Text = "pen: red";
+            lblPenColor.Text = "pen color: red";
         }
 
         private void txtCommandLine_KeyDown(object sender, KeyEventArgs e)

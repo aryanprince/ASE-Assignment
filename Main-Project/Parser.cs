@@ -121,10 +121,22 @@ namespace ASE_Assignment
         {
             var inputIntArray = Array.ConvertAll(inputStringArray, int.Parse);
 
-            if (inputIntArray[0] > 900)
-                throw new Exception("ERROR: Invalid parameters\nX-value for parameter must be less than 900!");
-            if (inputIntArray[1] > 500)
-                throw new Exception("ERROR: Invalid parameters\nY-value for parameter must be less than 500!");
+            // Checks if any of the parameters are greater than the window size (900x500)
+            switch (inputIntArray.Length)
+            {
+                case 2: // When there are 2 parameters, check if they are greater than 900 and 500 respectively
+                    {
+                        if (inputIntArray[0] > 900)
+                            throw new Exception("ERROR: Invalid parameters\nX-value for parameter must be less than 900!");
+                        if (inputIntArray[1] > 500)
+                            throw new Exception("ERROR: Invalid parameters\nY-value for parameter must be less than 500!");
+                        break;
+                    }
+                default: // When there is only 1 parameter, check if it's greater than 900
+                    if (inputIntArray[0] > 900)
+                        throw new Exception("ERROR: Invalid parameters\nX-value for parameter must be less than 900!");
+                    break;
+            }
 
             return inputIntArray;
         }

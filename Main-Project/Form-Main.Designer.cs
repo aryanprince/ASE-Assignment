@@ -71,12 +71,12 @@
             // txtCommandLine
             // 
             this.txtCommandLine.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtCommandLine.Font = new System.Drawing.Font("FiraCode NF", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCommandLine.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCommandLine.Location = new System.Drawing.Point(7, 28);
             this.txtCommandLine.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtCommandLine.Name = "txtCommandLine";
-            this.txtCommandLine.Size = new System.Drawing.Size(431, 27);
-            this.txtCommandLine.TabIndex = 1;
+            this.txtCommandLine.Size = new System.Drawing.Size(431, 26);
+            this.txtCommandLine.TabIndex = 0;
             this.txtCommandLine.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCommandLine_KeyDown);
             // 
             // btnRun
@@ -210,11 +210,11 @@
             // 
             this.lblError.AutoSize = true;
             this.lblError.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblError.Font = new System.Drawing.Font("FiraCode NF", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblError.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(203)))), ((int)(((byte)(107)))));
+            this.lblError.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblError.ForeColor = System.Drawing.Color.White;
             this.lblError.Location = new System.Drawing.Point(20, 662);
             this.lblError.Name = "lblError";
-            this.lblError.Size = new System.Drawing.Size(2, 22);
+            this.lblError.Size = new System.Drawing.Size(2, 23);
             this.lblError.TabIndex = 11;
             // 
             // lblFillState
@@ -222,7 +222,7 @@
             this.lblFillState.AutoSize = true;
             this.lblFillState.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFillState.ForeColor = System.Drawing.Color.White;
-            this.lblFillState.Location = new System.Drawing.Point(1181, 598);
+            this.lblFillState.Location = new System.Drawing.Point(1172, 598);
             this.lblFillState.Name = "lblFillState";
             this.lblFillState.Size = new System.Drawing.Size(116, 26);
             this.lblFillState.TabIndex = 12;
@@ -242,7 +242,7 @@
             // txtCommandArea
             // 
             this.txtCommandArea.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtCommandArea.Font = new System.Drawing.Font("FiraCode NF", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCommandArea.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCommandArea.Location = new System.Drawing.Point(7, 28);
             this.txtCommandArea.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtCommandArea.Multiline = true;
