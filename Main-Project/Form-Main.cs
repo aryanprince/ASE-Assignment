@@ -38,11 +38,11 @@ namespace ASE_Assignment
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void btnRunMultiline_Click(object sender, EventArgs e)
         {
-            Graphics g = pictureBoxCanvas.CreateGraphics();
+            Graphics g = PictureBoxCanvas.CreateGraphics();
 
             try
             {
-                var commandsList = _parser.ParseInput_MultiLine(txtCommandArea.Text);
+                var commandsList = _parser.ParseInput_MultiLine(TxtCommandArea.Text);
                 foreach (var command in commandsList) { ExecuteCommand(g, command); }
             }
             catch (Exception exception)
@@ -52,24 +52,24 @@ namespace ASE_Assignment
         }
 
         /// <summary>
-        /// Handles the Click event of the btnRun control.
+        /// Handles the Click event of the BtnRun control.
         /// </summary>
         /// <param name="sender">The source of the event.</param>
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        private void btnRun_Click(object sender, EventArgs e)
+        private void BtnRun_Click(object sender, EventArgs e)
         {
-            Graphics g = pictureBoxCanvas.CreateGraphics();
+            Graphics g = PictureBoxCanvas.CreateGraphics();
 
             try
             {
                 _cursor.Draw(g); // Draws a new cursor before every command in case it gets covered by another shape
 
-                Command command = _parser.ParseInput_SingleLine(txtCommandLine.Text.Trim().ToLower());
+                Command command = _parser.ParseInput_SingleLine(TxtCommandLine.Text.Trim().ToLower());
                 ExecuteCommand(g, command);
 
                 // Resets all the labels if execute command works
                 lblError.Text = "";
-                txtCommandLine.Text = "";
+                TxtCommandLine.Text = "";
             }
             catch (Exception exception)
             {
@@ -88,7 +88,7 @@ namespace ASE_Assignment
             {
                 case Action.run:
                     {
-                        List<Command> commands = _parser.ParseInput_MultiLine(txtCommandArea.Text);
+                        List<Command> commands = _parser.ParseInput_MultiLine(TxtCommandArea.Text);
                         foreach (Command c in commands) { ExecuteCommand(g, c); }
                         break;
                     }
@@ -169,9 +169,9 @@ namespace ASE_Assignment
         /// </summary>
         /// <param name="sender">The source of the event.</param>
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        private void btnClear_Click(object sender, EventArgs e)
+        private void BtnClear_Click(object sender, EventArgs e)
         {
-            var g = pictureBoxCanvas.CreateGraphics();
+            var g = PictureBoxCanvas.CreateGraphics();
             g.Clear(Color.White);
             _cursor.MoveTo(_cursor.DefaultPosition); // Resets cursor to default position (0,0)
             _cursor.ChangePenColor(_cursor.DefaultPenColor); // Resets cursor to default color (Red)
@@ -179,7 +179,7 @@ namespace ASE_Assignment
             _cursor.Draw(g);
 
             // Clearing all the labels in the WinForms window
-            txtCommandLine.Text = "";
+            TxtCommandLine.Text = "";
             lblError.Text = "";
             lblCoordinates.Text = XAxisCoordinateLabelText + _cursor.Position.X + YAxisCoordinateLabelText + _cursor.Position.Y;
             lblFillState.Text = FillDisabledText;
@@ -191,13 +191,13 @@ namespace ASE_Assignment
         /// </summary>
         /// <param name="sender">The source of the event.</param>
         /// <param name="e">The <see cref="KeyEventArgs"/> instance containing the event data.</param>
-        private void txtCommandLine_KeyDown(object sender, KeyEventArgs e)
+        private void TxtCommandLine_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode != Keys.Enter) //Checks if Enter key is pressed
             {
                 return;
             }
-            btnRun.PerformClick();
+            BtnRun.PerformClick();
 
             //Stops the 'ding' when pressing Enter
             e.Handled = true;
@@ -209,7 +209,7 @@ namespace ASE_Assignment
         /// </summary>
         /// <param name="sender">The source of the event.</param>
         /// <param name="e">The <see cref="PaintEventArgs"/> instance containing the event data.</param>
-        private void pictureBoxCanvas_Paint(object sender, PaintEventArgs e)
+        private void PictureBoxCanvas_Paint(object sender, PaintEventArgs e)
         {
             Graphics g = e.Graphics;
             _cursor.Draw(g);
@@ -220,7 +220,7 @@ namespace ASE_Assignment
         /// </summary>
         /// <param name="sender">The source of the event.</param>
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        private void saveMenuItem_Click(object sender, EventArgs e)
+        private void SaveMenuItem_Click(object sender, EventArgs e)
         {
             SaveFileDialog save = new SaveFileDialog();
             save.FileName = "Commands.txt";
@@ -229,7 +229,7 @@ namespace ASE_Assignment
 
             if (save.ShowDialog() == DialogResult.OK)
             {
-                File.WriteAllText(save.FileName, txtCommandArea.Text);
+                File.WriteAllText(save.FileName, TxtCommandArea.Text);
             }
         }
 
@@ -238,7 +238,7 @@ namespace ASE_Assignment
         /// </summary>
         /// <param name="sender">The source of the event.</param>
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        private void loadMenuItem_Click(object sender, EventArgs e)
+        private void LoadMenuItem_Click(object sender, EventArgs e)
         {
             OpenFileDialog load = new OpenFileDialog();
             load.Filter = TextFileTxt;
@@ -246,7 +246,7 @@ namespace ASE_Assignment
 
             if (load.ShowDialog() == DialogResult.OK)
             {
-                txtCommandArea.Text = File.ReadAllText(load.FileName);
+                TxtCommandArea.Text = File.ReadAllText(load.FileName);
             }
         }
 
@@ -255,7 +255,7 @@ namespace ASE_Assignment
         /// </summary>
         /// <param name="sender">The source of the event.</param>
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        private void aryanMenuItem_Click(object sender, EventArgs e)
+        private void AryanMenuItem_Click(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start("http://github.com/aryanprince");
         }
