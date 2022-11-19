@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace ASE_Assignment
 {
-    public partial class MyForm : Form
+    public partial class frmMainForm : Form
     {
         // Instances of the classes that are used in the form
         private readonly Cursor _cursor = new Cursor();
@@ -24,9 +24,9 @@ namespace ASE_Assignment
         private const string YAxisCoordinateLabelText = ", Y:";
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="MyForm"/> class.
+        /// Initializes a new instance of the <see cref="frmMainForm"/> class.
         /// </summary>
-        public MyForm()
+        public frmMainForm()
         {
             InitializeComponent();
         }
@@ -38,7 +38,7 @@ namespace ASE_Assignment
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void btnRunMultiline_Click(object sender, EventArgs e)
         {
-            Graphics g = pictureBoxCanvas.CreateGraphics();
+            Graphics g = picDrawingCanvas.CreateGraphics();
 
             try
             {
@@ -52,13 +52,13 @@ namespace ASE_Assignment
         }
 
         /// <summary>
-        /// Handles the Click event of the btnRun control.
+        /// Handles the Click event of the BtnRun control.
         /// </summary>
         /// <param name="sender">The source of the event.</param>
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        private void btnRun_Click(object sender, EventArgs e)
+        private void BtnRun_Click(object sender, EventArgs e)
         {
-            Graphics g = pictureBoxCanvas.CreateGraphics();
+            Graphics g = picDrawingCanvas.CreateGraphics();
 
             try
             {
@@ -96,7 +96,7 @@ namespace ASE_Assignment
                     {
                         _cursor.MoveTo(new Point(command.ActionValues[0], command.ActionValues[1]));
                         _cursor.Draw(g);
-                        lblCoordinates.Text = XAxisCoordinateLabelText + _cursor.Position.X + YAxisCoordinateLabelText + _cursor.Position.Y;
+                        lblCoordinatesValues.Text = XAxisCoordinateLabelText + _cursor.Position.X + YAxisCoordinateLabelText + _cursor.Position.Y;
                         break;
                     }
                 case Action.fill:
@@ -119,7 +119,7 @@ namespace ASE_Assignment
                         _cursor.ChangePenColor(_cursor.DefaultPenColor); // Resets cursor to default color (Red)
                         _cursor.ChangeFillState(_cursor.DefaultFill); // Resets cursor to default fill state (false ie; no fill)
                         _cursor.Draw(g);
-                        lblCoordinates.Text = XAxisCoordinateLabelText + _cursor.Position.X + YAxisCoordinateLabelText + _cursor.Position.Y;
+                        lblCoordinatesValues.Text = XAxisCoordinateLabelText + _cursor.Position.X + YAxisCoordinateLabelText + _cursor.Position.Y;
                         lblFillState.Text = FillDisabledText;
                         lblPenColor.Text = PenColorRedText;
                         break;
@@ -128,7 +128,7 @@ namespace ASE_Assignment
                     {
                         g.Clear(Color.White);
                         _cursor.Draw(g);
-                        lblCoordinates.Text = XAxisCoordinateLabelText + _cursor.Position.X + YAxisCoordinateLabelText + _cursor.Position.Y;
+                        lblCoordinatesValues.Text = XAxisCoordinateLabelText + _cursor.Position.X + YAxisCoordinateLabelText + _cursor.Position.Y;
                         lblFillState.Text = FillDisabledText;
                         break;
                     }
@@ -158,7 +158,7 @@ namespace ASE_Assignment
                         shape.Draw(g);
                         _cursor.MoveTo(shape.Position);
                         _cursor.Draw(g);
-                        lblCoordinates.Text = XAxisCoordinateLabelText + _cursor.Position.X + YAxisCoordinateLabelText + _cursor.Position.Y;
+                        lblCoordinatesValues.Text = XAxisCoordinateLabelText + _cursor.Position.X + YAxisCoordinateLabelText + _cursor.Position.Y;
                         break;
                     }
             }
@@ -169,9 +169,9 @@ namespace ASE_Assignment
         /// </summary>
         /// <param name="sender">The source of the event.</param>
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        private void btnClear_Click(object sender, EventArgs e)
+        private void BtnClear_Click(object sender, EventArgs e)
         {
-            var g = pictureBoxCanvas.CreateGraphics();
+            var g = picDrawingCanvas.CreateGraphics();
             g.Clear(Color.White);
             _cursor.MoveTo(_cursor.DefaultPosition); // Resets cursor to default position (0,0)
             _cursor.ChangePenColor(_cursor.DefaultPenColor); // Resets cursor to default color (Red)
@@ -181,7 +181,7 @@ namespace ASE_Assignment
             // Clearing all the labels in the WinForms window
             txtCommandLine.Text = "";
             lblError.Text = "";
-            lblCoordinates.Text = XAxisCoordinateLabelText + _cursor.Position.X + YAxisCoordinateLabelText + _cursor.Position.Y;
+            lblCoordinatesValues.Text = XAxisCoordinateLabelText + _cursor.Position.X + YAxisCoordinateLabelText + _cursor.Position.Y;
             lblFillState.Text = FillDisabledText;
             lblPenColor.Text = PenColorRedText;
         }
@@ -191,7 +191,7 @@ namespace ASE_Assignment
         /// </summary>
         /// <param name="sender">The source of the event.</param>
         /// <param name="e">The <see cref="KeyEventArgs"/> instance containing the event data.</param>
-        private void txtCommandLine_KeyDown(object sender, KeyEventArgs e)
+        private void TxtCommandLine_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode != Keys.Enter) //Checks if Enter key is pressed
             {
@@ -209,7 +209,7 @@ namespace ASE_Assignment
         /// </summary>
         /// <param name="sender">The source of the event.</param>
         /// <param name="e">The <see cref="PaintEventArgs"/> instance containing the event data.</param>
-        private void pictureBoxCanvas_Paint(object sender, PaintEventArgs e)
+        private void PictureBoxCanvas_Paint(object sender, PaintEventArgs e)
         {
             Graphics g = e.Graphics;
             _cursor.Draw(g);
@@ -220,7 +220,7 @@ namespace ASE_Assignment
         /// </summary>
         /// <param name="sender">The source of the event.</param>
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        private void saveMenuItem_Click(object sender, EventArgs e)
+        private void SaveMenuItem_Click(object sender, EventArgs e)
         {
             SaveFileDialog save = new SaveFileDialog();
             save.FileName = "Commands.txt";
@@ -238,7 +238,7 @@ namespace ASE_Assignment
         /// </summary>
         /// <param name="sender">The source of the event.</param>
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        private void loadMenuItem_Click(object sender, EventArgs e)
+        private void LoadMenuItem_Click(object sender, EventArgs e)
         {
             OpenFileDialog load = new OpenFileDialog();
             load.Filter = TextFileTxt;
@@ -255,7 +255,7 @@ namespace ASE_Assignment
         /// </summary>
         /// <param name="sender">The source of the event.</param>
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        private void aryanMenuItem_Click(object sender, EventArgs e)
+        private void AryanMenuItem_Click(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start("http://github.com/aryanprince");
         }

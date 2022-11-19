@@ -1,6 +1,6 @@
 ﻿namespace ASE_Assignment
 {
-    partial class MyForm
+    partial class frmMainForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,45 +28,45 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MyForm));
-            this.pictureBoxCanvas = new System.Windows.Forms.PictureBox();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMainForm));
+            this.picDrawingCanvas = new System.Windows.Forms.PictureBox();
             this.txtCommandLine = new System.Windows.Forms.TextBox();
             this.btnRun = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
-            this.menuStrip = new System.Windows.Forms.MenuStrip();
-            this.menuStripFile = new System.Windows.Forms.ToolStripMenuItem();
-            this.saveMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.loadMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuStripHelp = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuStripAbout = new System.Windows.Forms.ToolStripMenuItem();
-            this.aryanMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.lblCoordinates = new System.Windows.Forms.Label();
-            this.lblCoordinatesInfo = new System.Windows.Forms.Label();
+            this.mnuMenuStrip = new System.Windows.Forms.MenuStrip();
+            this.mniFile = new System.Windows.Forms.ToolStripMenuItem();
+            this.mniSave = new System.Windows.Forms.ToolStripMenuItem();
+            this.mniLoad = new System.Windows.Forms.ToolStripMenuItem();
+            this.mniHelp = new System.Windows.Forms.ToolStripMenuItem();
+            this.mniAbout = new System.Windows.Forms.ToolStripMenuItem();
+            this.mniAryanGitHub = new System.Windows.Forms.ToolStripMenuItem();
+            this.lblCoordinatesValues = new System.Windows.Forms.Label();
+            this.lblCoordinatesLabel = new System.Windows.Forms.Label();
             this.lblError = new System.Windows.Forms.Label();
             this.lblFillState = new System.Windows.Forms.Label();
             this.lblPenColor = new System.Windows.Forms.Label();
             this.txtCommandArea = new System.Windows.Forms.TextBox();
-            this.btnRunMultiline = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCanvas)).BeginInit();
-            this.menuStrip.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
+            this.btnRunMultiLine = new System.Windows.Forms.Button();
+            this.gbMultiLineCommands = new System.Windows.Forms.GroupBox();
+            this.gbDrawingCanvas = new System.Windows.Forms.GroupBox();
+            this.gbSingleLineCommands = new System.Windows.Forms.GroupBox();
+            ((System.ComponentModel.ISupportInitialize)(this.picDrawingCanvas)).BeginInit();
+            this.mnuMenuStrip.SuspendLayout();
+            this.gbMultiLineCommands.SuspendLayout();
+            this.gbDrawingCanvas.SuspendLayout();
+            this.gbSingleLineCommands.SuspendLayout();
             this.SuspendLayout();
             // 
-            // pictureBoxCanvas
+            // picDrawingCanvas
             // 
-            this.pictureBoxCanvas.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.pictureBoxCanvas.Location = new System.Drawing.Point(7, 28);
-            this.pictureBoxCanvas.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.pictureBoxCanvas.Name = "pictureBoxCanvas";
-            this.pictureBoxCanvas.Size = new System.Drawing.Size(800, 500);
-            this.pictureBoxCanvas.TabIndex = 0;
-            this.pictureBoxCanvas.TabStop = false;
-            this.pictureBoxCanvas.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBoxCanvas_Paint);
+            this.picDrawingCanvas.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.picDrawingCanvas.Location = new System.Drawing.Point(7, 28);
+            this.picDrawingCanvas.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.picDrawingCanvas.Name = "picDrawingCanvas";
+            this.picDrawingCanvas.Size = new System.Drawing.Size(800, 500);
+            this.picDrawingCanvas.TabIndex = 0;
+            this.picDrawingCanvas.TabStop = false;
+            this.picDrawingCanvas.Paint += new System.Windows.Forms.PaintEventHandler(this.PictureBoxCanvas_Paint);
             // 
             // txtCommandLine
             // 
@@ -77,7 +77,7 @@
             this.txtCommandLine.Name = "txtCommandLine";
             this.txtCommandLine.Size = new System.Drawing.Size(431, 26);
             this.txtCommandLine.TabIndex = 0;
-            this.txtCommandLine.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCommandLine_KeyDown);
+            this.txtCommandLine.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtCommandLine_KeyDown);
             // 
             // btnRun
             // 
@@ -93,7 +93,7 @@
             this.btnRun.TabIndex = 2;
             this.btnRun.Text = "run";
             this.btnRun.UseVisualStyleBackColor = false;
-            this.btnRun.Click += new System.EventHandler(this.btnRun_Click);
+            this.btnRun.Click += new System.EventHandler(this.BtnRun_Click);
             // 
             // btnClear
             // 
@@ -109,102 +109,102 @@
             this.btnClear.TabIndex = 3;
             this.btnClear.Text = "clear";
             this.btnClear.UseVisualStyleBackColor = false;
-            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            this.btnClear.Click += new System.EventHandler(this.BtnClear_Click);
             // 
-            // menuStrip
+            // mnuMenuStrip
             // 
-            this.menuStrip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
-            this.menuStrip.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.menuStripFile,
-            this.menuStripHelp,
-            this.menuStripAbout});
-            this.menuStrip.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
-            this.menuStrip.Size = new System.Drawing.Size(1339, 24);
-            this.menuStrip.TabIndex = 5;
-            this.menuStrip.Text = "menuStrip1";
+            this.mnuMenuStrip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
+            this.mnuMenuStrip.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mnuMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mniFile,
+            this.mniHelp,
+            this.mniAbout});
+            this.mnuMenuStrip.Location = new System.Drawing.Point(0, 0);
+            this.mnuMenuStrip.Name = "mnuMenuStrip";
+            this.mnuMenuStrip.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
+            this.mnuMenuStrip.Size = new System.Drawing.Size(1339, 24);
+            this.mnuMenuStrip.TabIndex = 5;
+            this.mnuMenuStrip.Text = "menuStrip1";
             // 
-            // menuStripFile
+            // mniFile
             // 
-            this.menuStripFile.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.saveMenuItem,
-            this.loadMenuItem});
-            this.menuStripFile.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.menuStripFile.ForeColor = System.Drawing.Color.White;
-            this.menuStripFile.Name = "menuStripFile";
-            this.menuStripFile.Size = new System.Drawing.Size(37, 20);
-            this.menuStripFile.Text = "File";
+            this.mniFile.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mniSave,
+            this.mniLoad});
+            this.mniFile.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mniFile.ForeColor = System.Drawing.Color.White;
+            this.mniFile.Name = "mniFile";
+            this.mniFile.Size = new System.Drawing.Size(37, 20);
+            this.mniFile.Text = "File";
             // 
-            // saveMenuItem
+            // mniSave
             // 
-            this.saveMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
-            this.saveMenuItem.ForeColor = System.Drawing.Color.White;
-            this.saveMenuItem.Name = "saveMenuItem";
-            this.saveMenuItem.ShortcutKeyDisplayString = "";
-            this.saveMenuItem.Size = new System.Drawing.Size(100, 22);
-            this.saveMenuItem.Text = "Save";
-            this.saveMenuItem.Click += new System.EventHandler(this.saveMenuItem_Click);
+            this.mniSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
+            this.mniSave.ForeColor = System.Drawing.Color.White;
+            this.mniSave.Name = "mniSave";
+            this.mniSave.ShortcutKeyDisplayString = "";
+            this.mniSave.Size = new System.Drawing.Size(180, 22);
+            this.mniSave.Text = "Save";
+            this.mniSave.Click += new System.EventHandler(this.SaveMenuItem_Click);
             // 
-            // loadMenuItem
+            // mniLoad
             // 
-            this.loadMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
-            this.loadMenuItem.ForeColor = System.Drawing.Color.White;
-            this.loadMenuItem.Name = "loadMenuItem";
-            this.loadMenuItem.Size = new System.Drawing.Size(100, 22);
-            this.loadMenuItem.Text = "Load";
-            this.loadMenuItem.Click += new System.EventHandler(this.loadMenuItem_Click);
+            this.mniLoad.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
+            this.mniLoad.ForeColor = System.Drawing.Color.White;
+            this.mniLoad.Name = "mniLoad";
+            this.mniLoad.Size = new System.Drawing.Size(180, 22);
+            this.mniLoad.Text = "Load";
+            this.mniLoad.Click += new System.EventHandler(this.LoadMenuItem_Click);
             // 
-            // menuStripHelp
+            // mniHelp
             // 
-            this.menuStripHelp.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.menuStripHelp.ForeColor = System.Drawing.Color.White;
-            this.menuStripHelp.Name = "menuStripHelp";
-            this.menuStripHelp.Size = new System.Drawing.Size(44, 20);
-            this.menuStripHelp.Text = "Help";
+            this.mniHelp.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mniHelp.ForeColor = System.Drawing.Color.White;
+            this.mniHelp.Name = "mniHelp";
+            this.mniHelp.Size = new System.Drawing.Size(44, 20);
+            this.mniHelp.Text = "Help";
             // 
-            // menuStripAbout
+            // mniAbout
             // 
-            this.menuStripAbout.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.aryanMenuItem});
-            this.menuStripAbout.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.menuStripAbout.ForeColor = System.Drawing.Color.White;
-            this.menuStripAbout.Name = "menuStripAbout";
-            this.menuStripAbout.Size = new System.Drawing.Size(52, 20);
-            this.menuStripAbout.Text = "About";
+            this.mniAbout.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mniAryanGitHub});
+            this.mniAbout.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mniAbout.ForeColor = System.Drawing.Color.White;
+            this.mniAbout.Name = "mniAbout";
+            this.mniAbout.Size = new System.Drawing.Size(52, 20);
+            this.mniAbout.Text = "About";
             // 
-            // aryanMenuItem
+            // mniAryanGitHub
             // 
-            this.aryanMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
-            this.aryanMenuItem.ForeColor = System.Drawing.Color.White;
-            this.aryanMenuItem.Name = "aryanMenuItem";
-            this.aryanMenuItem.Size = new System.Drawing.Size(225, 22);
-            this.aryanMenuItem.Text = "Built with ❤️ by Aryan Prince";
-            this.aryanMenuItem.Click += new System.EventHandler(this.aryanMenuItem_Click);
+            this.mniAryanGitHub.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
+            this.mniAryanGitHub.ForeColor = System.Drawing.Color.White;
+            this.mniAryanGitHub.Name = "mniAryanGitHub";
+            this.mniAryanGitHub.Size = new System.Drawing.Size(225, 22);
+            this.mniAryanGitHub.Text = "Built with ❤️ by Aryan Prince";
+            this.mniAryanGitHub.Click += new System.EventHandler(this.AryanMenuItem_Click);
             // 
-            // lblCoordinates
+            // lblCoordinatesValues
             // 
-            this.lblCoordinates.AutoSize = true;
-            this.lblCoordinates.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCoordinates.ForeColor = System.Drawing.Color.White;
-            this.lblCoordinates.Location = new System.Drawing.Point(476, 626);
-            this.lblCoordinates.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblCoordinates.Name = "lblCoordinates";
-            this.lblCoordinates.Size = new System.Drawing.Size(154, 26);
-            this.lblCoordinates.TabIndex = 9;
-            this.lblCoordinates.Text = "X:0, Y:0 (default)";
+            this.lblCoordinatesValues.AutoSize = true;
+            this.lblCoordinatesValues.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCoordinatesValues.ForeColor = System.Drawing.Color.White;
+            this.lblCoordinatesValues.Location = new System.Drawing.Point(476, 626);
+            this.lblCoordinatesValues.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblCoordinatesValues.Name = "lblCoordinatesValues";
+            this.lblCoordinatesValues.Size = new System.Drawing.Size(154, 26);
+            this.lblCoordinatesValues.TabIndex = 9;
+            this.lblCoordinatesValues.Text = "X:0, Y:0 (default)";
             // 
-            // lblCoordinatesInfo
+            // lblCoordinatesLabel
             // 
-            this.lblCoordinatesInfo.AutoSize = true;
-            this.lblCoordinatesInfo.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCoordinatesInfo.ForeColor = System.Drawing.Color.White;
-            this.lblCoordinatesInfo.Location = new System.Drawing.Point(476, 598);
-            this.lblCoordinatesInfo.Name = "lblCoordinatesInfo";
-            this.lblCoordinatesInfo.Size = new System.Drawing.Size(186, 26);
-            this.lblCoordinatesInfo.TabIndex = 10;
-            this.lblCoordinatesInfo.Text = "current coordinates:";
+            this.lblCoordinatesLabel.AutoSize = true;
+            this.lblCoordinatesLabel.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCoordinatesLabel.ForeColor = System.Drawing.Color.White;
+            this.lblCoordinatesLabel.Location = new System.Drawing.Point(476, 598);
+            this.lblCoordinatesLabel.Name = "lblCoordinatesLabel";
+            this.lblCoordinatesLabel.Size = new System.Drawing.Size(186, 26);
+            this.lblCoordinatesLabel.TabIndex = 10;
+            this.lblCoordinatesLabel.Text = "current coordinates:";
             // 
             // lblError
             // 
@@ -250,91 +250,91 @@
             this.txtCommandArea.Size = new System.Drawing.Size(431, 355);
             this.txtCommandArea.TabIndex = 14;
             // 
-            // btnRunMultiline
+            // btnRunMultiLine
             // 
-            this.btnRunMultiline.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(54)))), ((int)(((byte)(61)))));
-            this.btnRunMultiline.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnRunMultiline.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRunMultiline.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRunMultiline.ForeColor = System.Drawing.Color.White;
-            this.btnRunMultiline.Location = new System.Drawing.Point(19, 455);
-            this.btnRunMultiline.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnRunMultiline.Name = "btnRunMultiline";
-            this.btnRunMultiline.Size = new System.Drawing.Size(145, 40);
-            this.btnRunMultiline.TabIndex = 15;
-            this.btnRunMultiline.Text = "run multiline";
-            this.btnRunMultiline.UseVisualStyleBackColor = false;
-            this.btnRunMultiline.Click += new System.EventHandler(this.btnRunMultiline_Click);
+            this.btnRunMultiLine.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(54)))), ((int)(((byte)(61)))));
+            this.btnRunMultiLine.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRunMultiLine.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRunMultiLine.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRunMultiLine.ForeColor = System.Drawing.Color.White;
+            this.btnRunMultiLine.Location = new System.Drawing.Point(19, 455);
+            this.btnRunMultiLine.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnRunMultiLine.Name = "btnRunMultiLine";
+            this.btnRunMultiLine.Size = new System.Drawing.Size(145, 40);
+            this.btnRunMultiLine.TabIndex = 15;
+            this.btnRunMultiLine.Text = "run multiline";
+            this.btnRunMultiLine.UseVisualStyleBackColor = false;
+            this.btnRunMultiLine.Click += new System.EventHandler(this.btnRunMultiline_Click);
             // 
-            // groupBox1
+            // gbMultiLineCommands
             // 
-            this.groupBox1.Controls.Add(this.txtCommandArea);
-            this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.ForeColor = System.Drawing.Color.White;
-            this.groupBox1.Location = new System.Drawing.Point(12, 42);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(445, 391);
-            this.groupBox1.TabIndex = 16;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Multi-line Commands";
+            this.gbMultiLineCommands.Controls.Add(this.txtCommandArea);
+            this.gbMultiLineCommands.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbMultiLineCommands.ForeColor = System.Drawing.Color.White;
+            this.gbMultiLineCommands.Location = new System.Drawing.Point(12, 42);
+            this.gbMultiLineCommands.Name = "gbMultiLineCommands";
+            this.gbMultiLineCommands.Size = new System.Drawing.Size(445, 391);
+            this.gbMultiLineCommands.TabIndex = 16;
+            this.gbMultiLineCommands.TabStop = false;
+            this.gbMultiLineCommands.Text = "Multi-line Commands";
             // 
-            // groupBox2
+            // gbDrawingCanvas
             // 
-            this.groupBox2.Controls.Add(this.pictureBoxCanvas);
-            this.groupBox2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.ForeColor = System.Drawing.Color.White;
-            this.groupBox2.Location = new System.Drawing.Point(481, 42);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(816, 536);
-            this.groupBox2.TabIndex = 17;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Drawing Canvas";
+            this.gbDrawingCanvas.Controls.Add(this.picDrawingCanvas);
+            this.gbDrawingCanvas.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbDrawingCanvas.ForeColor = System.Drawing.Color.White;
+            this.gbDrawingCanvas.Location = new System.Drawing.Point(481, 42);
+            this.gbDrawingCanvas.Name = "gbDrawingCanvas";
+            this.gbDrawingCanvas.Size = new System.Drawing.Size(816, 536);
+            this.gbDrawingCanvas.TabIndex = 17;
+            this.gbDrawingCanvas.TabStop = false;
+            this.gbDrawingCanvas.Text = "Drawing Canvas";
             // 
-            // groupBox3
+            // gbSingleLineCommands
             // 
-            this.groupBox3.Controls.Add(this.txtCommandLine);
-            this.groupBox3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.ForeColor = System.Drawing.Color.White;
-            this.groupBox3.Location = new System.Drawing.Point(12, 512);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(445, 66);
-            this.groupBox3.TabIndex = 18;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Single-line Commands";
+            this.gbSingleLineCommands.Controls.Add(this.txtCommandLine);
+            this.gbSingleLineCommands.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbSingleLineCommands.ForeColor = System.Drawing.Color.White;
+            this.gbSingleLineCommands.Location = new System.Drawing.Point(12, 512);
+            this.gbSingleLineCommands.Name = "gbSingleLineCommands";
+            this.gbSingleLineCommands.Size = new System.Drawing.Size(445, 66);
+            this.gbSingleLineCommands.TabIndex = 18;
+            this.gbSingleLineCommands.TabStop = false;
+            this.gbSingleLineCommands.Text = "Single-line Commands";
             // 
-            // MyForm
+            // frmMainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
             this.ClientSize = new System.Drawing.Size(1339, 747);
-            this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.btnRunMultiline);
+            this.Controls.Add(this.gbSingleLineCommands);
+            this.Controls.Add(this.gbDrawingCanvas);
+            this.Controls.Add(this.gbMultiLineCommands);
+            this.Controls.Add(this.btnRunMultiLine);
             this.Controls.Add(this.lblPenColor);
             this.Controls.Add(this.lblFillState);
             this.Controls.Add(this.lblError);
-            this.Controls.Add(this.lblCoordinatesInfo);
-            this.Controls.Add(this.lblCoordinates);
+            this.Controls.Add(this.lblCoordinatesLabel);
+            this.Controls.Add(this.lblCoordinatesValues);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnRun);
-            this.Controls.Add(this.menuStrip);
+            this.Controls.Add(this.mnuMenuStrip);
             this.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MainMenuStrip = this.menuStrip;
+            this.MainMenuStrip = this.mnuMenuStrip;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.Name = "MyForm";
+            this.Name = "frmMainForm";
             this.Text = "Graphical Programming Language";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCanvas)).EndInit();
-            this.menuStrip.ResumeLayout(false);
-            this.menuStrip.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picDrawingCanvas)).EndInit();
+            this.mnuMenuStrip.ResumeLayout(false);
+            this.mnuMenuStrip.PerformLayout();
+            this.gbMultiLineCommands.ResumeLayout(false);
+            this.gbMultiLineCommands.PerformLayout();
+            this.gbDrawingCanvas.ResumeLayout(false);
+            this.gbSingleLineCommands.ResumeLayout(false);
+            this.gbSingleLineCommands.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -342,27 +342,27 @@
 
         #endregion
 
-        private System.Windows.Forms.PictureBox pictureBoxCanvas;
+        private System.Windows.Forms.PictureBox picDrawingCanvas;
         private System.Windows.Forms.TextBox txtCommandLine;
         private System.Windows.Forms.Button btnRun;
         private System.Windows.Forms.Button btnClear;
-        private System.Windows.Forms.MenuStrip menuStrip;
-        private System.Windows.Forms.ToolStripMenuItem menuStripFile;
-        private System.Windows.Forms.ToolStripMenuItem menuStripHelp;
-        private System.Windows.Forms.ToolStripMenuItem menuStripAbout;
-        private System.Windows.Forms.Label lblCoordinates;
-        private System.Windows.Forms.Label lblCoordinatesInfo;
+        private System.Windows.Forms.MenuStrip mnuMenuStrip;
+        private System.Windows.Forms.ToolStripMenuItem mniFile;
+        private System.Windows.Forms.ToolStripMenuItem mniHelp;
+        private System.Windows.Forms.ToolStripMenuItem mniAbout;
+        private System.Windows.Forms.Label lblCoordinatesValues;
+        private System.Windows.Forms.Label lblCoordinatesLabel;
         private System.Windows.Forms.Label lblError;
         private System.Windows.Forms.Label lblFillState;
         private System.Windows.Forms.Label lblPenColor;
         private System.Windows.Forms.TextBox txtCommandArea;
-        private System.Windows.Forms.Button btnRunMultiline;
-        private System.Windows.Forms.ToolStripMenuItem saveMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem loadMenuItem;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.ToolStripMenuItem aryanMenuItem;
+        private System.Windows.Forms.Button btnRunMultiLine;
+        private System.Windows.Forms.ToolStripMenuItem mniSave;
+        private System.Windows.Forms.ToolStripMenuItem mniLoad;
+        private System.Windows.Forms.GroupBox gbMultiLineCommands;
+        private System.Windows.Forms.GroupBox gbDrawingCanvas;
+        private System.Windows.Forms.GroupBox gbSingleLineCommands;
+        private System.Windows.Forms.ToolStripMenuItem mniAryanGitHub;
     }
 }
 
