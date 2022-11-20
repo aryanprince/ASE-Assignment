@@ -32,7 +32,7 @@ namespace ASE_Assignment
         }
 
         /// <summary>
-        /// Handles the Click event of the btnRunMultiline control.
+        /// Handles the Click event of the Run button for the multi-line text box control.
         /// </summary>
         /// <param name="sender">The source of the event.</param>
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
@@ -52,7 +52,7 @@ namespace ASE_Assignment
         }
 
         /// <summary>
-        /// Handles the Click event of the BtnRun control.
+        /// Handles the Click event of the Run button for the single-line text box control.
         /// </summary>
         /// <param name="sender">The source of the event.</param>
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
@@ -64,7 +64,7 @@ namespace ASE_Assignment
             {
                 _cursor.Draw(g); // Draws a new cursor before every command in case it gets covered by another shape
 
-                Command command = _parser.ParseInput_SingleLine(txtCommandLine.Text.Trim().ToLower());
+                Command command = _parser.ParseInput_SingleLine(txtCommandLine.Text);
                 ExecuteCommand(g, command);
 
                 // Resets all the labels if execute command works
@@ -115,7 +115,7 @@ namespace ASE_Assignment
                     }
                 case Action.reset:
                     {
-                        _cursor.MoveTo(new Point(0, 0));
+                        _cursor.MoveTo(_cursor.DefaultPosition);
                         _cursor.ChangePenColor(_cursor.DefaultPenColor); // Resets cursor to default color (Red)
                         _cursor.ChangeFillState(_cursor.DefaultFill); // Resets cursor to default fill state (false ie; no fill)
                         _cursor.Draw(g);
