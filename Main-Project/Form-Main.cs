@@ -115,7 +115,7 @@ namespace ASE_Assignment
                     }
                 case Action.reset:
                     {
-                        _cursor.MoveTo(new Point(0, 0));
+                        _cursor.MoveTo(_cursor.DefaultPosition);
                         _cursor.ChangePenColor(_cursor.DefaultPenColor); // Resets cursor to default color (Red)
                         _cursor.ChangeFillState(_cursor.DefaultFill); // Resets cursor to default fill state (false ie; no fill)
                         _cursor.Draw(g);

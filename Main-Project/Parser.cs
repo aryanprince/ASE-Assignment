@@ -34,11 +34,11 @@ namespace ASE_Assignment
             if (actionWord == Action.none)
                 throw new Exception("ERROR: Invalid command!");
             // If the command action is valid, but no parameters are passed - it throws this exception
-            if (inputSplitBySpaces.Length == 1 && actionWord != Action.run)
+            if (inputSplitBySpaces.Length == 1 && actionWord != Action.run && actionWord != Action.clear && actionWord != Action.reset)
             {
                 throw new Exception("ERROR: Please use a parameter with this command.");
             }
-            if (actionWord == Action.run)
+            if (actionWord == Action.run || actionWord == Action.reset || actionWord == Action.clear)
             {
                 return new Command(actionWord, null);
             }
