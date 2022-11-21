@@ -17,22 +17,23 @@ namespace ASE_Assignment
             inputFull = inputFull.Trim().ToLower(); // Trim the input and convert it to lowercase
 
             // Split the input string into an array of strings, separated by spaces
-            var inputSplitBySpaces = inputFull.ToLower().Split(' ');
+            string[] inputSplitBySpaces = inputFull.ToLower().Split(' ');
 
             // Invalid when no words are passed
             if (inputFull.Equals(""))
-                throw new Exception("ERROR: No commands were passed.");
+                throw new ArgumentNullException(inputFull, "ERROR: No commands were passed.");
 
             // Invalid when more than 3 words are passed to the parser
             if (inputSplitBySpaces.Length > 3)
                 throw new Exception("ERROR: Too many parameters or words.");
 
             // Parses the command string
-            var stringCommand = inputSplitBySpaces[0];
-            var actionWord = ParseAction_Command(stringCommand);
+            string stringCommand = inputSplitBySpaces[0];
+            Action actionWord = ParseAction_Command(stringCommand);
 
             if (actionWord == Action.none)
                 throw new Exception("ERROR: Invalid command!");
+
             // If the command action is valid, but no parameters are passed - it throws this exception
             if (inputSplitBySpaces.Length == 1 && actionWord != Action.run && actionWord != Action.clear && actionWord != Action.reset)
             {
@@ -44,21 +45,15 @@ namespace ASE_Assignment
             }
 
             // Parses the parameters of the command
-            var stringParamsList = new List<string>();
+            List<string> stringParamsList = new List<string>();
             for (int i = 1; i < inputSplitBySpaces.Length; i++)
             {
                 stringParamsList.Add(inputSplitBySpaces[i]);
             }
-            var stringParams = stringParamsList.ToArray();
+            string[] stringParams = stringParamsList.ToArray();
 
-            // Checks if the string parameter contains only numbers before parsing them
-            foreach (var s in stringParams)
-            {
-                if (!s.All(char.IsDigit))
-                    throw new Exception("ERROR: Invalid parameters, please use int!");
-            }
 
-            var actionParams = ParseAction_CommandParameters(stringParams);
+            int[] actionParams = ParseAction_CommandParameters(stringParams);
 
             // Uses the parsed command string and command parameters to create and return a Command object
             return new Command(actionWord, actionParams);
@@ -72,8 +67,8 @@ namespace ASE_Assignment
         public List<Command> ParseInput_MultiLine(string inputFull)
         {
             // Splits the multi-line string by a new line and stores this in a new list
-            var commandsList = new List<Command>();
-            var inputSplitByLines = inputFull.Split(new char[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries); // Windows splits newlines by '\r\n' so here we split by 2 chars and remove any empty string split entries
+            List<Command> commandsList = new List<Command>();
+            string[] inputSplitByLines = inputFull.Split(new char[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries); // Windows splits newlines by '\r\n' so here we split by 2 chars and remove any empty string split entries
 
             // Loops around the list of commands, calling the single line parser on every element in the commandsList list
             inputSplitByLines.ToList().ForEach(input => commandsList.Add(ParseInput_SingleLine(input))); // ForEach command from System.LINQ used here instead of a typical for-each loop
@@ -124,9 +119,33 @@ namespace ASE_Assignment
         /// </summary>
         /// <param name="inputStringArray">String parameters for an Action.</param>
         /// <returns>An integer array of parameters for the Command class.</returns>
-        public int[] ParseAction_CommandParameters(string[] inputStringArray)
+        private int[] ParseAction_CommandParameters(string[] inputStringArray)
         {
-            var inputIntArray = Array.ConvertAll(inputStringArray, int.Parse);
+            int[] inputIntArray;
+
+            try
+            {
+                inputIntArray = Array.ConvertAll(inputStringArray, int.Parse);
+            }
+            catch (FormatException)
+            {
+                throw new FormatException("ERROR: Invalid parameters, please use int!");
+            }
+
+            // Checks if parameters are negative and throws an error if it is
+            foreach (var i in inputIntArray)
+            {
+                if (i < 0)
+                    throw new IndexOutOfRangeException("ERROR: Negative parameters are not allowed!");
+            }
+
+            // This may be redundant now since the try-catch block above should catch any invalid parameters
+            //// Checks if the string parameter contains only numbers before parsing them
+            //foreach (var s in inputStringArray)
+            //{
+            //    if (!s.All(char.IsDigit))
+            //        throw new FormatException("ERROR: Invalid parameters, please use int!");
+            //}
 
             // Checks if any of the parameters are greater than the window size (900x500)
             switch (inputIntArray.Length)
@@ -134,14 +153,14 @@ namespace ASE_Assignment
                 case 2: // When there are 2 parameters, check if they are greater than 900 and 500 respectively
                     {
                         if (inputIntArray[0] > 900)
-                            throw new Exception("ERROR: Invalid parameters\nX-value for parameter must be less than 900!");
+                            throw new ArgumentOutOfRangeException(inputStringArray[0], "ERROR: Invalid parameters\nX-value for parameter must be less than 900!");
                         if (inputIntArray[1] > 500)
-                            throw new Exception("ERROR: Invalid parameters\nY-value for parameter must be less than 500!");
+                            throw new ArgumentOutOfRangeException(inputStringArray[1], "ERROR: Invalid parameters\nY-value for parameter must be less than 500!");
                         break;
                     }
                 default: // When there is only 1 parameter, check if it's greater than 900
                     if (inputIntArray[0] > 900)
-                        throw new Exception("ERROR: Invalid parameters\nX-value for parameter must be less than 900!");
+                        throw new ArgumentOutOfRangeException(inputStringArray[0], "ERROR: Invalid parameters\nX-value for parameter must be less than 900!");
                     break;
             }
 
