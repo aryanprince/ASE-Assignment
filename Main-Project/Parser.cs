@@ -136,7 +136,7 @@ namespace ASE_Assignment
             foreach (var i in inputIntArray)
             {
                 if (i < 0)
-                    throw new IndexOutOfRangeException("ERROR: Negative parameters are not allowed!");
+                    throw new ArgumentOutOfRangeException(inputStringArray[i], "ERROR: Negative parameters are not allowed!");
             }
 
             // This may be redundant now since the try-catch block above should catch any invalid parameters

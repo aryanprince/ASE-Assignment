@@ -71,6 +71,10 @@ namespace ASE_Assignment
                 lblError.Text = "";
                 txtCommandLine.Text = "";
             }
+            catch (ArgumentOutOfRangeException exception)
+            {
+                lblError.Text = exception.Message;
+            }
             catch (Exception exception)
             {
                 lblError.Text = exception.Message;

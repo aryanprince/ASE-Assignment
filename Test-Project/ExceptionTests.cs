@@ -76,7 +76,7 @@ namespace Unit_Tests
         }
 
         [TestMethod()]
-        [ExpectedException(typeof(IndexOutOfRangeException))]
+        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void ParseInput_InvalidCommand_WithNegativeParameters()
         {
             //arrange
