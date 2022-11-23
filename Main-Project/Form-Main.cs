@@ -71,13 +71,25 @@ namespace ASE_Assignment
                 lblError.Text = "";
                 txtCommandLine.Text = "";
             }
+            catch (IndexOutOfRangeException exception)
+            {
+                lblError.Text = "IndexOutOfRange exception:\n" + exception.Message;
+            }
+            catch (FormatException exception)
+            {
+                lblError.Text = "Format exception:\n" + exception.Message;
+            }
             catch (ArgumentOutOfRangeException exception)
             {
-                lblError.Text = exception.Message;
+                lblError.Text = "ArgumentOutOfRange Exception:\n" + exception.Message;
+            }
+            catch (ArgumentException exception)
+            {
+                lblError.Text = "Argument exception:\n" + exception.Message;
             }
             catch (Exception exception)
             {
-                lblError.Text = exception.Message;
+                lblError.Text = "Other Exceptions:\n" + exception.Message;
             }
         }
 

@@ -129,14 +129,14 @@ namespace ASE_Assignment
             }
             catch (FormatException)
             {
-                throw new FormatException("ERROR: Invalid parameters, please use int!");
+                throw new ArgumentException("ERROR: Invalid parameters, please use int!", inputStringArray.ToString());
             }
 
             // Checks if parameters are negative and throws an error if it is
-            foreach (var i in inputIntArray)
+            for (int i = 0; i < inputIntArray.Length; i++)
             {
-                if (i < 0)
-                    throw new ArgumentOutOfRangeException(inputStringArray[i], "ERROR: Negative parameters are not allowed!");
+                if (inputIntArray[i] < 0)
+                    throw new ArgumentOutOfRangeException(inputIntArray[i].ToString(), "ERROR: Negative parameters are not allowed!");
             }
 
             // This may be redundant now since the try-catch block above should catch any invalid parameters
@@ -153,14 +153,14 @@ namespace ASE_Assignment
                 case 2: // When there are 2 parameters, check if they are greater than 900 and 500 respectively
                     {
                         if (inputIntArray[0] > 900)
-                            throw new ArgumentOutOfRangeException(inputStringArray[0], "ERROR: Invalid parameters\nX-value for parameter must be less than 900!");
+                            throw new ArgumentOutOfRangeException(inputIntArray[0].ToString(), "ERROR: Invalid parameters\nX-value for parameter must be less than 900!");
                         if (inputIntArray[1] > 500)
-                            throw new ArgumentOutOfRangeException(inputStringArray[1], "ERROR: Invalid parameters\nY-value for parameter must be less than 500!");
+                            throw new ArgumentOutOfRangeException(inputIntArray[1].ToString(), "ERROR: Invalid parameters\nY-value for parameter must be less than 500!");
                         break;
                     }
                 default: // When there is only 1 parameter, check if it's greater than 900
                     if (inputIntArray[0] > 900)
-                        throw new ArgumentOutOfRangeException(inputStringArray[0], "ERROR: Invalid parameters\nX-value for parameter must be less than 900!");
+                        throw new ArgumentOutOfRangeException(inputIntArray[0].ToString(), "ERROR: Invalid parameters\nX-value for parameter must be less than 900!");
                     break;
             }
 
