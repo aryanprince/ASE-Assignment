@@ -43,7 +43,7 @@ namespace Unit_Tests
         }
 
         [TestMethod()]
-        [ExpectedException(typeof(FormatException))]
+        [ExpectedException(typeof(ArgumentException))]
         public void ParseInput_InvalidCommand_WithNonIntegerParameters()
         {
             //arrange
