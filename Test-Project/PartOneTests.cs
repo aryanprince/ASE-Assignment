@@ -1,6 +1,7 @@
 ﻿using ASE_Assignment;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Drawing;
+using Action = ASE_Assignment.Action;
 using Rectangle = ASE_Assignment.Rectangle;
 
 namespace Unit_Tests
