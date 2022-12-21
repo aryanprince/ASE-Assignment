@@ -17,17 +17,23 @@ namespace ASE_Assignment
         {
             inputFull = inputFull.Trim().ToLower(); // Trim the input and convert it to lowercase
 
+            // Trying regex
+            string regex = @"^[a-zA-Z]+\s*=\s*\d+$";
+            Match match = Regex.Match(inputFull, regex);
+
+            if (match.Success)
+            {
+                Dictionary<string, int> equation = new Dictionary<string, int>();
+                string[] equationSplit = inputFull.Split('=');
+                string variableName = equationSplit[0].Trim();
+                int value = int.Parse(equationSplit[1].Trim());
+                equation[variableName] = value;
+            }
+            //
+
             // Split the input string into an array of strings, separated by spaces
             string[] inputSplitBySpaces = inputFull.ToLower().Split(' ');
 
-            // Trying regex
-            string regex = @"^[a-zA-Z]+\s*=\s*\d+$";
-
-            if (Regex.IsMatch(inputFull, regex))
-            {
-
-            }
-            //
 
             // Invalid when no words are passed
             if (inputFull.Equals(""))
