@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 
 namespace ASE_Assignment
 {
@@ -18,6 +19,15 @@ namespace ASE_Assignment
 
             // Split the input string into an array of strings, separated by spaces
             string[] inputSplitBySpaces = inputFull.ToLower().Split(' ');
+
+            // Trying regex
+            string regex = @"^[a-zA-Z]+\s*=\s*\d+$";
+
+            if (Regex.IsMatch(inputFull, regex))
+            {
+
+            }
+            //
 
             // Invalid when no words are passed
             if (inputFull.Equals(""))
