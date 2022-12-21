@@ -13,16 +13,19 @@ namespace Unit_Tests
         public void ParseInput_MultiLine_Normal()
         {
             //arrange
-            string input = "rectangle 100 150\nmove 50 80\ncircle 35";
+            string input = "rectangle 100 150\nmove 50 80\ncircle 35\nsquare 75";
 
             // act
-            List<Command> commands = _parser.ParseInput_MultiLine(input);
+            var commands = _parser.ParseInput_MultiLine(input);
 
             //assert
             // Common asserts for all commands
-            Assert.AreEqual(3, commands.Count);
+            Assert.AreEqual(4, commands.Count);
+            Assert.IsInstanceOfType(commands, typeof(List<Command>));
+
             // First line of commands
             Assert.IsNotNull(commands[0]);
+            Assert.IsInstanceOfType(commands[0], typeof(Command));
             Assert.AreEqual(Action.rectangle, commands[0].ActionWord);
             Assert.AreNotEqual(Action.circle, commands[0].ActionWord);
             Assert.AreNotEqual(Action.square, commands[0].ActionWord);
@@ -32,6 +35,7 @@ namespace Unit_Tests
 
             // Second line of commands
             Assert.IsNotNull(commands[1]);
+            Assert.IsInstanceOfType(commands[1], typeof(Command));
             Assert.AreEqual(Action.move, commands[1].ActionWord);
             Assert.AreNotEqual(Action.circle, commands[1].ActionWord);
             Assert.AreNotEqual(Action.square, commands[1].ActionWord);
@@ -41,11 +45,21 @@ namespace Unit_Tests
 
             // Third line of commands
             Assert.IsNotNull(commands[2]);
+            Assert.IsInstanceOfType(commands[2], typeof(Command));
             Assert.AreEqual(Action.circle, commands[2].ActionWord);
             Assert.AreNotEqual(Action.move, commands[2].ActionWord);
             Assert.AreNotEqual(Action.square, commands[2].ActionWord);
             Assert.AreEqual(35, commands[2].ActionValues[0]);
             Assert.AreEqual(1, commands[2].ActionValues.Length);
+
+            // Fourth line of commands
+            Assert.IsNotNull(commands[3]);
+            Assert.IsInstanceOfType(commands[3], typeof(Command));
+            Assert.AreEqual(Action.square, commands[3].ActionWord);
+            Assert.AreNotEqual(Action.move, commands[3].ActionWord);
+            Assert.AreNotEqual(Action.circle, commands[3].ActionWord);
+            Assert.AreEqual(75, commands[3].ActionValues[0]);
+            Assert.AreEqual(1, commands[3].ActionValues.Length);
         }
     }
 }
