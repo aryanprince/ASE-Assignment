@@ -6,6 +6,17 @@ namespace ASE_Assignment
 {
     public class Parser
     {
+        public ExpressionCommand testingExpressions(string inputFull)
+        {
+            string[] equationSplit = inputFull.Split('=');
+            string variableName = equationSplit[0].Trim();
+            int variableValue = int.Parse(equationSplit[1].Trim());
+
+            return new ExpressionCommand(variableName, variableValue);
+        }
+
+        
+
         /// <summary>
         /// Parses a single string, splitting them by words into a Command object.
         /// </summary>
@@ -27,6 +38,10 @@ namespace ASE_Assignment
             if (inputSplitBySpaces.Length > 3)
                 throw new Exception("ERROR: Too many parameters or words.");
 
+            /* +---------------+
+                * | COMMAND NAME  |
+                * +---------------+ 
+                */
             // Parses the command string
             string stringCommand = inputSplitBySpaces[0];
             Action actionWord = ParseAction_Command(stringCommand);
@@ -44,6 +59,10 @@ namespace ASE_Assignment
                 return new Command(actionWord, null);
             }
 
+            /* +---------------------+
+                * | COMMAND PARAMETERS |
+                * +--------------------+ 
+                */
             // Parses the parameters of the command
             List<string> stringParamsList = new List<string>();
             for (int i = 1; i < inputSplitBySpaces.Length; i++)
