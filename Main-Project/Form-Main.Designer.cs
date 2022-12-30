@@ -46,7 +46,6 @@
             this.lblFillState = new System.Windows.Forms.Label();
             this.lblPenColor = new System.Windows.Forms.Label();
             this.txtCommandArea = new System.Windows.Forms.TextBox();
-            this.btnRunMultiLine = new System.Windows.Forms.Button();
             this.gbMultiLineCommands = new System.Windows.Forms.GroupBox();
             this.gbDrawingCanvas = new System.Windows.Forms.GroupBox();
             this.gbSingleLineCommands = new System.Windows.Forms.GroupBox();
@@ -75,7 +74,7 @@
             this.txtCommandLine.Location = new System.Drawing.Point(7, 28);
             this.txtCommandLine.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtCommandLine.Name = "txtCommandLine";
-            this.txtCommandLine.Size = new System.Drawing.Size(431, 26);
+            this.txtCommandLine.Size = new System.Drawing.Size(431, 31);
             this.txtCommandLine.TabIndex = 0;
             this.txtCommandLine.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtCommandLine_KeyDown);
             // 
@@ -115,14 +114,14 @@
             // 
             this.mnuMenuStrip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
             this.mnuMenuStrip.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mnuMenuStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.mnuMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mniFile,
             this.mniHelp,
             this.mniAbout});
             this.mnuMenuStrip.Location = new System.Drawing.Point(0, 0);
             this.mnuMenuStrip.Name = "mnuMenuStrip";
-            this.mnuMenuStrip.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
-            this.mnuMenuStrip.Size = new System.Drawing.Size(1339, 24);
+            this.mnuMenuStrip.Size = new System.Drawing.Size(1339, 28);
             this.mnuMenuStrip.TabIndex = 5;
             this.mnuMenuStrip.Text = "menuStrip1";
             // 
@@ -134,7 +133,7 @@
             this.mniFile.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mniFile.ForeColor = System.Drawing.Color.White;
             this.mniFile.Name = "mniFile";
-            this.mniFile.Size = new System.Drawing.Size(37, 20);
+            this.mniFile.Size = new System.Drawing.Size(46, 24);
             this.mniFile.Text = "File";
             // 
             // mniSave
@@ -143,7 +142,7 @@
             this.mniSave.ForeColor = System.Drawing.Color.White;
             this.mniSave.Name = "mniSave";
             this.mniSave.ShortcutKeyDisplayString = "";
-            this.mniSave.Size = new System.Drawing.Size(100, 22);
+            this.mniSave.Size = new System.Drawing.Size(125, 26);
             this.mniSave.Text = "Save";
             this.mniSave.Click += new System.EventHandler(this.SaveMenuItem_Click);
             // 
@@ -152,7 +151,7 @@
             this.mniLoad.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
             this.mniLoad.ForeColor = System.Drawing.Color.White;
             this.mniLoad.Name = "mniLoad";
-            this.mniLoad.Size = new System.Drawing.Size(100, 22);
+            this.mniLoad.Size = new System.Drawing.Size(125, 26);
             this.mniLoad.Text = "Load";
             this.mniLoad.Click += new System.EventHandler(this.LoadMenuItem_Click);
             // 
@@ -161,7 +160,7 @@
             this.mniHelp.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mniHelp.ForeColor = System.Drawing.Color.White;
             this.mniHelp.Name = "mniHelp";
-            this.mniHelp.Size = new System.Drawing.Size(44, 20);
+            this.mniHelp.Size = new System.Drawing.Size(55, 24);
             this.mniHelp.Text = "Help";
             // 
             // mniAbout
@@ -171,7 +170,7 @@
             this.mniAbout.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mniAbout.ForeColor = System.Drawing.Color.White;
             this.mniAbout.Name = "mniAbout";
-            this.mniAbout.Size = new System.Drawing.Size(52, 20);
+            this.mniAbout.Size = new System.Drawing.Size(64, 24);
             this.mniAbout.Text = "About";
             // 
             // mniAryanGitHub
@@ -179,7 +178,7 @@
             this.mniAryanGitHub.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
             this.mniAryanGitHub.ForeColor = System.Drawing.Color.White;
             this.mniAryanGitHub.Name = "mniAryanGitHub";
-            this.mniAryanGitHub.Size = new System.Drawing.Size(225, 22);
+            this.mniAryanGitHub.Size = new System.Drawing.Size(285, 26);
             this.mniAryanGitHub.Text = "Built with ❤️ by Aryan Prince";
             this.mniAryanGitHub.Click += new System.EventHandler(this.AryanMenuItem_Click);
             // 
@@ -191,7 +190,7 @@
             this.lblCoordinatesValues.Location = new System.Drawing.Point(476, 626);
             this.lblCoordinatesValues.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCoordinatesValues.Name = "lblCoordinatesValues";
-            this.lblCoordinatesValues.Size = new System.Drawing.Size(154, 26);
+            this.lblCoordinatesValues.Size = new System.Drawing.Size(195, 33);
             this.lblCoordinatesValues.TabIndex = 9;
             this.lblCoordinatesValues.Text = "X:0, Y:0 (default)";
             // 
@@ -202,7 +201,7 @@
             this.lblCoordinatesLabel.ForeColor = System.Drawing.Color.White;
             this.lblCoordinatesLabel.Location = new System.Drawing.Point(476, 598);
             this.lblCoordinatesLabel.Name = "lblCoordinatesLabel";
-            this.lblCoordinatesLabel.Size = new System.Drawing.Size(186, 26);
+            this.lblCoordinatesLabel.Size = new System.Drawing.Size(236, 33);
             this.lblCoordinatesLabel.TabIndex = 10;
             this.lblCoordinatesLabel.Text = "current coordinates:";
             // 
@@ -214,7 +213,7 @@
             this.lblError.ForeColor = System.Drawing.Color.White;
             this.lblError.Location = new System.Drawing.Point(20, 662);
             this.lblError.Name = "lblError";
-            this.lblError.Size = new System.Drawing.Size(2, 23);
+            this.lblError.Size = new System.Drawing.Size(2, 30);
             this.lblError.TabIndex = 1;
             // 
             // lblFillState
@@ -224,7 +223,7 @@
             this.lblFillState.ForeColor = System.Drawing.Color.White;
             this.lblFillState.Location = new System.Drawing.Point(1172, 598);
             this.lblFillState.Name = "lblFillState";
-            this.lblFillState.Size = new System.Drawing.Size(116, 26);
+            this.lblFillState.Size = new System.Drawing.Size(146, 33);
             this.lblFillState.TabIndex = 12;
             this.lblFillState.Text = "fill: disabled";
             // 
@@ -235,7 +234,7 @@
             this.lblPenColor.ForeColor = System.Drawing.Color.White;
             this.lblPenColor.Location = new System.Drawing.Point(1166, 626);
             this.lblPenColor.Name = "lblPenColor";
-            this.lblPenColor.Size = new System.Drawing.Size(131, 26);
+            this.lblPenColor.Size = new System.Drawing.Size(165, 33);
             this.lblPenColor.TabIndex = 13;
             this.lblPenColor.Text = "pen color: red";
             // 
@@ -247,24 +246,8 @@
             this.txtCommandArea.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtCommandArea.Multiline = true;
             this.txtCommandArea.Name = "txtCommandArea";
-            this.txtCommandArea.Size = new System.Drawing.Size(431, 355);
+            this.txtCommandArea.Size = new System.Drawing.Size(431, 428);
             this.txtCommandArea.TabIndex = 0;
-            // 
-            // btnRunMultiLine
-            // 
-            this.btnRunMultiLine.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(54)))), ((int)(((byte)(61)))));
-            this.btnRunMultiLine.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnRunMultiLine.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRunMultiLine.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRunMultiLine.ForeColor = System.Drawing.Color.White;
-            this.btnRunMultiLine.Location = new System.Drawing.Point(19, 455);
-            this.btnRunMultiLine.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnRunMultiLine.Name = "btnRunMultiLine";
-            this.btnRunMultiLine.Size = new System.Drawing.Size(145, 40);
-            this.btnRunMultiLine.TabIndex = 10;
-            this.btnRunMultiLine.Text = "run multiline";
-            this.btnRunMultiLine.UseVisualStyleBackColor = false;
-            this.btnRunMultiLine.Click += new System.EventHandler(this.btnRunMultiline_Click);
             // 
             // gbMultiLineCommands
             // 
@@ -273,7 +256,7 @@
             this.gbMultiLineCommands.ForeColor = System.Drawing.Color.White;
             this.gbMultiLineCommands.Location = new System.Drawing.Point(12, 42);
             this.gbMultiLineCommands.Name = "gbMultiLineCommands";
-            this.gbMultiLineCommands.Size = new System.Drawing.Size(445, 391);
+            this.gbMultiLineCommands.Size = new System.Drawing.Size(445, 464);
             this.gbMultiLineCommands.TabIndex = 10;
             this.gbMultiLineCommands.TabStop = false;
             this.gbMultiLineCommands.Text = "Multi-line Commands";
@@ -304,14 +287,13 @@
             // 
             // frmMainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
             this.ClientSize = new System.Drawing.Size(1339, 747);
             this.Controls.Add(this.gbSingleLineCommands);
             this.Controls.Add(this.gbDrawingCanvas);
             this.Controls.Add(this.gbMultiLineCommands);
-            this.Controls.Add(this.btnRunMultiLine);
             this.Controls.Add(this.lblPenColor);
             this.Controls.Add(this.lblFillState);
             this.Controls.Add(this.lblError);
@@ -356,7 +338,6 @@
         private System.Windows.Forms.Label lblFillState;
         private System.Windows.Forms.Label lblPenColor;
         private System.Windows.Forms.TextBox txtCommandArea;
-        private System.Windows.Forms.Button btnRunMultiLine;
         private System.Windows.Forms.ToolStripMenuItem mniSave;
         private System.Windows.Forms.ToolStripMenuItem mniLoad;
         private System.Windows.Forms.GroupBox gbMultiLineCommands;

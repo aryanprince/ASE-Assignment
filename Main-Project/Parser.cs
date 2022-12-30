@@ -1,12 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text.RegularExpressions;
 
 namespace ASE_Assignment
 {
     public class Parser
     {
+        public ExpressionCommand testingExpressions(string inputFull)
+        {
+            string[] equationSplit = inputFull.Split('=');
+            string variableName = equationSplit[0].Trim();
+            int variableValue = int.Parse(equationSplit[1].Trim());
+
+            return new ExpressionCommand(variableName, variableValue);
+        }
+
+        
+
         /// <summary>
         /// Parses a single string, splitting them by words into a Command object.
         /// </summary>
@@ -17,23 +27,8 @@ namespace ASE_Assignment
         {
             inputFull = inputFull.Trim().ToLower(); // Trim the input and convert it to lowercase
 
-            // Trying regex
-            string regex = @"^[a-zA-Z]+\s*=\s*\d+$";
-            Match match = Regex.Match(inputFull, regex);
-
-            if (match.Success)
-            {
-                Dictionary<string, int> equation = new Dictionary<string, int>();
-                string[] equationSplit = inputFull.Split('=');
-                string variableName = equationSplit[0].Trim();
-                int value = int.Parse(equationSplit[1].Trim());
-                equation[variableName] = value;
-            }
-            //
-
             // Split the input string into an array of strings, separated by spaces
             string[] inputSplitBySpaces = inputFull.ToLower().Split(' ');
-
 
             // Invalid when no words are passed
             if (inputFull.Equals(""))
@@ -43,6 +38,10 @@ namespace ASE_Assignment
             if (inputSplitBySpaces.Length > 3)
                 throw new Exception("ERROR: Too many parameters or words.");
 
+            /* +---------------+
+                * | COMMAND NAME  |
+                * +---------------+ 
+                */
             // Parses the command string
             string stringCommand = inputSplitBySpaces[0];
             Action actionWord = ParseAction_Command(stringCommand);
@@ -60,6 +59,10 @@ namespace ASE_Assignment
                 return new Command(actionWord, null);
             }
 
+            /* +---------------------+
+                * | COMMAND PARAMETERS |
+                * +--------------------+ 
+                */
             // Parses the parameters of the command
             List<string> stringParamsList = new List<string>();
             for (int i = 1; i < inputSplitBySpaces.Length; i++)

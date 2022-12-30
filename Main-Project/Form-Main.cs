@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace ASE_Assignment
@@ -42,8 +43,14 @@ namespace ASE_Assignment
 
             try
             {
-                var commandsList = _parser.ParseInput_MultiLine(txtCommandArea.Text);
-                foreach (var command in commandsList) { ExecuteCommand(g, command); }
+                string normalCommandsRegex = @"^([a-zA-Z]+) ?(\d+)? ?(\d+)?$";
+                string expressionCommandsRegex = @"^[a-zA-Z]+\s*=\s*\d+$";
+
+                if (Regex.IsMatch(txtCommandLine.Text.Trim().ToLower(), normalCommandsRegex))
+                {
+                    var commandsList = _parser.ParseInput_MultiLine(txtCommandArea.Text);
+                    foreach (var command in commandsList) { ExecuteCommand(g, command); }
+                }
             }
             catch (Exception exception)
             {
@@ -64,12 +71,61 @@ namespace ASE_Assignment
             {
                 _cursor.Draw(g); // Draws a new cursor before every command in case it gets covered by another shape
 
-                Command command = _parser.ParseInput_SingleLine(txtCommandLine.Text);
-                ExecuteCommand(g, command);
+                string[] inputSplitByLines = txtCommandArea.Text.Split(new char[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
 
-                // Resets all the labels if execute command works
-                lblError.Text = "";
-                txtCommandLine.Text = "";
+                string regexType1 = @"^([a-zA-Z]+)\s*(\d+)?\s*(\d+)?$"; // "rectangle 100 150"
+                string regexType2 = @"^[a-zA-Z]+\s*=\s*\d+$"; // "x = 100"
+                string regexType3 = @"^([a-zA-Z]+)\s*([a-zA-Z]+)?\s*([a-zA-Z]+)?$"; // "rectangle x y"
+                Dictionary<string, int> dict = new Dictionary<string, int>();
+
+                if (Regex.IsMatch(txtCommandLine.Text.Trim().ToLower(), regexType1))
+                {
+                    Command command = _parser.ParseInput_SingleLine(txtCommandLine.Text);
+                    ExecuteCommand(g, command);
+
+                    // Resets all the labels if execute command works
+                    lblError.Text = "";
+                    txtCommandLine.Text = "";
+                }
+
+                for (int i = 0; i < inputSplitByLines.Length; i++)
+                {
+                    if (Regex.IsMatch(inputSplitByLines[i].Trim().ToLower(), regexType2))
+                    {
+
+                        //string[] splitCommand = inputSplitByLines[i].Split('=');
+                        //string variableName = splitCommand[0].Trim();
+                        //int variableValue = int.Parse(splitCommand[1].Trim());
+
+                        //dict[variableName] = variableValue;
+                    }
+
+                    // "rectangle x y"
+                    if (Regex.IsMatch(inputSplitByLines[i].Trim().ToLower(), regexType3))
+                    {
+                        string[] splitCommand = inputSplitByLines[i].Split(' ');
+
+                        string shapeName = splitCommand[0].Trim();
+                        string parameter1 = splitCommand[1].Trim();
+                        int param1 = 0;
+                        //string parameter2 = splitCommand[2].Trim();
+                        //int param2 = 0;
+
+                        if (dict.ContainsKey(parameter1))
+                        {
+                            param1 = dict[parameter1];
+                        }
+                        //if (dict.ContainsKey(parameter2))
+                        //{
+                        //    param2 = dict[parameter2];
+                        //}
+
+                        string finalCommand = shapeName + " " + param1 + " "/* + param2*/;
+                        Command command = _parser.ParseInput_SingleLine(finalCommand);
+                        ExecuteCommand(g, command);
+                    }
+                }
+
             }
             catch (IndexOutOfRangeException exception)
             {
