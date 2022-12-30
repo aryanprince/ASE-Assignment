@@ -32,31 +32,34 @@ namespace ASE_Assignment
             InitializeComponent();
         }
 
-        /// <summary>
-        /// Handles the Click event of the Run button for the multi-line text box control.
-        /// </summary>
-        /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        private void btnRunMultiline_Click(object sender, EventArgs e)
-        {
-            Graphics g = picDrawingCanvas.CreateGraphics();
+        ///// <summary>
+        ///// Handles the Click event of the Run button for the multi-line text box control.
+        ///// </summary>
+        ///// <param name="sender">The source of the event.</param>
+        ///// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        //private void btnRunMultiline_Click(object sender, EventArgs e)
+        //{
+        //    Graphics g = picDrawingCanvas.CreateGraphics();
 
-            try
-            {
-                string normalCommandsRegex = @"^([a-zA-Z]+) ?(\d+)? ?(\d+)?$";
-                string expressionCommandsRegex = @"^[a-zA-Z]+\s*=\s*\d+$";
+        //    try
+        //    {
+        //        string normalCommandsRegex = @"^([a-zA-Z]+) ?(\d+)? ?(\d+)?$";
+        //        string expressionCommandsRegex = @"^[a-zA-Z]+\s*=\s*\d+$";
 
-                if (Regex.IsMatch(txtCommandLine.Text.Trim().ToLower(), normalCommandsRegex))
-                {
-                    var commandsList = _parser.ParseInput_MultiLine(txtCommandArea.Text);
-                    foreach (var command in commandsList) { ExecuteCommand(g, command); }
-                }
-            }
-            catch (Exception exception)
-            {
-                lblError.Text = exception.Message;
-            }
-        }
+        //        if (Regex.IsMatch(txtCommandLine.Text.Trim().ToLower(), normalCommandsRegex))
+        //        {
+        //            var commandsList = _parser.ParseInput_MultiLine(txtCommandArea.Text);
+        //            foreach (var command in commandsList)
+        //            {
+        //                ExecuteCommand(g, command);
+        //            }
+        //        }
+        //    }
+        //    catch (Exception exception)
+        //    {
+        //        lblError.Text = exception.Message;
+        //    }
+        //}
 
         /// <summary>
         /// Handles the Click event of the Run button for the single-line text box control.
@@ -71,7 +74,8 @@ namespace ASE_Assignment
             {
                 _cursor.Draw(g); // Draws a new cursor before every command in case it gets covered by another shape
 
-                string[] inputSplitByLines = txtCommandArea.Text.Split(new char[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
+                string[] inputSplitByLines =
+                    txtCommandArea.Text.Split(new char[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
 
                 string regexType1 = @"^([a-zA-Z]+)\s*(\d+)?\s*(\d+)?$"; // "rectangle 100 150"
                 string regexType2 = @"^[a-zA-Z]+\s*=\s*\d+$"; // "x = 100"
@@ -90,39 +94,44 @@ namespace ASE_Assignment
 
                 for (int i = 0; i < inputSplitByLines.Length; i++)
                 {
+                    // "x = 150"
                     if (Regex.IsMatch(inputSplitByLines[i].Trim().ToLower(), regexType2))
                     {
+                        Tokenizer tokenizer = new Tokenizer();
+                        List<Token> tokens = tokenizer.Tokenize(inputSplitByLines[i]);
 
-                        //string[] splitCommand = inputSplitByLines[i].Split('=');
-                        //string variableName = splitCommand[0].Trim();
-                        //int variableValue = int.Parse(splitCommand[1].Trim());
+                        if (tokens[0].Type == TokenType.IDENTIFIER)
+                        {
+                            dict.Add(tokens[0].Value.ToString(), Convert.ToInt32(tokens[2].Value));
+                        }
 
-                        //dict[variableName] = variableValue;
+                        // Resets all the labels if execute command works
+                        lblError.Text = "";
+                        txtCommandLine.Text = "";
                     }
 
                     // "rectangle x y"
                     if (Regex.IsMatch(inputSplitByLines[i].Trim().ToLower(), regexType3))
                     {
-                        string[] splitCommand = inputSplitByLines[i].Split(' ');
+                        Tokenizer tokenizer = new Tokenizer();
+                        List<Token> tokens = tokenizer.Tokenize(inputSplitByLines[i]);
 
-                        string shapeName = splitCommand[0].Trim();
-                        string parameter1 = splitCommand[1].Trim();
-                        int param1 = 0;
-                        //string parameter2 = splitCommand[2].Trim();
-                        //int param2 = 0;
-
-                        if (dict.ContainsKey(parameter1))
+                        if (tokens[1].Type == TokenType.IDENTIFIER)
                         {
-                            param1 = dict[parameter1];
+                            tokens[1].Value = dict[tokens[1].Value.ToString()];
                         }
-                        //if (dict.ContainsKey(parameter2))
-                        //{
-                        //    param2 = dict[parameter2];
-                        //}
 
-                        string finalCommand = shapeName + " " + param1 + " "/* + param2*/;
-                        Command command = _parser.ParseInput_SingleLine(finalCommand);
+                        if (tokens[2].Type == TokenType.IDENTIFIER)
+                        {
+                            tokens[2].Value = dict[tokens[2].Value.ToString()];
+                        }
+
+                        Command command = _parser.ParseInput_SingleLine(tokens[0].Value.ToString() + " " + tokens[1].Value.ToString() + " " + tokens[2].Value.ToString());
                         ExecuteCommand(g, command);
+
+                        // Resets all the labels if execute command works
+                        lblError.Text = "";
+                        txtCommandLine.Text = "";
                     }
                 }
 
@@ -131,23 +140,29 @@ namespace ASE_Assignment
             {
                 lblError.Text = "IndexOutOfRange exception:\n" + exception.Message;
             }
+
             catch (FormatException exception)
             {
                 lblError.Text = "Format exception:\n" + exception.Message;
             }
+
             catch (ArgumentOutOfRangeException exception)
             {
                 lblError.Text = "ArgumentOutOfRange Exception:\n" + exception.Message;
             }
+
             catch (ArgumentException exception)
             {
                 lblError.Text = "Argument exception:\n" + exception.Message;
             }
+
             catch (Exception exception)
             {
                 lblError.Text = "Other Exceptions:\n" + exception.Message;
             }
         }
+
+
 
         /// <summary>
         /// Executes all of my commands for various shapes and other commands.
