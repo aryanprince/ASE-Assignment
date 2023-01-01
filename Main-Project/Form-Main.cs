@@ -74,14 +74,14 @@ namespace ASE_Assignment
             {
                 _cursor.Draw(g); // Draws a new cursor before every command in case it gets covered by another shape
 
-                string[] inputSplitByLines =
-                    txtCommandArea.Text.Split(new char[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
+                string[] inputSplitByLines = txtCommandArea.Text.Split(new char[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
 
                 string regexType1 = @"^([a-zA-Z]+)\s*(\d+)?\s*(\d+)?$"; // "rectangle 100 150"
                 string regexType2 = @"^[a-zA-Z]+\s*=\s*\d+$"; // "x = 100"
-                string regexType3 = @"^([a-zA-Z]+)\s*([a-zA-Z]+)?\s*([a-zA-Z]+)?$"; // "rectangle x y"
+                string regexType3 = @"^([a-zA-Z]+)\s*([a-zA-Z]+)? ?([a-zA-Z]+)?$"; // "rectangle x y"
                 Dictionary<string, int> dict = new Dictionary<string, int>();
 
+                // "rectangle 100 150"
                 if (Regex.IsMatch(txtCommandLine.Text.Trim().ToLower(), regexType1))
                 {
                     Command command = _parser.ParseInput_SingleLine(txtCommandLine.Text);

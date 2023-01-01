@@ -13,6 +13,7 @@
         fill,
         pen,
         run,
+        var,
         none
     }
 }
