@@ -79,9 +79,8 @@ namespace ASE_Assignment
                 string[] inputSplitByLines = txtCommandArea.Text.Split(new char[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
 
                 string regexType1 = @"^([a-zA-Z]+)\s*(\d+)?\s*(\d+)?$"; // "rectangle 100 150"
-                string regexType2 = @"^[a-zA-Z]+\s*=\s*\d+$"; // "x = 100"
+                string regexType2 = @"^var [a-zA-Z]+\s*=\s*\d+$"; // "var x = 5"
                 string regexType3 = @"^([a-zA-Z]+)\s*([a-zA-Z]+)? ?([a-zA-Z]+)?$"; // "rectangle x y"
-                string regexType4 = @"^var [a-zA-Z]+\s*=\s*\d+$"; // "var x = 5"
                 Dictionary<string, int> dictionaryOfVariables = new Dictionary<string, int>();
 
                 // "rectangle 100 150"
@@ -97,22 +96,6 @@ namespace ASE_Assignment
 
                 for (int i = 0; i < inputSplitByLines.Length; i++)
                 {
-                    // "x = 150"
-                    if (Regex.IsMatch(inputSplitByLines[i].Trim().ToLower(), regexType2))
-                    {
-                        Tokenizer tokenizer = new Tokenizer();
-                        List<Token> tokens = tokenizer.Tokenize(inputSplitByLines[i]);
-
-                        if (tokens[0].Type == TokenType.IDENTIFIER)
-                        {
-                            dictionaryOfVariables.Add(tokens[0].Value.ToString(), Convert.ToInt32(tokens[2].Value));
-                        }
-
-                        // Resets all the labels if execute command works
-                        lblError.Text = "";
-                        txtCommandLine.Text = "";
-                    }
-
                     // "rectangle x y"
                     if (Regex.IsMatch(inputSplitByLines[i].Trim().ToLower(), regexType3))
                     {
@@ -121,7 +104,7 @@ namespace ASE_Assignment
                     }
 
                     //"var x = 10"
-                    if (Regex.IsMatch(inputSplitByLines[i].Trim().ToLower(), regexType4))
+                    if (Regex.IsMatch(inputSplitByLines[i].Trim().ToLower(), regexType2))
                     {
                         CommandVariable commandVariable = _parser.ParseInput_Variable(inputSplitByLines[i]);
                         dictionaryOfVariables.Add(commandVariable.VariableName, commandVariable.VariableValue);
