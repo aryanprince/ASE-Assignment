@@ -21,11 +21,11 @@ namespace Unit_Tests
             //assert
             // Common asserts for all commands
             Assert.AreEqual(4, commands.Count);
-            Assert.IsInstanceOfType(commands, typeof(List<Command>));
+            Assert.IsInstanceOfType(commands, typeof(List<CommandShape>));
 
             // First line of commands
             Assert.IsNotNull(commands[0]);
-            Assert.IsInstanceOfType(commands[0], typeof(Command));
+            Assert.IsInstanceOfType(commands[0], typeof(CommandShape));
             Assert.AreEqual(Action.rectangle, commands[0].ActionWord);
             Assert.AreNotEqual(Action.circle, commands[0].ActionWord);
             Assert.AreNotEqual(Action.square, commands[0].ActionWord);
@@ -35,7 +35,7 @@ namespace Unit_Tests
 
             // Second line of commands
             Assert.IsNotNull(commands[1]);
-            Assert.IsInstanceOfType(commands[1], typeof(Command));
+            Assert.IsInstanceOfType(commands[1], typeof(CommandShape));
             Assert.AreEqual(Action.move, commands[1].ActionWord);
             Assert.AreNotEqual(Action.circle, commands[1].ActionWord);
             Assert.AreNotEqual(Action.square, commands[1].ActionWord);
@@ -45,7 +45,7 @@ namespace Unit_Tests
 
             // Third line of commands
             Assert.IsNotNull(commands[2]);
-            Assert.IsInstanceOfType(commands[2], typeof(Command));
+            Assert.IsInstanceOfType(commands[2], typeof(CommandShape));
             Assert.AreEqual(Action.circle, commands[2].ActionWord);
             Assert.AreNotEqual(Action.move, commands[2].ActionWord);
             Assert.AreNotEqual(Action.square, commands[2].ActionWord);
@@ -54,7 +54,7 @@ namespace Unit_Tests
 
             // Fourth line of commands
             Assert.IsNotNull(commands[3]);
-            Assert.IsInstanceOfType(commands[3], typeof(Command));
+            Assert.IsInstanceOfType(commands[3], typeof(CommandShape));
             Assert.AreEqual(Action.square, commands[3].ActionWord);
             Assert.AreNotEqual(Action.move, commands[3].ActionWord);
             Assert.AreNotEqual(Action.circle, commands[3].ActionWord);

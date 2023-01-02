@@ -65,16 +65,16 @@ namespace Unit_Tests
             string input = "rectangle 100 150";
 
             // act
-            Command command = _parser.ParseInput_SingleLine(input); // Parse the input and get the command
+            CommandShape commandShape = _parser.ParseInput_SingleLine(input); // Parse the input and get the command
 
             // assert
-            Assert.IsNotNull(command);
-            Assert.AreEqual(Action.rectangle, command.ActionWord);
-            Assert.AreNotEqual(Action.circle, command.ActionWord);
-            Assert.AreNotEqual(Action.square, command.ActionWord);
-            Assert.AreEqual(100, command.ActionValues[0]);
-            Assert.AreEqual(150, command.ActionValues[1]);
-            Assert.AreEqual(2, command.ActionValues.Length);
+            Assert.IsNotNull(commandShape);
+            Assert.AreEqual(Action.rectangle, commandShape.ActionWord);
+            Assert.AreNotEqual(Action.circle, commandShape.ActionWord);
+            Assert.AreNotEqual(Action.square, commandShape.ActionWord);
+            Assert.AreEqual(100, commandShape.ActionValues[0]);
+            Assert.AreEqual(150, commandShape.ActionValues[1]);
+            Assert.AreEqual(2, commandShape.ActionValues.Length);
         }
 
         [TestMethod()]
@@ -84,16 +84,16 @@ namespace Unit_Tests
             string input = "rEcTaNgLe 100 150";
 
             // act
-            Command command = _parser.ParseInput_SingleLine(input); // Parse the input and get the command
+            CommandShape commandShape = _parser.ParseInput_SingleLine(input); // Parse the input and get the command
 
             // assert
-            Assert.IsNotNull(command);
-            Assert.AreEqual(Action.rectangle, command.ActionWord);
-            Assert.AreNotEqual(Action.circle, command.ActionWord);
-            Assert.AreNotEqual(Action.square, command.ActionWord);
-            Assert.AreEqual(100, command.ActionValues[0]);
-            Assert.AreEqual(150, command.ActionValues[1]);
-            Assert.AreEqual(2, command.ActionValues.Length);
+            Assert.IsNotNull(commandShape);
+            Assert.AreEqual(Action.rectangle, commandShape.ActionWord);
+            Assert.AreNotEqual(Action.circle, commandShape.ActionWord);
+            Assert.AreNotEqual(Action.square, commandShape.ActionWord);
+            Assert.AreEqual(100, commandShape.ActionValues[0]);
+            Assert.AreEqual(150, commandShape.ActionValues[1]);
+            Assert.AreEqual(2, commandShape.ActionValues.Length);
         }
 
         [TestMethod()]
@@ -104,10 +104,10 @@ namespace Unit_Tests
 
             // act
             // Creating an instance of all the classes that are needed to create a rectangle
-            Command command = _parser.ParseInput_SingleLine(input);
+            CommandShape commandShape = _parser.ParseInput_SingleLine(input);
             ShapeFactory shapeFactory = new ShapeFactory();
             Cursor cursor = new Cursor();
-            Shape shape = shapeFactory.CreateShape(command, cursor.Position, cursor.Fill, cursor.PenColor); // Creates the shape
+            Shape shape = shapeFactory.CreateShape(commandShape, cursor.Position, cursor.Fill, cursor.PenColor); // Creates the shape
 
             // assert
             Assert.IsNotNull(shape);
@@ -131,10 +131,10 @@ namespace Unit_Tests
 
             // act
             // Creating an instance of all the classes that are needed to create a rectangle
-            Command command = _parser.ParseInput_SingleLine(input);
+            CommandShape commandShape = _parser.ParseInput_SingleLine(input);
             ShapeFactory shapeFactory = new ShapeFactory();
             Cursor cursor = new Cursor();
-            Shape shape = shapeFactory.CreateShape(command, cursor.Position, cursor.Fill, cursor.PenColor); // Creates the shape
+            Shape shape = shapeFactory.CreateShape(commandShape, cursor.Position, cursor.Fill, cursor.PenColor); // Creates the shape
 
             // assert
             Assert.IsNotNull(shape);
@@ -208,14 +208,14 @@ namespace Unit_Tests
             string input = "circle 100 150";
 
             // act
-            Command command = _parser.ParseInput_SingleLine(input); // Parse the input and get the command
+            CommandShape commandShape = _parser.ParseInput_SingleLine(input); // Parse the input and get the command
 
             // assert
-            Assert.IsNotNull(command);
-            Assert.AreEqual(Action.circle, command.ActionWord);
-            Assert.AreEqual(100, command.ActionValues[0]);
-            Assert.AreEqual(150, command.ActionValues[1]);
-            Assert.AreEqual(2, command.ActionValues.Length);
+            Assert.IsNotNull(commandShape);
+            Assert.AreEqual(Action.circle, commandShape.ActionWord);
+            Assert.AreEqual(100, commandShape.ActionValues[0]);
+            Assert.AreEqual(150, commandShape.ActionValues[1]);
+            Assert.AreEqual(2, commandShape.ActionValues.Length);
         }
 
         [TestMethod()]
@@ -225,14 +225,14 @@ namespace Unit_Tests
             string input = "cIrClE 100 150";
 
             // act
-            Command command = _parser.ParseInput_SingleLine(input); // Parse the input and get the command
+            CommandShape commandShape = _parser.ParseInput_SingleLine(input); // Parse the input and get the command
 
             // assert
-            Assert.IsNotNull(command);
-            Assert.AreEqual(Action.circle, command.ActionWord);
-            Assert.AreEqual(100, command.ActionValues[0]);
-            Assert.AreEqual(150, command.ActionValues[1]);
-            Assert.AreEqual(2, command.ActionValues.Length);
+            Assert.IsNotNull(commandShape);
+            Assert.AreEqual(Action.circle, commandShape.ActionWord);
+            Assert.AreEqual(100, commandShape.ActionValues[0]);
+            Assert.AreEqual(150, commandShape.ActionValues[1]);
+            Assert.AreEqual(2, commandShape.ActionValues.Length);
         }
 
         [TestMethod()]
@@ -243,10 +243,10 @@ namespace Unit_Tests
 
             // act
             // Creating an instance of all the classes that are needed to create a circle
-            Command command = _parser.ParseInput_SingleLine(input);
+            CommandShape commandShape = _parser.ParseInput_SingleLine(input);
             ShapeFactory shapeFactory = new ShapeFactory();
             Cursor cursor = new Cursor();
-            Shape shape = shapeFactory.CreateShape(command, cursor.Position, cursor.Fill, cursor.PenColor); // Creates a circle using the factory
+            Shape shape = shapeFactory.CreateShape(commandShape, cursor.Position, cursor.Fill, cursor.PenColor); // Creates a circle using the factory
 
             // assert
             Assert.IsNotNull(shape);
@@ -270,10 +270,10 @@ namespace Unit_Tests
 
             // act
             // Creating an instance of all the classes that are needed to create a circle
-            Command command = _parser.ParseInput_SingleLine(input);
+            CommandShape commandShape = _parser.ParseInput_SingleLine(input);
             ShapeFactory shapeFactory = new ShapeFactory();
             Cursor cursor = new Cursor();
-            Shape shape = shapeFactory.CreateShape(command, cursor.Position, cursor.Fill, cursor.PenColor); // Creates a circle using the factory
+            Shape shape = shapeFactory.CreateShape(commandShape, cursor.Position, cursor.Fill, cursor.PenColor); // Creates a circle using the factory
 
             // assert
             Assert.IsNotNull(shape);
@@ -350,15 +350,15 @@ namespace Unit_Tests
             string input = "square 125";
 
             // act
-            Command command = _parser.ParseInput_SingleLine(input); // Parse the input and get the command
+            CommandShape commandShape = _parser.ParseInput_SingleLine(input); // Parse the input and get the command
 
             // assert
-            Assert.IsNotNull(command);
-            Assert.AreEqual(Action.square, command.ActionWord);
-            Assert.AreNotEqual(Action.circle, command.ActionWord);
-            Assert.AreNotEqual(Action.rectangle, command.ActionWord);
-            Assert.AreEqual(125, command.ActionValues[0]);
-            Assert.AreEqual(1, command.ActionValues.Length);
+            Assert.IsNotNull(commandShape);
+            Assert.AreEqual(Action.square, commandShape.ActionWord);
+            Assert.AreNotEqual(Action.circle, commandShape.ActionWord);
+            Assert.AreNotEqual(Action.rectangle, commandShape.ActionWord);
+            Assert.AreEqual(125, commandShape.ActionValues[0]);
+            Assert.AreEqual(1, commandShape.ActionValues.Length);
         }
 
         [TestMethod()]
@@ -368,15 +368,15 @@ namespace Unit_Tests
             string input = "sQuArE 125";
 
             // act
-            Command command = _parser.ParseInput_SingleLine(input); // Parse the input and get the command
+            CommandShape commandShape = _parser.ParseInput_SingleLine(input); // Parse the input and get the command
 
             // assert
-            Assert.IsNotNull(command);
-            Assert.AreEqual(Action.square, command.ActionWord);
-            Assert.AreNotEqual(Action.circle, command.ActionWord);
-            Assert.AreNotEqual(Action.rectangle, command.ActionWord);
-            Assert.AreEqual(125, command.ActionValues[0]);
-            Assert.AreEqual(1, command.ActionValues.Length);
+            Assert.IsNotNull(commandShape);
+            Assert.AreEqual(Action.square, commandShape.ActionWord);
+            Assert.AreNotEqual(Action.circle, commandShape.ActionWord);
+            Assert.AreNotEqual(Action.rectangle, commandShape.ActionWord);
+            Assert.AreEqual(125, commandShape.ActionValues[0]);
+            Assert.AreEqual(1, commandShape.ActionValues.Length);
         }
 
         [TestMethod()]
@@ -387,10 +387,10 @@ namespace Unit_Tests
 
             // act
             // Creating an instance of all the classes that are needed to create a square
-            Command command = _parser.ParseInput_SingleLine(input);
+            CommandShape commandShape = _parser.ParseInput_SingleLine(input);
             ShapeFactory shapeFactory = new ShapeFactory();
             Cursor cursor = new Cursor();
-            Shape shape = shapeFactory.CreateShape(command, cursor.Position, cursor.Fill, cursor.PenColor); // Creates a square using the factory
+            Shape shape = shapeFactory.CreateShape(commandShape, cursor.Position, cursor.Fill, cursor.PenColor); // Creates a square using the factory
 
             // assert
             Assert.IsNotNull(shape);
@@ -415,10 +415,10 @@ namespace Unit_Tests
 
             // act
             // Creating an instance of all the classes that are needed to create a square
-            Command command = _parser.ParseInput_SingleLine(input);
+            CommandShape commandShape = _parser.ParseInput_SingleLine(input);
             ShapeFactory shapeFactory = new ShapeFactory();
             Cursor cursor = new Cursor();
-            Shape shape = shapeFactory.CreateShape(command, cursor.Position, cursor.Fill, cursor.PenColor); // Creates a square using the factory
+            Shape shape = shapeFactory.CreateShape(commandShape, cursor.Position, cursor.Fill, cursor.PenColor); // Creates a square using the factory
 
             // assert
             Assert.IsNotNull(shape);
@@ -499,15 +499,15 @@ namespace Unit_Tests
             string input = "triangle 225";
 
             // act
-            Command command = _parser.ParseInput_SingleLine(input); // Parse the input and get the command
+            CommandShape commandShape = _parser.ParseInput_SingleLine(input); // Parse the input and get the command
 
             // assert
-            Assert.IsNotNull(command);
-            Assert.AreEqual(Action.triangle, command.ActionWord);
-            Assert.AreNotEqual(Action.rectangle, command.ActionWord);
-            Assert.AreNotEqual(Action.square, command.ActionWord);
-            Assert.AreEqual(225, command.ActionValues[0]);
-            Assert.AreEqual(1, command.ActionValues.Length);
+            Assert.IsNotNull(commandShape);
+            Assert.AreEqual(Action.triangle, commandShape.ActionWord);
+            Assert.AreNotEqual(Action.rectangle, commandShape.ActionWord);
+            Assert.AreNotEqual(Action.square, commandShape.ActionWord);
+            Assert.AreEqual(225, commandShape.ActionValues[0]);
+            Assert.AreEqual(1, commandShape.ActionValues.Length);
         }
 
         [TestMethod()]
@@ -517,15 +517,15 @@ namespace Unit_Tests
             string input = "tRiAnGlE 225";
 
             // act
-            Command command = _parser.ParseInput_SingleLine(input); // Parse the input and get the command
+            CommandShape commandShape = _parser.ParseInput_SingleLine(input); // Parse the input and get the command
 
             // assert
-            Assert.IsNotNull(command);
-            Assert.AreEqual(Action.triangle, command.ActionWord);
-            Assert.AreNotEqual(Action.rectangle, command.ActionWord);
-            Assert.AreNotEqual(Action.square, command.ActionWord);
-            Assert.AreEqual(225, command.ActionValues[0]);
-            Assert.AreEqual(1, command.ActionValues.Length);
+            Assert.IsNotNull(commandShape);
+            Assert.AreEqual(Action.triangle, commandShape.ActionWord);
+            Assert.AreNotEqual(Action.rectangle, commandShape.ActionWord);
+            Assert.AreNotEqual(Action.square, commandShape.ActionWord);
+            Assert.AreEqual(225, commandShape.ActionValues[0]);
+            Assert.AreEqual(1, commandShape.ActionValues.Length);
         }
 
         [TestMethod()]
@@ -536,10 +536,10 @@ namespace Unit_Tests
 
             // act
             // Creating an instance of all the classes that are needed to create a triangle
-            Command command = _parser.ParseInput_SingleLine(input);
+            CommandShape commandShape = _parser.ParseInput_SingleLine(input);
             ShapeFactory shapeFactory = new ShapeFactory();
             Cursor cursor = new Cursor();
-            Shape shape = shapeFactory.CreateShape(command, cursor.Position, cursor.Fill, cursor.PenColor); // Creates a triangle using the factory
+            Shape shape = shapeFactory.CreateShape(commandShape, cursor.Position, cursor.Fill, cursor.PenColor); // Creates a triangle using the factory
 
             // assert
             Assert.IsNotNull(shape);
@@ -565,10 +565,10 @@ namespace Unit_Tests
 
             // act
             // Creating an instance of all the classes that are needed to create a triangle
-            Command command = _parser.ParseInput_SingleLine(input);
+            CommandShape commandShape = _parser.ParseInput_SingleLine(input);
             ShapeFactory shapeFactory = new ShapeFactory();
             Cursor cursor = new Cursor();
-            Shape shape = shapeFactory.CreateShape(command, cursor.Position, cursor.Fill, cursor.PenColor); // Creates a triangle using the factory
+            Shape shape = shapeFactory.CreateShape(commandShape, cursor.Position, cursor.Fill, cursor.PenColor); // Creates a triangle using the factory
 
             // assert
             Assert.IsNotNull(shape);
@@ -653,18 +653,18 @@ namespace Unit_Tests
             string input = "drawto 125 210";
 
             // act
-            Command command = _parser.ParseInput_SingleLine(input); // Parse the input and get the command
+            CommandShape commandShape = _parser.ParseInput_SingleLine(input); // Parse the input and get the command
 
             // assert
-            Assert.IsNotNull(command);
-            Assert.AreEqual(Action.drawto, command.ActionWord);
-            Assert.AreNotEqual(Action.circle, command.ActionWord);
-            Assert.AreNotEqual(Action.rectangle, command.ActionWord);
-            Assert.AreNotEqual(Action.square, command.ActionWord);
-            Assert.AreNotEqual(Action.triangle, command.ActionWord);
-            Assert.AreEqual(125, command.ActionValues[0]);
-            Assert.AreEqual(210, command.ActionValues[1]);
-            Assert.AreEqual(2, command.ActionValues.Length);
+            Assert.IsNotNull(commandShape);
+            Assert.AreEqual(Action.drawto, commandShape.ActionWord);
+            Assert.AreNotEqual(Action.circle, commandShape.ActionWord);
+            Assert.AreNotEqual(Action.rectangle, commandShape.ActionWord);
+            Assert.AreNotEqual(Action.square, commandShape.ActionWord);
+            Assert.AreNotEqual(Action.triangle, commandShape.ActionWord);
+            Assert.AreEqual(125, commandShape.ActionValues[0]);
+            Assert.AreEqual(210, commandShape.ActionValues[1]);
+            Assert.AreEqual(2, commandShape.ActionValues.Length);
         }
 
         [TestMethod()]
@@ -674,18 +674,18 @@ namespace Unit_Tests
             string input = "dRaWtO 125 210";
 
             // act
-            Command command = _parser.ParseInput_SingleLine(input); // Parse the input and get the command
+            CommandShape commandShape = _parser.ParseInput_SingleLine(input); // Parse the input and get the command
 
             // assert
-            Assert.IsNotNull(command);
-            Assert.AreEqual(Action.drawto, command.ActionWord);
-            Assert.AreNotEqual(Action.circle, command.ActionWord);
-            Assert.AreNotEqual(Action.rectangle, command.ActionWord);
-            Assert.AreNotEqual(Action.square, command.ActionWord);
-            Assert.AreNotEqual(Action.triangle, command.ActionWord);
-            Assert.AreEqual(125, command.ActionValues[0]);
-            Assert.AreEqual(210, command.ActionValues[1]);
-            Assert.AreEqual(2, command.ActionValues.Length);
+            Assert.IsNotNull(commandShape);
+            Assert.AreEqual(Action.drawto, commandShape.ActionWord);
+            Assert.AreNotEqual(Action.circle, commandShape.ActionWord);
+            Assert.AreNotEqual(Action.rectangle, commandShape.ActionWord);
+            Assert.AreNotEqual(Action.square, commandShape.ActionWord);
+            Assert.AreNotEqual(Action.triangle, commandShape.ActionWord);
+            Assert.AreEqual(125, commandShape.ActionValues[0]);
+            Assert.AreEqual(210, commandShape.ActionValues[1]);
+            Assert.AreEqual(2, commandShape.ActionValues.Length);
         }
 
         [TestMethod()]
@@ -696,10 +696,10 @@ namespace Unit_Tests
 
             // act
             // Creating an instance of all the classes that are needed to create a line
-            Command command = _parser.ParseInput_SingleLine(input);
+            CommandShape commandShape = _parser.ParseInput_SingleLine(input);
             ShapeFactory shapeFactory = new ShapeFactory();
             Cursor cursor = new Cursor();
-            Shape shape = shapeFactory.CreateShape(command, cursor.Position, cursor.Fill, cursor.PenColor); // Creates a line using the factory
+            Shape shape = shapeFactory.CreateShape(commandShape, cursor.Position, cursor.Fill, cursor.PenColor); // Creates a line using the factory
 
             // assert
             Assert.IsNotNull(shape);
@@ -726,10 +726,10 @@ namespace Unit_Tests
 
             // act
             // Creating an instance of all the classes that are needed to create a line
-            Command command = _parser.ParseInput_SingleLine(input);
+            CommandShape commandShape = _parser.ParseInput_SingleLine(input);
             ShapeFactory shapeFactory = new ShapeFactory();
             Cursor cursor = new Cursor();
-            Shape shape = shapeFactory.CreateShape(command, cursor.Position, cursor.Fill, cursor.PenColor); // Creates a line using the factory
+            Shape shape = shapeFactory.CreateShape(commandShape, cursor.Position, cursor.Fill, cursor.PenColor); // Creates a line using the factory
 
             // assert
             Assert.IsNotNull(shape);

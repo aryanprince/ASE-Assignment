@@ -6,16 +6,89 @@ namespace ASE_Assignment
 {
     public class Parser
     {
-        public ExpressionCommand testingExpressions(string inputFull)
+        public CommandVariable ParseInput_Variable(string input)
         {
-            string[] equationSplit = inputFull.Split('=');
-            string variableName = equationSplit[0].Trim();
-            int variableValue = int.Parse(equationSplit[1].Trim());
+            // input = "var x = 5"
 
-            return new ExpressionCommand(variableName, variableValue);
+            // Split the input into an array of strings
+            string[] inputArray = input.Split(' ');
+
+            // Check if the input is valid
+            if (inputArray.Length != 4)
+            {
+                throw new ArgumentException("Invalid input");
+            }
+
+            // Check if the input is valid
+            if (inputArray[0] != "var")
+            {
+                throw new ArgumentException("Invalid input");
+            }
+
+            // Check if the input is valid
+            if (inputArray[2] != "=")
+            {
+                throw new ArgumentException("Invalid input");
+            }
+
+            // Check if the input is valid
+            if (!int.TryParse(inputArray[3], out int variableValue))
+            {
+                throw new ArgumentException("Invalid input");
+            }
+
+            // Create a new CommandVariable object
+            CommandVariable commandVariable = new CommandVariable(Action.var, inputArray[1], variableValue);
+
+            return commandVariable;
         }
 
-        
+        public CommandShape ParseInput_ShapeWithVariables(string input, Dictionary<string, int> dict)
+        {
+            // input = "rectangle x y" or "circle x"
+            // replace values of x and y with the values in the dictionary
+
+            // Split the input into an array of strings
+            string[] inputArray = input.Split(' ');
+
+            // Check if the input is valid
+            if (inputArray.Length < 2)
+            {
+                throw new ArgumentException("Invalid input");
+            }
+
+            // Check if the input is valid
+            if (!Enum.TryParse(inputArray[0], true, out Action actionWord))
+            {
+                throw new ArgumentException("Invalid input");
+            }
+
+            // Check if the input is valid
+            if (!dict.ContainsKey(inputArray[1]))
+            {
+                throw new ArgumentException("Invalid input");
+            }
+
+            // Create a new CommandShape object
+            CommandShape commandShape = new CommandShape(actionWord, new int[] { dict[inputArray[1]] });
+
+            // Check if the input is valid
+            if (inputArray.Length == 3)
+            {
+                // Check if the input is valid
+                if (!dict.ContainsKey(inputArray[2]))
+                {
+                    throw new ArgumentException("Invalid input");
+                }
+
+                // Add the second value to the CommandShape object
+                commandShape.ActionValues = commandShape.ActionValues.Concat(new int[] { dict[inputArray[2]] }).ToArray();
+            }
+
+            return commandShape;
+        }
+
+
 
         /// <summary>
         /// Parses a single string, splitting them by words into a Command object.
@@ -23,7 +96,7 @@ namespace ASE_Assignment
         /// <param name="inputFull">String input from the Text Box.</param>
         /// <returns>Command object containing an action and parameters.</returns>
         /// <exception cref="FormatException"></exception>
-        public Command ParseInput_SingleLine(string inputFull)
+        public CommandShape ParseInput_SingleLine(string inputFull)
         {
             inputFull = inputFull.Trim().ToLower(); // Trim the input and convert it to lowercase
 
@@ -56,7 +129,7 @@ namespace ASE_Assignment
             }
             if (actionWord == Action.run || actionWord == Action.reset || actionWord == Action.clear)
             {
-                return new Command(actionWord, null);
+                return new CommandShape(actionWord, null);
             }
 
             /* +---------------------+
@@ -75,7 +148,7 @@ namespace ASE_Assignment
             int[] actionParams = ParseAction_CommandParameters(stringParams);
 
             // Uses the parsed command string and command parameters to create and return a Command object
-            return new Command(actionWord, actionParams);
+            return new CommandShape(actionWord, actionParams);
         }
 
         /// <summary>
@@ -83,10 +156,10 @@ namespace ASE_Assignment
         /// </summary>
         /// <param name="inputFull">String input from the multi-line Text Box.</param>
         /// <returns>A list of Command objects, each containing an action and parameters.</returns>
-        public List<Command> ParseInput_MultiLine(string inputFull)
+        public List<CommandShape> ParseInput_MultiLine(string inputFull)
         {
             // Splits the multi-line string by a new line and stores this in a new list
-            List<Command> commandsList = new List<Command>();
+            List<CommandShape> commandsList = new List<CommandShape>();
             string[] inputSplitByLines = inputFull.Split(new char[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries); // Windows splits newlines by '\r\n' so here we split by 2 chars and remove any empty string split entries
 
             // Loops around the list of commands, calling the single line parser on every element in the commandsList list

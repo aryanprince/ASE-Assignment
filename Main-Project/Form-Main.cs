@@ -61,6 +61,8 @@ namespace ASE_Assignment
         //    }
         //}
 
+        public Dictionary<string, int> VariablesDictionary = new Dictionary<string, int>();
+
         /// <summary>
         /// Handles the Click event of the Run button for the single-line text box control.
         /// </summary>
@@ -79,13 +81,14 @@ namespace ASE_Assignment
                 string regexType1 = @"^([a-zA-Z]+)\s*(\d+)?\s*(\d+)?$"; // "rectangle 100 150"
                 string regexType2 = @"^[a-zA-Z]+\s*=\s*\d+$"; // "x = 100"
                 string regexType3 = @"^([a-zA-Z]+)\s*([a-zA-Z]+)? ?([a-zA-Z]+)?$"; // "rectangle x y"
-                Dictionary<string, int> dict = new Dictionary<string, int>();
+                string regexType4 = @"^var [a-zA-Z]+\s*=\s*\d+$"; // "var x = 5"
+                Dictionary<string, int> dictionaryOfVariables = new Dictionary<string, int>();
 
                 // "rectangle 100 150"
                 if (Regex.IsMatch(txtCommandLine.Text.Trim().ToLower(), regexType1))
                 {
-                    Command command = _parser.ParseInput_SingleLine(txtCommandLine.Text);
-                    ExecuteCommand(g, command);
+                    CommandShape commandShape = _parser.ParseInput_SingleLine(txtCommandLine.Text);
+                    ExecuteCommand(g, commandShape);
 
                     // Resets all the labels if execute command works
                     lblError.Text = "";
@@ -102,7 +105,7 @@ namespace ASE_Assignment
 
                         if (tokens[0].Type == TokenType.IDENTIFIER)
                         {
-                            dict.Add(tokens[0].Value.ToString(), Convert.ToInt32(tokens[2].Value));
+                            dictionaryOfVariables.Add(tokens[0].Value.ToString(), Convert.ToInt32(tokens[2].Value));
                         }
 
                         // Resets all the labels if execute command works
@@ -113,25 +116,15 @@ namespace ASE_Assignment
                     // "rectangle x y"
                     if (Regex.IsMatch(inputSplitByLines[i].Trim().ToLower(), regexType3))
                     {
-                        Tokenizer tokenizer = new Tokenizer();
-                        List<Token> tokens = tokenizer.Tokenize(inputSplitByLines[i]);
+                        CommandShape commandShape = _parser.ParseInput_ShapeWithVariables(inputSplitByLines[i], dictionaryOfVariables);
+                        ExecuteCommand(g, commandShape);
+                    }
 
-                        if (tokens[1].Type == TokenType.IDENTIFIER)
-                        {
-                            tokens[1].Value = dict[tokens[1].Value.ToString()];
-                        }
-
-                        if (tokens[2].Type == TokenType.IDENTIFIER)
-                        {
-                            tokens[2].Value = dict[tokens[2].Value.ToString()];
-                        }
-
-                        Command command = _parser.ParseInput_SingleLine(tokens[0].Value.ToString() + " " + tokens[1].Value.ToString() + " " + tokens[2].Value.ToString());
-                        ExecuteCommand(g, command);
-
-                        // Resets all the labels if execute command works
-                        lblError.Text = "";
-                        txtCommandLine.Text = "";
+                    //"var x = 10"
+                    if (Regex.IsMatch(inputSplitByLines[i].Trim().ToLower(), regexType4))
+                    {
+                        CommandVariable commandVariable = _parser.ParseInput_Variable(inputSplitByLines[i]);
+                        dictionaryOfVariables.Add(commandVariable.VariableName, commandVariable.VariableValue);
                     }
                 }
 
@@ -168,32 +161,32 @@ namespace ASE_Assignment
         /// Executes all of my commands for various shapes and other commands.
         /// </summary>
         /// <param name="g">The graphics context from my picture box.</param>
-        /// <param name="command">Command class contains information about every command.</param>
-        private void ExecuteCommand(Graphics g, Command command)
+        /// <param name="commandShape">Command class contains information about every command.</param>
+        private void ExecuteCommand(Graphics g, CommandShape commandShape)
         {
-            switch (command.ActionWord)
+            switch (commandShape.ActionWord)
             {
                 case Action.run:
                     {
-                        List<Command> commands = _parser.ParseInput_MultiLine(txtCommandArea.Text);
-                        foreach (Command c in commands) { ExecuteCommand(g, c); }
+                        List<CommandShape> commands = _parser.ParseInput_MultiLine(txtCommandArea.Text);
+                        foreach (CommandShape c in commands) { ExecuteCommand(g, c); }
                         break;
                     }
                 case Action.move:
                     {
-                        _cursor.MoveTo(new Point(command.ActionValues[0], command.ActionValues[1]));
+                        _cursor.MoveTo(new Point(commandShape.ActionValues[0], commandShape.ActionValues[1]));
                         _cursor.Draw(g);
                         lblCoordinatesValues.Text = XAxisCoordinateLabelText + _cursor.Position.X + YAxisCoordinateLabelText + _cursor.Position.Y;
                         break;
                     }
                 case Action.fill:
                     {
-                        if (command.ActionValues[0].Equals(1))
+                        if (commandShape.ActionValues[0].Equals(1))
                         {
                             _cursor.Fill = true;
                             lblFillState.Text = FillEnabledText;
                         }
-                        if (command.ActionValues[0].Equals(0))
+                        if (commandShape.ActionValues[0].Equals(0))
                         {
                             _cursor.Fill = false;
                             lblFillState.Text = FillDisabledText;
@@ -221,17 +214,17 @@ namespace ASE_Assignment
                     }
                 case Action.pen:
                     {
-                        if (command.ActionValues[0].Equals(1))
+                        if (commandShape.ActionValues[0].Equals(1))
                         {
                             _cursor.PenColor = Color.Red;
                             lblPenColor.Text = PenColorRedText;
                         }
-                        if (command.ActionValues[0].Equals(2))
+                        if (commandShape.ActionValues[0].Equals(2))
                         {
                             _cursor.PenColor = Color.Green;
                             lblPenColor.Text = PenColorGreenText;
                         }
-                        if (command.ActionValues[0].Equals(3))
+                        if (commandShape.ActionValues[0].Equals(3))
                         {
                             _cursor.PenColor = Color.Blue;
                             lblPenColor.Text = PenColorBlueText;
@@ -241,7 +234,7 @@ namespace ASE_Assignment
                     }
                 default:
                     {
-                        Shape shape = _shapeFactory.CreateShape(command, _cursor.Position, _cursor.Fill, _cursor.PenColor);
+                        Shape shape = _shapeFactory.CreateShape(commandShape, _cursor.Position, _cursor.Fill, _cursor.PenColor);
                         shape.Draw(g);
                         _cursor.MoveTo(shape.Position);
                         _cursor.Draw(g);
