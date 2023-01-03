@@ -87,8 +87,97 @@ namespace ASE_Assignment
 
             return commandShape;
         }
+        public bool ParseInput_IfStatements(string input, Dictionary<string, int> dict)
+        {
+            // input = "if x > 100"
+            // replace values of x with the values in the dictionary
 
+            // Split the input into an array of strings
+            string[] inputArray = input.Split(' ');
 
+            // Check if the input is valid
+            if (inputArray.Length != 4)
+            {
+                throw new ArgumentException("Invalid input");
+            }
+
+            // Check if the input is valid
+            if (inputArray[0] != "if")
+            {
+                throw new ArgumentException("Invalid input");
+            }
+
+            // Check if the input is valid
+            if (!dict.ContainsKey(inputArray[1]))
+            {
+                throw new ArgumentException("Invalid input");
+            }
+
+            // Check if the input is valid
+            if (!int.TryParse(inputArray[3], out int variableValue))
+            {
+                throw new ArgumentException("Invalid input");
+            }
+
+            // Check if the input is valid
+            if (inputArray[2] == ">")
+            {
+                if (dict[inputArray[1]] > variableValue)
+                {
+                    return true;
+                }
+            }
+            else if (inputArray[2] == "<")
+            {
+                if (dict[inputArray[1]] < variableValue)
+                {
+                    return true;
+                }
+            }
+            else if (inputArray[2] == "==")
+            {
+                if (dict[inputArray[1]] == variableValue)
+                {
+                    return true;
+                }
+            }
+            else
+            {
+                throw new ArgumentException("Invalid input");
+            }
+
+            return false;
+        }
+
+        //public List<ICommand> ParseSingleLine(string line)
+        //{
+        //    string[] words = line.Split(' ');
+        //    string commandType = words[0];
+
+        //    switch (commandType)
+        //    {
+        //        case "var":
+        //            // parse variable assignment and return a CommandVariable object
+        //            string variableName = words[1];
+        //            string variableValue = words[3];
+        //            return new List<ICommand> { new CommandVariable(Action.var, variableName, int.Parse(variableValue)) };
+        //        default:
+        //            // parse shape command and return a CommandShape object
+        //            Action actionWord = ParseAction_Command(commandType);
+        //            int[] actionValues = ParseAction_CommandParameters(words.Skip(1).ToArray());
+        //            return new List<ICommand> { new CommandShape(actionWord, actionValues) };
+        //    }
+        //}
+        //public List<ICommand> ParseMultiline(string inputText)
+        //{
+        //    string[] lines = inputText.Split(new string[] { "\r\n" }, StringSplitOptions.None);
+        //    List<ICommand> commands = new List<ICommand>();
+        //    foreach (string line in lines)
+        //    {
+        //        commands.AddRange(ParseSingleLine(line));
+        //    }
+        //    return commands;
+        //}
 
         /// <summary>
         /// Parses a single string, splitting them by words into a Command object.
@@ -102,14 +191,6 @@ namespace ASE_Assignment
 
             // Split the input string into an array of strings, separated by spaces
             string[] inputSplitBySpaces = inputFull.ToLower().Split(' ');
-
-            // Invalid when no words are passed
-            if (inputFull.Equals(""))
-                throw new ArgumentNullException(inputFull, "ERROR: No commands were passed.");
-
-            // Invalid when more than 3 words are passed to the parser
-            if (inputSplitBySpaces.Length > 3)
-                throw new Exception("ERROR: Too many parameters or words.");
 
             /* +---------------+
                 * | COMMAND NAME  |
@@ -149,7 +230,9 @@ namespace ASE_Assignment
 
             // Uses the parsed command string and command parameters to create and return a Command object
             return new CommandShape(actionWord, actionParams);
+            //return new List<ICommand> { new CommandShape(actionWord, actionParams) };
         }
+
 
         /// <summary>
         /// Parses a large multi-line string into a list of Commands, each parsed by ParseInput_SingleLine() method.
