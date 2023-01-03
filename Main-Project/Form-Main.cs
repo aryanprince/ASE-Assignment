@@ -31,7 +31,7 @@ namespace ASE_Assignment
         private readonly string _regexIfStatements = @"if [a-zA-Z] (?:>|<|==) \d+"; // "if x > 5"
         private readonly string _regexEndStatements = @"end.+"; // "endif", "endwhile", "endfor"
         Dictionary<string, int> _dictionaryOfVariables = new Dictionary<string, int>();
-        int _lineCounter = 1;
+        int _lineCounter = 0;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="frmMainForm"/> class.
@@ -99,8 +99,9 @@ namespace ASE_Assignment
                     _lineCounter++;
                 }
 
-                foreach (string line in inputSplitByLines)
+                for (int i = _lineCounter; i < inputSplitByLines.Length; i++)
                 {
+                    string line = inputSplitByLines[i];
                     //"endif", "endwhile", "endfor"
                     if (Regex.IsMatch(line.Trim().ToLower(), _regexEndStatements))
                     {
@@ -142,9 +143,9 @@ namespace ASE_Assignment
 
                         if (result)
                         {
-                            for (int i = indexOfStartIf + 1; i < indexOfEndIf; i++)
+                            for (int j = indexOfStartIf + 1; j < indexOfEndIf; j++)
                             {
-                                CommandShape commandShape = _parser.ParseInput_SingleLine(inputSplitByLines[i]);
+                                CommandShape commandShape = _parser.ParseInput_SingleLine(inputSplitByLines[j]);
                                 ExecuteCommand(g, commandShape);
 
                                 // update the line counter
@@ -155,6 +156,7 @@ namespace ASE_Assignment
                         {
                             // sets execution to the line after the endif
                             _lineCounter = indexOfEndIf + 1;
+                            i = indexOfEndIf;
                         }
                     }
                 }
