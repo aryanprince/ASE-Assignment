@@ -24,6 +24,15 @@ namespace ASE_Assignment
         private const string XAxisCoordinateLabelText = "X:";
         private const string YAxisCoordinateLabelText = ", Y:";
 
+        // New stuff here for testing
+        private readonly string _regexDrawShapes = @"^([a-zA-Z]+)\s*(\d+)?\s*(\d+)?$"; // "rectangle 100 150"
+        private readonly string _regexVariableDeclaration = @"^var [a-zA-Z]+\s*=\s*\d+$"; // "var x = 5"
+        private readonly string _regexDrawWithVariables = @"^([a-zA-Z]+)\s*([a-zA-Z]+)? ?([a-zA-Z]+)?$"; // "rectangle x y"
+        private readonly string _regexIfStatements = @"if [a-zA-Z] (?:>|<|==) \d+"; // "if x > 5"
+        private readonly string _regexEndStatements = @"end.+"; // "endif", "endwhile", "endfor"
+        Dictionary<string, int> _dictionaryOfVariables = new Dictionary<string, int>();
+        int _lineCounter = 1;
+
         /// <summary>
         /// Initializes a new instance of the <see cref="frmMainForm"/> class.
         /// </summary>
@@ -61,8 +70,6 @@ namespace ASE_Assignment
         //    }
         //}
 
-        public Dictionary<string, int> VariablesDictionary = new Dictionary<string, int>();
-
         /// <summary>
         /// Handles the Click event of the Run button for the single-line text box control.
         /// </summary>
@@ -78,13 +85,8 @@ namespace ASE_Assignment
 
                 string[] inputSplitByLines = txtCommandArea.Text.Split(new char[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
 
-                string regexType1 = @"^([a-zA-Z]+)\s*(\d+)?\s*(\d+)?$"; // "rectangle 100 150"
-                string regexType2 = @"^var [a-zA-Z]+\s*=\s*\d+$"; // "var x = 5"
-                string regexType3 = @"^([a-zA-Z]+)\s*([a-zA-Z]+)? ?([a-zA-Z]+)?$"; // "rectangle x y"
-                Dictionary<string, int> dictionaryOfVariables = new Dictionary<string, int>();
-
                 // "rectangle 100 150"
-                if (Regex.IsMatch(txtCommandLine.Text.Trim().ToLower(), regexType1))
+                if (Regex.IsMatch(txtCommandLine.Text.Trim().ToLower(), _regexDrawShapes))
                 {
                     CommandShape commandShape = _parser.ParseInput_SingleLine(txtCommandLine.Text);
                     ExecuteCommand(g, commandShape);
@@ -92,22 +94,68 @@ namespace ASE_Assignment
                     // Resets all the labels if execute command works
                     lblError.Text = "";
                     txtCommandLine.Text = "";
+
+                    // update the line counter
+                    _lineCounter++;
                 }
 
-                for (int i = 0; i < inputSplitByLines.Length; i++)
+                foreach (string line in inputSplitByLines)
                 {
-                    // "rectangle x y"
-                    if (Regex.IsMatch(inputSplitByLines[i].Trim().ToLower(), regexType3))
+                    //"endif", "endwhile", "endfor"
+                    if (Regex.IsMatch(line.Trim().ToLower(), _regexEndStatements))
                     {
-                        CommandShape commandShape = _parser.ParseInput_ShapeWithVariables(inputSplitByLines[i], dictionaryOfVariables);
-                        ExecuteCommand(g, commandShape);
+                        // Resets all the labels if execute command works
+                        lblError.Text = "";
+                        txtCommandLine.Text = "";
+
+                        // update the line counter
+                        _lineCounter++;
                     }
 
                     //"var x = 10"
-                    if (Regex.IsMatch(inputSplitByLines[i].Trim().ToLower(), regexType2))
+                    else if (Regex.IsMatch(line.Trim().ToLower(), _regexVariableDeclaration))
                     {
-                        CommandVariable commandVariable = _parser.ParseInput_Variable(inputSplitByLines[i]);
-                        dictionaryOfVariables.Add(commandVariable.VariableName, commandVariable.VariableValue);
+                        CommandVariable commandVariable = _parser.ParseInput_Variable(line);
+                        _dictionaryOfVariables.Add(commandVariable.VariableName, commandVariable.VariableValue);
+
+                        // update line counter
+                        _lineCounter++;
+                    }
+
+                    // "rectangle x y"
+                    else if (Regex.IsMatch(line.Trim().ToLower(), _regexDrawWithVariables))
+                    {
+                        CommandShape commandShape = _parser.ParseInput_ShapeWithVariables(line, _dictionaryOfVariables);
+                        ExecuteCommand(g, commandShape);
+
+                        //update the line counter
+                        _lineCounter++;
+                    }
+
+                    // "if x > 5"
+                    else if (Regex.IsMatch(line.Trim().ToLower(), _regexIfStatements))
+                    {
+                        // find the line number where the if statement ends at using "endif" as the end of the if statement
+                        int indexOfStartIf = Array.IndexOf(inputSplitByLines, line);
+                        int indexOfEndIf = Array.IndexOf(inputSplitByLines, "endif");
+                        bool result = _parser.ParseInput_IfStatements(line, _dictionaryOfVariables);
+
+                        if (result)
+                        {
+                            for (int i = indexOfStartIf + 1; i < indexOfEndIf; i++)
+                            {
+                                CommandShape commandShape = _parser.ParseInput_SingleLine(inputSplitByLines[i]);
+                                ExecuteCommand(g, commandShape);
+
+                                // update the line counter
+                                _lineCounter++;
+                            }
+                        }
+                        else
+                        {
+                            // sets execution to the line after the endif
+                            _lineCounter = indexOfEndIf + 1;
+                        }
                     }
                 }
 

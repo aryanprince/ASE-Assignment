@@ -78,6 +78,7 @@
     <Compile Include="CommandShape.cs" />
     <Compile Include="CommandVariable.cs" />
     <Compile Include="ExpressionCommand.cs" />
+    <Compile Include="ICommand.cs" />
     <Compile Include="IShape.cs" />
     <Compile Include="Line.cs" />
     <Compile Include="Parser.cs" />
