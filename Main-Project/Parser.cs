@@ -1,44 +1,35 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 
 namespace ASE_Assignment
 {
     public class Parser
     {
-        public CommandVariable ParseInput_Variable(string input)
+        public CommandVariable ParseInput_Variable(string input, Dictionary<string, int> dict)
         {
-            // input = "var x = 5"
+            // input = "var z = x + y" this should assign the value of x + y from the dictionary to z using DataTable.Compute method
 
-            // Split the input into an array of strings
-            string[] inputArray = input.Split(' ');
+            // split the input into 3 parts
+            string[] parts = input.Split('=');
+            string expression = parts[1].Trim();
+            string variableName = parts[0].Substring(3).Trim();
 
-            // Check if the input is valid
-            if (inputArray.Length != 4)
+            //Check dictionary to replace values of x and y with their values to get the result
+            foreach (KeyValuePair<string, int> entry in dict)
             {
-                throw new ArgumentException("Invalid input");
+                if (expression.Contains(entry.Key))
+                {
+                    expression = expression.Replace(entry.Key, entry.Value.ToString());
+                }
             }
 
-            // Check if the input is valid
-            if (inputArray[0] != "var")
-            {
-                throw new ArgumentException("Invalid input");
-            }
+            //Calculate the result of the expression
+            int result = Convert.ToInt32(new DataTable().Compute(expression, null));
 
-            // Check if the input is valid
-            if (inputArray[2] != "=")
-            {
-                throw new ArgumentException("Invalid input");
-            }
-
-            // Check if the input is valid
-            if (!int.TryParse(inputArray[3], out int variableValue))
-            {
-                throw new ArgumentException("Invalid input");
-            }
-
-            // Create a new CommandVariable object
-            CommandVariable commandVariable = new CommandVariable(Action.var, inputArray[1], variableValue);
+            //Create a new CommandVariable object
+            CommandVariable commandVariable = new CommandVariable(Action.var, variableName, result);
 
             return commandVariable;
         }

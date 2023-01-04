@@ -27,6 +27,7 @@ namespace ASE_Assignment
         // New stuff here for testing
         private readonly string _regexDrawShapes = @"^([a-zA-Z]+)\s*(\d+)?\s*(\d+)?$"; // "rectangle 100 150"
         private readonly string _regexVariableDeclaration = @"^var [a-zA-Z]+\s*=\s*\d+$"; // "var x = 5"
+        private readonly string _regexVariableDeclarationTest = @"^var.+"; // "var x = 5" or "var x = y"
         private readonly string _regexDrawWithVariables = @"^([a-zA-Z]+)\s*([a-zA-Z]+)? ?([a-zA-Z]+)?$"; // "rectangle x y"
         private readonly string _regexIfStatements = @"if [a-zA-Z] (?:>|<|==) \d+"; // "if x > 5"
         private readonly string _regexEndStatements = @"end.+"; // "endif", "endwhile", "endfor"
@@ -113,10 +114,10 @@ namespace ASE_Assignment
                         _lineCounter++;
                     }
 
-                    //"var x = 10"
-                    else if (Regex.IsMatch(line.Trim().ToLower(), _regexVariableDeclaration))
+                    //"var x = 10" or "var x = y"
+                    else if (Regex.IsMatch(line.Trim().ToLower(), _regexVariableDeclarationTest))
                     {
-                        CommandVariable commandVariable = _parser.ParseInput_Variable(line);
+                        CommandVariable commandVariable = _parser.ParseInput_Variable(line, _dictionaryOfVariables);
                         _dictionaryOfVariables.Add(commandVariable.VariableName, commandVariable.VariableValue);
 
                         // update line counter
@@ -160,7 +161,6 @@ namespace ASE_Assignment
                         }
                     }
                 }
-
             }
             catch (IndexOutOfRangeException exception)
             {
