@@ -82,15 +82,35 @@ namespace ASE_Assignment
 
             try
             {
+                List<Command> commandsList = _parser.Parse(txtCommandArea.Text, _dictionaryOfVariables);
+
+                for (int i = 0; i < commandsList.Count; i++)
+                {
+                    if (commandsList[i] is CommandIfStatements)
+                    {
+                        CommandIfStatements command = (CommandIfStatements)commandsList[i];
+                        if (command.IfState)
+                        {
+
+                            break;
+                        }
+                    }
+
+                    if (commandsList[i] is CommandShapeNum)
+                    {
+                        ExecuteCommand(g, (CommandShapeNum)commandsList[i]);
+                    }
+                }
+
                 _cursor.Draw(g); // Draws a new cursor before every command in case it gets covered by another shape
 
                 string[] inputSplitByLines = txtCommandArea.Text.Split(new char[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
 
-                // "rectangle 100 150"
+                // "rectangle 100 150", "circle 50", "reset", or "run" (Basically any command)
                 if (Regex.IsMatch(txtCommandLine.Text.Trim().ToLower(), _regexDrawShapes))
                 {
-                    CommandShapeNum commandShape = _parser.ParseInput_SingleLine(txtCommandLine.Text);
-                    ExecuteCommand(g, commandShape);
+                    CommandShapeNum commandShapeNum = _parser.ParseInput_SingleLine(txtCommandLine.Text);
+                    ExecuteCommand(g, commandShapeNum);
 
                     // Resets all the labels if execute command works
                     lblError.Text = "";
@@ -98,68 +118,6 @@ namespace ASE_Assignment
 
                     // update the line counter
                     _lineCounter++;
-                }
-
-                for (int i = _lineCounter; i < inputSplitByLines.Length; i++)
-                {
-                    string line = inputSplitByLines[i];
-                    //"endif", "endwhile", "endfor"
-                    if (Regex.IsMatch(line.Trim().ToLower(), _regexEndStatements))
-                    {
-                        // Resets all the labels if execute command works
-                        lblError.Text = "";
-                        txtCommandLine.Text = "";
-
-                        // update the line counter
-                        _lineCounter++;
-                    }
-
-                    //"var x = 10" or "var x = y"
-                    else if (Regex.IsMatch(line.Trim().ToLower(), _regexVariableDeclarationTest))
-                    {
-                        CommandVariable commandVariable = _parser.ParseInput_Variable(line, _dictionaryOfVariables);
-                        _dictionaryOfVariables.Add(commandVariable.VariableName, commandVariable.VariableValue);
-
-                        // update line counter
-                        _lineCounter++;
-                    }
-
-                    // "rectangle x y"
-                    else if (Regex.IsMatch(line.Trim().ToLower(), _regexDrawWithVariables))
-                    {
-                        CommandShapeNum commandShape = _parser.ParseInput_ShapeWithVariables(line, _dictionaryOfVariables);
-                        ExecuteCommand(g, commandShape);
-
-                        //update the line counter
-                        _lineCounter++;
-                    }
-
-                    // "if x > 5"
-                    else if (Regex.IsMatch(line.Trim().ToLower(), _regexIfStatements))
-                    {
-                        // find the line number where the if statement ends at using "endif" as the end of the if statement
-                        int indexOfStartIf = Array.IndexOf(inputSplitByLines, line);
-                        int indexOfEndIf = Array.IndexOf(inputSplitByLines, "endif");
-                        bool result = _parser.ParseInput_IfStatements(line, _dictionaryOfVariables);
-
-                        if (result)
-                        {
-                            for (int j = indexOfStartIf + 1; j < indexOfEndIf; j++)
-                            {
-                                CommandShapeNum commandShape = _parser.ParseInput_SingleLine(inputSplitByLines[j]);
-                                ExecuteCommand(g, commandShape);
-
-                                // update the line counter
-                                _lineCounter++;
-                            }
-                        }
-                        else
-                        {
-                            // sets execution to the line after the endif
-                            _lineCounter = indexOfEndIf + 1;
-                            i = indexOfEndIf;
-                        }
-                    }
                 }
             }
             catch (IndexOutOfRangeException exception)
@@ -194,32 +152,111 @@ namespace ASE_Assignment
         /// Executes all of my commands for various shapes and other commands.
         /// </summary>
         /// <param name="g">The graphics context from my picture box.</param>
-        /// <param name="commandShape">Command class contains information about every command.</param>
-        private void ExecuteCommand(Graphics g, CommandShapeNum commandShape)
+        /// <param name="command">Command class contains information about every command.</param>
+        private void ExecuteCommand(Graphics g, CommandShapeNum command)
         {
-            switch (commandShape.ActionWord)
+            switch (command.ActionWord)
             {
                 case Action.run:
                     {
-                        List<CommandShapeNum> commands = _parser.ParseInput_MultiLine(txtCommandArea.Text);
-                        foreach (CommandShapeNum c in commands) { ExecuteCommand(g, c); }
+                        //List<CommandShapeNum> commands = _parser.ParseInput_MultiLine(txtCommandArea.Text);
+                        //foreach (CommandShapeNum c in commands) { ExecuteCommand(g, c); }
+
+                        string[] inputSplitByLines = txtCommandArea.Text.Split(new char[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
+
+                        // "rectangle 100 150"
+                        if (Regex.IsMatch(txtCommandLine.Text.Trim().ToLower(), _regexDrawShapes))
+                        {
+                            CommandShapeNum commandShapeNum = _parser.ParseInput_SingleLine(txtCommandLine.Text);
+                            ExecuteCommand(g, commandShapeNum);
+
+                            // Resets all the labels if execute command works
+                            lblError.Text = "";
+                            txtCommandLine.Text = "";
+
+                            // update the line counter
+                            _lineCounter++;
+                        }
+
+                        for (int i = _lineCounter; i < inputSplitByLines.Length; i++)
+                        {
+                            string line = inputSplitByLines[i];
+                            //"endif", "endwhile", "endfor"
+                            if (Regex.IsMatch(line.Trim().ToLower(), _regexEndStatements))
+                            {
+                                // Resets all the labels if execute command works
+                                lblError.Text = "";
+                                txtCommandLine.Text = "";
+
+                                // update the line counter
+                                _lineCounter++;
+                            }
+
+                            //"var x = 10" or "var x = y"
+                            else if (Regex.IsMatch(line.Trim().ToLower(), _regexVariableDeclarationTest))
+                            {
+                                CommandVariable commandVariable = _parser.ParseInput_Variable(line, _dictionaryOfVariables);
+                                _dictionaryOfVariables.Add(commandVariable.VariableName, commandVariable.VariableValue);
+
+                                // update line counter
+                                _lineCounter++;
+                            }
+
+                            // "rectangle x y"
+                            else if (Regex.IsMatch(line.Trim().ToLower(), _regexDrawWithVariables))
+                            {
+                                CommandShapeNum commandShapeNum = _parser.ParseInput_ShapeWithVariables(line, _dictionaryOfVariables);
+                                ExecuteCommand(g, commandShapeNum);
+
+                                //update the line counter
+                                _lineCounter++;
+                            }
+
+                            // "if x > 5"
+                            else if (Regex.IsMatch(line.Trim().ToLower(), _regexIfStatements))
+                            {
+                                // find the line number where the if statement ends at using "endif" as the end of the if statement
+                                int indexOfStartIf = Array.IndexOf(inputSplitByLines, line);
+                                int indexOfEndIf = Array.IndexOf(inputSplitByLines, "endif");
+                                bool result = _parser.ParseInput_IfStatements(line, _dictionaryOfVariables);
+
+                                if (result)
+                                {
+                                    for (int j = indexOfStartIf + 1; j < indexOfEndIf; j++)
+                                    {
+                                        CommandShapeNum commandShapeNum = _parser.ParseInput_SingleLine(inputSplitByLines[j]);
+                                        ExecuteCommand(g, commandShapeNum);
+
+                                        // update the line counter
+                                        _lineCounter++;
+                                    }
+                                }
+                                else
+                                {
+                                    // sets execution to the line after the endif
+                                    _lineCounter = indexOfEndIf + 1;
+                                    i = indexOfEndIf;
+                                }
+                            }
+                        }
+
                         break;
                     }
                 case Action.move:
                     {
-                        _cursor.MoveTo(new Point(commandShape.ActionValues[0], commandShape.ActionValues[1]));
+                        _cursor.MoveTo(new Point(command.ActionValues[0], command.ActionValues[1]));
                         _cursor.Draw(g);
                         lblCoordinatesValues.Text = XAxisCoordinateLabelText + _cursor.Position.X + YAxisCoordinateLabelText + _cursor.Position.Y;
                         break;
                     }
                 case Action.fill:
                     {
-                        if (commandShape.ActionValues[0].Equals(1))
+                        if (command.ActionValues[0].Equals(1))
                         {
                             _cursor.Fill = true;
                             lblFillState.Text = FillEnabledText;
                         }
-                        if (commandShape.ActionValues[0].Equals(0))
+                        if (command.ActionValues[0].Equals(0))
                         {
                             _cursor.Fill = false;
                             lblFillState.Text = FillDisabledText;
@@ -247,17 +284,17 @@ namespace ASE_Assignment
                     }
                 case Action.pen:
                     {
-                        if (commandShape.ActionValues[0].Equals(1))
+                        if (command.ActionValues[0].Equals(1))
                         {
                             _cursor.PenColor = Color.Red;
                             lblPenColor.Text = PenColorRedText;
                         }
-                        if (commandShape.ActionValues[0].Equals(2))
+                        if (command.ActionValues[0].Equals(2))
                         {
                             _cursor.PenColor = Color.Green;
                             lblPenColor.Text = PenColorGreenText;
                         }
-                        if (commandShape.ActionValues[0].Equals(3))
+                        if (command.ActionValues[0].Equals(3))
                         {
                             _cursor.PenColor = Color.Blue;
                             lblPenColor.Text = PenColorBlueText;
@@ -267,7 +304,7 @@ namespace ASE_Assignment
                     }
                 default:
                     {
-                        Shape shape = _shapeFactory.CreateShape(commandShape, _cursor.Position, _cursor.Fill, _cursor.PenColor);
+                        Shape shape = _shapeFactory.CreateShape(command, _cursor.Position, _cursor.Fill, _cursor.PenColor);
                         shape.Draw(g);
                         _cursor.MoveTo(shape.Position);
                         _cursor.Draw(g);

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Text.RegularExpressions;
 
 namespace ASE_Assignment
 {
@@ -331,6 +332,49 @@ namespace ASE_Assignment
             }
 
             return inputIntArray;
+        }
+
+        public List<Command> Parse(string input, Dictionary<string, int> dict)
+        {
+            string[] inputSplitByLines = input.Split(new char[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
+
+            List<Command> commandsList = new List<Command>();
+
+            foreach (string s in inputSplitByLines)
+            {
+                // "rectangle 100 150"
+                if (Regex.IsMatch(s.Trim().ToLower(), @"^([a-zA-Z]+)\s*(\d+)?\s*(\d+)?$"))
+                {
+                    Command command = ParseInput_SingleLine(s);
+                    commandsList.Add(command);
+                }
+
+                // "rectangle x y"
+                else if (Regex.IsMatch(s.Trim().ToLower(), @"^([a-zA-Z]+)\s*([a-zA-Z]+)? ?([a-zA-Z]+)?$"))
+                {
+                    Command command = ParseInput_ShapeWithVariables(s, dict);
+                    commandsList.Add(command);
+                }
+
+                //"var x = 10" or "var x = y"
+                else if (Regex.IsMatch(s.Trim().ToLower(), @"^var.+"))
+                {
+                    CommandVariable command = ParseInput_Variable(s, dict);
+                    dict.Add(command.VariableName, command.VariableValue);
+                    commandsList.Add(command);
+                }
+
+                else if (Regex.IsMatch(s.Trim().ToLower(), @"if [a-zA-Z] (?:>|<|==) \d+"))
+                {
+                    int startIndex = Array.IndexOf(inputSplitByLines, s);
+                    int endIndex = Array.IndexOf(inputSplitByLines, "endif");
+                    bool result = ParseInput_IfStatements(s, dict);
+
+                    Command command = new CommandIfStatements(result, startIndex, endIndex);
+                    commandsList.Add(command);
+                }
+            }
+            return commandsList;
         }
     }
 }
