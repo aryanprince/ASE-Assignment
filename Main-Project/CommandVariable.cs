@@ -1,8 +1,7 @@
 ﻿namespace ASE_Assignment
 {
-    public class CommandVariable
+    public class CommandVariable : Command
     {
-        public Action ActionWord { get; set; }
         public string VariableName { get; set; }
         public int VariableValue { get; set; }
 

@@ -89,7 +89,7 @@ namespace ASE_Assignment
                 // "rectangle 100 150"
                 if (Regex.IsMatch(txtCommandLine.Text.Trim().ToLower(), _regexDrawShapes))
                 {
-                    CommandShape commandShape = _parser.ParseInput_SingleLine(txtCommandLine.Text);
+                    CommandShapeNum commandShape = _parser.ParseInput_SingleLine(txtCommandLine.Text);
                     ExecuteCommand(g, commandShape);
 
                     // Resets all the labels if execute command works
@@ -127,7 +127,7 @@ namespace ASE_Assignment
                     // "rectangle x y"
                     else if (Regex.IsMatch(line.Trim().ToLower(), _regexDrawWithVariables))
                     {
-                        CommandShape commandShape = _parser.ParseInput_ShapeWithVariables(line, _dictionaryOfVariables);
+                        CommandShapeNum commandShape = _parser.ParseInput_ShapeWithVariables(line, _dictionaryOfVariables);
                         ExecuteCommand(g, commandShape);
 
                         //update the line counter
@@ -146,7 +146,7 @@ namespace ASE_Assignment
                         {
                             for (int j = indexOfStartIf + 1; j < indexOfEndIf; j++)
                             {
-                                CommandShape commandShape = _parser.ParseInput_SingleLine(inputSplitByLines[j]);
+                                CommandShapeNum commandShape = _parser.ParseInput_SingleLine(inputSplitByLines[j]);
                                 ExecuteCommand(g, commandShape);
 
                                 // update the line counter
@@ -195,14 +195,14 @@ namespace ASE_Assignment
         /// </summary>
         /// <param name="g">The graphics context from my picture box.</param>
         /// <param name="commandShape">Command class contains information about every command.</param>
-        private void ExecuteCommand(Graphics g, CommandShape commandShape)
+        private void ExecuteCommand(Graphics g, CommandShapeNum commandShape)
         {
             switch (commandShape.ActionWord)
             {
                 case Action.run:
                     {
-                        List<CommandShape> commands = _parser.ParseInput_MultiLine(txtCommandArea.Text);
-                        foreach (CommandShape c in commands) { ExecuteCommand(g, c); }
+                        List<CommandShapeNum> commands = _parser.ParseInput_MultiLine(txtCommandArea.Text);
+                        foreach (CommandShapeNum c in commands) { ExecuteCommand(g, c); }
                         break;
                     }
                 case Action.move:

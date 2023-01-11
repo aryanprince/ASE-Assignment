@@ -1,11 +1,10 @@
 ﻿namespace ASE_Assignment
 {
-    public class CommandShape
+    public class CommandShapeNum : Command
     {
-        public Action ActionWord { get; set; }
         public int[] ActionValues { get; set; }
 
-        public CommandShape(Action actionWord, int[] actionValues)
+        public CommandShapeNum(Action actionWord, int[] actionValues)
         {
             ActionWord = actionWord;
             ActionValues = actionValues;

@@ -34,7 +34,7 @@ namespace ASE_Assignment
             return commandVariable;
         }
 
-        public CommandShape ParseInput_ShapeWithVariables(string input, Dictionary<string, int> dict)
+        public CommandShapeNum ParseInput_ShapeWithVariables(string input, Dictionary<string, int> dict)
         {
             // input = "rectangle x y" or "circle x"
             // replace values of x and y with the values in the dictionary
@@ -61,7 +61,7 @@ namespace ASE_Assignment
             }
 
             // Create a new CommandShape object
-            CommandShape commandShape = new CommandShape(actionWord, new int[] { dict[inputArray[1]] });
+            CommandShapeNum commandShape = new CommandShapeNum(actionWord, new int[] { dict[inputArray[1]] });
 
             // Check if the input is valid
             if (inputArray.Length == 3)
@@ -176,7 +176,7 @@ namespace ASE_Assignment
         /// <param name="inputFull">String input from the Text Box.</param>
         /// <returns>Command object containing an action and parameters.</returns>
         /// <exception cref="FormatException"></exception>
-        public CommandShape ParseInput_SingleLine(string inputFull)
+        public CommandShapeNum ParseInput_SingleLine(string inputFull)
         {
             inputFull = inputFull.Trim().ToLower(); // Trim the input and convert it to lowercase
 
@@ -201,7 +201,7 @@ namespace ASE_Assignment
             }
             if (actionWord == Action.run || actionWord == Action.reset || actionWord == Action.clear)
             {
-                return new CommandShape(actionWord, null);
+                return new CommandShapeNum(actionWord, null);
             }
 
             /* +---------------------+
@@ -220,7 +220,7 @@ namespace ASE_Assignment
             int[] actionParams = ParseAction_CommandParameters(stringParams);
 
             // Uses the parsed command string and command parameters to create and return a Command object
-            return new CommandShape(actionWord, actionParams);
+            return new CommandShapeNum(actionWord, actionParams);
             //return new List<ICommand> { new CommandShape(actionWord, actionParams) };
         }
 
@@ -230,10 +230,10 @@ namespace ASE_Assignment
         /// </summary>
         /// <param name="inputFull">String input from the multi-line Text Box.</param>
         /// <returns>A list of Command objects, each containing an action and parameters.</returns>
-        public List<CommandShape> ParseInput_MultiLine(string inputFull)
+        public List<CommandShapeNum> ParseInput_MultiLine(string inputFull)
         {
             // Splits the multi-line string by a new line and stores this in a new list
-            List<CommandShape> commandsList = new List<CommandShape>();
+            List<CommandShapeNum> commandsList = new List<CommandShapeNum>();
             string[] inputSplitByLines = inputFull.Split(new char[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries); // Windows splits newlines by '\r\n' so here we split by 2 chars and remove any empty string split entries
 
             // Loops around the list of commands, calling the single line parser on every element in the commandsList list

@@ -5,7 +5,7 @@ namespace ASE_Assignment
 {
     public class ShapeFactory
     {
-        public Shape CreateShape(CommandShape commandShape, Point position, bool fill, Color penColor)
+        public Shape CreateShape(CommandShapeNum commandShape, Point position, bool fill, Color penColor)
         {
             switch (commandShape.ActionWord)
             {
