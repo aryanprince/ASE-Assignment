@@ -16,7 +16,7 @@
 //            string input = "rectangle 100 150\nmove 50 80\ncircle 35\nsquare 75";
 
 //            // act
-//            var commands = _parser.ParseInput_MultiLine(input);
+//            var commands = _parser.ParseMultiline(input);
 
 //            //assert
 //            // Common asserts for all commands

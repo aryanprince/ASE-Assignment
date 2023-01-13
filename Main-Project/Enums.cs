@@ -14,6 +14,8 @@
         pen,
         run,
         var,
-        none
+        ifstatement,
+        endif,
+        none,
     }
 }

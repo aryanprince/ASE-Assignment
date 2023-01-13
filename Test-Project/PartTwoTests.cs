@@ -19,7 +19,7 @@
 //            string input = "x = 10\ny = 25\nrectangle x y";
 
 //            // act
-//            List<CommandShape> commands = parser.ParseInput_MultiLine(input);
+//            List<CommandShape> commands = parser.ParseMultiline(input);
 
 //            // assert
 //            Assert.AreEqual(3, commands.Count);
@@ -34,7 +34,7 @@
 //            string input = "method twoTriangles\ntriangle 50\ntriangle 75\nendmethod\nrectangle 200 250\ntwoTriangles";
 
 //            // act
-//            List<CommandShape> commands = parser.ParseInput_MultiLine(input);
+//            List<CommandShape> commands = parser.ParseMultiline(input);
 
 //            // assert
 //            Assert.AreEqual(6, commands.Count);
@@ -49,7 +49,7 @@
 //            string input = "x = 0\n   size = 10\n   while x < 100\n   circle size\n   x = x + 10\n   size = size + 10\n   endwhile";
 
 //            // act
-//            List<CommandShape> commands = parser.ParseInput_MultiLine(input);
+//            List<CommandShape> commands = parser.ParseMultiline(input);
 
 //            // assert
 //            Assert.AreEqual(7, commands.Count);
@@ -64,7 +64,7 @@
 //            string input = "x = 10\n size = 100\n for(x;x<10;x-1)\n rectangle size size\n size = size - 10\n endfor";
 
 //            // act
-//            List<CommandShape> commands = parser.ParseInput_MultiLine(input);
+//            List<CommandShape> commands = parser.ParseMultiline(input);
 
 //            // assert
 //            Assert.AreEqual(6, commands.Count);

@@ -58,7 +58,7 @@ namespace ASE_Assignment
 
         //        if (Regex.IsMatch(txtCommandLine.Text.Trim().ToLower(), normalCommandsRegex))
         //        {
-        //            var commandsList = _parser.ParseInput_MultiLine(txtCommandArea.Text);
+        //            var commandsList = _parser.ParseMultiline(txtCommandArea.Text);
         //            foreach (var command in commandsList)
         //            {
         //                ExecuteCommand(g, command);
@@ -91,8 +91,7 @@ namespace ASE_Assignment
                         CommandIfStatements command = (CommandIfStatements)commandsList[i];
                         if (command.IfState)
                         {
-
-                            break;
+                            continue;
                         }
                     }
 
@@ -102,23 +101,23 @@ namespace ASE_Assignment
                     }
                 }
 
-                _cursor.Draw(g); // Draws a new cursor before every command in case it gets covered by another shape
+                //_cursor.Draw(g); // Draws a new cursor before every command in case it gets covered by another shape
 
-                string[] inputSplitByLines = txtCommandArea.Text.Split(new char[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
+                //string[] inputSplitByLines = txtCommandArea.Text.Split(new char[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
 
-                // "rectangle 100 150", "circle 50", "reset", or "run" (Basically any command)
-                if (Regex.IsMatch(txtCommandLine.Text.Trim().ToLower(), _regexDrawShapes))
-                {
-                    CommandShapeNum commandShapeNum = _parser.ParseInput_SingleLine(txtCommandLine.Text);
-                    ExecuteCommand(g, commandShapeNum);
+                //// "rectangle 100 150", "circle 50", "reset", or "run" (Basically any command)
+                //if (Regex.IsMatch(txtCommandLine.Text.Trim().ToLower(), _regexDrawShapes))
+                //{
+                //    CommandShapeNum commandShapeNum = _parser.ParseSingleLine(txtCommandLine.Text);
+                //    ExecuteCommand(g, commandShapeNum);
 
-                    // Resets all the labels if execute command works
-                    lblError.Text = "";
-                    txtCommandLine.Text = "";
+                //    // Resets all the labels if execute command works
+                //    lblError.Text = "";
+                //    txtCommandLine.Text = "";
 
-                    // update the line counter
-                    _lineCounter++;
-                }
+                //    // update the line counter
+                //    _lineCounter++;
+                //}
             }
             catch (IndexOutOfRangeException exception)
             {
@@ -159,7 +158,7 @@ namespace ASE_Assignment
             {
                 case Action.run:
                     {
-                        //List<CommandShapeNum> commands = _parser.ParseInput_MultiLine(txtCommandArea.Text);
+                        //List<CommandShapeNum> commands = _parser.ParseMultiline(txtCommandArea.Text);
                         //foreach (CommandShapeNum c in commands) { ExecuteCommand(g, c); }
 
                         string[] inputSplitByLines = txtCommandArea.Text.Split(new char[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
@@ -167,7 +166,7 @@ namespace ASE_Assignment
                         // "rectangle 100 150"
                         if (Regex.IsMatch(txtCommandLine.Text.Trim().ToLower(), _regexDrawShapes))
                         {
-                            CommandShapeNum commandShapeNum = _parser.ParseInput_SingleLine(txtCommandLine.Text);
+                            CommandShapeNum commandShapeNum = _parser.ParseSingleLine(txtCommandLine.Text);
                             ExecuteCommand(g, commandShapeNum);
 
                             // Resets all the labels if execute command works
@@ -195,7 +194,7 @@ namespace ASE_Assignment
                             //"var x = 10" or "var x = y"
                             else if (Regex.IsMatch(line.Trim().ToLower(), _regexVariableDeclarationTest))
                             {
-                                CommandVariable commandVariable = _parser.ParseInput_Variable(line, _dictionaryOfVariables);
+                                CommandVariable commandVariable = _parser.ParseVariable(line, _dictionaryOfVariables);
                                 _dictionaryOfVariables.Add(commandVariable.VariableName, commandVariable.VariableValue);
 
                                 // update line counter
@@ -205,7 +204,7 @@ namespace ASE_Assignment
                             // "rectangle x y"
                             else if (Regex.IsMatch(line.Trim().ToLower(), _regexDrawWithVariables))
                             {
-                                CommandShapeNum commandShapeNum = _parser.ParseInput_ShapeWithVariables(line, _dictionaryOfVariables);
+                                CommandShapeNum commandShapeNum = _parser.ParseShapeWithVariables(line, _dictionaryOfVariables);
                                 ExecuteCommand(g, commandShapeNum);
 
                                 //update the line counter
@@ -218,13 +217,13 @@ namespace ASE_Assignment
                                 // find the line number where the if statement ends at using "endif" as the end of the if statement
                                 int indexOfStartIf = Array.IndexOf(inputSplitByLines, line);
                                 int indexOfEndIf = Array.IndexOf(inputSplitByLines, "endif");
-                                bool result = _parser.ParseInput_IfStatements(line, _dictionaryOfVariables);
+                                bool result = _parser.ParseIfStatements(line, _dictionaryOfVariables);
 
                                 if (result)
                                 {
                                     for (int j = indexOfStartIf + 1; j < indexOfEndIf; j++)
                                     {
-                                        CommandShapeNum commandShapeNum = _parser.ParseInput_SingleLine(inputSplitByLines[j]);
+                                        CommandShapeNum commandShapeNum = _parser.ParseSingleLine(inputSplitByLines[j]);
                                         ExecuteCommand(g, commandShapeNum);
 
                                         // update the line counter
