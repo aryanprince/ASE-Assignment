@@ -76,6 +76,8 @@
   <ItemGroup>
     <Compile Include="Circle.cs" />
     <Compile Include="Command.cs" />
+    <Compile Include="CommandEndKeyword.cs" />
+    <Compile Include="CommandIfStatements.cs" />
     <Compile Include="CommandShapeNum.cs" />
     <Compile Include="CommandShapeVar.cs" />
     <Compile Include="CommandVariable.cs" />

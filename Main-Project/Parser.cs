@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Text.RegularExpressions;
 
 namespace ASE_Assignment
 {
     public class Parser
     {
-        public CommandVariable ParseInput_Variable(string input, Dictionary<string, int> dict)
+        public CommandVariable ParseVariable(string input, Dictionary<string, int> dict)
         {
             // input = "var z = x + y" this should assign the value of x + y from the dictionary to z using DataTable.Compute method
 
@@ -34,7 +35,7 @@ namespace ASE_Assignment
             return commandVariable;
         }
 
-        public CommandShapeNum ParseInput_ShapeWithVariables(string input, Dictionary<string, int> dict)
+        public CommandShapeNum ParseShapeWithVariables(string input, Dictionary<string, int> dict)
         {
             // input = "rectangle x y" or "circle x"
             // replace values of x and y with the values in the dictionary
@@ -78,7 +79,7 @@ namespace ASE_Assignment
 
             return commandShape;
         }
-        public bool ParseInput_IfStatements(string input, Dictionary<string, int> dict)
+        public bool ParseIfStatements(string input, Dictionary<string, int> dict)
         {
             // input = "if x > 100"
             // replace values of x with the values in the dictionary
@@ -176,7 +177,7 @@ namespace ASE_Assignment
         /// <param name="inputFull">String input from the Text Box.</param>
         /// <returns>Command object containing an action and parameters.</returns>
         /// <exception cref="FormatException"></exception>
-        public CommandShapeNum ParseInput_SingleLine(string inputFull)
+        public CommandShapeNum ParseSingleLine(string inputFull)
         {
             inputFull = inputFull.Trim().ToLower(); // Trim the input and convert it to lowercase
 
@@ -226,23 +227,23 @@ namespace ASE_Assignment
 
 
         /// <summary>
-        /// Parses a large multi-line string into a list of Commands, each parsed by ParseInput_SingleLine() method.
+        /// Parses a large multi-line string into a list of Commands, each parsed by ParseSingleLine() method.
         /// </summary>
         /// <param name="inputFull">String input from the multi-line Text Box.</param>
         /// <returns>A list of Command objects, each containing an action and parameters.</returns>
-        public List<CommandShapeNum> ParseInput_MultiLine(string inputFull)
+        public List<CommandShapeNum> ParseMultiline(string inputFull)
         {
             // Splits the multi-line string by a new line and stores this in a new list
             List<CommandShapeNum> commandsList = new List<CommandShapeNum>();
             string[] inputSplitByLines = inputFull.Split(new char[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries); // Windows splits newlines by '\r\n' so here we split by 2 chars and remove any empty string split entries
 
             // Loops around the list of commands, calling the single line parser on every element in the commandsList list
-            inputSplitByLines.ToList().ForEach(input => commandsList.Add(ParseInput_SingleLine(input))); // ForEach command from System.LINQ used here instead of a typical for-each loop
+            inputSplitByLines.ToList().ForEach(input => commandsList.Add(ParseSingleLine(input))); // ForEach command from System.LINQ used here instead of a typical for-each loop
             return commandsList;
         }
 
         /// <summary>
-        /// Parses the first word from ParseInput_SingleLine() to determine an action.
+        /// Parses the first word from ParseSingleLine() to determine an action.
         /// </summary>
         /// <param name="input">String value for an Action.</param>
         /// <returns>An Action enum representing a command for the Command class, or Action.none if nothing is found.</returns>
@@ -281,7 +282,7 @@ namespace ASE_Assignment
         }
 
         /// <summary>
-        /// Parses the string parameters from ParseInput_SingleLine() to convert them to usable int values.
+        /// Parses the string parameters from ParseSingleLine() to convert them to usable int values.
         /// </summary>
         /// <param name="inputStringArray">String parameters for an Action.</param>
         /// <returns>An integer array of parameters for the Command class.</returns>
@@ -331,6 +332,58 @@ namespace ASE_Assignment
             }
 
             return inputIntArray;
+        }
+
+        public List<Command> Parse(string input, Dictionary<string, int> dict)
+        {
+            string[] inputSplitByLines = input.Split(new char[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
+
+            List<Command> commandsList = new List<Command>();
+
+            foreach (string s in inputSplitByLines)
+            {
+                //"endif", "endwhile", "endfor"
+                if (Regex.IsMatch(s.Trim().ToLower(), @"end.+"))
+                {
+                    Command command = new CommandEndKeyword(Action.endif);
+                    commandsList.Add(command);
+                }
+
+                // "rectangle 100 150"
+                else if (Regex.IsMatch(s.Trim().ToLower(), @"^([a-zA-Z]+)\s*(\d+)?\s*(\d+)?$"))
+                {
+                    Command command = ParseSingleLine(s);
+                    commandsList.Add(command);
+                }
+
+                // "rectangle x y"
+                else if (Regex.IsMatch(s.Trim().ToLower(), @"^([a-zA-Z]+)\s*([a-zA-Z]+)? ?([a-zA-Z]+)?$"))
+                {
+                    Command command = ParseShapeWithVariables(s, dict);
+                    commandsList.Add(command);
+                }
+
+                //"var x = 10" or "var x = y"
+                else if (Regex.IsMatch(s.Trim().ToLower(), @"^var.+"))
+                {
+                    CommandVariable command = ParseVariable(s, dict);
+                    dict.Add(command.VariableName, command.VariableValue);
+                    commandsList.Add(command);
+                }
+
+                // "if x > 5"
+                else if (Regex.IsMatch(s.Trim().ToLower(), @"if [a-zA-Z] (?:>|<|==) \d+"))
+                {
+                    // find the line number where the if statement ends at using "endif" as the end of the if statement
+                    int startIndex = Array.IndexOf(inputSplitByLines, s);
+                    int endIndex = Array.IndexOf(inputSplitByLines, "endif");
+                    bool result = ParseIfStatements(s, dict);
+
+                    Command command = new CommandIfStatements(Action.ifstatement, result, startIndex, endIndex);
+                    commandsList.Add(command);
+                }
+            }
+            return commandsList;
         }
     }
 }
