@@ -342,44 +342,50 @@ namespace ASE_Assignment
 
         public List<Command> Parse(string input, Dictionary<string, int> dict)
         {
+            // Split input into separate lines
             string[] inputSplitByLines = input.Split(new char[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
 
+            // List to hold the commands
             List<Command> commandsList = new List<Command>();
 
+            // Iterate through each line of input
             foreach (string s in inputSplitByLines)
             {
+                // Trim and convert the line to lowercase for easier matching
+                string line = s.Trim().ToLower();
+
                 // Example: s = "while 10"
-                if (Regex.IsMatch(s.Trim().ToLower(), @"while.+"))
+                if (Regex.IsMatch(line.Trim().ToLower(), @"while.+"))
                 {
-                    Command command = ParseWhile(s, dict);
+                    Command command = ParseWhile(line, dict);
                     commandsList.Add(command);
                 }
 
                 //"endif", "endwhile", "endfor"
-                else if (Regex.IsMatch(s.Trim().ToLower(), @"end.+"))
+                else if (Regex.IsMatch(line.Trim().ToLower(), @"end.+"))
                 {
                     Command command = new CommandEndKeyword(Action.endif);
                     commandsList.Add(command);
                 }
 
                 // "rectangle 100 150"
-                else if (Regex.IsMatch(s.Trim().ToLower(), @"^([a-zA-Z]+)\s*(\d+)?\s*(\d+)?$"))
+                else if (Regex.IsMatch(line.Trim().ToLower(), @"^([a-zA-Z]+)\s*(\d+)?\s*(\d+)?$"))
                 {
-                    Command command = ParseDrawShape_WithNumbers(s);
+                    Command command = ParseDrawShape_WithNumbers(line);
                     commandsList.Add(command);
                 }
 
                 // "rectangle x y"
-                else if (Regex.IsMatch(s.Trim().ToLower(), @"^([a-zA-Z]+)\s*([a-zA-Z]+)? ?([a-zA-Z]+)?$"))
+                else if (Regex.IsMatch(line.Trim().ToLower(), @"^([a-zA-Z]+)\s*([a-zA-Z]+)? ?([a-zA-Z]+)?$"))
                 {
-                    Command command = ParseDrawShape_WithVariables(s, dict);
+                    Command command = ParseDrawShape_WithVariables(line, dict);
                     commandsList.Add(command);
                 }
 
                 //"var x = 10" or "var x = y"
-                else if (Regex.IsMatch(s.Trim().ToLower(), @"^var.+"))
+                else if (Regex.IsMatch(line.Trim().ToLower(), @"^var.+"))
                 {
-                    CommandVariable command = ParseVariable(s, dict);
+                    CommandVariable command = ParseVariable(line, dict);
                     // If the variable is already in the dictionary, replace it with the new value
                     if (dict.ContainsKey(command.VariableName))
                         dict[command.VariableName] = command.VariableValue;
@@ -389,17 +395,23 @@ namespace ASE_Assignment
                 }
 
                 // "if x > 5"
-                else if (Regex.IsMatch(s.Trim().ToLower(), @"if [a-zA-Z] (?:>|<|==) \d+"))
+                else if (Regex.IsMatch(line.Trim().ToLower(), @"if [a-zA-Z] (?:>|<|==) \d+"))
                 {
                     // find the line number where the if statement ends at using "endif" as the end of the if statement
-                    int startIndex = Array.IndexOf(inputSplitByLines, s);
+                    int startIndex = Array.IndexOf(inputSplitByLines, line);
                     int endIndex = Array.IndexOf(inputSplitByLines, "endif");
-                    bool result = ParseIfStatements(s, dict);
+                    bool result = ParseIfStatements(line, dict);
 
                     Command command = new CommandIfStatements(Action.ifstatement, result, startIndex, endIndex);
                     commandsList.Add(command);
                 }
+                else
+                {
+                    break;
+                }
             }
+
+            // Return the list of commands
             return commandsList;
         }
 
