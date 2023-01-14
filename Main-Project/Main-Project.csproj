@@ -81,6 +81,7 @@
     <Compile Include="CommandShapeNum.cs" />
     <Compile Include="CommandShapeVar.cs" />
     <Compile Include="CommandVariable.cs" />
+    <Compile Include="CommandWhile.cs" />
     <Compile Include="ExpressionCommand.cs" />
     <Compile Include="ICommand.cs" />
     <Compile Include="IShape.cs" />

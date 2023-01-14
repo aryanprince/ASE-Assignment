@@ -17,6 +17,16 @@ namespace ASE_Assignment
             string expression = parts[1].Trim();
             string variableName = parts[0].Substring(3).Trim();
 
+            var result = CalculateExpression(dict, expression);
+
+            //Create a new CommandVariable object
+            CommandVariable commandVariable = new CommandVariable(Action.var, variableName, result);
+
+            return commandVariable;
+        }
+
+        private static int CalculateExpression(Dictionary<string, int> dict, string expression)
+        {
             //Check dictionary to replace values of x and y with their values to get the result
             foreach (KeyValuePair<string, int> entry in dict)
             {
@@ -28,11 +38,7 @@ namespace ASE_Assignment
 
             //Calculate the result of the expression
             int result = Convert.ToInt32(new DataTable().Compute(expression, null));
-
-            //Create a new CommandVariable object
-            CommandVariable commandVariable = new CommandVariable(Action.var, variableName, result);
-
-            return commandVariable;
+            return result;
         }
 
         public CommandShapeNum ParseDrawShape_WithVariables(string input, Dictionary<string, int> dict)
@@ -342,8 +348,13 @@ namespace ASE_Assignment
 
             foreach (string s in inputSplitByLines)
             {
+                if (Regex.IsMatch(s.Trim().ToLower(), @"while.+"))
+                {
+                    Command command = ParseWhile(s, dict);
+                }
+
                 //"endif", "endwhile", "endfor"
-                if (Regex.IsMatch(s.Trim().ToLower(), @"end.+"))
+                else if (Regex.IsMatch(s.Trim().ToLower(), @"end.+"))
                 {
                     Command command = new CommandEndKeyword(Action.endif);
                     commandsList.Add(command);
@@ -367,7 +378,11 @@ namespace ASE_Assignment
                 else if (Regex.IsMatch(s.Trim().ToLower(), @"^var.+"))
                 {
                     CommandVariable command = ParseVariable(s, dict);
-                    dict.Add(command.VariableName, command.VariableValue);
+                    // If the variable is already in the dictionary, replace it with the new value
+                    if (dict.ContainsKey(command.VariableName))
+                        dict[command.VariableName] = command.VariableValue;
+                    else
+                        dict.Add(command.VariableName, command.VariableValue);
                     commandsList.Add(command);
                 }
 
@@ -384,6 +399,21 @@ namespace ASE_Assignment
                 }
             }
             return commandsList;
+        }
+
+        private Command ParseWhile(string s, Dictionary<string, int> dict)
+        {
+            // Example: s = "while x < 5"
+            string[] inputSplitBySpaces = s.Split(' ');
+
+            // Remove the "while" keyword from the string array
+            inputSplitBySpaces = inputSplitBySpaces.Skip(1).ToArray();
+
+            // Use CalculateExpression method to calculate the expression
+            string expression = inputSplitBySpaces[0] + inputSplitBySpaces[1] + inputSplitBySpaces[2];
+            int result = CalculateExpression(dict, expression);
+
+            return new Command();
         }
     }
 }
