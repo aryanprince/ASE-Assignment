@@ -348,9 +348,11 @@ namespace ASE_Assignment
 
             foreach (string s in inputSplitByLines)
             {
+                // Example: s = "while 10"
                 if (Regex.IsMatch(s.Trim().ToLower(), @"while.+"))
                 {
                     Command command = ParseWhile(s, dict);
+                    commandsList.Add(command);
                 }
 
                 //"endif", "endwhile", "endfor"
@@ -403,17 +405,11 @@ namespace ASE_Assignment
 
         private Command ParseWhile(string s, Dictionary<string, int> dict)
         {
-            // Example: s = "while x < 5"
+            // Example: s = "while 10"
             string[] inputSplitBySpaces = s.Split(' ');
 
-            // Remove the "while" keyword from the string array
-            inputSplitBySpaces = inputSplitBySpaces.Skip(1).ToArray();
-
-            // Use CalculateExpression method to calculate the expression
-            string expression = inputSplitBySpaces[0] + inputSplitBySpaces[1] + inputSplitBySpaces[2];
-            int result = CalculateExpression(dict, expression);
-
-            return new Command();
+            Command command = new CommandWhile(Action.whileloop, int.Parse(inputSplitBySpaces[1]));
+            return command;
         }
     }
 }

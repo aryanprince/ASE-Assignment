@@ -17,5 +17,6 @@
         ifstatement,
         endif,
         none,
+        whileloop,
     }
 }
