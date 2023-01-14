@@ -9,7 +9,7 @@ namespace ASE_Assignment
 {
     public partial class frmMainForm : Form
     {
-        // Instances of the classes that are used in the form
+        // Instances of the classes that are used throughout the program, uses the Singleton design pattern
         private readonly Cursor _cursor = new Cursor();
         private readonly Parser _parser = new Parser();
         private readonly ShapeFactory _shapeFactory = new ShapeFactory();
@@ -20,7 +20,7 @@ namespace ASE_Assignment
         private const string PenColorRedText = "pen color: red";
         private const string FillDisabledText = "fill: disabled";
         private const string FillEnabledText = "fill: enabled";
-        private const string TextFileTxt = "Text File | *.txt";
+        private const string TextFileTxt = "Text File| *.txt";
         private const string XAxisCoordinateLabelText = "X:";
         private const string YAxisCoordinateLabelText = ", Y:";
 
@@ -32,7 +32,7 @@ namespace ASE_Assignment
         private readonly string _regexIfStatements = @"if [a-zA-Z] (?:>|<|==) \d+"; // "if x > 5"
         private readonly string _regexEndStatements = @"end.+"; // "endif", "endwhile", "endfor"
         Dictionary<string, int> _dictionaryOfVariables = new Dictionary<string, int>();
-        int _lineCounter = 0;
+        int _programCounter = 0;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="frmMainForm"/> class.
@@ -42,37 +42,8 @@ namespace ASE_Assignment
             InitializeComponent();
         }
 
-        ///// <summary>
-        ///// Handles the Click event of the Run button for the multi-line text box control.
-        ///// </summary>
-        ///// <param name="sender">The source of the event.</param>
-        ///// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        //private void btnRunMultiline_Click(object sender, EventArgs e)
-        //{
-        //    Graphics g = picDrawingCanvas.CreateGraphics();
-
-        //    try
-        //    {
-        //        string normalCommandsRegex = @"^([a-zA-Z]+) ?(\d+)? ?(\d+)?$";
-        //        string expressionCommandsRegex = @"^[a-zA-Z]+\s*=\s*\d+$";
-
-        //        if (Regex.IsMatch(txtCommandLine.Text.Trim().ToLower(), normalCommandsRegex))
-        //        {
-        //            var commandsList = _parser.ParseMultiline(txtCommandArea.Text);
-        //            foreach (var command in commandsList)
-        //            {
-        //                ExecuteCommand(g, command);
-        //            }
-        //        }
-        //    }
-        //    catch (Exception exception)
-        //    {
-        //        lblError.Text = exception.Message;
-        //    }
-        //}
-
         /// <summary>
-        /// Handles the Click event of the Run button for the single-line text box control.
+        /// Handles the Click event of the Run button for the program. Used to execute any commands that are entered into the text box.
         /// </summary>
         /// <param name="sender">The source of the event.</param>
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
@@ -86,7 +57,6 @@ namespace ASE_Assignment
 
                 if (txtCommandArea.Text != string.Empty)
                 {
-
                     List<Command> commandsList = _parser.Parse(txtCommandArea.Text, _dictionaryOfVariables);
 
                     for (int i = 0; i < commandsList.Count; i++)
@@ -96,13 +66,17 @@ namespace ASE_Assignment
                             CommandIfStatements command = (CommandIfStatements)commandsList[i];
                             if (command.IfState)
                             {
-                                continue;
+                                continue; // This will execute any code inside the if statement since it evaluates to true
+                            }
+                            else
+                            {
+                                i = command.EndIndex; // This will skip any code inside the if statements since it evaluates to false
                             }
                         }
 
                         if (commandsList[i] is CommandShapeNum)
                         {
-                            ExecuteCommand(g, (CommandShapeNum)commandsList[i]);
+                            ExecuteCommand(g, (CommandShapeNum)commandsList[i]); // Draws regular shape commands
                         }
                     }
                 }
@@ -114,7 +88,7 @@ namespace ASE_Assignment
                     ExecuteCommand(g, commandShapeNum);
 
                     // update the line counter
-                    _lineCounter++;
+                    _programCounter++;
                 }
 
                 // Resets all the labels if execute command works
@@ -176,10 +150,10 @@ namespace ASE_Assignment
                             txtCommandLine.Text = "";
 
                             // update the line counter
-                            _lineCounter++;
+                            _programCounter++;
                         }
 
-                        for (int i = _lineCounter; i < inputSplitByLines.Length; i++)
+                        for (int i = _programCounter; i < inputSplitByLines.Length; i++)
                         {
                             string line = inputSplitByLines[i];
                             //"endif", "endwhile", "endfor"
@@ -190,7 +164,7 @@ namespace ASE_Assignment
                                 txtCommandLine.Text = "";
 
                                 // update the line counter
-                                _lineCounter++;
+                                _programCounter++;
                             }
 
                             //"var x = 10" or "var x = y"
@@ -200,7 +174,7 @@ namespace ASE_Assignment
                                 _dictionaryOfVariables.Add(commandVariable.VariableName, commandVariable.VariableValue);
 
                                 // update line counter
-                                _lineCounter++;
+                                _programCounter++;
                             }
 
                             // "rectangle x y"
@@ -210,7 +184,7 @@ namespace ASE_Assignment
                                 ExecuteCommand(g, commandShapeNum);
 
                                 //update the line counter
-                                _lineCounter++;
+                                _programCounter++;
                             }
 
                             // "if x > 5"
@@ -229,13 +203,13 @@ namespace ASE_Assignment
                                         ExecuteCommand(g, commandShapeNum);
 
                                         // update the line counter
-                                        _lineCounter++;
+                                        _programCounter++;
                                     }
                                 }
                                 else
                                 {
                                     // sets execution to the line after the endif
-                                    _lineCounter = indexOfEndIf + 1;
+                                    _programCounter = indexOfEndIf + 1;
                                     i = indexOfEndIf;
                                 }
                             }
