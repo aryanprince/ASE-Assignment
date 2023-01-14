@@ -8,181 +8,103 @@ namespace ASE_Assignment
 {
     public class Parser
     {
-        public CommandVariable ParseVariable(string input, Dictionary<string, int> dict)
+        private const string RegexDrawWithVariables = @"^([a-zA-Z]+)\s*([a-zA-Z]+)? ?([a-zA-Z]+)?$"; // "rectangle x y" or "circle x"
+        private const string RegexDrawShapesWithNumbers = @"^([a-zA-Z]+)\s*(\d+)?\s*(\d+)?$"; // "rectangle 100 150" or "circle 50"
+        private const string RegexVariables = @"^var.+"; // "var x = 5" or "var x = y + 85"
+        private const string RegexIfStatements = @"if [a-zA-Z] (?:>|<|==) \d+"; // "if x > 5"
+        private const string RegexWhileLoops = @"while.+"; // "while 10"
+        private const string RegexEndStatements = @"end.+"; // "endif" or "endwhile"
+
+        /// <summary>
+        /// The main parser method, calls other parser methods based on various type of commands
+        /// </summary>
+        /// <param name="input"> The input string to parse </param>
+        /// <param name="dict"> A dictionary containing variable names and their values </param>
+        /// <returns> A list of Command objects representing the commands from the input </returns>
+        public List<Command> Parse(string input, Dictionary<string, int> dict)
         {
-            // input = "var z = x + y" this should assign the value of x + y from the dictionary to z using DataTable.Compute method
+            // Split input into separate lines
+            string[] inputSplitByLines = input.Split(new char[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
 
-            // split the input into 3 parts
-            string[] parts = input.Split('=');
-            string expression = parts[1].Trim();
-            string variableName = parts[0].Substring(3).Trim();
+            // List to hold the commands
+            List<Command> commandsList = new List<Command>();
 
-            var result = CalculateExpression(dict, expression);
+            // Iterate through each line of input
+            foreach (string s in inputSplitByLines)
+            {
+                // Trim and convert the line to lowercase for easier matching
+                string line = s.Trim().ToLower();
 
-            //Create a new CommandVariable object
-            CommandVariable commandVariable = new CommandVariable(Action.var, variableName, result);
+                // WHILE LOOPS (example: "while 10")
+                if (Regex.IsMatch(line.Trim().ToLower(), RegexWhileLoops))
+                {
+                    Command command = ParseWhile(line);
+                    commandsList.Add(command);
+                }
 
-            return commandVariable;
+                // END COMMANDS (example: "endif" or "endwhile")
+                else if (Regex.IsMatch(line.Trim().ToLower(), RegexEndStatements))
+                {
+                    Command command = new CommandEndKeyword(Action.endif);
+                    commandsList.Add(command);
+                }
+
+                // DRAW SHAPES WITH NUMBERS (example: "rectangle 100 150" or "circle 50")
+                else if (Regex.IsMatch(line.Trim().ToLower(), RegexDrawShapesWithNumbers))
+                {
+                    Command command = ParseDrawShape_WithNumbers(line);
+                    commandsList.Add(command);
+                }
+
+                // DRAW SHAPES WITH VARIABLES (example: "rectangle x y" or "circle x")
+                else if (Regex.IsMatch(line.Trim().ToLower(), RegexDrawWithVariables))
+                {
+                    Command command = ParseDrawShape_WithVariables(line, dict);
+                    commandsList.Add(command);
+                }
+
+                // VARIABLE ASSIGNMENT (example: "var x = 10" or "var x = y + 100")
+                else if (Regex.IsMatch(line.Trim().ToLower(), RegexVariables))
+                {
+                    CommandVariable command = ParseVariable(line, dict);
+                    // If the variable is already in the dictionary, replace it with the new value
+                    if (dict.ContainsKey(command.VariableName))
+                        dict[command.VariableName] = command.VariableValue;
+                    else
+                        dict.Add(command.VariableName, command.VariableValue);
+                    commandsList.Add(command);
+                }
+
+                // IF STATEMENTS (example: "if x > 5")
+                else if (Regex.IsMatch(line.Trim().ToLower(), RegexIfStatements))
+                {
+                    // Find the line number where the if statement ends at using "endif" as the end of the if statement
+                    int startIndex = Array.IndexOf(inputSplitByLines, line);
+                    int endIndex = Array.IndexOf(inputSplitByLines, "endif");
+                    bool result = ParseIfStatements(line, dict);
+
+                    Command command = new CommandIfStatements(Action.ifstatement, result, startIndex, endIndex);
+                    commandsList.Add(command);
+                }
+
+                // DEFAULT CASE
+                else
+                {
+                    break;
+                }
+            }
+
+            // Return the list of commands
+            return commandsList;
         }
-
-        private static int CalculateExpression(Dictionary<string, int> dict, string expression)
-        {
-            //Check dictionary to replace values of x and y with their values to get the result
-            foreach (KeyValuePair<string, int> entry in dict)
-            {
-                if (expression.Contains(entry.Key))
-                {
-                    expression = expression.Replace(entry.Key, entry.Value.ToString());
-                }
-            }
-
-            //Calculate the result of the expression
-            int result = Convert.ToInt32(new DataTable().Compute(expression, null));
-            return result;
-        }
-
-        public CommandShapeNum ParseDrawShape_WithVariables(string input, Dictionary<string, int> dict)
-        {
-            // input = "rectangle x y" or "circle x"
-            // replace values of x and y with the values in the dictionary
-
-            // Split the input into an array of strings
-            string[] inputArray = input.Split(' ');
-
-            // Check if the input is valid
-            if (inputArray.Length < 2)
-            {
-                throw new ArgumentException("Invalid input");
-            }
-
-            // Check if the input is valid
-            if (!Enum.TryParse(inputArray[0], true, out Action actionWord))
-            {
-                throw new ArgumentException("Invalid input");
-            }
-
-            // Check if the input is valid
-            if (!dict.ContainsKey(inputArray[1]))
-            {
-                throw new ArgumentException("Invalid input");
-            }
-
-            // Create a new CommandShape object
-            CommandShapeNum commandShape = new CommandShapeNum(actionWord, new int[] { dict[inputArray[1]] });
-
-            // Check if the input is valid
-            if (inputArray.Length == 3)
-            {
-                // Check if the input is valid
-                if (!dict.ContainsKey(inputArray[2]))
-                {
-                    throw new ArgumentException("Invalid input");
-                }
-
-                // Add the second value to the CommandShape object
-                commandShape.ActionValues = commandShape.ActionValues.Concat(new int[] { dict[inputArray[2]] }).ToArray();
-            }
-
-            return commandShape;
-        }
-        public bool ParseIfStatements(string input, Dictionary<string, int> dict)
-        {
-            // input = "if x > 100"
-            // replace values of x with the values in the dictionary
-
-            // Split the input into an array of strings
-            string[] inputArray = input.Split(' ');
-
-            // Check if the input is valid
-            if (inputArray.Length != 4)
-            {
-                throw new ArgumentException("Invalid input");
-            }
-
-            // Check if the input is valid
-            if (inputArray[0] != "if")
-            {
-                throw new ArgumentException("Invalid input");
-            }
-
-            // Check if the input is valid
-            if (!dict.ContainsKey(inputArray[1]))
-            {
-                throw new ArgumentException("Invalid input");
-            }
-
-            // Check if the input is valid
-            if (!int.TryParse(inputArray[3], out int variableValue))
-            {
-                throw new ArgumentException("Invalid input");
-            }
-
-            // Check if the input is valid
-            if (inputArray[2] == ">")
-            {
-                if (dict[inputArray[1]] > variableValue)
-                {
-                    return true;
-                }
-            }
-            else if (inputArray[2] == "<")
-            {
-                if (dict[inputArray[1]] < variableValue)
-                {
-                    return true;
-                }
-            }
-            else if (inputArray[2] == "==")
-            {
-                if (dict[inputArray[1]] == variableValue)
-                {
-                    return true;
-                }
-            }
-            else
-            {
-                throw new ArgumentException("Invalid input");
-            }
-
-            return false;
-        }
-
-        //public List<ICommand> ParseDrawShape_WithNumbers(string line)
-        //{
-        //    string[] words = line.Split(' ');
-        //    string commandType = words[0];
-
-        //    switch (commandType)
-        //    {
-        //        case "var":
-        //            // parse variable assignment and return a CommandVariable object
-        //            string variableName = words[1];
-        //            string variableValue = words[3];
-        //            return new List<ICommand> { new CommandVariable(Action.var, variableName, int.Parse(variableValue)) };
-        //        default:
-        //            // parse shape command and return a CommandShape object
-        //            Action actionWord = ParseAction_CommandName(commandType);
-        //            int[] actionValues = ParseAction_CommandParameters(words.Skip(1).ToArray());
-        //            return new List<ICommand> { new CommandShape(actionWord, actionValues) };
-        //    }
-        //}
-        //public List<ICommand> ParseMultiline(string inputText)
-        //{
-        //    string[] lines = inputText.Split(new string[] { "\r\n" }, StringSplitOptions.None);
-        //    List<ICommand> commands = new List<ICommand>();
-        //    foreach (string line in lines)
-        //    {
-        //        commands.AddRange(ParseDrawShape_WithNumbers(line));
-        //    }
-        //    return commands;
-        //}
 
         /// <summary>
         /// Parses a single string, splitting them by words into a Command object.
         /// </summary>
         /// <param name="inputFull">String input from the Text Box.</param>
         /// <returns>Command object containing an action and parameters.</returns>
-        /// <exception cref="FormatException"></exception>
+        /// <exception cref="FormatException"> Throws an exception when incorrect parameters are being passed </exception>
+        /// <example> "rectangle 100 50", "circle x", "pen 1", "clear" </example>
         public CommandShapeNum ParseDrawShape_WithNumbers(string inputFull)
         {
             inputFull = inputFull.Trim().ToLower(); // Trim the input and convert it to lowercase
@@ -228,24 +150,170 @@ namespace ASE_Assignment
 
             // Uses the parsed command string and command parameters to create and return a Command object
             return new CommandShapeNum(actionWord, actionParams);
-            //return new List<ICommand> { new CommandShape(actionWord, actionParams) };
         }
 
+        /// <summary>
+        /// Parses a variable declaration string by computing variable expressions using a helper method
+        /// </summary>
+        /// <param name="input"> The input string to parse </param>
+        /// <param name="dict"> The dictionary of variables and their values </param>
+        /// <returns> A CommandVariable object with information from the variable declaration </returns>
+        /// <example> "var x = 150" or "var z = x + y" </example>
+        private CommandVariable ParseVariable(string input, Dictionary<string, int> dict)
+        {
+            // This should assign the value of x + y from the dictionary to z using DataTable.Compute method
+
+            // split the input into 3 parts
+            string[] parts = input.Split('=');
+            string expression = parts[1].Trim();
+            string variableName = parts[0].Substring(3).Trim();
+
+            int result = CalculateExpression(dict, expression);
+
+            //Create a new CommandVariable object
+            CommandVariable commandVariable = new CommandVariable(Action.var, variableName, result);
+
+            return commandVariable;
+        }
 
         /// <summary>
-        /// Parses a large multi-line string into a list of Commands, each parsed by ParseDrawShape_WithNumbers() method.
+        /// This method will calculate the expression using DataTable's Compute method
         /// </summary>
-        /// <param name="inputFull">String input from the multi-line Text Box.</param>
-        /// <returns>A list of Command objects, each containing an action and parameters.</returns>
-        public List<CommandShapeNum> ParseMultiline(string inputFull)
+        /// <param name="dict"> Dictionary stores variables and their values </param>
+        /// <param name="expression"> Expression to be calculated </param>
+        /// <returns> Result of the expression as an integer </returns>
+        /// <example> "100 + 30 + 90" will return 220 as an integer </example>
+        private static int CalculateExpression(Dictionary<string, int> dict, string expression)
         {
-            // Splits the multi-line string by a new line and stores this in a new list
-            List<CommandShapeNum> commandsList = new List<CommandShapeNum>();
-            string[] inputSplitByLines = inputFull.Split(new char[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries); // Windows splits newlines by '\r\n' so here we split by 2 chars and remove any empty string split entries
+            //Check dictionary to replace values of x and y with their values to get the result
+            foreach (KeyValuePair<string, int> entry in dict)
+            {
+                if (expression.Contains(entry.Key))
+                {
+                    expression = expression.Replace(entry.Key, entry.Value.ToString());
+                }
+            }
 
-            // Loops around the list of commands, calling the single line parser on every element in the commandsList list
-            inputSplitByLines.ToList().ForEach(input => commandsList.Add(ParseDrawShape_WithNumbers(input))); // ForEach command from System.LINQ used here instead of a typical for-each loop
-            return commandsList;
+            //Calculate the result of the expression
+            int result = Convert.ToInt32(new DataTable().Compute(expression, null));
+            return result;
+        }
+
+        /// <summary>
+        /// Parse an input string for drawing shape commands that use variables, instead of numbers
+        /// </summary>
+        /// <param name="input"> The input string to parse </param>
+        /// <param name="dict"> The dictionary of variables and their values </param>
+        /// <returns> A Command object with the parsed information </returns>
+        /// <exception cref="ArgumentException"> Thrown when the input string is not a valid command </exception>
+        /// <example> "rectangle x y" or "circle x" </example>
+        private CommandShapeNum ParseDrawShape_WithVariables(string input, Dictionary<string, int> dict)
+        {
+            // Split the input into an array of strings
+            string[] inputArray = input.Split(' ');
+
+            // Check if the input is valid
+            if (inputArray.Length < 2)
+            {
+                throw new ArgumentException("Invalid input");
+            }
+
+            // Check if the input is valid
+            if (!Enum.TryParse(inputArray[0], true, out Action actionWord))
+            {
+                throw new ArgumentException("Invalid input");
+            }
+
+            // Check if the input is valid
+            if (!dict.ContainsKey(inputArray[1]))
+            {
+                throw new ArgumentException("Invalid input");
+            }
+
+            // Create a new CommandShape object and replaces values of x and y with the values in the dictionary
+            CommandShapeNum commandShape = new CommandShapeNum(actionWord, new int[] { dict[inputArray[1]] });
+
+            // Check if the input is valid
+            if (inputArray.Length == 3)
+            {
+                // Check if the input is valid
+                if (!dict.ContainsKey(inputArray[2]))
+                {
+                    throw new ArgumentException("Invalid input");
+                }
+
+                // Add the second value to the CommandShape object
+                commandShape.ActionValues = commandShape.ActionValues.Concat(new int[] { dict[inputArray[2]] }).ToArray();
+            }
+
+            return commandShape;
+        }
+
+        /// <summary>
+        /// Parses the input as a string to return an instance of the CommandIfStatement class
+        /// </summary>
+        /// <param name="input"> Input for an if statement in a string format </param>
+        /// <param name="dict"> A dictionary containing variable names and their values </param>
+        /// <returns> A CommandIfStatement object </returns>
+        /// <exception cref="ArgumentException"> Throws exceptions when input passed in an incorrect </exception>
+        /// <example> "if x &gt; 100" </example>
+        private bool ParseIfStatements(string input, Dictionary<string, int> dict)
+        {
+            // Split the input into an array of strings
+            string[] inputArray = input.Split(' ');
+
+            // Check if the input is valid
+            if (inputArray.Length != 4)
+            {
+                throw new ArgumentException("Invalid input");
+            }
+
+            // Check if the input is valid
+            if (inputArray[0] != "if")
+            {
+                throw new ArgumentException("Invalid input");
+            }
+
+            // Check if the input is valid
+            if (!dict.ContainsKey(inputArray[1]))
+            {
+                throw new ArgumentException("Invalid input");
+            }
+
+            // Check if the input is valid
+            if (!int.TryParse(inputArray[3], out int variableValue))
+            {
+                throw new ArgumentException("Invalid input");
+            }
+
+            // Check if the input is valid and replace values of variables with the values from the dictionary
+            if (inputArray[2] == ">")
+            {
+                if (dict[inputArray[1]] > variableValue)
+                {
+                    return true;
+                }
+            }
+            else if (inputArray[2] == "<")
+            {
+                if (dict[inputArray[1]] < variableValue)
+                {
+                    return true;
+                }
+            }
+            else if (inputArray[2] == "==")
+            {
+                if (dict[inputArray[1]] == variableValue)
+                {
+                    return true;
+                }
+            }
+            else
+            {
+                throw new ArgumentException("Invalid input");
+            }
+
+            return false;
         }
 
         /// <summary>
@@ -253,7 +321,7 @@ namespace ASE_Assignment
         /// </summary>
         /// <param name="input">String value for an Action.</param>
         /// <returns>An Action enum representing a command for the Command class, or Action.none if nothing is found.</returns>
-        public Action ParseAction_CommandName(string input)
+        private Action ParseAction_CommandName(string input)
         {
             input = input.Split()[0].Trim().ToLower(); // Cleans the input string by removing any extra words (if any) in the input string
 
@@ -291,6 +359,7 @@ namespace ASE_Assignment
         /// Parses the string parameters from ParseDrawShape_WithNumbers() to convert them to usable int values.
         /// </summary>
         /// <param name="inputStringArray">String parameters for an Action.</param>
+        /// <exception cref="ArgumentException"> Throws an exceptions when passing invalid or negative parameter values </exception>
         /// <returns>An integer array of parameters for the Command class.</returns>
         private int[] ParseAction_CommandParameters(string[] inputStringArray)
         {
@@ -298,10 +367,12 @@ namespace ASE_Assignment
 
             try
             {
+                // Converts each element of the string array to an int
                 inputIntArray = Array.ConvertAll(inputStringArray, int.Parse);
             }
             catch (FormatException)
             {
+                // Throws an exception if any of the elements in the inputStringArray cannot be parsed to int
                 throw new ArgumentException("ERROR: Invalid parameters, please use int!", inputStringArray.ToString());
             }
 
@@ -309,16 +380,8 @@ namespace ASE_Assignment
             for (int i = 0; i < inputIntArray.Length; i++)
             {
                 if (inputIntArray[i] < 0)
-                    throw new ArgumentOutOfRangeException(inputIntArray[i].ToString(), "ERROR: Negative parameters are not allowed!");
+                    throw new ArgumentException("ERROR: Negative parameters are not allowed!");
             }
-
-            // This may be redundant now since the try-catch block above should catch any invalid parameters
-            //// Checks if the string parameter contains only numbers before parsing them
-            //foreach (var s in inputStringArray)
-            //{
-            //    if (!s.All(char.IsDigit))
-            //        throw new FormatException("ERROR: Invalid parameters, please use int!");
-            //}
 
             // Checks if any of the parameters are greater than the window size (900x500)
             switch (inputIntArray.Length)
@@ -326,100 +389,32 @@ namespace ASE_Assignment
                 case 2: // When there are 2 parameters, check if they are greater than 900 and 500 respectively
                     {
                         if (inputIntArray[0] > 900)
-                            throw new ArgumentOutOfRangeException(inputIntArray[0].ToString(), "ERROR: Invalid parameters\nX-value for parameter must be less than 900!");
+                            throw new ArgumentException("ERROR: Invalid parameters\nX-value for parameter must be less than 900!");
                         if (inputIntArray[1] > 500)
-                            throw new ArgumentOutOfRangeException(inputIntArray[1].ToString(), "ERROR: Invalid parameters\nY-value for parameter must be less than 500!");
+                            throw new ArgumentException("ERROR: Invalid parameters\nY-value for parameter must be less than 500!");
                         break;
                     }
                 default: // When there is only 1 parameter, check if it's greater than 900
                     if (inputIntArray[0] > 900)
-                        throw new ArgumentOutOfRangeException(inputIntArray[0].ToString(), "ERROR: Invalid parameters\nX-value for parameter must be less than 900!");
+                        throw new ArgumentException("ERROR: Invalid parameters\nX-value for parameter must be less than 900!");
                     break;
             }
 
             return inputIntArray;
         }
 
-        public List<Command> Parse(string input, Dictionary<string, int> dict)
+        /// <summary>
+        /// Parses a "while" command from the input string and creates a CommandWhile object with the specified loop count.
+        /// </summary>
+        /// <param name="input">The input string to parse</param>
+        /// <returns>A CommandWhile object representing the "while" command</returns>
+        /// <example> "while 10" loops 10 times </example>
+        private Command ParseWhile(string input)
         {
-            // Split input into separate lines
-            string[] inputSplitByLines = input.Split(new char[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
+            // Split the input string by spaces to separate the command keyword and the loop count
+            string[] inputSplitBySpaces = input.Split(' ');
 
-            // List to hold the commands
-            List<Command> commandsList = new List<Command>();
-
-            // Iterate through each line of input
-            foreach (string s in inputSplitByLines)
-            {
-                // Trim and convert the line to lowercase for easier matching
-                string line = s.Trim().ToLower();
-
-                // Example: s = "while 10"
-                if (Regex.IsMatch(line.Trim().ToLower(), @"while.+"))
-                {
-                    Command command = ParseWhile(line, dict);
-                    commandsList.Add(command);
-                }
-
-                //"endif", "endwhile", "endfor"
-                else if (Regex.IsMatch(line.Trim().ToLower(), @"end.+"))
-                {
-                    Command command = new CommandEndKeyword(Action.endif);
-                    commandsList.Add(command);
-                }
-
-                // "rectangle 100 150"
-                else if (Regex.IsMatch(line.Trim().ToLower(), @"^([a-zA-Z]+)\s*(\d+)?\s*(\d+)?$"))
-                {
-                    Command command = ParseDrawShape_WithNumbers(line);
-                    commandsList.Add(command);
-                }
-
-                // "rectangle x y"
-                else if (Regex.IsMatch(line.Trim().ToLower(), @"^([a-zA-Z]+)\s*([a-zA-Z]+)? ?([a-zA-Z]+)?$"))
-                {
-                    Command command = ParseDrawShape_WithVariables(line, dict);
-                    commandsList.Add(command);
-                }
-
-                //"var x = 10" or "var x = y"
-                else if (Regex.IsMatch(line.Trim().ToLower(), @"^var.+"))
-                {
-                    CommandVariable command = ParseVariable(line, dict);
-                    // If the variable is already in the dictionary, replace it with the new value
-                    if (dict.ContainsKey(command.VariableName))
-                        dict[command.VariableName] = command.VariableValue;
-                    else
-                        dict.Add(command.VariableName, command.VariableValue);
-                    commandsList.Add(command);
-                }
-
-                // "if x > 5"
-                else if (Regex.IsMatch(line.Trim().ToLower(), @"if [a-zA-Z] (?:>|<|==) \d+"))
-                {
-                    // find the line number where the if statement ends at using "endif" as the end of the if statement
-                    int startIndex = Array.IndexOf(inputSplitByLines, line);
-                    int endIndex = Array.IndexOf(inputSplitByLines, "endif");
-                    bool result = ParseIfStatements(line, dict);
-
-                    Command command = new CommandIfStatements(Action.ifstatement, result, startIndex, endIndex);
-                    commandsList.Add(command);
-                }
-                else
-                {
-                    break;
-                }
-            }
-
-            // Return the list of commands
-            return commandsList;
-        }
-
-        private Command ParseWhile(string s, Dictionary<string, int> dict)
-        {
-            // Example: s = "while 10"
-            string[] inputSplitBySpaces = s.Split(' ');
-
+            // Create a CommandWhile object with the specified loop count
             Command command = new CommandWhile(Action.whileloop, int.Parse(inputSplitBySpaces[1]));
             return command;
         }
