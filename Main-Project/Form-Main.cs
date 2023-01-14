@@ -72,11 +72,10 @@ namespace ASE_Assignment
                             // Loop around through all the Commands inside the while statement until the "CommandEnd" object
                             CommandWhile command = (CommandWhile)commandsList[i];
                             int loopStart = i + 1;
-                            int loopEnd = commandsList.FindIndex(x => x is CommandEndKeyword) - 1;
+                            int loopEnd = commandsList.FindIndex(loopStart, x => x is CommandEndKeyword) - 1; // Searches for an CommandEnd object only after the loopStart (ie within the while loop)
 
                             string[] inputSplitByLines = txtCommandArea.Text.Split(new char[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
                             string loopInput = "";
-                            //loopInput = "var x = x + 10\r\ncircle x";
 
                             // Creating a new input string for the loop, this will include all the lines from beginning of loop declaration till and "endloop" type command
                             for (int loopCounter = loopStart; loopCounter <= loopEnd; loopCounter++)
@@ -84,7 +83,8 @@ namespace ASE_Assignment
                                 loopInput += inputSplitByLines[loopCounter] + "\r\n";
                             }
 
-                            for (int loopIndex = 0; loopIndex < command.LoopCount; loopIndex++)
+                            // Looping through the input string for the specified number of times
+                            for (int loopIndex = 1; loopIndex < command.LoopCount; loopIndex++)
                             {
                                 List<Command> loopCommandsList = _parser.Parse(loopInput, _dictionaryOfVariables);
                                 ExecuteCommand(g, (CommandShapeNum)loopCommandsList[1]);

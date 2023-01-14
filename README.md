@@ -21,20 +21,24 @@ Part of the Advanced Software Engineering course at Leeds Beckett University.
 ## Test Code for Program
 
 ```txt
-rectangle 150 200
-fill 1
-pen 2
-move 200 150
-triangle 125
+var x = 50
+triangle x
+var y = 125
+var x = x + 20
+rectangle x y
 pen 3
-fill 0
-drawto 250 100
-circle 75
-move 100 250
+if x > 25
+var x = x + 25
+square x
+endif
+pen 2
+while 3
+var y = y + x
+circle y
+endwhile
 pen 1
-square 125
-drawto 65 65
-circle 50
+move x y
+triangle y
 ```
 
 ## Naming Conventions

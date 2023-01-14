@@ -1,6 +1,6 @@
 ﻿namespace ASE_Assignment
 {
-    internal class CommandWhile : Command
+    public class CommandWhile : Command
     {
         public int LoopCount { get; set; }
 

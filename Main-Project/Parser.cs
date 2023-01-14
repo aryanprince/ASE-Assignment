@@ -23,6 +23,11 @@ namespace ASE_Assignment
         /// <returns> A list of Command objects representing the commands from the input </returns>
         public List<Command> Parse(string input, Dictionary<string, int> dict)
         {
+            if (string.IsNullOrEmpty(input))
+            {
+                throw new ArgumentNullException(nameof(input), "Input cannot be null");
+            }
+
             // Split input into separate lines
             string[] inputSplitByLines = input.Split(new char[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
 
@@ -111,6 +116,11 @@ namespace ASE_Assignment
 
             // Split the input string into an array of strings, separated by spaces
             string[] inputSplitBySpaces = inputFull.ToLower().Split(' ');
+
+            if (inputSplitBySpaces.Length >= 4)
+            {
+                throw new ArgumentException("ERROR: Too many parameters passed!");
+            }
 
             /* +---------------+
                 * | COMMAND NAME  |

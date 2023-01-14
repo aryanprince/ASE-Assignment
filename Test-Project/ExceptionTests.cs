@@ -1,6 +1,7 @@
 ﻿//using ASE_Assignment;
 //using Microsoft.VisualStudio.TestTools.UnitTesting;
 //using System;
+//using System.Collections.Generic;
 
 //namespace Unit_Tests
 //{
@@ -15,9 +16,10 @@
 //        {
 //            //arrange
 //            string input = "";
+//            Dictionary<string, int> dict = new Dictionary<string, int>();
 
 //            // act
-//            _parser.ParseDrawShape_WithNumbers(input); // Parse the input and get the command
+//            _parser.Parse(input, dict); // Parse the input and get the command
 //        }
 
 //        [TestMethod()]
