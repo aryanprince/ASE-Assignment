@@ -35,7 +35,7 @@ namespace ASE_Assignment
             return commandVariable;
         }
 
-        public CommandShapeNum ParseShapeWithVariables(string input, Dictionary<string, int> dict)
+        public CommandShapeNum ParseDrawShape_WithVariables(string input, Dictionary<string, int> dict)
         {
             // input = "rectangle x y" or "circle x"
             // replace values of x and y with the values in the dictionary
@@ -141,7 +141,7 @@ namespace ASE_Assignment
             return false;
         }
 
-        //public List<ICommand> ParseSingleLine(string line)
+        //public List<ICommand> ParseDrawShape_WithNumbers(string line)
         //{
         //    string[] words = line.Split(' ');
         //    string commandType = words[0];
@@ -155,7 +155,7 @@ namespace ASE_Assignment
         //            return new List<ICommand> { new CommandVariable(Action.var, variableName, int.Parse(variableValue)) };
         //        default:
         //            // parse shape command and return a CommandShape object
-        //            Action actionWord = ParseAction_Command(commandType);
+        //            Action actionWord = ParseAction_CommandName(commandType);
         //            int[] actionValues = ParseAction_CommandParameters(words.Skip(1).ToArray());
         //            return new List<ICommand> { new CommandShape(actionWord, actionValues) };
         //    }
@@ -166,7 +166,7 @@ namespace ASE_Assignment
         //    List<ICommand> commands = new List<ICommand>();
         //    foreach (string line in lines)
         //    {
-        //        commands.AddRange(ParseSingleLine(line));
+        //        commands.AddRange(ParseDrawShape_WithNumbers(line));
         //    }
         //    return commands;
         //}
@@ -177,7 +177,7 @@ namespace ASE_Assignment
         /// <param name="inputFull">String input from the Text Box.</param>
         /// <returns>Command object containing an action and parameters.</returns>
         /// <exception cref="FormatException"></exception>
-        public CommandShapeNum ParseSingleLine(string inputFull)
+        public CommandShapeNum ParseDrawShape_WithNumbers(string inputFull)
         {
             inputFull = inputFull.Trim().ToLower(); // Trim the input and convert it to lowercase
 
@@ -190,7 +190,7 @@ namespace ASE_Assignment
                 */
             // Parses the command string
             string stringCommand = inputSplitBySpaces[0];
-            Action actionWord = ParseAction_Command(stringCommand);
+            Action actionWord = ParseAction_CommandName(stringCommand);
 
             if (actionWord == Action.none)
                 throw new Exception("ERROR: Invalid command!");
@@ -227,7 +227,7 @@ namespace ASE_Assignment
 
 
         /// <summary>
-        /// Parses a large multi-line string into a list of Commands, each parsed by ParseSingleLine() method.
+        /// Parses a large multi-line string into a list of Commands, each parsed by ParseDrawShape_WithNumbers() method.
         /// </summary>
         /// <param name="inputFull">String input from the multi-line Text Box.</param>
         /// <returns>A list of Command objects, each containing an action and parameters.</returns>
@@ -238,16 +238,16 @@ namespace ASE_Assignment
             string[] inputSplitByLines = inputFull.Split(new char[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries); // Windows splits newlines by '\r\n' so here we split by 2 chars and remove any empty string split entries
 
             // Loops around the list of commands, calling the single line parser on every element in the commandsList list
-            inputSplitByLines.ToList().ForEach(input => commandsList.Add(ParseSingleLine(input))); // ForEach command from System.LINQ used here instead of a typical for-each loop
+            inputSplitByLines.ToList().ForEach(input => commandsList.Add(ParseDrawShape_WithNumbers(input))); // ForEach command from System.LINQ used here instead of a typical for-each loop
             return commandsList;
         }
 
         /// <summary>
-        /// Parses the first word from ParseSingleLine() to determine an action.
+        /// Parses the first word from ParseDrawShape_WithNumbers() to determine an action.
         /// </summary>
         /// <param name="input">String value for an Action.</param>
         /// <returns>An Action enum representing a command for the Command class, or Action.none if nothing is found.</returns>
-        public Action ParseAction_Command(string input)
+        public Action ParseAction_CommandName(string input)
         {
             input = input.Split()[0].Trim().ToLower(); // Cleans the input string by removing any extra words (if any) in the input string
 
@@ -282,7 +282,7 @@ namespace ASE_Assignment
         }
 
         /// <summary>
-        /// Parses the string parameters from ParseSingleLine() to convert them to usable int values.
+        /// Parses the string parameters from ParseDrawShape_WithNumbers() to convert them to usable int values.
         /// </summary>
         /// <param name="inputStringArray">String parameters for an Action.</param>
         /// <returns>An integer array of parameters for the Command class.</returns>
@@ -352,14 +352,14 @@ namespace ASE_Assignment
                 // "rectangle 100 150"
                 else if (Regex.IsMatch(s.Trim().ToLower(), @"^([a-zA-Z]+)\s*(\d+)?\s*(\d+)?$"))
                 {
-                    Command command = ParseSingleLine(s);
+                    Command command = ParseDrawShape_WithNumbers(s);
                     commandsList.Add(command);
                 }
 
                 // "rectangle x y"
                 else if (Regex.IsMatch(s.Trim().ToLower(), @"^([a-zA-Z]+)\s*([a-zA-Z]+)? ?([a-zA-Z]+)?$"))
                 {
-                    Command command = ParseShapeWithVariables(s, dict);
+                    Command command = ParseDrawShape_WithVariables(s, dict);
                     commandsList.Add(command);
                 }
 

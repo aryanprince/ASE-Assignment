@@ -19,7 +19,7 @@
 //            string input = "rectangle";
 
 //            // act
-//            Action action = _parser.ParseAction_Command(input); // Parse the input and get the action
+//            Action action = _parser.ParseAction_CommandName(input); // Parse the input and get the action
 
 //            // assert
 //            Assert.IsNotNull(action);
@@ -35,7 +35,7 @@
 //            string input = "rectangle 100 150";
 
 //            // act
-//            Action action = _parser.ParseAction_Command(input); // Parse the input and get the action
+//            Action action = _parser.ParseAction_CommandName(input); // Parse the input and get the action
 
 //            // assert
 //            Assert.IsNotNull(action);
@@ -50,7 +50,7 @@
 //            string input = "RECTANGLE 100 150";
 
 //            // act
-//            Action action = _parser.ParseAction_Command(input); // Parse the input and get the action
+//            Action action = _parser.ParseAction_CommandName(input); // Parse the input and get the action
 
 //            // assert
 //            Assert.IsNotNull(action);
@@ -65,7 +65,7 @@
 //            string input = "rectangle 100 150";
 
 //            // act
-//            CommandShape commandShape = _parser.ParseSingleLine(input); // Parse the input and get the command
+//            CommandShape commandShape = _parser.ParseDrawShape_WithNumbers(input); // Parse the input and get the command
 
 //            // assert
 //            Assert.IsNotNull(commandShape);
@@ -84,7 +84,7 @@
 //            string input = "rEcTaNgLe 100 150";
 
 //            // act
-//            CommandShape commandShape = _parser.ParseSingleLine(input); // Parse the input and get the command
+//            CommandShape commandShape = _parser.ParseDrawShape_WithNumbers(input); // Parse the input and get the command
 
 //            // assert
 //            Assert.IsNotNull(commandShape);
@@ -104,7 +104,7 @@
 
 //            // act
 //            // Creating an instance of all the classes that are needed to create a rectangle
-//            CommandShape commandShape = _parser.ParseSingleLine(input);
+//            CommandShape commandShape = _parser.ParseDrawShape_WithNumbers(input);
 //            ShapeFactory shapeFactory = new ShapeFactory();
 //            Cursor cursor = new Cursor();
 //            Shape shape = shapeFactory.CreateShape(commandShape, cursor.Position, cursor.Fill, cursor.PenColor); // Creates the shape
@@ -131,7 +131,7 @@
 
 //            // act
 //            // Creating an instance of all the classes that are needed to create a rectangle
-//            CommandShape commandShape = _parser.ParseSingleLine(input);
+//            CommandShape commandShape = _parser.ParseDrawShape_WithNumbers(input);
 //            ShapeFactory shapeFactory = new ShapeFactory();
 //            Cursor cursor = new Cursor();
 //            Shape shape = shapeFactory.CreateShape(commandShape, cursor.Position, cursor.Fill, cursor.PenColor); // Creates the shape
@@ -163,7 +163,7 @@
 //            string input = "circle 100 150";
 
 //            // act
-//            Action action = _parser.ParseAction_Command(input); // Parse the input and get the action
+//            Action action = _parser.ParseAction_CommandName(input); // Parse the input and get the action
 
 //            // assert
 //            Assert.IsNotNull(action);
@@ -178,7 +178,7 @@
 //            string input = "circle";
 
 //            // act
-//            Action action = _parser.ParseAction_Command(input); // Parse the input and get the action
+//            Action action = _parser.ParseAction_CommandName(input); // Parse the input and get the action
 
 //            // assert
 //            Assert.IsNotNull(action);
@@ -193,7 +193,7 @@
 //            string input = "CiRcLe";
 
 //            // act
-//            Action action = _parser.ParseAction_Command(input); // Parse the input and get the action
+//            Action action = _parser.ParseAction_CommandName(input); // Parse the input and get the action
 
 //            // assert
 //            Assert.IsNotNull(action);
@@ -208,7 +208,7 @@
 //            string input = "circle 100 150";
 
 //            // act
-//            CommandShape commandShape = _parser.ParseSingleLine(input); // Parse the input and get the command
+//            CommandShape commandShape = _parser.ParseDrawShape_WithNumbers(input); // Parse the input and get the command
 
 //            // assert
 //            Assert.IsNotNull(commandShape);
@@ -225,7 +225,7 @@
 //            string input = "cIrClE 100 150";
 
 //            // act
-//            CommandShape commandShape = _parser.ParseSingleLine(input); // Parse the input and get the command
+//            CommandShape commandShape = _parser.ParseDrawShape_WithNumbers(input); // Parse the input and get the command
 
 //            // assert
 //            Assert.IsNotNull(commandShape);
@@ -243,7 +243,7 @@
 
 //            // act
 //            // Creating an instance of all the classes that are needed to create a circle
-//            CommandShape commandShape = _parser.ParseSingleLine(input);
+//            CommandShape commandShape = _parser.ParseDrawShape_WithNumbers(input);
 //            ShapeFactory shapeFactory = new ShapeFactory();
 //            Cursor cursor = new Cursor();
 //            Shape shape = shapeFactory.CreateShape(commandShape, cursor.Position, cursor.Fill, cursor.PenColor); // Creates a circle using the factory
@@ -270,7 +270,7 @@
 
 //            // act
 //            // Creating an instance of all the classes that are needed to create a circle
-//            CommandShape commandShape = _parser.ParseSingleLine(input);
+//            CommandShape commandShape = _parser.ParseDrawShape_WithNumbers(input);
 //            ShapeFactory shapeFactory = new ShapeFactory();
 //            Cursor cursor = new Cursor();
 //            Shape shape = shapeFactory.CreateShape(commandShape, cursor.Position, cursor.Fill, cursor.PenColor); // Creates a circle using the factory
@@ -302,7 +302,7 @@
 //            string input = "square 125";
 
 //            // act
-//            Action action = _parser.ParseAction_Command(input); // Parse the input and get the action
+//            Action action = _parser.ParseAction_CommandName(input); // Parse the input and get the action
 
 //            // assert
 //            Assert.IsNotNull(action);
@@ -318,7 +318,7 @@
 //            string input = "square";
 
 //            // act
-//            Action action = _parser.ParseAction_Command(input); // Parse the input and get the action
+//            Action action = _parser.ParseAction_CommandName(input); // Parse the input and get the action
 
 //            // assert
 //            Assert.IsNotNull(action);
@@ -334,7 +334,7 @@
 //            string input = "sQuArE";
 
 //            // act
-//            Action action = _parser.ParseAction_Command(input); // Parse the input and get the action
+//            Action action = _parser.ParseAction_CommandName(input); // Parse the input and get the action
 
 //            // assert
 //            Assert.IsNotNull(action);
@@ -350,7 +350,7 @@
 //            string input = "square 125";
 
 //            // act
-//            CommandShape commandShape = _parser.ParseSingleLine(input); // Parse the input and get the command
+//            CommandShape commandShape = _parser.ParseDrawShape_WithNumbers(input); // Parse the input and get the command
 
 //            // assert
 //            Assert.IsNotNull(commandShape);
@@ -368,7 +368,7 @@
 //            string input = "sQuArE 125";
 
 //            // act
-//            CommandShape commandShape = _parser.ParseSingleLine(input); // Parse the input and get the command
+//            CommandShape commandShape = _parser.ParseDrawShape_WithNumbers(input); // Parse the input and get the command
 
 //            // assert
 //            Assert.IsNotNull(commandShape);
@@ -387,7 +387,7 @@
 
 //            // act
 //            // Creating an instance of all the classes that are needed to create a square
-//            CommandShape commandShape = _parser.ParseSingleLine(input);
+//            CommandShape commandShape = _parser.ParseDrawShape_WithNumbers(input);
 //            ShapeFactory shapeFactory = new ShapeFactory();
 //            Cursor cursor = new Cursor();
 //            Shape shape = shapeFactory.CreateShape(commandShape, cursor.Position, cursor.Fill, cursor.PenColor); // Creates a square using the factory
@@ -415,7 +415,7 @@
 
 //            // act
 //            // Creating an instance of all the classes that are needed to create a square
-//            CommandShape commandShape = _parser.ParseSingleLine(input);
+//            CommandShape commandShape = _parser.ParseDrawShape_WithNumbers(input);
 //            ShapeFactory shapeFactory = new ShapeFactory();
 //            Cursor cursor = new Cursor();
 //            Shape shape = shapeFactory.CreateShape(commandShape, cursor.Position, cursor.Fill, cursor.PenColor); // Creates a square using the factory
@@ -448,7 +448,7 @@
 //            string input = "triangle 225";
 
 //            // act
-//            Action action = _parser.ParseAction_Command(input); // Parse the input and get the action
+//            Action action = _parser.ParseAction_CommandName(input); // Parse the input and get the action
 
 //            // assert
 //            Assert.IsNotNull(action);
@@ -465,7 +465,7 @@
 //            string input = "triangle";
 
 //            // act
-//            Action action = _parser.ParseAction_Command(input); // Parse the input and get the action
+//            Action action = _parser.ParseAction_CommandName(input); // Parse the input and get the action
 
 //            // assert
 //            Assert.IsNotNull(action);
@@ -482,7 +482,7 @@
 //            string input = "tRiAnGlE";
 
 //            // act
-//            Action action = _parser.ParseAction_Command(input); // Parse the input and get the action
+//            Action action = _parser.ParseAction_CommandName(input); // Parse the input and get the action
 
 //            // assert
 //            Assert.IsNotNull(action);
@@ -499,7 +499,7 @@
 //            string input = "triangle 225";
 
 //            // act
-//            CommandShape commandShape = _parser.ParseSingleLine(input); // Parse the input and get the command
+//            CommandShape commandShape = _parser.ParseDrawShape_WithNumbers(input); // Parse the input and get the command
 
 //            // assert
 //            Assert.IsNotNull(commandShape);
@@ -517,7 +517,7 @@
 //            string input = "tRiAnGlE 225";
 
 //            // act
-//            CommandShape commandShape = _parser.ParseSingleLine(input); // Parse the input and get the command
+//            CommandShape commandShape = _parser.ParseDrawShape_WithNumbers(input); // Parse the input and get the command
 
 //            // assert
 //            Assert.IsNotNull(commandShape);
@@ -536,7 +536,7 @@
 
 //            // act
 //            // Creating an instance of all the classes that are needed to create a triangle
-//            CommandShape commandShape = _parser.ParseSingleLine(input);
+//            CommandShape commandShape = _parser.ParseDrawShape_WithNumbers(input);
 //            ShapeFactory shapeFactory = new ShapeFactory();
 //            Cursor cursor = new Cursor();
 //            Shape shape = shapeFactory.CreateShape(commandShape, cursor.Position, cursor.Fill, cursor.PenColor); // Creates a triangle using the factory
@@ -565,7 +565,7 @@
 
 //            // act
 //            // Creating an instance of all the classes that are needed to create a triangle
-//            CommandShape commandShape = _parser.ParseSingleLine(input);
+//            CommandShape commandShape = _parser.ParseDrawShape_WithNumbers(input);
 //            ShapeFactory shapeFactory = new ShapeFactory();
 //            Cursor cursor = new Cursor();
 //            Shape shape = shapeFactory.CreateShape(commandShape, cursor.Position, cursor.Fill, cursor.PenColor); // Creates a triangle using the factory
@@ -599,7 +599,7 @@
 //            string input = "drawto 125 210";
 
 //            // act
-//            Action action = _parser.ParseAction_Command(input); // Parse the input and get the action
+//            Action action = _parser.ParseAction_CommandName(input); // Parse the input and get the action
 
 //            // assert
 //            Assert.IsNotNull(action);
@@ -617,7 +617,7 @@
 //            string input = "drawto";
 
 //            // act
-//            Action action = _parser.ParseAction_Command(input); // Parse the input and get the action
+//            Action action = _parser.ParseAction_CommandName(input); // Parse the input and get the action
 
 //            // assert
 //            Assert.IsNotNull(action);
@@ -635,7 +635,7 @@
 //            string input = "dRaWtO 125 210";
 
 //            // act
-//            Action action = _parser.ParseAction_Command(input); // Parse the input and get the action
+//            Action action = _parser.ParseAction_CommandName(input); // Parse the input and get the action
 
 //            // assert
 //            Assert.IsNotNull(action);
@@ -653,7 +653,7 @@
 //            string input = "drawto 125 210";
 
 //            // act
-//            CommandShape commandShape = _parser.ParseSingleLine(input); // Parse the input and get the command
+//            CommandShape commandShape = _parser.ParseDrawShape_WithNumbers(input); // Parse the input and get the command
 
 //            // assert
 //            Assert.IsNotNull(commandShape);
@@ -674,7 +674,7 @@
 //            string input = "dRaWtO 125 210";
 
 //            // act
-//            CommandShape commandShape = _parser.ParseSingleLine(input); // Parse the input and get the command
+//            CommandShape commandShape = _parser.ParseDrawShape_WithNumbers(input); // Parse the input and get the command
 
 //            // assert
 //            Assert.IsNotNull(commandShape);
@@ -696,7 +696,7 @@
 
 //            // act
 //            // Creating an instance of all the classes that are needed to create a line
-//            CommandShape commandShape = _parser.ParseSingleLine(input);
+//            CommandShape commandShape = _parser.ParseDrawShape_WithNumbers(input);
 //            ShapeFactory shapeFactory = new ShapeFactory();
 //            Cursor cursor = new Cursor();
 //            Shape shape = shapeFactory.CreateShape(commandShape, cursor.Position, cursor.Fill, cursor.PenColor); // Creates a line using the factory
@@ -726,7 +726,7 @@
 
 //            // act
 //            // Creating an instance of all the classes that are needed to create a line
-//            CommandShape commandShape = _parser.ParseSingleLine(input);
+//            CommandShape commandShape = _parser.ParseDrawShape_WithNumbers(input);
 //            ShapeFactory shapeFactory = new ShapeFactory();
 //            Cursor cursor = new Cursor();
 //            Shape shape = shapeFactory.CreateShape(commandShape, cursor.Position, cursor.Fill, cursor.PenColor); // Creates a line using the factory

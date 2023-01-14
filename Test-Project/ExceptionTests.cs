@@ -17,7 +17,7 @@
 //            string input = "";
 
 //            // act
-//            _parser.ParseSingleLine(input); // Parse the input and get the command
+//            _parser.ParseDrawShape_WithNumbers(input); // Parse the input and get the command
 //        }
 
 //        [TestMethod()]
@@ -28,7 +28,7 @@
 //            string input = "invalid";
 
 //            // act
-//            _parser.ParseSingleLine(input); // Parse the input and get the command
+//            _parser.ParseDrawShape_WithNumbers(input); // Parse the input and get the command
 //        }
 
 //        [TestMethod()]
@@ -39,7 +39,7 @@
 //            string input = "invalid 125 210";
 
 //            // act
-//            _parser.ParseSingleLine(input); // Parse the input and get the command
+//            _parser.ParseDrawShape_WithNumbers(input); // Parse the input and get the command
 //        }
 
 //        [TestMethod()]
@@ -50,7 +50,7 @@
 //            string input = "circle 12x";
 
 //            // act
-//            _parser.ParseSingleLine(input); // Parse the input and get the command
+//            _parser.ParseDrawShape_WithNumbers(input); // Parse the input and get the command
 //        }
 
 //        [TestMethod()]
@@ -61,7 +61,7 @@
 //            string input = "circle 125 210 125";
 
 //            // act
-//            _parser.ParseSingleLine(input); // Parse the input and get the command
+//            _parser.ParseDrawShape_WithNumbers(input); // Parse the input and get the command
 //        }
 
 //        [TestMethod()]
@@ -72,7 +72,7 @@
 //            string input = "circle";
 
 //            // act
-//            _parser.ParseSingleLine(input); // Parse the input and get the command
+//            _parser.ParseDrawShape_WithNumbers(input); // Parse the input and get the command
 //        }
 
 //        [TestMethod()]
@@ -83,7 +83,7 @@
 //            string input = "circle -125";
 
 //            // act
-//            _parser.ParseSingleLine(input); // Parse the input and get the command
+//            _parser.ParseDrawShape_WithNumbers(input); // Parse the input and get the command
 //        }
 
 //        [TestMethod()]
@@ -94,7 +94,7 @@
 //            string input = "rectangle 1000 2000";
 
 //            // act
-//            _parser.ParseSingleLine(input); // Parse the input and get the command
+//            _parser.ParseDrawShape_WithNumbers(input); // Parse the input and get the command
 //        }
 //    }
 //}

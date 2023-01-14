@@ -82,42 +82,44 @@ namespace ASE_Assignment
 
             try
             {
-                List<Command> commandsList = _parser.Parse(txtCommandArea.Text, _dictionaryOfVariables);
+                _cursor.Draw(g); // Draws a new cursor before every command in case it gets covered by another shape
 
-                for (int i = 0; i < commandsList.Count; i++)
+                if (txtCommandArea.Text != string.Empty)
                 {
-                    if (commandsList[i] is CommandIfStatements)
-                    {
-                        CommandIfStatements command = (CommandIfStatements)commandsList[i];
-                        if (command.IfState)
-                        {
-                            continue;
-                        }
-                    }
 
-                    if (commandsList[i] is CommandShapeNum)
+                    List<Command> commandsList = _parser.Parse(txtCommandArea.Text, _dictionaryOfVariables);
+
+                    for (int i = 0; i < commandsList.Count; i++)
                     {
-                        ExecuteCommand(g, (CommandShapeNum)commandsList[i]);
+                        if (commandsList[i] is CommandIfStatements)
+                        {
+                            CommandIfStatements command = (CommandIfStatements)commandsList[i];
+                            if (command.IfState)
+                            {
+                                continue;
+                            }
+                        }
+
+                        if (commandsList[i] is CommandShapeNum)
+                        {
+                            ExecuteCommand(g, (CommandShapeNum)commandsList[i]);
+                        }
                     }
                 }
 
-                //_cursor.Draw(g); // Draws a new cursor before every command in case it gets covered by another shape
+                // "rectangle 100 150", "circle 50", "reset", or "run" (Basically any command)
+                else if (Regex.IsMatch(txtCommandLine.Text.Trim().ToLower(), _regexDrawShapes))
+                {
+                    CommandShapeNum commandShapeNum = _parser.ParseDrawShape_WithNumbers(txtCommandLine.Text);
+                    ExecuteCommand(g, commandShapeNum);
 
-                //string[] inputSplitByLines = txtCommandArea.Text.Split(new char[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
+                    // update the line counter
+                    _lineCounter++;
+                }
 
-                //// "rectangle 100 150", "circle 50", "reset", or "run" (Basically any command)
-                //if (Regex.IsMatch(txtCommandLine.Text.Trim().ToLower(), _regexDrawShapes))
-                //{
-                //    CommandShapeNum commandShapeNum = _parser.ParseSingleLine(txtCommandLine.Text);
-                //    ExecuteCommand(g, commandShapeNum);
-
-                //    // Resets all the labels if execute command works
-                //    lblError.Text = "";
-                //    txtCommandLine.Text = "";
-
-                //    // update the line counter
-                //    _lineCounter++;
-                //}
+                // Resets all the labels if execute command works
+                lblError.Text = "";
+                txtCommandLine.Text = "";
             }
             catch (IndexOutOfRangeException exception)
             {
@@ -166,7 +168,7 @@ namespace ASE_Assignment
                         // "rectangle 100 150"
                         if (Regex.IsMatch(txtCommandLine.Text.Trim().ToLower(), _regexDrawShapes))
                         {
-                            CommandShapeNum commandShapeNum = _parser.ParseSingleLine(txtCommandLine.Text);
+                            CommandShapeNum commandShapeNum = _parser.ParseDrawShape_WithNumbers(txtCommandLine.Text);
                             ExecuteCommand(g, commandShapeNum);
 
                             // Resets all the labels if execute command works
@@ -204,7 +206,7 @@ namespace ASE_Assignment
                             // "rectangle x y"
                             else if (Regex.IsMatch(line.Trim().ToLower(), _regexDrawWithVariables))
                             {
-                                CommandShapeNum commandShapeNum = _parser.ParseShapeWithVariables(line, _dictionaryOfVariables);
+                                CommandShapeNum commandShapeNum = _parser.ParseDrawShape_WithVariables(line, _dictionaryOfVariables);
                                 ExecuteCommand(g, commandShapeNum);
 
                                 //update the line counter
@@ -223,7 +225,7 @@ namespace ASE_Assignment
                                 {
                                     for (int j = indexOfStartIf + 1; j < indexOfEndIf; j++)
                                     {
-                                        CommandShapeNum commandShapeNum = _parser.ParseSingleLine(inputSplitByLines[j]);
+                                        CommandShapeNum commandShapeNum = _parser.ParseDrawShape_WithNumbers(inputSplitByLines[j]);
                                         ExecuteCommand(g, commandShapeNum);
 
                                         // update the line counter
