@@ -49,6 +49,7 @@
             this.gbMultiLineCommands = new System.Windows.Forms.GroupBox();
             this.gbDrawingCanvas = new System.Windows.Forms.GroupBox();
             this.gbSingleLineCommands = new System.Windows.Forms.GroupBox();
+            this.mniDocs = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.picDrawingCanvas)).BeginInit();
             this.mnuMenuStrip.SuspendLayout();
             this.gbMultiLineCommands.SuspendLayout();
@@ -142,7 +143,7 @@
             this.mniSave.ForeColor = System.Drawing.Color.White;
             this.mniSave.Name = "mniSave";
             this.mniSave.ShortcutKeyDisplayString = "";
-            this.mniSave.Size = new System.Drawing.Size(125, 26);
+            this.mniSave.Size = new System.Drawing.Size(224, 26);
             this.mniSave.Text = "Save";
             this.mniSave.Click += new System.EventHandler(this.SaveMenuItem_Click);
             // 
@@ -151,12 +152,14 @@
             this.mniLoad.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
             this.mniLoad.ForeColor = System.Drawing.Color.White;
             this.mniLoad.Name = "mniLoad";
-            this.mniLoad.Size = new System.Drawing.Size(125, 26);
+            this.mniLoad.Size = new System.Drawing.Size(224, 26);
             this.mniLoad.Text = "Load";
             this.mniLoad.Click += new System.EventHandler(this.LoadMenuItem_Click);
             // 
             // mniHelp
             // 
+            this.mniHelp.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mniDocs});
             this.mniHelp.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mniHelp.ForeColor = System.Drawing.Color.White;
             this.mniHelp.Name = "mniHelp";
@@ -285,7 +288,16 @@
             this.gbSingleLineCommands.TabStop = false;
             this.gbSingleLineCommands.Text = "Single-line Commands";
             // 
-            // frmMainForm
+            // mniDocs
+            // 
+            this.mniDocs.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
+            this.mniDocs.ForeColor = System.Drawing.Color.White;
+            this.mniDocs.Name = "mniDocs";
+            this.mniDocs.Size = new System.Drawing.Size(224, 26);
+            this.mniDocs.Text = "View XML docs";
+            this.mniDocs.Click += new System.EventHandler(this.mniDocs_Click);
+            // 
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -344,6 +356,7 @@
         private System.Windows.Forms.GroupBox gbDrawingCanvas;
         private System.Windows.Forms.GroupBox gbSingleLineCommands;
         private System.Windows.Forms.ToolStripMenuItem mniAryanGitHub;
+        private System.Windows.Forms.ToolStripMenuItem mniDocs;
     }
 }
 

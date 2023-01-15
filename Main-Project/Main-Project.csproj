@@ -79,7 +79,6 @@
     <Compile Include="CommandEndKeyword.cs" />
     <Compile Include="CommandIfStatements.cs" />
     <Compile Include="CommandShapeNum.cs" />
-    <Compile Include="CommandShapeVar.cs" />
     <Compile Include="CommandVariable.cs" />
     <Compile Include="CommandWhile.cs" />
     <Compile Include="IShape.cs" />

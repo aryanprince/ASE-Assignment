@@ -3,10 +3,9 @@
 namespace ASE_Assignment
 {
     /// <summary>
-    /// Used to create Square objects and drawing rectangles on a WinForms control.
-    /// Implements the <see cref="ASE_Assignment.Rectangle" /> class, which inherits the <see cref="ASE_Assignment.Shape" /> parents class.
+    /// A class that implements the <see cref="Rectangle" /> class, which inherits the <see cref="Shape" /> parent class, and is used to create <see cref="Square" /> objects and draw them on a WinForms control.
     /// </summary>
-    /// <seealso cref="ASE_Assignment.Rectangle" />
+    /// <seealso cref="Rectangle" />
     public class Square : Rectangle
     {
         private readonly int _defaultSideLength = 100;

@@ -4,7 +4,7 @@ using System.Drawing;
 namespace ASE_Assignment
 {
     /// <summary>
-    /// Uses the Factory pattern to create shapes. 
+    /// A class that utilizes the Factory pattern to create shape objects.
     /// </summary>
     public class ShapeFactory
     {

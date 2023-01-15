@@ -7,6 +7,10 @@ using System.Windows.Forms;
 
 namespace ASE_Assignment
 {
+    /// <summary>
+    /// The form that is used to display the program's interface to the user.
+    /// </summary>
+    /// <seealso cref="Form" />
     public partial class MainForm : Form
     {
         // Instances of the classes that are used throughout the program, uses the Singleton design pattern
@@ -295,6 +299,16 @@ namespace ASE_Assignment
         private void AryanMenuItem_Click(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start("http://github.com/aryanprince");
+        }
+
+        /// <summary>
+        /// Links to the XML documentation for the program, produced using GhostDoc Pro.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        private void mniDocs_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("file:///C:/Users/aryan/Downloads/GhostDoc/html/N-ASE_Assignment.htm");
         }
     }
 }

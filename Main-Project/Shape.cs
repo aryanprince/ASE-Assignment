@@ -3,10 +3,9 @@
 namespace ASE_Assignment
 {
     /// <summary>
-    /// Parent class for all shapes to inherit from.
-    /// Implements the <see cref="ASE_Assignment.IShape" /> interface.
+    /// A parent class that serves as the foundation for all shapes and implements the <see cref="IShape" /> interface.
     /// </summary>
-    /// <seealso cref="ASE_Assignment.IShape" />
+    /// <seealso cref="IShape" />
     public abstract class Shape : IShape
     {
         // Sets up default values for the blank constructor when the user doesn't pass any values. Currently unused in this program.

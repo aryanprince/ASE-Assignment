@@ -7,7 +7,7 @@ using System.Text.RegularExpressions;
 namespace ASE_Assignment
 {
     /// <summary>
-    /// Contains the definitions for all the various parser methods used by the program.
+    /// A class that contains the definitions for various parser methods used in the program.
     /// </summary>
     public class Parser
     {
@@ -53,7 +53,7 @@ namespace ASE_Assignment
                 // END COMMANDS (example: "endif" or "endwhile")
                 else if (Regex.IsMatch(line.Trim().ToLower(), RegexEndStatements))
                 {
-                    Command command = new CommandEndKeyword(Action.endif);
+                    Command command = new CommandEndKeyword(Action.end);
                     commandsList.Add(command);
                 }
 

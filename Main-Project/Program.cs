@@ -3,6 +3,9 @@ using System.Windows.Forms;
 
 namespace ASE_Assignment
 {
+    /// <summary>
+    /// The main class that runs the program.
+    /// </summary>
     internal static class Program
     {
         /// <summary>

@@ -3,7 +3,7 @@
 namespace ASE_Assignment
 {
     /// <summary>
-    /// An interface for all shapes to implement. This is used to draw shapes.
+    /// An interface that defines a contract for all shapes to implement. This interface is used to provide a common method for drawing shapes.
     /// </summary>
     public interface IShape
     {

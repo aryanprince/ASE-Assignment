@@ -129,7 +129,7 @@ namespace Unit_Tests
             Assert.AreEqual(Action.var, commands[0].ActionWord);
             Assert.AreEqual(Action.ifstatement, commands[1].ActionWord);
             Assert.AreEqual(Action.triangle, commands[2].ActionWord);
-            Assert.AreEqual(Action.endif, commands[3].ActionWord);
+            Assert.AreEqual(Action.end, commands[3].ActionWord);
             // Checking types of commands
             Assert.IsInstanceOfType(commands[0], typeof(CommandVariable));
             Assert.IsInstanceOfType(commands[1], typeof(CommandIfStatements));
@@ -155,7 +155,7 @@ namespace Unit_Tests
             Assert.AreEqual(Action.var, commands[0].ActionWord);
             Assert.AreEqual(Action.ifstatement, commands[1].ActionWord);
             Assert.AreEqual(Action.square, commands[2].ActionWord);
-            Assert.AreEqual(Action.endif, commands[3].ActionWord);
+            Assert.AreEqual(Action.end, commands[3].ActionWord);
             // Checking types of commands
             Assert.IsInstanceOfType(commands[0], typeof(CommandVariable));
             Assert.IsInstanceOfType(commands[1], typeof(CommandIfStatements));
@@ -188,7 +188,7 @@ namespace Unit_Tests
             Assert.AreEqual(Action.whileloop, commands[1].ActionWord);
             Assert.AreEqual(Action.var, commands[2].ActionWord);
             Assert.AreEqual(Action.triangle, commands[3].ActionWord);
-            Assert.AreEqual(Action.endif, commands[4].ActionWord);
+            Assert.AreEqual(Action.end, commands[4].ActionWord);
             // Checking types of commands
             Assert.IsInstanceOfType(commands[0], typeof(CommandVariable));
             Assert.IsInstanceOfType(commands[1], typeof(CommandWhile));

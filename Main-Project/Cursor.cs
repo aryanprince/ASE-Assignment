@@ -3,10 +3,9 @@
 namespace ASE_Assignment
 {
     /// <summary>
-    /// Cursor to manage the current cursor state for drawing shapes.
-    /// Implements the <see cref="ASE_Assignment.Shape" /> parent class.
+    /// A class that implements the <see cref="Shape" /> parent class and manages the current cursor state for drawing shapes.
     /// </summary>
-    /// <seealso cref="ASE_Assignment.Shape" />
+    /// <seealso cref="Shape" />
     public class Cursor : Shape
     {
         /// <summary>
