@@ -28,13 +28,13 @@ var x = x + 20
 rectangle x y
 pen 3
 if x > 25
-var x = x + 25
-square x
+  var x = x + 25
+  square x
 endif
 pen 2
 while 3
-var y = y + x
-circle y
+  var y = y + x
+  circle y
 endwhile
 pen 1
 move x y
@@ -45,25 +45,13 @@ triangle y
 
 Hungarian Notation is used for WinForms controls, and PascalCase is used for almost everything else.
 
-## How to run
+## How to Run
 
 1. Clone the repo
 2. Open the solution in Visual Studio
 3. Build the solution
 4. Run the program
 5. Enjoy!
-
-## How to contribute
-
-1. Fork the repo
-2. Make your changes
-3. Open a pull request
-4. Wait for it to be merged
-5. Thank you!
-
-## License
-
-[MIT](https://choosealicense.com/licenses/mit/) (soon)
 
 ## Other CI workflows
 
