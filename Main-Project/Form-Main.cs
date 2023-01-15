@@ -91,7 +91,14 @@ namespace ASE_Assignment
                             for (int loopIndex = 1; loopIndex < command.LoopCount; loopIndex++)
                             {
                                 List<Command> loopCommandsList = _parser.Parse(loopInput, _dictionaryOfVariables);
-                                ExecuteCommand(g, (CommandShapeNum)loopCommandsList[1]);
+                                for (int j = 0; j < loopCommandsList.Count; j++)
+                                {
+                                    if (!(loopCommandsList[j] is CommandShapeNum))
+                                    {
+                                        continue;
+                                    }
+                                    ExecuteCommand(g, (CommandShapeNum)loopCommandsList[j]);
+                                }
                             }
                         }
 

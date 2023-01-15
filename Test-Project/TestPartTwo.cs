@@ -79,6 +79,8 @@ namespace Unit_Tests
             Assert.IsInstanceOfType(commands[1], typeof(CommandShapeNum));
             // Checking values in the dictionary
             Assert.AreEqual(50, dictionary["radius"]);
+            // Checking if the variable is overwritten
+            Assert.AreEqual(2, dictionary.Count);
         }
 
         [TestMethod()]
@@ -107,6 +109,8 @@ namespace Unit_Tests
             // Checking values in the dictionary
             Assert.AreEqual(70, dictionary["x"]);
             Assert.AreEqual(125, dictionary["y"]);
+            // Checking if the variable is overwritten
+            Assert.AreEqual(2, dictionary.Count);
         }
     }
 
