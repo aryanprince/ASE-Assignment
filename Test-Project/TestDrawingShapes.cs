@@ -105,7 +105,7 @@ namespace Unit_Tests
             // act
             // Creating an instance of all the classes that are needed to create a rectangle
             CommandShapeNum commandShape = _parser.ParseDrawShape_WithNumbers(input);
-            ShapeFactory shapeFactory = new ShapeFactory();
+            ShapeFactory shapeFactory = ShapeFactory.Instance;
             Cursor cursor = new Cursor();
             Shape shape = shapeFactory.CreateShape(commandShape, cursor.Position, cursor.Fill, cursor.PenColor); // Creates the shape
 
@@ -132,7 +132,7 @@ namespace Unit_Tests
             // act
             // Creating an instance of all the classes that are needed to create a rectangle
             CommandShapeNum commandShape = _parser.ParseDrawShape_WithNumbers(input);
-            ShapeFactory shapeFactory = new ShapeFactory();
+            ShapeFactory shapeFactory = ShapeFactory.Instance;
             Cursor cursor = new Cursor();
             Shape shape = shapeFactory.CreateShape(commandShape, cursor.Position, cursor.Fill, cursor.PenColor); // Creates the shape
 
@@ -244,7 +244,7 @@ namespace Unit_Tests
             // act
             // Creating an instance of all the classes that are needed to create a circle
             CommandShapeNum commandShape = _parser.ParseDrawShape_WithNumbers(input);
-            ShapeFactory shapeFactory = new ShapeFactory();
+            ShapeFactory shapeFactory = ShapeFactory.Instance;
             Cursor cursor = new Cursor();
             Shape shape = shapeFactory.CreateShape(commandShape, cursor.Position, cursor.Fill, cursor.PenColor); // Creates a circle using the factory
 
@@ -271,7 +271,7 @@ namespace Unit_Tests
             // act
             // Creating an instance of all the classes that are needed to create a circle
             CommandShapeNum commandShape = _parser.ParseDrawShape_WithNumbers(input);
-            ShapeFactory shapeFactory = new ShapeFactory();
+            ShapeFactory shapeFactory = ShapeFactory.Instance;
             Cursor cursor = new Cursor();
             Shape shape = shapeFactory.CreateShape(commandShape, cursor.Position, cursor.Fill, cursor.PenColor); // Creates a circle using the factory
 
@@ -388,7 +388,7 @@ namespace Unit_Tests
             // act
             // Creating an instance of all the classes that are needed to create a square
             CommandShapeNum commandShape = _parser.ParseDrawShape_WithNumbers(input);
-            ShapeFactory shapeFactory = new ShapeFactory();
+            ShapeFactory shapeFactory = ShapeFactory.Instance;
             Cursor cursor = new Cursor();
             Shape shape = shapeFactory.CreateShape(commandShape, cursor.Position, cursor.Fill, cursor.PenColor); // Creates a square using the factory
 
@@ -416,7 +416,7 @@ namespace Unit_Tests
             // act
             // Creating an instance of all the classes that are needed to create a square
             CommandShapeNum commandShape = _parser.ParseDrawShape_WithNumbers(input);
-            ShapeFactory shapeFactory = new ShapeFactory();
+            ShapeFactory shapeFactory = ShapeFactory.Instance;
             Cursor cursor = new Cursor();
             Shape shape = shapeFactory.CreateShape(commandShape, cursor.Position, cursor.Fill, cursor.PenColor); // Creates a square using the factory
 
@@ -537,7 +537,7 @@ namespace Unit_Tests
             // act
             // Creating an instance of all the classes that are needed to create a triangle
             CommandShapeNum commandShape = _parser.ParseDrawShape_WithNumbers(input);
-            ShapeFactory shapeFactory = new ShapeFactory();
+            ShapeFactory shapeFactory = ShapeFactory.Instance;
             Cursor cursor = new Cursor();
             Shape shape = shapeFactory.CreateShape(commandShape, cursor.Position, cursor.Fill, cursor.PenColor); // Creates a triangle using the factory
 
@@ -566,7 +566,7 @@ namespace Unit_Tests
             // act
             // Creating an instance of all the classes that are needed to create a triangle
             CommandShapeNum commandShape = _parser.ParseDrawShape_WithNumbers(input);
-            ShapeFactory shapeFactory = new ShapeFactory();
+            ShapeFactory shapeFactory = ShapeFactory.Instance;
             Cursor cursor = new Cursor();
             Shape shape = shapeFactory.CreateShape(commandShape, cursor.Position, cursor.Fill, cursor.PenColor); // Creates a triangle using the factory
 
@@ -697,7 +697,7 @@ namespace Unit_Tests
             // act
             // Creating an instance of all the classes that are needed to create a line
             CommandShapeNum commandShape = _parser.ParseDrawShape_WithNumbers(input);
-            ShapeFactory shapeFactory = new ShapeFactory();
+            ShapeFactory shapeFactory = ShapeFactory.Instance;
             Cursor cursor = new Cursor();
             Shape shape = shapeFactory.CreateShape(commandShape, cursor.Position, cursor.Fill, cursor.PenColor); // Creates a line using the factory
 
@@ -727,7 +727,7 @@ namespace Unit_Tests
             // act
             // Creating an instance of all the classes that are needed to create a line
             CommandShapeNum commandShape = _parser.ParseDrawShape_WithNumbers(input);
-            ShapeFactory shapeFactory = new ShapeFactory();
+            ShapeFactory shapeFactory = ShapeFactory.Instance;
             Cursor cursor = new Cursor();
             Shape shape = shapeFactory.CreateShape(commandShape, cursor.Position, cursor.Fill, cursor.PenColor); // Creates a line using the factory
 

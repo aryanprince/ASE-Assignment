@@ -8,6 +8,25 @@ namespace ASE_Assignment
     /// </summary>
     public class ShapeFactory
     {
+        // Single instance of the ShapeFactory class.
+        private static ShapeFactory _instance;
+
+        // Private constructor to prevent instantiation using the new keyword.
+        private ShapeFactory() { }
+
+        // Returns only the single instance of the ShapeFactory class, creating it the first time.
+        public static ShapeFactory Instance
+        {
+            get
+            {
+                if (_instance == null)
+                {
+                    _instance = new ShapeFactory();
+                }
+                return _instance;
+            }
+        }
+
         public Shape CreateShape(CommandShapeNum commandShape, Point position, bool fill, Color penColor)
         {
             switch (commandShape.ActionWord)
