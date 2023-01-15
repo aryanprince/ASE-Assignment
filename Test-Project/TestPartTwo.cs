@@ -1,11 +1,62 @@
 ﻿using ASE_Assignment;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 using System.Collections.Generic;
+using System.Drawing;
+using Action = ASE_Assignment.Action;
 
 namespace Unit_Tests
 {
     [TestClass()]
-    public class PartTwoTests
+    public class MultilineTest
+    {
+        [TestMethod()]
+        public void Parse_MultilineInput_ReturnsCorrectShapes()
+        {
+            // Arrange
+            string input = "rectangle 100 150\nmove 50 80\ncircle 35\nsquare 75";
+            Parser parser = new Parser();
+            Dictionary<string, int> dictionary = new Dictionary<string, int>();
+
+            // Act
+            List<Command> commands = parser.Parse(input, dictionary);
+
+            // Assert
+            Assert.AreEqual(4, commands.Count);
+            Assert.IsInstanceOfType(commands, typeof(List<Command>));
+
+            // First line of commands
+            Assert.IsNotNull(commands[0]);
+            Assert.IsInstanceOfType(commands[0], typeof(CommandShapeNum));
+            Assert.AreEqual(Action.rectangle, commands[0].ActionWord);
+            Assert.AreNotEqual(Action.circle, commands[0].ActionWord);
+            Assert.AreNotEqual(Action.square, commands[0].ActionWord);
+
+            // Second line of commands
+            Assert.IsNotNull(commands[1]);
+            Assert.IsInstanceOfType(commands[1], typeof(CommandShapeNum));
+            Assert.AreEqual(Action.move, commands[1].ActionWord);
+            Assert.AreNotEqual(Action.circle, commands[1].ActionWord);
+            Assert.AreNotEqual(Action.square, commands[1].ActionWord);
+
+            // Third line of commands
+            Assert.IsNotNull(commands[2]);
+            Assert.IsInstanceOfType(commands[2], typeof(CommandShapeNum));
+            Assert.AreEqual(Action.circle, commands[2].ActionWord);
+            Assert.AreNotEqual(Action.move, commands[2].ActionWord);
+            Assert.AreNotEqual(Action.square, commands[2].ActionWord);
+
+            // Fourth line of commands
+            Assert.IsNotNull(commands[3]);
+            Assert.IsInstanceOfType(commands[3], typeof(CommandShapeNum));
+            Assert.AreEqual(Action.square, commands[3].ActionWord);
+            Assert.AreNotEqual(Action.move, commands[3].ActionWord);
+            Assert.AreNotEqual(Action.circle, commands[3].ActionWord);
+        }
+    }
+
+    [TestClass()]
+    public class VariableDeclarationTest
     {
         Parser parser = new Parser();
 
@@ -57,6 +108,12 @@ namespace Unit_Tests
             Assert.AreEqual(70, dictionary["x"]);
             Assert.AreEqual(125, dictionary["y"]);
         }
+    }
+
+    [TestClass()]
+    public class IfStatementsTest
+    {
+        Parser parser = new Parser();
 
         [TestMethod()]
         public void Parse_IfStatements_ReturnsTrue()
@@ -109,6 +166,12 @@ namespace Unit_Tests
             Assert.AreEqual(1, ((CommandIfStatements)commands[1]).StartIndex);
             Assert.AreEqual(3, ((CommandIfStatements)commands[1]).EndIndex);
         }
+    }
+
+    [TestClass()]
+    public class WhileLoopsTest
+    {
+        Parser parser = new Parser();
 
         [TestMethod()]
         public void Parse_WhileLoop_ReturnsTrue()
@@ -134,6 +197,58 @@ namespace Unit_Tests
             Assert.IsInstanceOfType(commands[4], typeof(CommandEndKeyword));
             // Check if the while loop is correct
             Assert.AreEqual(10, ((CommandWhile)commands[1]).LoopCount);
+        }
+    }
+
+    [TestClass()]
+    public class ShapeFactoryTest
+    {
+        ShapeFactory shapeFactory = new ShapeFactory();
+
+        [TestMethod()]
+        public void CreateShape_Triangle_ReturnsShape()
+        {
+            // ARRANGE
+            int x = 50;
+            int y = 100;
+            int length = 250;
+            bool fill = true;
+            Color color = Color.Red;
+
+            // ACT
+            Shape shape = shapeFactory.CreateShape(new CommandShapeNum(Action.triangle, new[] { length }), new Point(x, y), fill, color);
+
+            // ASSERT
+            Assert.IsInstanceOfType(shape, typeof(Triangle));
+            Assert.AreEqual(x, shape.Position.X);
+            Assert.AreEqual(y, shape.Position.Y);
+            Assert.AreEqual(length, ((Triangle)shape).Length);
+            Assert.AreEqual(fill, shape.Fill);
+            Assert.AreEqual(color, shape.PenColor);
+        }
+
+
+        [TestMethod()]
+        [ExpectedException(typeof(ArgumentException))]
+        public void CreateShape_InvalidShape_ThrowsException()
+        {
+            // ARRANGE
+            int x = 50;
+            int y = 100;
+            int length = 250;
+            bool fill = true;
+            Color color = Color.Red;
+
+            // ACT
+            Shape shape = shapeFactory.CreateShape(new CommandShapeNum(Action.none, new[] { 0 }), new Point(x, y), fill, color);
+
+            // ASSERT
+            Assert.IsInstanceOfType(shape, typeof(Triangle));
+            Assert.AreEqual(x, shape.Position.X);
+            Assert.AreEqual(y, shape.Position.Y);
+            Assert.AreEqual(length, ((Triangle)shape).Length);
+            Assert.AreEqual(fill, shape.Fill);
+            Assert.AreEqual(color, shape.PenColor);
         }
     }
 }

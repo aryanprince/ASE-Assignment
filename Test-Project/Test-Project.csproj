@@ -51,11 +51,10 @@
     <Reference Include="System.Drawing" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="PartOneTests.cs" />
+    <Compile Include="TestDrawingShapes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="PartTwoTests.cs" />
-    <Compile Include="ExceptionTests.cs" />
-    <Compile Include="MultiLineTests.cs" />
+    <Compile Include="TestPartTwo.cs" />
+    <Compile Include="TestExceptions.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Main-Project\Main-Project.csproj">

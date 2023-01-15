@@ -20,7 +20,7 @@ namespace ASE_Assignment
                 case Action.drawto:
                     return new Line(position, fill, penColor, new Point(commandShape.ActionValues[0], commandShape.ActionValues[1]));
                 default:
-                    throw new Exception("Invalid command!");
+                    throw new ArgumentException("Invalid command!");
             }
         }
     }

@@ -8,7 +8,7 @@ namespace ASE_Assignment
         private readonly int _defaultLength = 125;
 
         // Properties for other values used in the class.
-        private int Length { get; set; } // Stores the side length of the Triangle
+        public int Length { get; set; } // Stores the side length of the Triangle
 
         // Creates 3 Point properties to store coordinates of Triangle vertices
         private Point A { get; set; }

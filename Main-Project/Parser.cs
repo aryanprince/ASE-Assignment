@@ -95,7 +95,7 @@ namespace ASE_Assignment
                 // DEFAULT CASE
                 else
                 {
-                    break;
+                    throw new ArgumentException("ERROR: Invalid input!");
                 }
             }
 
@@ -131,12 +131,12 @@ namespace ASE_Assignment
             Action actionWord = ParseAction_CommandName(stringCommand);
 
             if (actionWord == Action.none)
-                throw new Exception("ERROR: Invalid command!");
+                throw new ArgumentException("ERROR: Invalid command!");
 
             // If the command action is valid, but no parameters are passed - it throws this exception
             if (inputSplitBySpaces.Length == 1 && actionWord != Action.run && actionWord != Action.clear && actionWord != Action.reset)
             {
-                throw new Exception("ERROR: Please use a parameter with this command.");
+                throw new ArgumentException("ERROR: Please use a parameter with this command.");
             }
             if (actionWord == Action.run || actionWord == Action.reset || actionWord == Action.clear)
             {
@@ -331,7 +331,7 @@ namespace ASE_Assignment
         /// </summary>
         /// <param name="input">String value for an Action.</param>
         /// <returns>An Action enum representing a command for the Command class, or Action.none if nothing is found.</returns>
-        private Action ParseAction_CommandName(string input)
+        public Action ParseAction_CommandName(string input)
         {
             input = input.Split()[0].Trim().ToLower(); // Cleans the input string by removing any extra words (if any) in the input string
 
