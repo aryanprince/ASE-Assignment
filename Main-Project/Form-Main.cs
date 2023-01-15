@@ -13,10 +13,11 @@ namespace ASE_Assignment
     /// <seealso cref="Form" />
     public partial class MainForm : Form
     {
-        // Instances of the classes that are used throughout the program, uses the Singleton design pattern
+        // Instances of the classes that are used throughout the program
         private readonly Cursor _cursor = new Cursor();
         private readonly Parser _parser = new Parser();
-        private readonly ShapeFactory _shapeFactory = new ShapeFactory();
+        // Creates an instance of the ShapeFactory class using the Singleton design pattern
+        private readonly ShapeFactory _shapeFactory = ShapeFactory.Instance;
 
         // Localized strings for WinForms controls
         private const string PenColorBlueText = "pen color: blue";

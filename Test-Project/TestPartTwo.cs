@@ -80,7 +80,7 @@ namespace Unit_Tests
             // Checking values in the dictionary
             Assert.AreEqual(50, dictionary["radius"]);
             // Checking if the variable is overwritten
-            Assert.AreEqual(2, dictionary.Count);
+            Assert.AreEqual(1, dictionary.Count);
         }
 
         [TestMethod()]
@@ -207,7 +207,7 @@ namespace Unit_Tests
     [TestClass()]
     public class ShapeFactoryTest
     {
-        ShapeFactory shapeFactory = new ShapeFactory();
+        ShapeFactory shapeFactory = ShapeFactory.Instance;
 
         [TestMethod()]
         public void CreateShape_Triangle_ReturnsShape()
