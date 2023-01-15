@@ -1,0 +1,522 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<HelpKI>
+
+  <HelpKINode Title="A property" Url="html/P-ASE_Assignment.Triangle.A.htm" />
+  <HelpKINode Title="Action enumeration" Url="html/T-ASE_Assignment.Action.htm" />
+  <HelpKINode Title="Action.circle field" Url="html/F-ASE_Assignment.Action.circle.htm" />
+  <HelpKINode Title="Action.clear field" Url="html/F-ASE_Assignment.Action.clear.htm" />
+  <HelpKINode Title="Action.drawto field" Url="html/F-ASE_Assignment.Action.drawto.htm" />
+  <HelpKINode Title="Action.end field" Url="html/F-ASE_Assignment.Action.end.htm" />
+  <HelpKINode Title="Action.fill field" Url="html/F-ASE_Assignment.Action.fill.htm" />
+  <HelpKINode Title="Action.ifstatement field" Url="html/F-ASE_Assignment.Action.ifstatement.htm" />
+  <HelpKINode Title="Action.move field" Url="html/F-ASE_Assignment.Action.move.htm" />
+  <HelpKINode Title="Action.none field" Url="html/F-ASE_Assignment.Action.none.htm" />
+  <HelpKINode Title="Action.pen field" Url="html/F-ASE_Assignment.Action.pen.htm" />
+  <HelpKINode Title="Action.rectangle field" Url="html/F-ASE_Assignment.Action.rectangle.htm" />
+  <HelpKINode Title="Action.reset field" Url="html/F-ASE_Assignment.Action.reset.htm" />
+  <HelpKINode Title="Action.run field" Url="html/F-ASE_Assignment.Action.run.htm" />
+  <HelpKINode Title="Action.square field" Url="html/F-ASE_Assignment.Action.square.htm" />
+  <HelpKINode Title="Action.triangle field" Url="html/F-ASE_Assignment.Action.triangle.htm" />
+  <HelpKINode Title="Action.var field" Url="html/F-ASE_Assignment.Action.var.htm" />
+  <HelpKINode Title="Action.whileloop field" Url="html/F-ASE_Assignment.Action.whileloop.htm" />
+  <HelpKINode Title="ActionValues property" Url="html/P-ASE_Assignment.CommandShapeNum.ActionValues.htm" />
+  <HelpKINode Title="ActionWord property" Url="html/P-ASE_Assignment.Command.ActionWord.htm" />
+  <HelpKINode Title="AryanMenuItem_Click method" Url="html/M-ASE_Assignment.MainForm.AryanMenuItem_Click.htm" />
+  <HelpKINode Title="ASE_Assignment namespace" Url="html/N-ASE_Assignment.htm" />
+  <HelpKINode Title="ASE_Assignment.Action enumeration" Url="html/T-ASE_Assignment.Action.htm" />
+  <HelpKINode Title="ASE_Assignment.Circle class" Url="html/AllMembers.T-ASE_Assignment.Circle.htm" />
+  <HelpKINode Title="ASE_Assignment.Circle class" Url="html/T-ASE_Assignment.Circle.htm" />
+  <HelpKINode Title="ASE_Assignment.Command class" Url="html/AllMembers.T-ASE_Assignment.Command.htm" />
+  <HelpKINode Title="ASE_Assignment.Command class" Url="html/T-ASE_Assignment.Command.htm" />
+  <HelpKINode Title="ASE_Assignment.CommandEndKeyword class" Url="html/AllMembers.T-ASE_Assignment.CommandEndKeyword.htm" />
+  <HelpKINode Title="ASE_Assignment.CommandEndKeyword class" Url="html/T-ASE_Assignment.CommandEndKeyword.htm" />
+  <HelpKINode Title="ASE_Assignment.CommandIfStatements class" Url="html/AllMembers.T-ASE_Assignment.CommandIfStatements.htm" />
+  <HelpKINode Title="ASE_Assignment.CommandIfStatements class" Url="html/T-ASE_Assignment.CommandIfStatements.htm" />
+  <HelpKINode Title="ASE_Assignment.CommandShapeNum class" Url="html/AllMembers.T-ASE_Assignment.CommandShapeNum.htm" />
+  <HelpKINode Title="ASE_Assignment.CommandShapeNum class" Url="html/T-ASE_Assignment.CommandShapeNum.htm" />
+  <HelpKINode Title="ASE_Assignment.CommandVariable class" Url="html/AllMembers.T-ASE_Assignment.CommandVariable.htm" />
+  <HelpKINode Title="ASE_Assignment.CommandVariable class" Url="html/T-ASE_Assignment.CommandVariable.htm" />
+  <HelpKINode Title="ASE_Assignment.CommandWhile class" Url="html/AllMembers.T-ASE_Assignment.CommandWhile.htm" />
+  <HelpKINode Title="ASE_Assignment.CommandWhile class" Url="html/T-ASE_Assignment.CommandWhile.htm" />
+  <HelpKINode Title="ASE_Assignment.Cursor class" Url="html/AllMembers.T-ASE_Assignment.Cursor.htm" />
+  <HelpKINode Title="ASE_Assignment.Cursor class" Url="html/T-ASE_Assignment.Cursor.htm" />
+  <HelpKINode Title="ASE_Assignment.IShape interface" Url="html/AllMembers.T-ASE_Assignment.IShape.htm" />
+  <HelpKINode Title="ASE_Assignment.IShape interface" Url="html/T-ASE_Assignment.IShape.htm" />
+  <HelpKINode Title="ASE_Assignment.Line class" Url="html/AllMembers.T-ASE_Assignment.Line.htm" />
+  <HelpKINode Title="ASE_Assignment.Line class" Url="html/T-ASE_Assignment.Line.htm" />
+  <HelpKINode Title="ASE_Assignment.MainForm class" Url="html/AllMembers.T-ASE_Assignment.MainForm.htm" />
+  <HelpKINode Title="ASE_Assignment.MainForm class" Url="html/T-ASE_Assignment.MainForm.htm" />
+  <HelpKINode Title="ASE_Assignment.Parser class" Url="html/AllMembers.T-ASE_Assignment.Parser.htm" />
+  <HelpKINode Title="ASE_Assignment.Parser class" Url="html/T-ASE_Assignment.Parser.htm" />
+  <HelpKINode Title="ASE_Assignment.Program class" Url="html/AllMembers.T-ASE_Assignment.Program.htm" />
+  <HelpKINode Title="ASE_Assignment.Program class" Url="html/T-ASE_Assignment.Program.htm" />
+  <HelpKINode Title="ASE_Assignment.Properties namespace" Url="html/N-ASE_Assignment.Properties.htm" />
+  <HelpKINode Title="ASE_Assignment.Properties.Resources class" Url="html/AllMembers.T-ASE_Assignment.Properties.Resources.htm" />
+  <HelpKINode Title="ASE_Assignment.Properties.Resources class" Url="html/T-ASE_Assignment.Properties.Resources.htm" />
+  <HelpKINode Title="ASE_Assignment.Properties.Settings class" Url="html/AllMembers.T-ASE_Assignment.Properties.Settings.htm" />
+  <HelpKINode Title="ASE_Assignment.Properties.Settings class" Url="html/T-ASE_Assignment.Properties.Settings.htm" />
+  <HelpKINode Title="ASE_Assignment.Rectangle class" Url="html/AllMembers.T-ASE_Assignment.Rectangle.htm" />
+  <HelpKINode Title="ASE_Assignment.Rectangle class" Url="html/T-ASE_Assignment.Rectangle.htm" />
+  <HelpKINode Title="ASE_Assignment.Shape class" Url="html/AllMembers.T-ASE_Assignment.Shape.htm" />
+  <HelpKINode Title="ASE_Assignment.Shape class" Url="html/T-ASE_Assignment.Shape.htm" />
+  <HelpKINode Title="ASE_Assignment.ShapeFactory class" Url="html/AllMembers.T-ASE_Assignment.ShapeFactory.htm" />
+  <HelpKINode Title="ASE_Assignment.ShapeFactory class" Url="html/T-ASE_Assignment.ShapeFactory.htm" />
+  <HelpKINode Title="ASE_Assignment.Square class" Url="html/AllMembers.T-ASE_Assignment.Square.htm" />
+  <HelpKINode Title="ASE_Assignment.Square class" Url="html/T-ASE_Assignment.Square.htm" />
+  <HelpKINode Title="ASE_Assignment.Triangle class" Url="html/AllMembers.T-ASE_Assignment.Triangle.htm" />
+  <HelpKINode Title="ASE_Assignment.Triangle class" Url="html/T-ASE_Assignment.Triangle.htm" />
+  <HelpKINode Title="B property" Url="html/P-ASE_Assignment.Triangle.B.htm" />
+  <HelpKINode Title="btnClear field" Url="html/F-ASE_Assignment.MainForm.btnClear.htm" />
+  <HelpKINode Title="BtnClear_Click method" Url="html/M-ASE_Assignment.MainForm.BtnClear_Click.htm" />
+  <HelpKINode Title="btnRun field" Url="html/F-ASE_Assignment.MainForm.btnRun.htm" />
+  <HelpKINode Title="BtnRun_Click method" Url="html/M-ASE_Assignment.MainForm.BtnRun_Click.htm" />
+  <HelpKINode Title="C property" Url="html/P-ASE_Assignment.Triangle.C.htm" />
+  <HelpKINode Title="CalculateExpression method" Url="html/M-ASE_Assignment.Parser.CalculateExpression.htm" />
+  <HelpKINode Title="ChangeFillState method" Url="html/M-ASE_Assignment.Cursor.ChangeFillState.htm" />
+  <HelpKINode Title="ChangePenColor method" Url="html/M-ASE_Assignment.Cursor.ChangePenColor.htm" />
+  <HelpKINode Title="Circle class" Url="html/AllMembers.T-ASE_Assignment.Circle.htm" />
+  <HelpKINode Title="Circle class" Url="html/T-ASE_Assignment.Circle.htm" />
+  <HelpKINode Title="Circle class">
+    <HelpKINode Title="about Circle class" Url="html/T-ASE_Assignment.Circle.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers.T-ASE_Assignment.Circle.htm" />
+    <HelpKINode Title="constructor" Url="html/Overload-ASE_Assignment.Circle.-ctor.htm" />
+    <HelpKINode Title="fields" Url="html/Fields.T-ASE_Assignment.Circle.htm" />
+    <HelpKINode Title="methods" Url="html/Methods.T-ASE_Assignment.Circle.htm" />
+    <HelpKINode Title="properties" Url="html/Properties.T-ASE_Assignment.Circle.htm" />
+  </HelpKINode>
+  <HelpKINode Title="circle enumeration member" Url="html/T-ASE_Assignment.Action.htm" />
+  <HelpKINode Title="circle field" Url="html/F-ASE_Assignment.Action.circle.htm" />
+  <HelpKINode Title="Circle.Circle constructor" Url="html/Overload-ASE_Assignment.Circle.-ctor.htm" />
+  <HelpKINode Title="Circle.Draw method" Url="html/M-ASE_Assignment.Circle.Draw.htm" />
+  <HelpKINode Title="Circle.Radius property" Url="html/P-ASE_Assignment.Circle.Radius.htm" />
+  <HelpKINode Title="Circle._defaultRadius field" Url="html/F-ASE_Assignment.Circle._defaultRadius.htm" />
+  <HelpKINode Title="clear enumeration member" Url="html/T-ASE_Assignment.Action.htm" />
+  <HelpKINode Title="clear field" Url="html/F-ASE_Assignment.Action.clear.htm" />
+  <HelpKINode Title="Command class" Url="html/AllMembers.T-ASE_Assignment.Command.htm" />
+  <HelpKINode Title="Command class" Url="html/T-ASE_Assignment.Command.htm" />
+  <HelpKINode Title="Command class">
+    <HelpKINode Title="about Command class" Url="html/T-ASE_Assignment.Command.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers.T-ASE_Assignment.Command.htm" />
+    <HelpKINode Title="methods" Url="html/Methods.T-ASE_Assignment.Command.htm" />
+    <HelpKINode Title="properties" Url="html/Properties.T-ASE_Assignment.Command.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Command.ActionWord property" Url="html/P-ASE_Assignment.Command.ActionWord.htm" />
+  <HelpKINode Title="CommandEndKeyword class" Url="html/AllMembers.T-ASE_Assignment.CommandEndKeyword.htm" />
+  <HelpKINode Title="CommandEndKeyword class" Url="html/T-ASE_Assignment.CommandEndKeyword.htm" />
+  <HelpKINode Title="CommandEndKeyword class">
+    <HelpKINode Title="about CommandEndKeyword class" Url="html/T-ASE_Assignment.CommandEndKeyword.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers.T-ASE_Assignment.CommandEndKeyword.htm" />
+    <HelpKINode Title="constructor" Url="html/M-ASE_Assignment.CommandEndKeyword.-ctor.htm" />
+    <HelpKINode Title="methods" Url="html/Methods.T-ASE_Assignment.CommandEndKeyword.htm" />
+    <HelpKINode Title="properties" Url="html/Properties.T-ASE_Assignment.CommandEndKeyword.htm" />
+  </HelpKINode>
+  <HelpKINode Title="CommandEndKeyword.CommandEndKeyword constructor" Url="html/M-ASE_Assignment.CommandEndKeyword.-ctor.htm" />
+  <HelpKINode Title="CommandIfStatements class" Url="html/AllMembers.T-ASE_Assignment.CommandIfStatements.htm" />
+  <HelpKINode Title="CommandIfStatements class" Url="html/T-ASE_Assignment.CommandIfStatements.htm" />
+  <HelpKINode Title="CommandIfStatements class">
+    <HelpKINode Title="about CommandIfStatements class" Url="html/T-ASE_Assignment.CommandIfStatements.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers.T-ASE_Assignment.CommandIfStatements.htm" />
+    <HelpKINode Title="constructor" Url="html/M-ASE_Assignment.CommandIfStatements.-ctor.htm" />
+    <HelpKINode Title="methods" Url="html/Methods.T-ASE_Assignment.CommandIfStatements.htm" />
+    <HelpKINode Title="properties" Url="html/Properties.T-ASE_Assignment.CommandIfStatements.htm" />
+  </HelpKINode>
+  <HelpKINode Title="CommandIfStatements.CommandIfStatements constructor" Url="html/M-ASE_Assignment.CommandIfStatements.-ctor.htm" />
+  <HelpKINode Title="CommandIfStatements.EndIndex property" Url="html/P-ASE_Assignment.CommandIfStatements.EndIndex.htm" />
+  <HelpKINode Title="CommandIfStatements.IfState property" Url="html/P-ASE_Assignment.CommandIfStatements.IfState.htm" />
+  <HelpKINode Title="CommandIfStatements.StartIndex property" Url="html/P-ASE_Assignment.CommandIfStatements.StartIndex.htm" />
+  <HelpKINode Title="CommandShapeNum class" Url="html/AllMembers.T-ASE_Assignment.CommandShapeNum.htm" />
+  <HelpKINode Title="CommandShapeNum class" Url="html/T-ASE_Assignment.CommandShapeNum.htm" />
+  <HelpKINode Title="CommandShapeNum class">
+    <HelpKINode Title="about CommandShapeNum class" Url="html/T-ASE_Assignment.CommandShapeNum.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers.T-ASE_Assignment.CommandShapeNum.htm" />
+    <HelpKINode Title="constructor" Url="html/M-ASE_Assignment.CommandShapeNum.-ctor.htm" />
+    <HelpKINode Title="methods" Url="html/Methods.T-ASE_Assignment.CommandShapeNum.htm" />
+    <HelpKINode Title="properties" Url="html/Properties.T-ASE_Assignment.CommandShapeNum.htm" />
+  </HelpKINode>
+  <HelpKINode Title="CommandShapeNum.ActionValues property" Url="html/P-ASE_Assignment.CommandShapeNum.ActionValues.htm" />
+  <HelpKINode Title="CommandShapeNum.CommandShapeNum constructor" Url="html/M-ASE_Assignment.CommandShapeNum.-ctor.htm" />
+  <HelpKINode Title="CommandVariable class" Url="html/AllMembers.T-ASE_Assignment.CommandVariable.htm" />
+  <HelpKINode Title="CommandVariable class" Url="html/T-ASE_Assignment.CommandVariable.htm" />
+  <HelpKINode Title="CommandVariable class">
+    <HelpKINode Title="about CommandVariable class" Url="html/T-ASE_Assignment.CommandVariable.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers.T-ASE_Assignment.CommandVariable.htm" />
+    <HelpKINode Title="constructor" Url="html/M-ASE_Assignment.CommandVariable.-ctor.htm" />
+    <HelpKINode Title="methods" Url="html/Methods.T-ASE_Assignment.CommandVariable.htm" />
+    <HelpKINode Title="properties" Url="html/Properties.T-ASE_Assignment.CommandVariable.htm" />
+  </HelpKINode>
+  <HelpKINode Title="CommandVariable.CommandVariable constructor" Url="html/M-ASE_Assignment.CommandVariable.-ctor.htm" />
+  <HelpKINode Title="CommandVariable.VariableName property" Url="html/P-ASE_Assignment.CommandVariable.VariableName.htm" />
+  <HelpKINode Title="CommandVariable.VariableValue property" Url="html/P-ASE_Assignment.CommandVariable.VariableValue.htm" />
+  <HelpKINode Title="CommandWhile class" Url="html/AllMembers.T-ASE_Assignment.CommandWhile.htm" />
+  <HelpKINode Title="CommandWhile class" Url="html/T-ASE_Assignment.CommandWhile.htm" />
+  <HelpKINode Title="CommandWhile class">
+    <HelpKINode Title="about CommandWhile class" Url="html/T-ASE_Assignment.CommandWhile.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers.T-ASE_Assignment.CommandWhile.htm" />
+    <HelpKINode Title="constructor" Url="html/M-ASE_Assignment.CommandWhile.-ctor.htm" />
+    <HelpKINode Title="methods" Url="html/Methods.T-ASE_Assignment.CommandWhile.htm" />
+    <HelpKINode Title="properties" Url="html/Properties.T-ASE_Assignment.CommandWhile.htm" />
+  </HelpKINode>
+  <HelpKINode Title="CommandWhile.CommandWhile constructor" Url="html/M-ASE_Assignment.CommandWhile.-ctor.htm" />
+  <HelpKINode Title="CommandWhile.LoopCount property" Url="html/P-ASE_Assignment.CommandWhile.LoopCount.htm" />
+  <HelpKINode Title="components field" Url="html/F-ASE_Assignment.MainForm.components.htm" />
+  <HelpKINode Title="CreateShape method" Url="html/M-ASE_Assignment.ShapeFactory.CreateShape.htm" />
+  <HelpKINode Title="Culture property" Url="html/P-ASE_Assignment.Properties.Resources.Culture.htm" />
+  <HelpKINode Title="Cursor class" Url="html/AllMembers.T-ASE_Assignment.Cursor.htm" />
+  <HelpKINode Title="Cursor class" Url="html/T-ASE_Assignment.Cursor.htm" />
+  <HelpKINode Title="Cursor class">
+    <HelpKINode Title="about Cursor class" Url="html/T-ASE_Assignment.Cursor.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers.T-ASE_Assignment.Cursor.htm" />
+    <HelpKINode Title="constructor" Url="html/M-ASE_Assignment.Cursor.-ctor.htm" />
+    <HelpKINode Title="methods" Url="html/Methods.T-ASE_Assignment.Cursor.htm" />
+    <HelpKINode Title="properties" Url="html/Properties.T-ASE_Assignment.Cursor.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Cursor.ChangeFillState method" Url="html/M-ASE_Assignment.Cursor.ChangeFillState.htm" />
+  <HelpKINode Title="Cursor.ChangePenColor method" Url="html/M-ASE_Assignment.Cursor.ChangePenColor.htm" />
+  <HelpKINode Title="Cursor.Cursor constructor" Url="html/M-ASE_Assignment.Cursor.-ctor.htm" />
+  <HelpKINode Title="Cursor.Draw method" Url="html/M-ASE_Assignment.Cursor.Draw.htm" />
+  <HelpKINode Title="Cursor.MoveTo method" Url="html/M-ASE_Assignment.Cursor.MoveTo.htm" />
+  <HelpKINode Title="Default property" Url="html/P-ASE_Assignment.Properties.Settings.Default.htm" />
+  <HelpKINode Title="DefaultFill field" Url="html/F-ASE_Assignment.Shape.DefaultFill.htm" />
+  <HelpKINode Title="defaultInstance field" Url="html/F-ASE_Assignment.Properties.Settings.defaultInstance.htm" />
+  <HelpKINode Title="DefaultPenColor field" Url="html/F-ASE_Assignment.Shape.DefaultPenColor.htm" />
+  <HelpKINode Title="DefaultPosition field" Url="html/F-ASE_Assignment.Shape.DefaultPosition.htm" />
+  <HelpKINode Title="Dispose method" Url="html/M-ASE_Assignment.MainForm.Dispose.htm" />
+  <HelpKINode Title="Dispose method" Url="html/Overload-ASE_Assignment.MainForm.Dispose.htm" />
+  <HelpKINode Title="Draw method" Url="html/M-ASE_Assignment.Circle.Draw.htm" />
+  <HelpKINode Title="Draw method" Url="html/M-ASE_Assignment.Cursor.Draw.htm" />
+  <HelpKINode Title="Draw method" Url="html/M-ASE_Assignment.IShape.Draw.htm" />
+  <HelpKINode Title="Draw method" Url="html/M-ASE_Assignment.Line.Draw.htm" />
+  <HelpKINode Title="Draw method" Url="html/M-ASE_Assignment.Rectangle.Draw.htm" />
+  <HelpKINode Title="Draw method" Url="html/M-ASE_Assignment.Shape.Draw.htm" />
+  <HelpKINode Title="Draw method" Url="html/M-ASE_Assignment.Square.Draw.htm" />
+  <HelpKINode Title="Draw method" Url="html/M-ASE_Assignment.Triangle.Draw.htm" />
+  <HelpKINode Title="drawto enumeration member" Url="html/T-ASE_Assignment.Action.htm" />
+  <HelpKINode Title="drawto field" Url="html/F-ASE_Assignment.Action.drawto.htm" />
+  <HelpKINode Title="end enumeration member" Url="html/T-ASE_Assignment.Action.htm" />
+  <HelpKINode Title="end field" Url="html/F-ASE_Assignment.Action.end.htm" />
+  <HelpKINode Title="EndIndex property" Url="html/P-ASE_Assignment.CommandIfStatements.EndIndex.htm" />
+  <HelpKINode Title="ExecuteCommand method" Url="html/M-ASE_Assignment.MainForm.ExecuteCommand.htm" />
+  <HelpKINode Title="fill enumeration member" Url="html/T-ASE_Assignment.Action.htm" />
+  <HelpKINode Title="fill field" Url="html/F-ASE_Assignment.Action.fill.htm" />
+  <HelpKINode Title="Fill property" Url="html/P-ASE_Assignment.Shape.Fill.htm" />
+  <HelpKINode Title="FillDisabledText field" Url="html/F-ASE_Assignment.MainForm.FillDisabledText.htm" />
+  <HelpKINode Title="FillEnabledText field" Url="html/F-ASE_Assignment.MainForm.FillEnabledText.htm" />
+  <HelpKINode Title="gbDrawingCanvas field" Url="html/F-ASE_Assignment.MainForm.gbDrawingCanvas.htm" />
+  <HelpKINode Title="gbMultiLineCommands field" Url="html/F-ASE_Assignment.MainForm.gbMultiLineCommands.htm" />
+  <HelpKINode Title="gbSingleLineCommands field" Url="html/F-ASE_Assignment.MainForm.gbSingleLineCommands.htm" />
+  <HelpKINode Title="Height property" Url="html/P-ASE_Assignment.Rectangle.Height.htm" />
+  <HelpKINode Title="IfState property" Url="html/P-ASE_Assignment.CommandIfStatements.IfState.htm" />
+  <HelpKINode Title="ifstatement enumeration member" Url="html/T-ASE_Assignment.Action.htm" />
+  <HelpKINode Title="ifstatement field" Url="html/F-ASE_Assignment.Action.ifstatement.htm" />
+  <HelpKINode Title="InitializeComponent method" Url="html/M-ASE_Assignment.MainForm.InitializeComponent.htm" />
+  <HelpKINode Title="Instance property" Url="html/P-ASE_Assignment.ShapeFactory.Instance.htm" />
+  <HelpKINode Title="IShape interface" Url="html/AllMembers.T-ASE_Assignment.IShape.htm" />
+  <HelpKINode Title="IShape interface" Url="html/T-ASE_Assignment.IShape.htm" />
+  <HelpKINode Title="IShape interface">
+    <HelpKINode Title="about IShape interface" Url="html/T-ASE_Assignment.IShape.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers.T-ASE_Assignment.IShape.htm" />
+    <HelpKINode Title="methods" Url="html/Methods.T-ASE_Assignment.IShape.htm" />
+  </HelpKINode>
+  <HelpKINode Title="IShape.Draw method" Url="html/M-ASE_Assignment.IShape.Draw.htm" />
+  <HelpKINode Title="lblCoordinatesLabel field" Url="html/F-ASE_Assignment.MainForm.lblCoordinatesLabel.htm" />
+  <HelpKINode Title="lblCoordinatesValues field" Url="html/F-ASE_Assignment.MainForm.lblCoordinatesValues.htm" />
+  <HelpKINode Title="lblError field" Url="html/F-ASE_Assignment.MainForm.lblError.htm" />
+  <HelpKINode Title="lblFillState field" Url="html/F-ASE_Assignment.MainForm.lblFillState.htm" />
+  <HelpKINode Title="lblPenColor field" Url="html/F-ASE_Assignment.MainForm.lblPenColor.htm" />
+  <HelpKINode Title="Length property" Url="html/P-ASE_Assignment.Rectangle.Length.htm" />
+  <HelpKINode Title="Length property" Url="html/P-ASE_Assignment.Triangle.Length.htm" />
+  <HelpKINode Title="Line class" Url="html/AllMembers.T-ASE_Assignment.Line.htm" />
+  <HelpKINode Title="Line class" Url="html/T-ASE_Assignment.Line.htm" />
+  <HelpKINode Title="Line class">
+    <HelpKINode Title="about Line class" Url="html/T-ASE_Assignment.Line.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers.T-ASE_Assignment.Line.htm" />
+    <HelpKINode Title="constructor" Url="html/Overload-ASE_Assignment.Line.-ctor.htm" />
+    <HelpKINode Title="fields" Url="html/Fields.T-ASE_Assignment.Line.htm" />
+    <HelpKINode Title="methods" Url="html/Methods.T-ASE_Assignment.Line.htm" />
+    <HelpKINode Title="properties" Url="html/Properties.T-ASE_Assignment.Line.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Line.Draw method" Url="html/M-ASE_Assignment.Line.Draw.htm" />
+  <HelpKINode Title="Line.Line constructor" Url="html/Overload-ASE_Assignment.Line.-ctor.htm" />
+  <HelpKINode Title="Line.ToPosition property" Url="html/P-ASE_Assignment.Line.ToPosition.htm" />
+  <HelpKINode Title="Line._defaultToPosition field" Url="html/F-ASE_Assignment.Line._defaultToPosition.htm" />
+  <HelpKINode Title="LoadMenuItem_Click method" Url="html/M-ASE_Assignment.MainForm.LoadMenuItem_Click.htm" />
+  <HelpKINode Title="LoopCount property" Url="html/P-ASE_Assignment.CommandWhile.LoopCount.htm" />
+  <HelpKINode Title="Main method" Url="html/M-ASE_Assignment.Program.Main.htm" />
+  <HelpKINode Title="MainForm class" Url="html/AllMembers.T-ASE_Assignment.MainForm.htm" />
+  <HelpKINode Title="MainForm class" Url="html/T-ASE_Assignment.MainForm.htm" />
+  <HelpKINode Title="MainForm class">
+    <HelpKINode Title="about MainForm class" Url="html/T-ASE_Assignment.MainForm.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers.T-ASE_Assignment.MainForm.htm" />
+    <HelpKINode Title="constructor" Url="html/M-ASE_Assignment.MainForm.-ctor.htm" />
+    <HelpKINode Title="events" Url="html/Events.T-ASE_Assignment.MainForm.htm" />
+    <HelpKINode Title="fields" Url="html/Fields.T-ASE_Assignment.MainForm.htm" />
+    <HelpKINode Title="methods" Url="html/Methods.T-ASE_Assignment.MainForm.htm" />
+    <HelpKINode Title="properties" Url="html/Properties.T-ASE_Assignment.MainForm.htm" />
+  </HelpKINode>
+  <HelpKINode Title="MainForm.AryanMenuItem_Click method" Url="html/M-ASE_Assignment.MainForm.AryanMenuItem_Click.htm" />
+  <HelpKINode Title="MainForm.btnClear field" Url="html/F-ASE_Assignment.MainForm.btnClear.htm" />
+  <HelpKINode Title="MainForm.BtnClear_Click method" Url="html/M-ASE_Assignment.MainForm.BtnClear_Click.htm" />
+  <HelpKINode Title="MainForm.btnRun field" Url="html/F-ASE_Assignment.MainForm.btnRun.htm" />
+  <HelpKINode Title="MainForm.BtnRun_Click method" Url="html/M-ASE_Assignment.MainForm.BtnRun_Click.htm" />
+  <HelpKINode Title="MainForm.components field" Url="html/F-ASE_Assignment.MainForm.components.htm" />
+  <HelpKINode Title="MainForm.Dispose method" Url="html/M-ASE_Assignment.MainForm.Dispose.htm" />
+  <HelpKINode Title="MainForm.Dispose method" Url="html/Overload-ASE_Assignment.MainForm.Dispose.htm" />
+  <HelpKINode Title="MainForm.ExecuteCommand method" Url="html/M-ASE_Assignment.MainForm.ExecuteCommand.htm" />
+  <HelpKINode Title="MainForm.FillDisabledText field" Url="html/F-ASE_Assignment.MainForm.FillDisabledText.htm" />
+  <HelpKINode Title="MainForm.FillEnabledText field" Url="html/F-ASE_Assignment.MainForm.FillEnabledText.htm" />
+  <HelpKINode Title="MainForm.gbDrawingCanvas field" Url="html/F-ASE_Assignment.MainForm.gbDrawingCanvas.htm" />
+  <HelpKINode Title="MainForm.gbMultiLineCommands field" Url="html/F-ASE_Assignment.MainForm.gbMultiLineCommands.htm" />
+  <HelpKINode Title="MainForm.gbSingleLineCommands field" Url="html/F-ASE_Assignment.MainForm.gbSingleLineCommands.htm" />
+  <HelpKINode Title="MainForm.InitializeComponent method" Url="html/M-ASE_Assignment.MainForm.InitializeComponent.htm" />
+  <HelpKINode Title="MainForm.lblCoordinatesLabel field" Url="html/F-ASE_Assignment.MainForm.lblCoordinatesLabel.htm" />
+  <HelpKINode Title="MainForm.lblCoordinatesValues field" Url="html/F-ASE_Assignment.MainForm.lblCoordinatesValues.htm" />
+  <HelpKINode Title="MainForm.lblError field" Url="html/F-ASE_Assignment.MainForm.lblError.htm" />
+  <HelpKINode Title="MainForm.lblFillState field" Url="html/F-ASE_Assignment.MainForm.lblFillState.htm" />
+  <HelpKINode Title="MainForm.lblPenColor field" Url="html/F-ASE_Assignment.MainForm.lblPenColor.htm" />
+  <HelpKINode Title="MainForm.LoadMenuItem_Click method" Url="html/M-ASE_Assignment.MainForm.LoadMenuItem_Click.htm" />
+  <HelpKINode Title="MainForm.MainForm constructor" Url="html/M-ASE_Assignment.MainForm.-ctor.htm" />
+  <HelpKINode Title="MainForm.mniAbout field" Url="html/F-ASE_Assignment.MainForm.mniAbout.htm" />
+  <HelpKINode Title="MainForm.mniAryanGitHub field" Url="html/F-ASE_Assignment.MainForm.mniAryanGitHub.htm" />
+  <HelpKINode Title="MainForm.mniDocs field" Url="html/F-ASE_Assignment.MainForm.mniDocs.htm" />
+  <HelpKINode Title="MainForm.mniDocs_Click method" Url="html/M-ASE_Assignment.MainForm.mniDocs_Click.htm" />
+  <HelpKINode Title="MainForm.mniFile field" Url="html/F-ASE_Assignment.MainForm.mniFile.htm" />
+  <HelpKINode Title="MainForm.mniHelp field" Url="html/F-ASE_Assignment.MainForm.mniHelp.htm" />
+  <HelpKINode Title="MainForm.mniLoad field" Url="html/F-ASE_Assignment.MainForm.mniLoad.htm" />
+  <HelpKINode Title="MainForm.mniSave field" Url="html/F-ASE_Assignment.MainForm.mniSave.htm" />
+  <HelpKINode Title="MainForm.mnuMenuStrip field" Url="html/F-ASE_Assignment.MainForm.mnuMenuStrip.htm" />
+  <HelpKINode Title="MainForm.PenColorBlueText field" Url="html/F-ASE_Assignment.MainForm.PenColorBlueText.htm" />
+  <HelpKINode Title="MainForm.PenColorGreenText field" Url="html/F-ASE_Assignment.MainForm.PenColorGreenText.htm" />
+  <HelpKINode Title="MainForm.PenColorRedText field" Url="html/F-ASE_Assignment.MainForm.PenColorRedText.htm" />
+  <HelpKINode Title="MainForm.picDrawingCanvas field" Url="html/F-ASE_Assignment.MainForm.picDrawingCanvas.htm" />
+  <HelpKINode Title="MainForm.PictureBoxCanvas_Paint method" Url="html/M-ASE_Assignment.MainForm.PictureBoxCanvas_Paint.htm" />
+  <HelpKINode Title="MainForm.RegexDrawShapesWithNumbers field" Url="html/F-ASE_Assignment.MainForm.RegexDrawShapesWithNumbers.htm" />
+  <HelpKINode Title="MainForm.SaveMenuItem_Click method" Url="html/M-ASE_Assignment.MainForm.SaveMenuItem_Click.htm" />
+  <HelpKINode Title="MainForm.TextFileTxt field" Url="html/F-ASE_Assignment.MainForm.TextFileTxt.htm" />
+  <HelpKINode Title="MainForm.txtCommandArea field" Url="html/F-ASE_Assignment.MainForm.txtCommandArea.htm" />
+  <HelpKINode Title="MainForm.txtCommandLine field" Url="html/F-ASE_Assignment.MainForm.txtCommandLine.htm" />
+  <HelpKINode Title="MainForm.TxtCommandLine_KeyDown method" Url="html/M-ASE_Assignment.MainForm.TxtCommandLine_KeyDown.htm" />
+  <HelpKINode Title="MainForm.XAxisCoordinateLabelText field" Url="html/F-ASE_Assignment.MainForm.XAxisCoordinateLabelText.htm" />
+  <HelpKINode Title="MainForm.YAxisCoordinateLabelText field" Url="html/F-ASE_Assignment.MainForm.YAxisCoordinateLabelText.htm" />
+  <HelpKINode Title="MainForm._cursor field" Url="html/F-ASE_Assignment.MainForm._cursor.htm" />
+  <HelpKINode Title="MainForm._dictionaryOfVariables field" Url="html/F-ASE_Assignment.MainForm._dictionaryOfVariables.htm" />
+  <HelpKINode Title="MainForm._parser field" Url="html/F-ASE_Assignment.MainForm._parser.htm" />
+  <HelpKINode Title="MainForm._shapeFactory field" Url="html/F-ASE_Assignment.MainForm._shapeFactory.htm" />
+  <HelpKINode Title="mniAbout field" Url="html/F-ASE_Assignment.MainForm.mniAbout.htm" />
+  <HelpKINode Title="mniAryanGitHub field" Url="html/F-ASE_Assignment.MainForm.mniAryanGitHub.htm" />
+  <HelpKINode Title="mniDocs field" Url="html/F-ASE_Assignment.MainForm.mniDocs.htm" />
+  <HelpKINode Title="mniDocs_Click method" Url="html/M-ASE_Assignment.MainForm.mniDocs_Click.htm" />
+  <HelpKINode Title="mniFile field" Url="html/F-ASE_Assignment.MainForm.mniFile.htm" />
+  <HelpKINode Title="mniHelp field" Url="html/F-ASE_Assignment.MainForm.mniHelp.htm" />
+  <HelpKINode Title="mniLoad field" Url="html/F-ASE_Assignment.MainForm.mniLoad.htm" />
+  <HelpKINode Title="mniSave field" Url="html/F-ASE_Assignment.MainForm.mniSave.htm" />
+  <HelpKINode Title="mnuMenuStrip field" Url="html/F-ASE_Assignment.MainForm.mnuMenuStrip.htm" />
+  <HelpKINode Title="move enumeration member" Url="html/T-ASE_Assignment.Action.htm" />
+  <HelpKINode Title="move field" Url="html/F-ASE_Assignment.Action.move.htm" />
+  <HelpKINode Title="MoveTo method" Url="html/M-ASE_Assignment.Cursor.MoveTo.htm" />
+  <HelpKINode Title="none enumeration member" Url="html/T-ASE_Assignment.Action.htm" />
+  <HelpKINode Title="none field" Url="html/F-ASE_Assignment.Action.none.htm" />
+  <HelpKINode Title="Parse method" Url="html/M-ASE_Assignment.Parser.Parse.htm" />
+  <HelpKINode Title="ParseAction_CommandName method" Url="html/M-ASE_Assignment.Parser.ParseAction_CommandName.htm" />
+  <HelpKINode Title="ParseAction_CommandParameters method" Url="html/M-ASE_Assignment.Parser.ParseAction_CommandParameters.htm" />
+  <HelpKINode Title="ParseDrawShape_WithNumbers method" Url="html/M-ASE_Assignment.Parser.ParseDrawShape_WithNumbers.htm" />
+  <HelpKINode Title="ParseDrawShape_WithVariables method" Url="html/M-ASE_Assignment.Parser.ParseDrawShape_WithVariables.htm" />
+  <HelpKINode Title="ParseIfStatements method" Url="html/M-ASE_Assignment.Parser.ParseIfStatements.htm" />
+  <HelpKINode Title="Parser class" Url="html/AllMembers.T-ASE_Assignment.Parser.htm" />
+  <HelpKINode Title="Parser class" Url="html/T-ASE_Assignment.Parser.htm" />
+  <HelpKINode Title="Parser class">
+    <HelpKINode Title="about Parser class" Url="html/T-ASE_Assignment.Parser.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers.T-ASE_Assignment.Parser.htm" />
+    <HelpKINode Title="fields" Url="html/Fields.T-ASE_Assignment.Parser.htm" />
+    <HelpKINode Title="methods" Url="html/Methods.T-ASE_Assignment.Parser.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Parser.CalculateExpression method" Url="html/M-ASE_Assignment.Parser.CalculateExpression.htm" />
+  <HelpKINode Title="Parser.Parse method" Url="html/M-ASE_Assignment.Parser.Parse.htm" />
+  <HelpKINode Title="Parser.ParseAction_CommandName method" Url="html/M-ASE_Assignment.Parser.ParseAction_CommandName.htm" />
+  <HelpKINode Title="Parser.ParseAction_CommandParameters method" Url="html/M-ASE_Assignment.Parser.ParseAction_CommandParameters.htm" />
+  <HelpKINode Title="Parser.ParseDrawShape_WithNumbers method" Url="html/M-ASE_Assignment.Parser.ParseDrawShape_WithNumbers.htm" />
+  <HelpKINode Title="Parser.ParseDrawShape_WithVariables method" Url="html/M-ASE_Assignment.Parser.ParseDrawShape_WithVariables.htm" />
+  <HelpKINode Title="Parser.ParseIfStatements method" Url="html/M-ASE_Assignment.Parser.ParseIfStatements.htm" />
+  <HelpKINode Title="Parser.ParseVariable method" Url="html/M-ASE_Assignment.Parser.ParseVariable.htm" />
+  <HelpKINode Title="Parser.ParseWhile method" Url="html/M-ASE_Assignment.Parser.ParseWhile.htm" />
+  <HelpKINode Title="Parser.RegexDrawShapesWithNumbers field" Url="html/F-ASE_Assignment.Parser.RegexDrawShapesWithNumbers.htm" />
+  <HelpKINode Title="Parser.RegexDrawWithVariables field" Url="html/F-ASE_Assignment.Parser.RegexDrawWithVariables.htm" />
+  <HelpKINode Title="Parser.RegexEndStatements field" Url="html/F-ASE_Assignment.Parser.RegexEndStatements.htm" />
+  <HelpKINode Title="Parser.RegexIfStatements field" Url="html/F-ASE_Assignment.Parser.RegexIfStatements.htm" />
+  <HelpKINode Title="Parser.RegexVariables field" Url="html/F-ASE_Assignment.Parser.RegexVariables.htm" />
+  <HelpKINode Title="Parser.RegexWhileLoops field" Url="html/F-ASE_Assignment.Parser.RegexWhileLoops.htm" />
+  <HelpKINode Title="ParseVariable method" Url="html/M-ASE_Assignment.Parser.ParseVariable.htm" />
+  <HelpKINode Title="ParseWhile method" Url="html/M-ASE_Assignment.Parser.ParseWhile.htm" />
+  <HelpKINode Title="pen enumeration member" Url="html/T-ASE_Assignment.Action.htm" />
+  <HelpKINode Title="pen field" Url="html/F-ASE_Assignment.Action.pen.htm" />
+  <HelpKINode Title="PenColor property" Url="html/P-ASE_Assignment.Shape.PenColor.htm" />
+  <HelpKINode Title="PenColorBlueText field" Url="html/F-ASE_Assignment.MainForm.PenColorBlueText.htm" />
+  <HelpKINode Title="PenColorGreenText field" Url="html/F-ASE_Assignment.MainForm.PenColorGreenText.htm" />
+  <HelpKINode Title="PenColorRedText field" Url="html/F-ASE_Assignment.MainForm.PenColorRedText.htm" />
+  <HelpKINode Title="picDrawingCanvas field" Url="html/F-ASE_Assignment.MainForm.picDrawingCanvas.htm" />
+  <HelpKINode Title="PictureBoxCanvas_Paint method" Url="html/M-ASE_Assignment.MainForm.PictureBoxCanvas_Paint.htm" />
+  <HelpKINode Title="Position property" Url="html/P-ASE_Assignment.Shape.Position.htm" />
+  <HelpKINode Title="Program class" Url="html/AllMembers.T-ASE_Assignment.Program.htm" />
+  <HelpKINode Title="Program class" Url="html/T-ASE_Assignment.Program.htm" />
+  <HelpKINode Title="Program class">
+    <HelpKINode Title="about Program class" Url="html/T-ASE_Assignment.Program.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers.T-ASE_Assignment.Program.htm" />
+    <HelpKINode Title="methods" Url="html/Methods.T-ASE_Assignment.Program.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Program.Main method" Url="html/M-ASE_Assignment.Program.Main.htm" />
+  <HelpKINode Title="Radius property" Url="html/P-ASE_Assignment.Circle.Radius.htm" />
+  <HelpKINode Title="Rectangle class" Url="html/AllMembers.T-ASE_Assignment.Rectangle.htm" />
+  <HelpKINode Title="Rectangle class" Url="html/T-ASE_Assignment.Rectangle.htm" />
+  <HelpKINode Title="Rectangle class">
+    <HelpKINode Title="about Rectangle class" Url="html/T-ASE_Assignment.Rectangle.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers.T-ASE_Assignment.Rectangle.htm" />
+    <HelpKINode Title="constructor" Url="html/Overload-ASE_Assignment.Rectangle.-ctor.htm" />
+    <HelpKINode Title="fields" Url="html/Fields.T-ASE_Assignment.Rectangle.htm" />
+    <HelpKINode Title="methods" Url="html/Methods.T-ASE_Assignment.Rectangle.htm" />
+    <HelpKINode Title="properties" Url="html/Properties.T-ASE_Assignment.Rectangle.htm" />
+  </HelpKINode>
+  <HelpKINode Title="rectangle enumeration member" Url="html/T-ASE_Assignment.Action.htm" />
+  <HelpKINode Title="rectangle field" Url="html/F-ASE_Assignment.Action.rectangle.htm" />
+  <HelpKINode Title="Rectangle.Draw method" Url="html/M-ASE_Assignment.Rectangle.Draw.htm" />
+  <HelpKINode Title="Rectangle.Height property" Url="html/P-ASE_Assignment.Rectangle.Height.htm" />
+  <HelpKINode Title="Rectangle.Length property" Url="html/P-ASE_Assignment.Rectangle.Length.htm" />
+  <HelpKINode Title="Rectangle.Rectangle constructor" Url="html/Overload-ASE_Assignment.Rectangle.-ctor.htm" />
+  <HelpKINode Title="Rectangle._defaultHeight field" Url="html/F-ASE_Assignment.Rectangle._defaultHeight.htm" />
+  <HelpKINode Title="Rectangle._defaultLength field" Url="html/F-ASE_Assignment.Rectangle._defaultLength.htm" />
+  <HelpKINode Title="RegexDrawShapesWithNumbers field" Url="html/F-ASE_Assignment.MainForm.RegexDrawShapesWithNumbers.htm" />
+  <HelpKINode Title="RegexDrawShapesWithNumbers field" Url="html/F-ASE_Assignment.Parser.RegexDrawShapesWithNumbers.htm" />
+  <HelpKINode Title="RegexDrawWithVariables field" Url="html/F-ASE_Assignment.Parser.RegexDrawWithVariables.htm" />
+  <HelpKINode Title="RegexEndStatements field" Url="html/F-ASE_Assignment.Parser.RegexEndStatements.htm" />
+  <HelpKINode Title="RegexIfStatements field" Url="html/F-ASE_Assignment.Parser.RegexIfStatements.htm" />
+  <HelpKINode Title="RegexVariables field" Url="html/F-ASE_Assignment.Parser.RegexVariables.htm" />
+  <HelpKINode Title="RegexWhileLoops field" Url="html/F-ASE_Assignment.Parser.RegexWhileLoops.htm" />
+  <HelpKINode Title="reset enumeration member" Url="html/T-ASE_Assignment.Action.htm" />
+  <HelpKINode Title="reset field" Url="html/F-ASE_Assignment.Action.reset.htm" />
+  <HelpKINode Title="resourceCulture field" Url="html/F-ASE_Assignment.Properties.Resources.resourceCulture.htm" />
+  <HelpKINode Title="resourceMan field" Url="html/F-ASE_Assignment.Properties.Resources.resourceMan.htm" />
+  <HelpKINode Title="ResourceManager property" Url="html/P-ASE_Assignment.Properties.Resources.ResourceManager.htm" />
+  <HelpKINode Title="Resources class" Url="html/AllMembers.T-ASE_Assignment.Properties.Resources.htm" />
+  <HelpKINode Title="Resources class" Url="html/T-ASE_Assignment.Properties.Resources.htm" />
+  <HelpKINode Title="Resources class">
+    <HelpKINode Title="about Resources class" Url="html/T-ASE_Assignment.Properties.Resources.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers.T-ASE_Assignment.Properties.Resources.htm" />
+    <HelpKINode Title="constructor" Url="html/M-ASE_Assignment.Properties.Resources.-ctor.htm" />
+    <HelpKINode Title="fields" Url="html/Fields.T-ASE_Assignment.Properties.Resources.htm" />
+    <HelpKINode Title="methods" Url="html/Methods.T-ASE_Assignment.Properties.Resources.htm" />
+    <HelpKINode Title="properties" Url="html/Properties.T-ASE_Assignment.Properties.Resources.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Resources.Culture property" Url="html/P-ASE_Assignment.Properties.Resources.Culture.htm" />
+  <HelpKINode Title="Resources.resourceCulture field" Url="html/F-ASE_Assignment.Properties.Resources.resourceCulture.htm" />
+  <HelpKINode Title="Resources.resourceMan field" Url="html/F-ASE_Assignment.Properties.Resources.resourceMan.htm" />
+  <HelpKINode Title="Resources.ResourceManager property" Url="html/P-ASE_Assignment.Properties.Resources.ResourceManager.htm" />
+  <HelpKINode Title="Resources.Resources constructor" Url="html/M-ASE_Assignment.Properties.Resources.-ctor.htm" />
+  <HelpKINode Title="run enumeration member" Url="html/T-ASE_Assignment.Action.htm" />
+  <HelpKINode Title="run field" Url="html/F-ASE_Assignment.Action.run.htm" />
+  <HelpKINode Title="SaveMenuItem_Click method" Url="html/M-ASE_Assignment.MainForm.SaveMenuItem_Click.htm" />
+  <HelpKINode Title="Settings class" Url="html/AllMembers.T-ASE_Assignment.Properties.Settings.htm" />
+  <HelpKINode Title="Settings class" Url="html/T-ASE_Assignment.Properties.Settings.htm" />
+  <HelpKINode Title="Settings class">
+    <HelpKINode Title="about Settings class" Url="html/T-ASE_Assignment.Properties.Settings.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers.T-ASE_Assignment.Properties.Settings.htm" />
+    <HelpKINode Title="events" Url="html/Events.T-ASE_Assignment.Properties.Settings.htm" />
+    <HelpKINode Title="fields" Url="html/Fields.T-ASE_Assignment.Properties.Settings.htm" />
+    <HelpKINode Title="methods" Url="html/Methods.T-ASE_Assignment.Properties.Settings.htm" />
+    <HelpKINode Title="properties" Url="html/Properties.T-ASE_Assignment.Properties.Settings.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Settings.Default property" Url="html/P-ASE_Assignment.Properties.Settings.Default.htm" />
+  <HelpKINode Title="Settings.defaultInstance field" Url="html/F-ASE_Assignment.Properties.Settings.defaultInstance.htm" />
+  <HelpKINode Title="SetupTriangleVertices method" Url="html/M-ASE_Assignment.Triangle.SetupTriangleVertices.htm" />
+  <HelpKINode Title="Shape class" Url="html/AllMembers.T-ASE_Assignment.Shape.htm" />
+  <HelpKINode Title="Shape class" Url="html/T-ASE_Assignment.Shape.htm" />
+  <HelpKINode Title="Shape class">
+    <HelpKINode Title="about Shape class" Url="html/T-ASE_Assignment.Shape.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers.T-ASE_Assignment.Shape.htm" />
+    <HelpKINode Title="constructor" Url="html/Overload-ASE_Assignment.Shape.-ctor.htm" />
+    <HelpKINode Title="fields" Url="html/Fields.T-ASE_Assignment.Shape.htm" />
+    <HelpKINode Title="methods" Url="html/Methods.T-ASE_Assignment.Shape.htm" />
+    <HelpKINode Title="properties" Url="html/Properties.T-ASE_Assignment.Shape.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Shape.DefaultFill field" Url="html/F-ASE_Assignment.Shape.DefaultFill.htm" />
+  <HelpKINode Title="Shape.DefaultPenColor field" Url="html/F-ASE_Assignment.Shape.DefaultPenColor.htm" />
+  <HelpKINode Title="Shape.DefaultPosition field" Url="html/F-ASE_Assignment.Shape.DefaultPosition.htm" />
+  <HelpKINode Title="Shape.Draw method" Url="html/M-ASE_Assignment.Shape.Draw.htm" />
+  <HelpKINode Title="Shape.Fill property" Url="html/P-ASE_Assignment.Shape.Fill.htm" />
+  <HelpKINode Title="Shape.PenColor property" Url="html/P-ASE_Assignment.Shape.PenColor.htm" />
+  <HelpKINode Title="Shape.Position property" Url="html/P-ASE_Assignment.Shape.Position.htm" />
+  <HelpKINode Title="Shape.Shape constructor" Url="html/Overload-ASE_Assignment.Shape.-ctor.htm" />
+  <HelpKINode Title="ShapeFactory class" Url="html/AllMembers.T-ASE_Assignment.ShapeFactory.htm" />
+  <HelpKINode Title="ShapeFactory class" Url="html/T-ASE_Assignment.ShapeFactory.htm" />
+  <HelpKINode Title="ShapeFactory class">
+    <HelpKINode Title="about ShapeFactory class" Url="html/T-ASE_Assignment.ShapeFactory.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers.T-ASE_Assignment.ShapeFactory.htm" />
+    <HelpKINode Title="constructor" Url="html/M-ASE_Assignment.ShapeFactory.-ctor.htm" />
+    <HelpKINode Title="fields" Url="html/Fields.T-ASE_Assignment.ShapeFactory.htm" />
+    <HelpKINode Title="methods" Url="html/Methods.T-ASE_Assignment.ShapeFactory.htm" />
+    <HelpKINode Title="properties" Url="html/Properties.T-ASE_Assignment.ShapeFactory.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ShapeFactory.CreateShape method" Url="html/M-ASE_Assignment.ShapeFactory.CreateShape.htm" />
+  <HelpKINode Title="ShapeFactory.Instance property" Url="html/P-ASE_Assignment.ShapeFactory.Instance.htm" />
+  <HelpKINode Title="ShapeFactory.ShapeFactory constructor" Url="html/M-ASE_Assignment.ShapeFactory.-ctor.htm" />
+  <HelpKINode Title="ShapeFactory._instance field" Url="html/F-ASE_Assignment.ShapeFactory._instance.htm" />
+  <HelpKINode Title="SideLength property" Url="html/P-ASE_Assignment.Square.SideLength.htm" />
+  <HelpKINode Title="Square class" Url="html/AllMembers.T-ASE_Assignment.Square.htm" />
+  <HelpKINode Title="Square class" Url="html/T-ASE_Assignment.Square.htm" />
+  <HelpKINode Title="Square class">
+    <HelpKINode Title="about Square class" Url="html/T-ASE_Assignment.Square.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers.T-ASE_Assignment.Square.htm" />
+    <HelpKINode Title="constructor" Url="html/Overload-ASE_Assignment.Square.-ctor.htm" />
+    <HelpKINode Title="fields" Url="html/Fields.T-ASE_Assignment.Square.htm" />
+    <HelpKINode Title="methods" Url="html/Methods.T-ASE_Assignment.Square.htm" />
+    <HelpKINode Title="properties" Url="html/Properties.T-ASE_Assignment.Square.htm" />
+  </HelpKINode>
+  <HelpKINode Title="square enumeration member" Url="html/T-ASE_Assignment.Action.htm" />
+  <HelpKINode Title="square field" Url="html/F-ASE_Assignment.Action.square.htm" />
+  <HelpKINode Title="Square.Draw method" Url="html/M-ASE_Assignment.Square.Draw.htm" />
+  <HelpKINode Title="Square.SideLength property" Url="html/P-ASE_Assignment.Square.SideLength.htm" />
+  <HelpKINode Title="Square.Square constructor" Url="html/Overload-ASE_Assignment.Square.-ctor.htm" />
+  <HelpKINode Title="Square._defaultSideLength field" Url="html/F-ASE_Assignment.Square._defaultSideLength.htm" />
+  <HelpKINode Title="StartIndex property" Url="html/P-ASE_Assignment.CommandIfStatements.StartIndex.htm" />
+  <HelpKINode Title="TextFileTxt field" Url="html/F-ASE_Assignment.MainForm.TextFileTxt.htm" />
+  <HelpKINode Title="ToPosition property" Url="html/P-ASE_Assignment.Line.ToPosition.htm" />
+  <HelpKINode Title="Triangle class" Url="html/AllMembers.T-ASE_Assignment.Triangle.htm" />
+  <HelpKINode Title="Triangle class" Url="html/T-ASE_Assignment.Triangle.htm" />
+  <HelpKINode Title="Triangle class">
+    <HelpKINode Title="about Triangle class" Url="html/T-ASE_Assignment.Triangle.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers.T-ASE_Assignment.Triangle.htm" />
+    <HelpKINode Title="constructor" Url="html/Overload-ASE_Assignment.Triangle.-ctor.htm" />
+    <HelpKINode Title="fields" Url="html/Fields.T-ASE_Assignment.Triangle.htm" />
+    <HelpKINode Title="methods" Url="html/Methods.T-ASE_Assignment.Triangle.htm" />
+    <HelpKINode Title="properties" Url="html/Properties.T-ASE_Assignment.Triangle.htm" />
+  </HelpKINode>
+  <HelpKINode Title="triangle enumeration member" Url="html/T-ASE_Assignment.Action.htm" />
+  <HelpKINode Title="triangle field" Url="html/F-ASE_Assignment.Action.triangle.htm" />
+  <HelpKINode Title="Triangle.A property" Url="html/P-ASE_Assignment.Triangle.A.htm" />
+  <HelpKINode Title="Triangle.B property" Url="html/P-ASE_Assignment.Triangle.B.htm" />
+  <HelpKINode Title="Triangle.C property" Url="html/P-ASE_Assignment.Triangle.C.htm" />
+  <HelpKINode Title="Triangle.Draw method" Url="html/M-ASE_Assignment.Triangle.Draw.htm" />
+  <HelpKINode Title="Triangle.Length property" Url="html/P-ASE_Assignment.Triangle.Length.htm" />
+  <HelpKINode Title="Triangle.SetupTriangleVertices method" Url="html/M-ASE_Assignment.Triangle.SetupTriangleVertices.htm" />
+  <HelpKINode Title="Triangle.Triangle constructor" Url="html/Overload-ASE_Assignment.Triangle.-ctor.htm" />
+  <HelpKINode Title="Triangle._defaultLength field" Url="html/F-ASE_Assignment.Triangle._defaultLength.htm" />
+  <HelpKINode Title="txtCommandArea field" Url="html/F-ASE_Assignment.MainForm.txtCommandArea.htm" />
+  <HelpKINode Title="txtCommandLine field" Url="html/F-ASE_Assignment.MainForm.txtCommandLine.htm" />
+  <HelpKINode Title="TxtCommandLine_KeyDown method" Url="html/M-ASE_Assignment.MainForm.TxtCommandLine_KeyDown.htm" />
+  <HelpKINode Title="var enumeration member" Url="html/T-ASE_Assignment.Action.htm" />
+  <HelpKINode Title="var field" Url="html/F-ASE_Assignment.Action.var.htm" />
+  <HelpKINode Title="VariableName property" Url="html/P-ASE_Assignment.CommandVariable.VariableName.htm" />
+  <HelpKINode Title="VariableValue property" Url="html/P-ASE_Assignment.CommandVariable.VariableValue.htm" />
+  <HelpKINode Title="whileloop enumeration member" Url="html/T-ASE_Assignment.Action.htm" />
+  <HelpKINode Title="whileloop field" Url="html/F-ASE_Assignment.Action.whileloop.htm" />
+  <HelpKINode Title="XAxisCoordinateLabelText field" Url="html/F-ASE_Assignment.MainForm.XAxisCoordinateLabelText.htm" />
+  <HelpKINode Title="YAxisCoordinateLabelText field" Url="html/F-ASE_Assignment.MainForm.YAxisCoordinateLabelText.htm" />
+  <HelpKINode Title="_cursor field" Url="html/F-ASE_Assignment.MainForm._cursor.htm" />
+  <HelpKINode Title="_defaultHeight field" Url="html/F-ASE_Assignment.Rectangle._defaultHeight.htm" />
+  <HelpKINode Title="_defaultLength field" Url="html/F-ASE_Assignment.Rectangle._defaultLength.htm" />
+  <HelpKINode Title="_defaultLength field" Url="html/F-ASE_Assignment.Triangle._defaultLength.htm" />
+  <HelpKINode Title="_defaultRadius field" Url="html/F-ASE_Assignment.Circle._defaultRadius.htm" />
+  <HelpKINode Title="_defaultSideLength field" Url="html/F-ASE_Assignment.Square._defaultSideLength.htm" />
+  <HelpKINode Title="_defaultToPosition field" Url="html/F-ASE_Assignment.Line._defaultToPosition.htm" />
+  <HelpKINode Title="_dictionaryOfVariables field" Url="html/F-ASE_Assignment.MainForm._dictionaryOfVariables.htm" />
+  <HelpKINode Title="_instance field" Url="html/F-ASE_Assignment.ShapeFactory._instance.htm" />
+  <HelpKINode Title="_parser field" Url="html/F-ASE_Assignment.MainForm._parser.htm" />
+  <HelpKINode Title="_shapeFactory field" Url="html/F-ASE_Assignment.MainForm._shapeFactory.htm" />
+</HelpKI>

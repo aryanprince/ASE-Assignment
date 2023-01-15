@@ -1,0 +1,303 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<HelpTOC>
+
+  <HelpTOCNode Id="4d77b8f3-24a8-4d3a-b608-a898968d5104" Title="ASE_Assignment Namespace" Url="html/N-ASE_Assignment.htm">
+    <HelpTOCNode Title="Action Enumeration" Url="html/T-ASE_Assignment.Action.htm" />
+    <HelpTOCNode Id="fb9cccd0-d4b3-4ba0-8cf9-d57bfed2f7c2" Title="Circle Class" Url="html/T-ASE_Assignment.Circle.htm">
+      <HelpTOCNode Title="Circle Members" Url="html/AllMembers.T-ASE_Assignment.Circle.htm" />
+      <HelpTOCNode Id="c97a7752-d02d-40d6-8b08-71539c3fcd8b" Title="Circle Constructor " Url="html/Overload-ASE_Assignment.Circle.-ctor.htm">
+        <HelpTOCNode Title="Circle Constructor " Url="html/M-ASE_Assignment.Circle.-ctor.htm" />
+        <HelpTOCNode Title="Circle Constructor (Point, Boolean, Color, Int32)" Url="html/M-ASE_Assignment.Circle.-ctor_1.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="c2be4a47-5394-4f5e-9413-275a9f26d024" Title="Circle Fields" Url="html/Fields.T-ASE_Assignment.Circle.htm">
+        <HelpTOCNode Title="_defaultRadius Field" Url="html/F-ASE_Assignment.Circle._defaultRadius.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="50bad028-d1d8-45b4-b6d6-285061e671c4" Title="Circle Methods" Url="html/Methods.T-ASE_Assignment.Circle.htm">
+        <HelpTOCNode Title="Draw Method " Url="html/M-ASE_Assignment.Circle.Draw.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="14fa5db2-8fc2-42d7-b2d9-5b7d2834d2e1" Title="Circle Properties" Url="html/Properties.T-ASE_Assignment.Circle.htm">
+        <HelpTOCNode Title="Radius Property " Url="html/P-ASE_Assignment.Circle.Radius.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="5a05e3c4-48ee-460c-b3d7-889d84e8e781" Title="Command Class" Url="html/T-ASE_Assignment.Command.htm">
+      <HelpTOCNode Title="Command Members" Url="html/AllMembers.T-ASE_Assignment.Command.htm" />
+      <HelpTOCNode Title="Command Methods" Url="html/Methods.T-ASE_Assignment.Command.htm" />
+      <HelpTOCNode Id="40b63919-fcc4-4bd5-9b28-86e12ae8af66" Title="Command Properties" Url="html/Properties.T-ASE_Assignment.Command.htm">
+        <HelpTOCNode Title="ActionWord Property " Url="html/P-ASE_Assignment.Command.ActionWord.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="0f8f2d2d-1af7-4023-a12a-0d21262754b9" Title="CommandEndKeyword Class" Url="html/T-ASE_Assignment.CommandEndKeyword.htm">
+      <HelpTOCNode Title="CommandEndKeyword Members" Url="html/AllMembers.T-ASE_Assignment.CommandEndKeyword.htm" />
+      <HelpTOCNode Title="CommandEndKeyword Constructor " Url="html/M-ASE_Assignment.CommandEndKeyword.-ctor.htm" />
+      <HelpTOCNode Title="CommandEndKeyword Methods" Url="html/Methods.T-ASE_Assignment.CommandEndKeyword.htm" />
+      <HelpTOCNode Title="CommandEndKeyword Properties" Url="html/Properties.T-ASE_Assignment.CommandEndKeyword.htm" />
+    </HelpTOCNode>
+    <HelpTOCNode Id="06067665-9955-4908-ae1e-a5d529534cc4" Title="CommandIfStatements Class" Url="html/T-ASE_Assignment.CommandIfStatements.htm">
+      <HelpTOCNode Title="CommandIfStatements Members" Url="html/AllMembers.T-ASE_Assignment.CommandIfStatements.htm" />
+      <HelpTOCNode Title="CommandIfStatements Constructor " Url="html/M-ASE_Assignment.CommandIfStatements.-ctor.htm" />
+      <HelpTOCNode Title="CommandIfStatements Methods" Url="html/Methods.T-ASE_Assignment.CommandIfStatements.htm" />
+      <HelpTOCNode Id="07a3a126-a972-4acb-b142-ebc3c6174323" Title="CommandIfStatements Properties" Url="html/Properties.T-ASE_Assignment.CommandIfStatements.htm">
+        <HelpTOCNode Title="EndIndex Property " Url="html/P-ASE_Assignment.CommandIfStatements.EndIndex.htm" />
+        <HelpTOCNode Title="IfState Property " Url="html/P-ASE_Assignment.CommandIfStatements.IfState.htm" />
+        <HelpTOCNode Title="StartIndex Property " Url="html/P-ASE_Assignment.CommandIfStatements.StartIndex.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="eb0b8307-3ba1-4643-9da1-1a2b881e556c" Title="CommandShapeNum Class" Url="html/T-ASE_Assignment.CommandShapeNum.htm">
+      <HelpTOCNode Title="CommandShapeNum Members" Url="html/AllMembers.T-ASE_Assignment.CommandShapeNum.htm" />
+      <HelpTOCNode Title="CommandShapeNum Constructor " Url="html/M-ASE_Assignment.CommandShapeNum.-ctor.htm" />
+      <HelpTOCNode Title="CommandShapeNum Methods" Url="html/Methods.T-ASE_Assignment.CommandShapeNum.htm" />
+      <HelpTOCNode Id="2dc32a09-2167-4895-be75-2b83e62eda5e" Title="CommandShapeNum Properties" Url="html/Properties.T-ASE_Assignment.CommandShapeNum.htm">
+        <HelpTOCNode Title="ActionValues Property " Url="html/P-ASE_Assignment.CommandShapeNum.ActionValues.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="0e4a0c90-e57f-4ff9-9efd-caf443293c79" Title="CommandVariable Class" Url="html/T-ASE_Assignment.CommandVariable.htm">
+      <HelpTOCNode Title="CommandVariable Members" Url="html/AllMembers.T-ASE_Assignment.CommandVariable.htm" />
+      <HelpTOCNode Title="CommandVariable Constructor " Url="html/M-ASE_Assignment.CommandVariable.-ctor.htm" />
+      <HelpTOCNode Title="CommandVariable Methods" Url="html/Methods.T-ASE_Assignment.CommandVariable.htm" />
+      <HelpTOCNode Id="d3daa6f4-9a6e-4843-9edf-6d436a2c5c47" Title="CommandVariable Properties" Url="html/Properties.T-ASE_Assignment.CommandVariable.htm">
+        <HelpTOCNode Title="VariableName Property " Url="html/P-ASE_Assignment.CommandVariable.VariableName.htm" />
+        <HelpTOCNode Title="VariableValue Property " Url="html/P-ASE_Assignment.CommandVariable.VariableValue.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="a2bd395e-e6c6-4109-94b1-00c7cd49e327" Title="CommandWhile Class" Url="html/T-ASE_Assignment.CommandWhile.htm">
+      <HelpTOCNode Title="CommandWhile Members" Url="html/AllMembers.T-ASE_Assignment.CommandWhile.htm" />
+      <HelpTOCNode Title="CommandWhile Constructor " Url="html/M-ASE_Assignment.CommandWhile.-ctor.htm" />
+      <HelpTOCNode Title="CommandWhile Methods" Url="html/Methods.T-ASE_Assignment.CommandWhile.htm" />
+      <HelpTOCNode Id="6967592e-6d6c-4ac3-98ee-378d939b27c7" Title="CommandWhile Properties" Url="html/Properties.T-ASE_Assignment.CommandWhile.htm">
+        <HelpTOCNode Title="LoopCount Property " Url="html/P-ASE_Assignment.CommandWhile.LoopCount.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="8473db24-42c9-4c1b-9754-5aa9aadea2cc" Title="Cursor Class" Url="html/T-ASE_Assignment.Cursor.htm">
+      <HelpTOCNode Title="Cursor Members" Url="html/AllMembers.T-ASE_Assignment.Cursor.htm" />
+      <HelpTOCNode Title="Cursor Constructor " Url="html/M-ASE_Assignment.Cursor.-ctor.htm" />
+      <HelpTOCNode Id="ee0cd7c3-8799-4055-8e6b-7d1a17ab32ad" Title="Cursor Methods" Url="html/Methods.T-ASE_Assignment.Cursor.htm">
+        <HelpTOCNode Title="ChangeFillState Method " Url="html/M-ASE_Assignment.Cursor.ChangeFillState.htm" />
+        <HelpTOCNode Title="ChangePenColor Method " Url="html/M-ASE_Assignment.Cursor.ChangePenColor.htm" />
+        <HelpTOCNode Title="Draw Method " Url="html/M-ASE_Assignment.Cursor.Draw.htm" />
+        <HelpTOCNode Title="MoveTo Method " Url="html/M-ASE_Assignment.Cursor.MoveTo.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Title="Cursor Properties" Url="html/Properties.T-ASE_Assignment.Cursor.htm" />
+    </HelpTOCNode>
+    <HelpTOCNode Id="47a1cf89-e3c6-40e6-aebe-1e122fcb6297" Title="IShape Interface" Url="html/T-ASE_Assignment.IShape.htm">
+      <HelpTOCNode Title="IShape Members" Url="html/AllMembers.T-ASE_Assignment.IShape.htm" />
+      <HelpTOCNode Id="b7785c9d-9b1a-4944-8f3a-ff1627a49e0e" Title="IShape Methods" Url="html/Methods.T-ASE_Assignment.IShape.htm">
+        <HelpTOCNode Title="Draw Method " Url="html/M-ASE_Assignment.IShape.Draw.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="27cb4a1e-9c29-49c4-bf31-fa747a4599db" Title="Line Class" Url="html/T-ASE_Assignment.Line.htm">
+      <HelpTOCNode Title="Line Members" Url="html/AllMembers.T-ASE_Assignment.Line.htm" />
+      <HelpTOCNode Id="9e181e46-db9c-4947-a5f1-10cc2a7a417c" Title="Line Constructor " Url="html/Overload-ASE_Assignment.Line.-ctor.htm">
+        <HelpTOCNode Title="Line Constructor " Url="html/M-ASE_Assignment.Line.-ctor.htm" />
+        <HelpTOCNode Title="Line Constructor (Point, Boolean, Color, Point)" Url="html/M-ASE_Assignment.Line.-ctor_1.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="74aceeb4-62fd-4df3-905b-3c1d2729e299" Title="Line Fields" Url="html/Fields.T-ASE_Assignment.Line.htm">
+        <HelpTOCNode Title="_defaultToPosition Field" Url="html/F-ASE_Assignment.Line._defaultToPosition.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="4e2fa927-0ca2-4b3a-bb78-0f9d93c33469" Title="Line Methods" Url="html/Methods.T-ASE_Assignment.Line.htm">
+        <HelpTOCNode Title="Draw Method " Url="html/M-ASE_Assignment.Line.Draw.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="cbe74a14-7294-4210-bcb4-7c8980775bd2" Title="Line Properties" Url="html/Properties.T-ASE_Assignment.Line.htm">
+        <HelpTOCNode Title="ToPosition Property " Url="html/P-ASE_Assignment.Line.ToPosition.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="7d624d73-edd7-48f6-a295-cecb347af260" Title="MainForm Class" Url="html/T-ASE_Assignment.MainForm.htm">
+      <HelpTOCNode Title="MainForm Members" Url="html/AllMembers.T-ASE_Assignment.MainForm.htm" />
+      <HelpTOCNode Title="MainForm Constructor " Url="html/M-ASE_Assignment.MainForm.-ctor.htm" />
+      <HelpTOCNode Id="8a36958b-5cbb-4f0f-803b-e4136f9d9418" Title="MainForm Fields" Url="html/Fields.T-ASE_Assignment.MainForm.htm">
+        <HelpTOCNode Title="_cursor Field" Url="html/F-ASE_Assignment.MainForm._cursor.htm" />
+        <HelpTOCNode Title="_dictionaryOfVariables Field" Url="html/F-ASE_Assignment.MainForm._dictionaryOfVariables.htm" />
+        <HelpTOCNode Title="_parser Field" Url="html/F-ASE_Assignment.MainForm._parser.htm" />
+        <HelpTOCNode Title="_shapeFactory Field" Url="html/F-ASE_Assignment.MainForm._shapeFactory.htm" />
+        <HelpTOCNode Title="btnClear Field" Url="html/F-ASE_Assignment.MainForm.btnClear.htm" />
+        <HelpTOCNode Title="btnRun Field" Url="html/F-ASE_Assignment.MainForm.btnRun.htm" />
+        <HelpTOCNode Title="components Field" Url="html/F-ASE_Assignment.MainForm.components.htm" />
+        <HelpTOCNode Title="FillDisabledText Field" Url="html/F-ASE_Assignment.MainForm.FillDisabledText.htm" />
+        <HelpTOCNode Title="FillEnabledText Field" Url="html/F-ASE_Assignment.MainForm.FillEnabledText.htm" />
+        <HelpTOCNode Title="gbDrawingCanvas Field" Url="html/F-ASE_Assignment.MainForm.gbDrawingCanvas.htm" />
+        <HelpTOCNode Title="gbMultiLineCommands Field" Url="html/F-ASE_Assignment.MainForm.gbMultiLineCommands.htm" />
+        <HelpTOCNode Title="gbSingleLineCommands Field" Url="html/F-ASE_Assignment.MainForm.gbSingleLineCommands.htm" />
+        <HelpTOCNode Title="lblCoordinatesLabel Field" Url="html/F-ASE_Assignment.MainForm.lblCoordinatesLabel.htm" />
+        <HelpTOCNode Title="lblCoordinatesValues Field" Url="html/F-ASE_Assignment.MainForm.lblCoordinatesValues.htm" />
+        <HelpTOCNode Title="lblError Field" Url="html/F-ASE_Assignment.MainForm.lblError.htm" />
+        <HelpTOCNode Title="lblFillState Field" Url="html/F-ASE_Assignment.MainForm.lblFillState.htm" />
+        <HelpTOCNode Title="lblPenColor Field" Url="html/F-ASE_Assignment.MainForm.lblPenColor.htm" />
+        <HelpTOCNode Title="mniAbout Field" Url="html/F-ASE_Assignment.MainForm.mniAbout.htm" />
+        <HelpTOCNode Title="mniAryanGitHub Field" Url="html/F-ASE_Assignment.MainForm.mniAryanGitHub.htm" />
+        <HelpTOCNode Title="mniDocs Field" Url="html/F-ASE_Assignment.MainForm.mniDocs.htm" />
+        <HelpTOCNode Title="mniFile Field" Url="html/F-ASE_Assignment.MainForm.mniFile.htm" />
+        <HelpTOCNode Title="mniHelp Field" Url="html/F-ASE_Assignment.MainForm.mniHelp.htm" />
+        <HelpTOCNode Title="mniLoad Field" Url="html/F-ASE_Assignment.MainForm.mniLoad.htm" />
+        <HelpTOCNode Title="mniSave Field" Url="html/F-ASE_Assignment.MainForm.mniSave.htm" />
+        <HelpTOCNode Title="mnuMenuStrip Field" Url="html/F-ASE_Assignment.MainForm.mnuMenuStrip.htm" />
+        <HelpTOCNode Title="PenColorBlueText Field" Url="html/F-ASE_Assignment.MainForm.PenColorBlueText.htm" />
+        <HelpTOCNode Title="PenColorGreenText Field" Url="html/F-ASE_Assignment.MainForm.PenColorGreenText.htm" />
+        <HelpTOCNode Title="PenColorRedText Field" Url="html/F-ASE_Assignment.MainForm.PenColorRedText.htm" />
+        <HelpTOCNode Title="picDrawingCanvas Field" Url="html/F-ASE_Assignment.MainForm.picDrawingCanvas.htm" />
+        <HelpTOCNode Title="RegexDrawShapesWithNumbers Field" Url="html/F-ASE_Assignment.MainForm.RegexDrawShapesWithNumbers.htm" />
+        <HelpTOCNode Title="TextFileTxt Field" Url="html/F-ASE_Assignment.MainForm.TextFileTxt.htm" />
+        <HelpTOCNode Title="txtCommandArea Field" Url="html/F-ASE_Assignment.MainForm.txtCommandArea.htm" />
+        <HelpTOCNode Title="txtCommandLine Field" Url="html/F-ASE_Assignment.MainForm.txtCommandLine.htm" />
+        <HelpTOCNode Title="XAxisCoordinateLabelText Field" Url="html/F-ASE_Assignment.MainForm.XAxisCoordinateLabelText.htm" />
+        <HelpTOCNode Title="YAxisCoordinateLabelText Field" Url="html/F-ASE_Assignment.MainForm.YAxisCoordinateLabelText.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="ad75b89c-8470-4cc1-a4ee-4470973ec4fe" Title="MainForm Methods" Url="html/Methods.T-ASE_Assignment.MainForm.htm">
+        <HelpTOCNode Title="AryanMenuItem_Click Method " Url="html/M-ASE_Assignment.MainForm.AryanMenuItem_Click.htm" />
+        <HelpTOCNode Title="BtnClear_Click Method " Url="html/M-ASE_Assignment.MainForm.BtnClear_Click.htm" />
+        <HelpTOCNode Title="BtnRun_Click Method " Url="html/M-ASE_Assignment.MainForm.BtnRun_Click.htm" />
+        <HelpTOCNode Id="12adec35-2e16-453b-854a-aa4b098a3c37" Title="Dispose Method " Url="html/Overload-ASE_Assignment.MainForm.Dispose.htm">
+          <HelpTOCNode Title="Dispose Method " Url="html/M-ASE_Assignment.MainForm.Dispose.htm" />
+        </HelpTOCNode>
+        <HelpTOCNode Title="ExecuteCommand Method " Url="html/M-ASE_Assignment.MainForm.ExecuteCommand.htm" />
+        <HelpTOCNode Title="InitializeComponent Method " Url="html/M-ASE_Assignment.MainForm.InitializeComponent.htm" />
+        <HelpTOCNode Title="LoadMenuItem_Click Method " Url="html/M-ASE_Assignment.MainForm.LoadMenuItem_Click.htm" />
+        <HelpTOCNode Title="mniDocs_Click Method " Url="html/M-ASE_Assignment.MainForm.mniDocs_Click.htm" />
+        <HelpTOCNode Title="PictureBoxCanvas_Paint Method " Url="html/M-ASE_Assignment.MainForm.PictureBoxCanvas_Paint.htm" />
+        <HelpTOCNode Title="SaveMenuItem_Click Method " Url="html/M-ASE_Assignment.MainForm.SaveMenuItem_Click.htm" />
+        <HelpTOCNode Title="TxtCommandLine_KeyDown Method " Url="html/M-ASE_Assignment.MainForm.TxtCommandLine_KeyDown.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Title="MainForm Properties" Url="html/Properties.T-ASE_Assignment.MainForm.htm" />
+      <HelpTOCNode Title="MainForm Events" Url="html/Events.T-ASE_Assignment.MainForm.htm" />
+    </HelpTOCNode>
+    <HelpTOCNode Id="2e50cd5e-6e20-4b7a-93db-37e0a7cc0260" Title="Parser Class" Url="html/T-ASE_Assignment.Parser.htm">
+      <HelpTOCNode Title="Parser Members" Url="html/AllMembers.T-ASE_Assignment.Parser.htm" />
+      <HelpTOCNode Id="eaa35eb4-9966-4213-9058-635554656ee4" Title="Parser Fields" Url="html/Fields.T-ASE_Assignment.Parser.htm">
+        <HelpTOCNode Title="RegexDrawShapesWithNumbers Field" Url="html/F-ASE_Assignment.Parser.RegexDrawShapesWithNumbers.htm" />
+        <HelpTOCNode Title="RegexDrawWithVariables Field" Url="html/F-ASE_Assignment.Parser.RegexDrawWithVariables.htm" />
+        <HelpTOCNode Title="RegexEndStatements Field" Url="html/F-ASE_Assignment.Parser.RegexEndStatements.htm" />
+        <HelpTOCNode Title="RegexIfStatements Field" Url="html/F-ASE_Assignment.Parser.RegexIfStatements.htm" />
+        <HelpTOCNode Title="RegexVariables Field" Url="html/F-ASE_Assignment.Parser.RegexVariables.htm" />
+        <HelpTOCNode Title="RegexWhileLoops Field" Url="html/F-ASE_Assignment.Parser.RegexWhileLoops.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="f9bfcb2a-7421-4a95-a3b1-868eec4e31bd" Title="Parser Methods" Url="html/Methods.T-ASE_Assignment.Parser.htm">
+        <HelpTOCNode Title="CalculateExpression Method " Url="html/M-ASE_Assignment.Parser.CalculateExpression.htm" />
+        <HelpTOCNode Title="Parse Method " Url="html/M-ASE_Assignment.Parser.Parse.htm" />
+        <HelpTOCNode Title="ParseAction_CommandName Method " Url="html/M-ASE_Assignment.Parser.ParseAction_CommandName.htm" />
+        <HelpTOCNode Title="ParseAction_CommandParameters Method " Url="html/M-ASE_Assignment.Parser.ParseAction_CommandParameters.htm" />
+        <HelpTOCNode Title="ParseDrawShape_WithNumbers Method " Url="html/M-ASE_Assignment.Parser.ParseDrawShape_WithNumbers.htm" />
+        <HelpTOCNode Title="ParseDrawShape_WithVariables Method " Url="html/M-ASE_Assignment.Parser.ParseDrawShape_WithVariables.htm" />
+        <HelpTOCNode Title="ParseIfStatements Method " Url="html/M-ASE_Assignment.Parser.ParseIfStatements.htm" />
+        <HelpTOCNode Title="ParseVariable Method " Url="html/M-ASE_Assignment.Parser.ParseVariable.htm" />
+        <HelpTOCNode Title="ParseWhile Method " Url="html/M-ASE_Assignment.Parser.ParseWhile.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="4544dfab-8b70-4cb3-be18-195f31985d40" Title="Program Class" Url="html/T-ASE_Assignment.Program.htm">
+      <HelpTOCNode Title="Program Members" Url="html/AllMembers.T-ASE_Assignment.Program.htm" />
+      <HelpTOCNode Id="8a5828fe-5b06-45a1-b679-52a08f69ac33" Title="Program Methods" Url="html/Methods.T-ASE_Assignment.Program.htm">
+        <HelpTOCNode Title="Main Method " Url="html/M-ASE_Assignment.Program.Main.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="490d0a8b-f1cf-41b9-9b7d-4b12248eb524" Title="Rectangle Class" Url="html/T-ASE_Assignment.Rectangle.htm">
+      <HelpTOCNode Title="Rectangle Members" Url="html/AllMembers.T-ASE_Assignment.Rectangle.htm" />
+      <HelpTOCNode Id="19752956-db5e-463f-b1cf-5b8eb7c94737" Title="Rectangle Constructor " Url="html/Overload-ASE_Assignment.Rectangle.-ctor.htm">
+        <HelpTOCNode Title="Rectangle Constructor " Url="html/M-ASE_Assignment.Rectangle.-ctor.htm" />
+        <HelpTOCNode Title="Rectangle Constructor (Point, Boolean, Color, Int32, Int32)" Url="html/M-ASE_Assignment.Rectangle.-ctor_1.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="64d94d82-8021-4629-9a8e-4759235c377d" Title="Rectangle Fields" Url="html/Fields.T-ASE_Assignment.Rectangle.htm">
+        <HelpTOCNode Title="_defaultHeight Field" Url="html/F-ASE_Assignment.Rectangle._defaultHeight.htm" />
+        <HelpTOCNode Title="_defaultLength Field" Url="html/F-ASE_Assignment.Rectangle._defaultLength.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="d91a4823-ec03-4fea-9463-e1013e09c27c" Title="Rectangle Methods" Url="html/Methods.T-ASE_Assignment.Rectangle.htm">
+        <HelpTOCNode Title="Draw Method " Url="html/M-ASE_Assignment.Rectangle.Draw.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="a26ec1eb-a13d-4178-bff6-f7eed3afbfc3" Title="Rectangle Properties" Url="html/Properties.T-ASE_Assignment.Rectangle.htm">
+        <HelpTOCNode Title="Height Property " Url="html/P-ASE_Assignment.Rectangle.Height.htm" />
+        <HelpTOCNode Title="Length Property " Url="html/P-ASE_Assignment.Rectangle.Length.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="b899bba5-69b2-4b3d-8060-3d2f28ab4ed4" Title="Shape Class" Url="html/T-ASE_Assignment.Shape.htm">
+      <HelpTOCNode Title="Shape Members" Url="html/AllMembers.T-ASE_Assignment.Shape.htm" />
+      <HelpTOCNode Id="6e6761fe-b2c6-4e2a-81fa-b4b49c77f75e" Title="Shape Constructor " Url="html/Overload-ASE_Assignment.Shape.-ctor.htm">
+        <HelpTOCNode Title="Shape Constructor " Url="html/M-ASE_Assignment.Shape.-ctor.htm" />
+        <HelpTOCNode Title="Shape Constructor (Point, Boolean, Color)" Url="html/M-ASE_Assignment.Shape.-ctor_1.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="a46d58e9-31f7-4301-aebb-1d362af5d5c3" Title="Shape Fields" Url="html/Fields.T-ASE_Assignment.Shape.htm">
+        <HelpTOCNode Title="DefaultFill Field" Url="html/F-ASE_Assignment.Shape.DefaultFill.htm" />
+        <HelpTOCNode Title="DefaultPenColor Field" Url="html/F-ASE_Assignment.Shape.DefaultPenColor.htm" />
+        <HelpTOCNode Title="DefaultPosition Field" Url="html/F-ASE_Assignment.Shape.DefaultPosition.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="c4206f59-d45c-412f-ab30-69a71f851b3f" Title="Shape Methods" Url="html/Methods.T-ASE_Assignment.Shape.htm">
+        <HelpTOCNode Title="Draw Method " Url="html/M-ASE_Assignment.Shape.Draw.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="3a3c88fe-b179-454e-b29a-739a12337001" Title="Shape Properties" Url="html/Properties.T-ASE_Assignment.Shape.htm">
+        <HelpTOCNode Title="Fill Property " Url="html/P-ASE_Assignment.Shape.Fill.htm" />
+        <HelpTOCNode Title="PenColor Property " Url="html/P-ASE_Assignment.Shape.PenColor.htm" />
+        <HelpTOCNode Title="Position Property " Url="html/P-ASE_Assignment.Shape.Position.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="6d95f921-c6ee-4e01-aa8e-b0823f2193ad" Title="ShapeFactory Class" Url="html/T-ASE_Assignment.ShapeFactory.htm">
+      <HelpTOCNode Title="ShapeFactory Members" Url="html/AllMembers.T-ASE_Assignment.ShapeFactory.htm" />
+      <HelpTOCNode Title="ShapeFactory Constructor " Url="html/M-ASE_Assignment.ShapeFactory.-ctor.htm" />
+      <HelpTOCNode Id="17130554-c752-4d5a-af8a-9e0f869e964a" Title="ShapeFactory Fields" Url="html/Fields.T-ASE_Assignment.ShapeFactory.htm">
+        <HelpTOCNode Title="_instance Field" Url="html/F-ASE_Assignment.ShapeFactory._instance.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="7a113d41-9356-4b88-bbba-1e66ed814f44" Title="ShapeFactory Methods" Url="html/Methods.T-ASE_Assignment.ShapeFactory.htm">
+        <HelpTOCNode Title="CreateShape Method " Url="html/M-ASE_Assignment.ShapeFactory.CreateShape.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="55cae898-c59e-43b2-95fe-0d50e50fd8c4" Title="ShapeFactory Properties" Url="html/Properties.T-ASE_Assignment.ShapeFactory.htm">
+        <HelpTOCNode Title="Instance Property " Url="html/P-ASE_Assignment.ShapeFactory.Instance.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="4430a7ab-6122-41c3-a20c-453908c1227c" Title="Square Class" Url="html/T-ASE_Assignment.Square.htm">
+      <HelpTOCNode Title="Square Members" Url="html/AllMembers.T-ASE_Assignment.Square.htm" />
+      <HelpTOCNode Id="93da363c-415f-473f-8414-a73eb7a76103" Title="Square Constructor " Url="html/Overload-ASE_Assignment.Square.-ctor.htm">
+        <HelpTOCNode Title="Square Constructor " Url="html/M-ASE_Assignment.Square.-ctor.htm" />
+        <HelpTOCNode Title="Square Constructor (Point, Boolean, Color, Int32)" Url="html/M-ASE_Assignment.Square.-ctor_1.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="977f8dfa-6aba-4bae-a5c3-baad8d5f0e11" Title="Square Fields" Url="html/Fields.T-ASE_Assignment.Square.htm">
+        <HelpTOCNode Title="_defaultSideLength Field" Url="html/F-ASE_Assignment.Square._defaultSideLength.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="878b95e7-e6af-415a-8e20-efd9f05ad98c" Title="Square Methods" Url="html/Methods.T-ASE_Assignment.Square.htm">
+        <HelpTOCNode Title="Draw Method " Url="html/M-ASE_Assignment.Square.Draw.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="d339bfb6-6af3-4b4f-8244-83137c51b108" Title="Square Properties" Url="html/Properties.T-ASE_Assignment.Square.htm">
+        <HelpTOCNode Title="SideLength Property " Url="html/P-ASE_Assignment.Square.SideLength.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="3ef6ac94-59f9-4bde-9790-296446de8c31" Title="Triangle Class" Url="html/T-ASE_Assignment.Triangle.htm">
+      <HelpTOCNode Title="Triangle Members" Url="html/AllMembers.T-ASE_Assignment.Triangle.htm" />
+      <HelpTOCNode Id="3bd16429-6eb0-4376-8084-4ddf4ec953d3" Title="Triangle Constructor " Url="html/Overload-ASE_Assignment.Triangle.-ctor.htm">
+        <HelpTOCNode Title="Triangle Constructor " Url="html/M-ASE_Assignment.Triangle.-ctor.htm" />
+        <HelpTOCNode Title="Triangle Constructor (Point, Boolean, Color, Int32)" Url="html/M-ASE_Assignment.Triangle.-ctor_1.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="4ead1e83-d24d-4da7-a775-612a38386348" Title="Triangle Fields" Url="html/Fields.T-ASE_Assignment.Triangle.htm">
+        <HelpTOCNode Title="_defaultLength Field" Url="html/F-ASE_Assignment.Triangle._defaultLength.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="c07e551d-5a82-49e5-9a04-cb49d355e8a1" Title="Triangle Methods" Url="html/Methods.T-ASE_Assignment.Triangle.htm">
+        <HelpTOCNode Title="Draw Method " Url="html/M-ASE_Assignment.Triangle.Draw.htm" />
+        <HelpTOCNode Title="SetupTriangleVertices Method " Url="html/M-ASE_Assignment.Triangle.SetupTriangleVertices.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="26ae007d-5386-41b5-93f1-dadf43e17884" Title="Triangle Properties" Url="html/Properties.T-ASE_Assignment.Triangle.htm">
+        <HelpTOCNode Title="A Property " Url="html/P-ASE_Assignment.Triangle.A.htm" />
+        <HelpTOCNode Title="B Property " Url="html/P-ASE_Assignment.Triangle.B.htm" />
+        <HelpTOCNode Title="C Property " Url="html/P-ASE_Assignment.Triangle.C.htm" />
+        <HelpTOCNode Title="Length Property " Url="html/P-ASE_Assignment.Triangle.Length.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+  </HelpTOCNode>
+  <HelpTOCNode Id="fc1c28b0-2c3e-4cfa-896b-e1349e4c5a17" Title="ASE_Assignment.Properties Namespace" Url="html/N-ASE_Assignment.Properties.htm">
+    <HelpTOCNode Id="d609f724-b9c6-47d8-a663-ce31fd18cd73" Title="Resources Class" Url="html/T-ASE_Assignment.Properties.Resources.htm">
+      <HelpTOCNode Title="Resources Members" Url="html/AllMembers.T-ASE_Assignment.Properties.Resources.htm" />
+      <HelpTOCNode Title="Resources Constructor " Url="html/M-ASE_Assignment.Properties.Resources.-ctor.htm" />
+      <HelpTOCNode Id="0e2c690c-c1fa-4784-afaa-6739bd9cfbaf" Title="Resources Fields" Url="html/Fields.T-ASE_Assignment.Properties.Resources.htm">
+        <HelpTOCNode Title="resourceCulture Field" Url="html/F-ASE_Assignment.Properties.Resources.resourceCulture.htm" />
+        <HelpTOCNode Title="resourceMan Field" Url="html/F-ASE_Assignment.Properties.Resources.resourceMan.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Title="Resources Methods" Url="html/Methods.T-ASE_Assignment.Properties.Resources.htm" />
+      <HelpTOCNode Id="828526c6-ef45-478a-86d3-e268e1eb6d1f" Title="Resources Properties" Url="html/Properties.T-ASE_Assignment.Properties.Resources.htm">
+        <HelpTOCNode Title="Culture Property " Url="html/P-ASE_Assignment.Properties.Resources.Culture.htm" />
+        <HelpTOCNode Title="ResourceManager Property " Url="html/P-ASE_Assignment.Properties.Resources.ResourceManager.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="326f8b31-13d6-465f-bd70-cda32723fa1f" Title="Settings Class" Url="html/T-ASE_Assignment.Properties.Settings.htm">
+      <HelpTOCNode Title="Settings Members" Url="html/AllMembers.T-ASE_Assignment.Properties.Settings.htm" />
+      <HelpTOCNode Id="060d364c-fd5d-4494-9e27-d6a41b089784" Title="Settings Fields" Url="html/Fields.T-ASE_Assignment.Properties.Settings.htm">
+        <HelpTOCNode Title="defaultInstance Field" Url="html/F-ASE_Assignment.Properties.Settings.defaultInstance.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Title="Settings Methods" Url="html/Methods.T-ASE_Assignment.Properties.Settings.htm" />
+      <HelpTOCNode Id="5e285409-7c13-42ed-aa62-38b1b259c983" Title="Settings Properties" Url="html/Properties.T-ASE_Assignment.Properties.Settings.htm">
+        <HelpTOCNode Title="Default Property " Url="html/P-ASE_Assignment.Properties.Settings.Default.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Title="Settings Events" Url="html/Events.T-ASE_Assignment.Properties.Settings.htm" />
+    </HelpTOCNode>
+  </HelpTOCNode>
+</HelpTOC>
