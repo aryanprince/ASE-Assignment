@@ -2,21 +2,21 @@
 {
     public enum Action
     {
-        RECTANGLE,
+        rectangle,
         square,
         circle,
         triangle,
-        drawto, // This enum is for a line (Issue #34 to update this)
+        drawto,
         move,
-        reset,
-        clear,
         fill,
         pen,
-        run,
         var,
         ifstatement,
+        whileloop,
+        run,
+        clear,
+        reset,
         endif,
         none,
-        whileloop,
     }
 }

@@ -12,7 +12,7 @@ namespace ASE_Assignment
         {
             switch (commandShape.ActionWord)
             {
-                case Action.RECTANGLE:
+                case Action.rectangle:
                     return new Rectangle(position, fill, penColor, commandShape.ActionValues[0], commandShape.ActionValues[1]);
                 case Action.square:
                     return new Square(position, fill, penColor, commandShape.ActionValues[0]);

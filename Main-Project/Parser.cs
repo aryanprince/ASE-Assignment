@@ -342,7 +342,7 @@ namespace ASE_Assignment
             switch (input)
             {
                 case "rectangle":
-                    return Action.RECTANGLE;
+                    return Action.rectangle;
                 case "square":
                     return Action.square;
                 case "circle":
