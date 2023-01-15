@@ -6,6 +6,9 @@ using System.Text.RegularExpressions;
 
 namespace ASE_Assignment
 {
+    /// <summary>
+    /// Contains the definitions for all the various parser methods used by the program.
+    /// </summary>
     public class Parser
     {
         private const string RegexDrawWithVariables = @"^([a-zA-Z]+)\s*([a-zA-Z]+)? ?([a-zA-Z]+)?$"; // "rectangle x y" or "circle x"
@@ -339,7 +342,7 @@ namespace ASE_Assignment
             switch (input)
             {
                 case "rectangle":
-                    return Action.rectangle;
+                    return Action.RECTANGLE;
                 case "square":
                     return Action.square;
                 case "circle":

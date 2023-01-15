@@ -2,6 +2,11 @@
 
 namespace ASE_Assignment
 {
+    /// <summary>
+    /// Used to create Circle objects and drawing them on a WinForms control.
+    /// Implements the <see cref="ASE_Assignment.Shape" /> parent class.
+    /// </summary>
+    /// <seealso cref="ASE_Assignment.Shape" />
     public class Circle : Shape
     {
         // Sets up default values for the blank constructor when the user doesn't pass any values. Currently unused in this program.

@@ -2,6 +2,11 @@
 
 namespace ASE_Assignment
 {
+    /// <summary>
+    /// Used to create Rectangle objects and drawing rectangles on a WinForms control.
+    /// Implements the <see cref="ASE_Assignment.Shape" /> parents class.
+    /// </summary>
+    /// <seealso cref="ASE_Assignment.Shape" />
     public class Rectangle : Shape
     {
         // Sets up default values for the blank constructor when the user doesn't pass any values. Currently unused in this program.

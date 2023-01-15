@@ -2,7 +2,7 @@
 {
     public enum Action
     {
-        rectangle,
+        RECTANGLE,
         square,
         circle,
         triangle,

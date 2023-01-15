@@ -23,7 +23,7 @@ namespace Unit_Tests
 
             // assert
             Assert.IsNotNull(action);
-            Assert.AreEqual(Action.rectangle, action); // Assert that the action is a rectangle
+            Assert.AreEqual(Action.RECTANGLE, action); // Assert that the action is a rectangle
             Assert.AreNotEqual(Action.square, action); // Assert that the action is not a square
             Assert.AreNotEqual(Action.circle, action);
         }
@@ -39,7 +39,7 @@ namespace Unit_Tests
 
             // assert
             Assert.IsNotNull(action);
-            Assert.AreEqual(Action.rectangle, action);
+            Assert.AreEqual(Action.RECTANGLE, action);
             Assert.AreNotEqual(Action.circle, action);
         }
 
@@ -54,7 +54,7 @@ namespace Unit_Tests
 
             // assert
             Assert.IsNotNull(action);
-            Assert.AreEqual(Action.rectangle, action);
+            Assert.AreEqual(Action.RECTANGLE, action);
             Assert.AreNotEqual(Action.circle, action);
         }
 
@@ -69,7 +69,7 @@ namespace Unit_Tests
 
             // assert
             Assert.IsNotNull(commandShape);
-            Assert.AreEqual(Action.rectangle, commandShape.ActionWord);
+            Assert.AreEqual(Action.RECTANGLE, commandShape.ActionWord);
             Assert.AreNotEqual(Action.circle, commandShape.ActionWord);
             Assert.AreNotEqual(Action.square, commandShape.ActionWord);
             Assert.AreEqual(100, commandShape.ActionValues[0]);
@@ -88,7 +88,7 @@ namespace Unit_Tests
 
             // assert
             Assert.IsNotNull(commandShape);
-            Assert.AreEqual(Action.rectangle, commandShape.ActionWord);
+            Assert.AreEqual(Action.RECTANGLE, commandShape.ActionWord);
             Assert.AreNotEqual(Action.circle, commandShape.ActionWord);
             Assert.AreNotEqual(Action.square, commandShape.ActionWord);
             Assert.AreEqual(100, commandShape.ActionValues[0]);
@@ -168,7 +168,7 @@ namespace Unit_Tests
             // assert
             Assert.IsNotNull(action);
             Assert.AreEqual(Action.circle, action);
-            Assert.AreNotEqual(Action.rectangle, action);
+            Assert.AreNotEqual(Action.RECTANGLE, action);
         }
 
         [TestMethod()]
@@ -183,7 +183,7 @@ namespace Unit_Tests
             // assert
             Assert.IsNotNull(action);
             Assert.AreEqual(Action.circle, action);
-            Assert.AreNotEqual(Action.rectangle, action);
+            Assert.AreNotEqual(Action.RECTANGLE, action);
         }
 
         [TestMethod()]
@@ -198,7 +198,7 @@ namespace Unit_Tests
             // assert
             Assert.IsNotNull(action);
             Assert.AreEqual(Action.circle, action);
-            Assert.AreNotEqual(Action.rectangle, action);
+            Assert.AreNotEqual(Action.RECTANGLE, action);
         }
 
         [TestMethod()]
@@ -308,7 +308,7 @@ namespace Unit_Tests
             Assert.IsNotNull(action);
             Assert.AreEqual(Action.square, action);
             Assert.AreNotEqual(Action.circle, action);
-            Assert.AreNotEqual(Action.rectangle, action);
+            Assert.AreNotEqual(Action.RECTANGLE, action);
         }
 
         [TestMethod()]
@@ -324,7 +324,7 @@ namespace Unit_Tests
             Assert.IsNotNull(action);
             Assert.AreEqual(Action.square, action);
             Assert.AreNotEqual(Action.circle, action);
-            Assert.AreNotEqual(Action.rectangle, action);
+            Assert.AreNotEqual(Action.RECTANGLE, action);
         }
 
         [TestMethod()]
@@ -340,7 +340,7 @@ namespace Unit_Tests
             Assert.IsNotNull(action);
             Assert.AreEqual(Action.square, action);
             Assert.AreNotEqual(Action.circle, action);
-            Assert.AreNotEqual(Action.rectangle, action);
+            Assert.AreNotEqual(Action.RECTANGLE, action);
         }
 
         [TestMethod()]
@@ -356,7 +356,7 @@ namespace Unit_Tests
             Assert.IsNotNull(commandShape);
             Assert.AreEqual(Action.square, commandShape.ActionWord);
             Assert.AreNotEqual(Action.circle, commandShape.ActionWord);
-            Assert.AreNotEqual(Action.rectangle, commandShape.ActionWord);
+            Assert.AreNotEqual(Action.RECTANGLE, commandShape.ActionWord);
             Assert.AreEqual(125, commandShape.ActionValues[0]);
             Assert.AreEqual(1, commandShape.ActionValues.Length);
         }
@@ -374,7 +374,7 @@ namespace Unit_Tests
             Assert.IsNotNull(commandShape);
             Assert.AreEqual(Action.square, commandShape.ActionWord);
             Assert.AreNotEqual(Action.circle, commandShape.ActionWord);
-            Assert.AreNotEqual(Action.rectangle, commandShape.ActionWord);
+            Assert.AreNotEqual(Action.RECTANGLE, commandShape.ActionWord);
             Assert.AreEqual(125, commandShape.ActionValues[0]);
             Assert.AreEqual(1, commandShape.ActionValues.Length);
         }
@@ -454,7 +454,7 @@ namespace Unit_Tests
             Assert.IsNotNull(action);
             Assert.AreEqual(Action.triangle, action);
             Assert.AreNotEqual(Action.circle, action);
-            Assert.AreNotEqual(Action.rectangle, action);
+            Assert.AreNotEqual(Action.RECTANGLE, action);
             Assert.AreNotEqual(Action.square, action);
         }
 
@@ -471,7 +471,7 @@ namespace Unit_Tests
             Assert.IsNotNull(action);
             Assert.AreEqual(Action.triangle, action);
             Assert.AreNotEqual(Action.circle, action);
-            Assert.AreNotEqual(Action.rectangle, action);
+            Assert.AreNotEqual(Action.RECTANGLE, action);
             Assert.AreNotEqual(Action.square, action);
         }
 
@@ -488,7 +488,7 @@ namespace Unit_Tests
             Assert.IsNotNull(action);
             Assert.AreEqual(Action.triangle, action);
             Assert.AreNotEqual(Action.circle, action);
-            Assert.AreNotEqual(Action.rectangle, action);
+            Assert.AreNotEqual(Action.RECTANGLE, action);
             Assert.AreNotEqual(Action.square, action);
         }
 
@@ -504,7 +504,7 @@ namespace Unit_Tests
             // assert
             Assert.IsNotNull(commandShape);
             Assert.AreEqual(Action.triangle, commandShape.ActionWord);
-            Assert.AreNotEqual(Action.rectangle, commandShape.ActionWord);
+            Assert.AreNotEqual(Action.RECTANGLE, commandShape.ActionWord);
             Assert.AreNotEqual(Action.square, commandShape.ActionWord);
             Assert.AreEqual(225, commandShape.ActionValues[0]);
             Assert.AreEqual(1, commandShape.ActionValues.Length);
@@ -522,7 +522,7 @@ namespace Unit_Tests
             // assert
             Assert.IsNotNull(commandShape);
             Assert.AreEqual(Action.triangle, commandShape.ActionWord);
-            Assert.AreNotEqual(Action.rectangle, commandShape.ActionWord);
+            Assert.AreNotEqual(Action.RECTANGLE, commandShape.ActionWord);
             Assert.AreNotEqual(Action.square, commandShape.ActionWord);
             Assert.AreEqual(225, commandShape.ActionValues[0]);
             Assert.AreEqual(1, commandShape.ActionValues.Length);
@@ -605,7 +605,7 @@ namespace Unit_Tests
             Assert.IsNotNull(action);
             Assert.AreEqual(Action.drawto, action);
             Assert.AreNotEqual(Action.circle, action);
-            Assert.AreNotEqual(Action.rectangle, action);
+            Assert.AreNotEqual(Action.RECTANGLE, action);
             Assert.AreNotEqual(Action.square, action);
             Assert.AreNotEqual(Action.triangle, action);
         }
@@ -623,7 +623,7 @@ namespace Unit_Tests
             Assert.IsNotNull(action);
             Assert.AreEqual(Action.drawto, action);
             Assert.AreNotEqual(Action.circle, action);
-            Assert.AreNotEqual(Action.rectangle, action);
+            Assert.AreNotEqual(Action.RECTANGLE, action);
             Assert.AreNotEqual(Action.square, action);
             Assert.AreNotEqual(Action.triangle, action);
         }
@@ -641,7 +641,7 @@ namespace Unit_Tests
             Assert.IsNotNull(action);
             Assert.AreEqual(Action.drawto, action);
             Assert.AreNotEqual(Action.circle, action);
-            Assert.AreNotEqual(Action.rectangle, action);
+            Assert.AreNotEqual(Action.RECTANGLE, action);
             Assert.AreNotEqual(Action.square, action);
             Assert.AreNotEqual(Action.triangle, action);
         }
@@ -659,7 +659,7 @@ namespace Unit_Tests
             Assert.IsNotNull(commandShape);
             Assert.AreEqual(Action.drawto, commandShape.ActionWord);
             Assert.AreNotEqual(Action.circle, commandShape.ActionWord);
-            Assert.AreNotEqual(Action.rectangle, commandShape.ActionWord);
+            Assert.AreNotEqual(Action.RECTANGLE, commandShape.ActionWord);
             Assert.AreNotEqual(Action.square, commandShape.ActionWord);
             Assert.AreNotEqual(Action.triangle, commandShape.ActionWord);
             Assert.AreEqual(125, commandShape.ActionValues[0]);
@@ -680,7 +680,7 @@ namespace Unit_Tests
             Assert.IsNotNull(commandShape);
             Assert.AreEqual(Action.drawto, commandShape.ActionWord);
             Assert.AreNotEqual(Action.circle, commandShape.ActionWord);
-            Assert.AreNotEqual(Action.rectangle, commandShape.ActionWord);
+            Assert.AreNotEqual(Action.RECTANGLE, commandShape.ActionWord);
             Assert.AreNotEqual(Action.square, commandShape.ActionWord);
             Assert.AreNotEqual(Action.triangle, commandShape.ActionWord);
             Assert.AreEqual(125, commandShape.ActionValues[0]);

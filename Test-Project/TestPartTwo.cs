@@ -28,7 +28,7 @@ namespace Unit_Tests
             // First line of commands
             Assert.IsNotNull(commands[0]);
             Assert.IsInstanceOfType(commands[0], typeof(CommandShapeNum));
-            Assert.AreEqual(Action.rectangle, commands[0].ActionWord);
+            Assert.AreEqual(Action.RECTANGLE, commands[0].ActionWord);
             Assert.AreNotEqual(Action.circle, commands[0].ActionWord);
             Assert.AreNotEqual(Action.square, commands[0].ActionWord);
 
@@ -97,7 +97,7 @@ namespace Unit_Tests
             Assert.AreEqual(Action.triangle, commands[1].ActionWord);
             Assert.AreEqual(Action.var, commands[2].ActionWord);
             Assert.AreEqual(Action.var, commands[3].ActionWord);
-            Assert.AreEqual(Action.rectangle, commands[4].ActionWord);
+            Assert.AreEqual(Action.RECTANGLE, commands[4].ActionWord);
             // Checking types of commands
             Assert.IsInstanceOfType(commands[0], typeof(CommandVariable));
             Assert.IsInstanceOfType(commands[1], typeof(CommandShapeNum));

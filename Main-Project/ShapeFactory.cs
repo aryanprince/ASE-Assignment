@@ -3,13 +3,16 @@ using System.Drawing;
 
 namespace ASE_Assignment
 {
+    /// <summary>
+    /// Uses the Factory pattern to create shapes. 
+    /// </summary>
     public class ShapeFactory
     {
         public Shape CreateShape(CommandShapeNum commandShape, Point position, bool fill, Color penColor)
         {
             switch (commandShape.ActionWord)
             {
-                case Action.rectangle:
+                case Action.RECTANGLE:
                     return new Rectangle(position, fill, penColor, commandShape.ActionValues[0], commandShape.ActionValues[1]);
                 case Action.square:
                     return new Square(position, fill, penColor, commandShape.ActionValues[0]);
