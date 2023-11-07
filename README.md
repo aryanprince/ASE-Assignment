@@ -2,11 +2,11 @@
 
 # ASE-Assignment
 
-![.Net](https://img.shields.io/badge/.NET-000000?style=for-the-badge&logo=.net&logoColor=c792ea) ![C#](https://img.shields.io/badge/c%23-000000.svg?style=for-the-badge&logo=c-sharp&logoColor=239120) ![Visual Studio](https://img.shields.io/badge/Visual%20Studio-000000.svg?style=for-the-badge&logo=visual-studio&logoColor=5c2d91) ![GitHub Actions](https://img.shields.io/badge/github%20actions%20ci-000000.svg?style=for-the-badge&logo=github&logoColor=white)
+![C#](https://img.shields.io/badge/c%23-000000.svg?style=for-the-badge&logo=c-sharp&logoColor=239120) ![.Net](https://img.shields.io/badge/.NET-000000?style=for-the-badge&logo=.net&logoColor=c792ea) ![Visual Studio](https://img.shields.io/badge/Visual%20Studio-000000.svg?style=for-the-badge&logo=visual-studio&logoColor=5c2d91) ![GitHub Actions](https://img.shields.io/badge/github%20actions%20ci-000000.svg?style=for-the-badge&logo=github&logoColor=white)
 
-A .NET C# WinForms application that allows the user to draw different shapes.
+A .NET C# WinForms application that takes lexical tokens from a specially-tailored domain-specific language and visually translates them into geometric designs drawn on a canvas
 
-Part of the Advanced Software Engineering course at Leeds Beckett University.
+Built part of the Advanced Software Engineering course at Leeds Beckett University
 
 ![](https://hits.dwyl.com/aryanprince/ASE-Assignment.svg?style=flat-square)
 [![CI Build and Test](https://github.com/aryanprince/ASE-Assignment/actions/workflows/ci-build-and-test.yml/badge.svg)](https://github.com/aryanprince/ASE-Assignment/actions/workflows/ci-build-and-test.yml)
@@ -41,6 +41,20 @@ move x y
 triangle y
 ```
 
+## CI Workflows Used
+
+This project leverages GitHub Actions to implement 5 distinct CI workflows, optimizing the entire development process. 
+
+[![CI Build and Test](https://github.com/aryanprince/ASE-Assignment/actions/workflows/ci-build-and-test.yml/badge.svg)](https://github.com/aryanprince/ASE-Assignment/actions/workflows/ci-build-and-test.yml) - Automatically builds and tests code for quality assurance.
+
+[![PR Validator](https://github.com/aryanprince/ASE-Assignment/actions/workflows/pr-validator.yml/badge.svg)](https://github.com/aryanprince/ASE-Assignment/actions/workflows/pr-validator.yml) - Checks PR names for consistency and style.
+
+[![PR Labeler](https://github.com/aryanprince/ASE-Assignment/actions/workflows/pr-labeler.yml/badge.svg)](https://github.com/aryanprince/ASE-Assignment/actions/workflows/pr-labeler.yml) - Assigns labels to PRs based on file changes.
+
+[![Add Issue To Project](https://github.com/aryanprince/ASE-Assignment/actions/workflows/add-issue-to-project.yml/badge.svg)](https://github.com/aryanprince/ASE-Assignment/actions/workflows/add-issue-to-project.yml) - Automatically adds issues to the active project.
+
+[![Assign Author to Issue/PR](https://github.com/aryanprince/ASE-Assignment/actions/workflows/assign-author-to-issue-pr.yml/badge.svg)](https://github.com/aryanprince/ASE-Assignment/actions/workflows/assign-author-to-issue-pr.yml) - Tags issues and PRs with the author’s name.
+
 ## Naming Conventions
 
 Hungarian Notation is used for WinForms controls, and PascalCase is used for almost everything else.
@@ -52,10 +66,3 @@ Hungarian Notation is used for WinForms controls, and PascalCase is used for alm
 3. Build the solution
 4. Run the program
 5. Enjoy!
-
-## Other CI workflows
-
-[![PR Validator](https://github.com/aryanprince/ASE-Assignment/actions/workflows/pr-validator.yml/badge.svg)](https://github.com/aryanprince/ASE-Assignment/actions/workflows/pr-validator.yml)
-[![PR Labeler](https://github.com/aryanprince/ASE-Assignment/actions/workflows/pr-labeler.yml/badge.svg)](https://github.com/aryanprince/ASE-Assignment/actions/workflows/pr-labeler.yml)
-[![Add Issue To Project](https://github.com/aryanprince/ASE-Assignment/actions/workflows/add-issue-to-project.yml/badge.svg)](https://github.com/aryanprince/ASE-Assignment/actions/workflows/add-issue-to-project.yml)
-[![Assign Author to Issue/PR](https://github.com/aryanprince/ASE-Assignment/actions/workflows/assign-author-to-issue-pr.yml/badge.svg)](https://github.com/aryanprince/ASE-Assignment/actions/workflows/assign-author-to-issue-pr.yml)
