@@ -1,6 +1,8 @@
 <div align="center">
 
-# ASE-Assignment
+# Lexical Interpreter Engine
+
+![image](https://github.com/aryanprince/Lexical-Interpreter-Engine/assets/45622345/7a060c29-2ab2-4514-835e-af774cfd2474)
 
 ![C#](https://img.shields.io/badge/c%23-000000.svg?style=for-the-badge&logo=c-sharp&logoColor=239120) ![.Net](https://img.shields.io/badge/.NET-000000?style=for-the-badge&logo=.net&logoColor=c792ea) ![Visual Studio](https://img.shields.io/badge/Visual%20Studio-000000.svg?style=for-the-badge&logo=visual-studio&logoColor=5c2d91) ![GitHub Actions](https://img.shields.io/badge/github%20actions%20ci-000000.svg?style=for-the-badge&logo=github&logoColor=white)
 
@@ -36,12 +38,16 @@ while 3
   var y = y + x
   circle y
 endwhile
+fill 1
 pen 1
 move x y
 triangle y
+var x = 250
+move x x
+rectangle x x
 ```
 
-## CI Workflows Used
+## Continous Integration (CI) Workflows
 
 This project leverages GitHub Actions to implement 5 distinct CI workflows, optimizing the entire development process. 
 
