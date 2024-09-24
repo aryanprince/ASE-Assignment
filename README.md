@@ -4,14 +4,13 @@
 
 # 🖌️ Lexical Interpreter Engine
 
-![C#](https://img.shields.io/badge/c%23-000000.svg?style=for-the-badge&logo=c-sharp&logoColor=239120)
 ![.Net](https://img.shields.io/badge/.NET-000000?style=for-the-badge&logo=.net&logoColor=c792ea)
+![C#](https://img.shields.io/badge/c%23-000000.svg?style=for-the-badge&logo=c-sharp&logoColor=239120)
 ![Visual Studio](https://img.shields.io/badge/Visual%20Studio-000000.svg?style=for-the-badge&logo=visual-studio&logoColor=5c2d91)
 ![GitHub Actions](https://img.shields.io/badge/github%20actions%20ci-000000.svg?style=for-the-badge&logo=github&logoColor=white)
 
 A .NET C# WinForms application that takes lexical tokens from a specially-tailored domain-specific language and visually translates them into geometric designs drawn on a canvas
 
-![hits](https://hits.dwyl.com/aryanprince/ASE-Assignment.svg?style=flat-square)
 [![CI Build and Test](https://github.com/aryanprince/ASE-Assignment/actions/workflows/ci-build-and-test.yml/badge.svg)](https://github.com/aryanprince/ASE-Assignment/actions/workflows/ci-build-and-test.yml)
 [![GitHub issues](https://img.shields.io/github/issues/aryanprince/ASE-Assignment?logo=github)](https://github.com/aryanprince/ASE-Assignment/issues)
 
